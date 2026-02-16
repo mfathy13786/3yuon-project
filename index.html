@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        // إذا كان الرابط يحتوي على أي مسار إضافي غير الرئيسية، يتم التحويل فوراً
+        if (window.location.pathname !== '/' && 
+            window.location.pathname !== '/index.html' && 
+            !window.location.href.includes('#')) {
+            window.location.replace('/'); 
+        }
+    </script>
+
+    <title>عيون 3yuon | الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد</title>
+    <meta name="description" content="عيون (3yuon) - محمد فتحي أحمد حسن (Mr.zabado). استضافة، برمجة، تسويق، وكاميرات مراقبة. خبرة 23 عاماً. 01090921815">
+    <meta name="keywords" content="01090921815, محمد فتحي أحمد حسن, Mohamed Fathy ahmed hassan, مستر زبادو, mr.zabadooo, Mr.zabado, عيون, 3yuon, استضافة, تصميم, برمجة, تسويق, دعاية وإعلان, سوشيال ميديا, كاميرات مراقبة">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "عيون 3yuon للحلول المتكاملة",
+      "telephone": "+201090921815",
+      "founder": { "@type": "Person", "name": "Mohamed Fathy Ahmed Hassan", "alternateName": "Mr.zabado" }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --accent: #00f2ff; --bg: #02020a; --glass: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; line-height: 1.4; }
+        h1, h2, h3, .logo { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: fixed; width: 100%; z-index: 1000; backdrop-filter: blur(10px); background: rgba(0,0,0,0.7); border-bottom: 1px solid var(--border); }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(2,2,10,0.85), rgba(2,2,10,0.85)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1500&q=80') center/cover; position: relative; }
+        .hero-content { z-index: 2; padding: 20px; }
+        .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 15px; }
+        .hero-title span { color: var(--accent); text-shadow: 0 0 15px rgba(0,242,255,0.3); }
+        .hero-text { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 650px; margin-inline: auto; }
+
+        .section { padding: 40px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: var(--glass); border: 1px solid var(--border); padding: 25px 20px; border-radius: 12px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .card p { font-size: 0.85rem; color: #aaa; }
+
+        .consult { background: var(--glass); border: 1px solid var(--accent); padding: 35px; border-radius: 15px; text-align: center; margin-top: 20px; }
+        .btn { padding: 12px 30px; border-radius: 4px; font-weight: 700; cursor: pointer; display: inline-block; transition: 0.3s; border: 2px solid var(--accent); background: var(--accent); color: #000; font-size: 0.9rem; }
+        .btn:hover { background: transparent; color: var(--accent); box-shadow: 0 0 15px var(--accent); }
+
+        footer { padding: 30px 5%; text-align: center; border-top: 1px solid var(--border); background: #010105; }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 10px; color: var(--accent); }
+        .copy { font-size: 0.75rem; color: #444; margin-top: 15px; }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .hero { height: 65vh; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">3YUON</div>
+        <ul class="nav-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="https://wa.me/201090921815">اتصل بنا</a></li>
+        </ul>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">نؤمن حاضرك..<br><span>لنحمي مستقبلك</span></h1>
+            <p class="hero-text">الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد. خبرة تقنية تمتد لأكثر من 23 عاماً.</p>
+            <a href="#consult" class="btn">طلب استشارة فنية</a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>الأمن والـ CCTV</h3>
+                <p>أحدث كاميرات المراقبة وأنظمة الأمان الذكية والتحكم عن بعد.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-network-wired"></i>
+                <h3>الشبكات والسيرفرات</h3>
+                <p>بنية تحتية متطورة وحلول ربط شبكي فائقة السرعة للأعمال.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-globe"></i>
+                <h3>الويب والتسويق</h3>
+                <p>استضافة سحابية، برمجة مواقع، وحلول الدعاية والإعلان الرقمي.</p>
+            </div>
+        </div>
+
+        <div class="consult" id="consult">
+            <h2 style="margin-bottom:10px; font-size: 1.6rem;">هل تبحث عن <span>تميز تقني؟</span></h2>
+            <p style="margin-bottom:20px; color:#888;">فريقنا جاهز لدعم أعمالكم بخبرات تقنية بدأت منذ عام 2001.</p>
+            <a href="https://wa.me/201090921815" class="btn"><i class="fa-brands fa-whatsapp"></i> تواصل مع الدعم الفني</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">3<span>YUON</span></div>
+        <p style="font-size: 0.85rem; color: #888;">حلول متكاملة لخدمات الويب والنظم الأمنية</p>
+        <p class="copy">جميع الحقوق محفوظة © 2026 لـ عيون (3yuon.com)</p>
+    </footer>
+
+</body>
+</html>
