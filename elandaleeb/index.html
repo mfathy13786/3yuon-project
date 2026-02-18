@@ -63,15 +63,15 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* ============= أنيميشن التكرار (Infinite Loop) ============= */
+        /* أنيميشن التكرار (Infinite Loop) */
         @keyframes loopingLand {
-            0% { opacity: 0; transform: scale(2.5) translateY(-50px); } /* بداية: مخفي وكبير */
-            10% { opacity: 1; transform: scale(1) translateY(0); } /* هبوط: يظهر ويخبط */
-            15% { transform: scale(1.1); } /* ردة فعل */
-            20% { transform: scale(1); } /* استقرار */
-            80% { opacity: 1; transform: scale(1); filter: blur(0px); } /* ثبات لفترة */
-            90% { opacity: 0; transform: scale(0.8) translateY(20px); filter: blur(5px); } /* اختفاء: ينزل ويغبش */
-            100% { opacity: 0; } /* إعادة الدورة */
+            0% { opacity: 0; transform: scale(2.5) translateY(-50px); }
+            10% { opacity: 1; transform: scale(1) translateY(0); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            80% { opacity: 1; transform: scale(1); filter: blur(0px); }
+            90% { opacity: 0; transform: scale(0.8) translateY(20px); filter: blur(5px); }
+            100% { opacity: 0; }
         }
 
         header {
@@ -106,38 +106,45 @@
             position: relative; z-index: 2;
         }
         
-        /* تنسيق جملة المنتجات (خط أكبر) */
+        /* تنسيق جملة المنتجات */
         .slogan-box {
-            font-size: 1.3em; /* تكبير الخط جداً */
-            color: #fff; line-height: 1.5; margin-bottom: 10px;
+            font-size: 1.3em; color: #fff; line-height: 1.5; margin-bottom: 10px;
             font-weight: bold; position: relative; z-index: 2;
-            direction: rtl;
-            min-height: 60px; /* حجز مكان عشان الكلام لما يختفي الصفحة متهزش */
+            direction: rtl; min-height: 65px;
         }
 
-        /* الكلمات المتكررة */
         .word {
-            display: inline-block;
-            opacity: 0;
-            animation: loopingLand 5s infinite; /* مدة اللفة 5 ثواني وتتكرر */
-            margin: 0 3px;
+            display: inline-block; opacity: 0;
+            animation: loopingLand 6s infinite; /* مدة أطول عشان الجملة طويلة */
+            margin: 0 2px;
         }
 
-        /* تأخير ظهور الكلمات (عشان ينزلوا ورا بعض) */
-        .w1 { animation-delay: 0s; }
-        .w2 { animation-delay: 0.2s; }
-        .w3 { animation-delay: 0.4s; }
-        .w4 { animation-delay: 0.6s; }
-        .w5 { animation-delay: 0.8s; color: var(--gold); text-shadow: 0 0 10px var(--gold); font-size: 1.1em; } /* كلمة قوية */
+        /* توقيتات ظهور الكلمات */
+        .w1 { animation-delay: 0s; } /* متلفش */
+        .w2 { animation-delay: 0.2s; } /* وتدور */
+        .w3 { animation-delay: 0.4s; } /* كتير */
+        .w4 { animation-delay: 0.6s; } /* .. */
+        .w5 { animation-delay: 0.8s; } /* خشبنا */
+        .w6 { animation-delay: 1.0s; color: var(--gold); text-shadow: 0 0 5px #fff; transform: scale(1.1); } /* أصيل */
+        .w7 { animation-delay: 1.2s; } /* وسعرنا */
+        .w8 { animation-delay: 1.4s; color: #e74c3c; text-shadow: 0 0 5px red; transform: scale(1.1); } /* خطير */
         
-        /* السطر الثاني */
-        .w6 { animation-delay: 1.5s; color: #aaa; font-size: 0.8em; } /* القوس */
-        .w7 { animation-delay: 1.7s; color: #2ecc71; } /* شوم حديد */
-        .w8 { animation-delay: 1.9s; }
-        .w9 { animation-delay: 2.1s; color: #e74c3c; } /* نبوت شديد */
-        .w10 { animation-delay: 2.3s; }
-        .w11 { animation-delay: 2.5s; color: #3498db; } /* عكاز */
-        .w12 { animation-delay: 2.7s; color: #aaa; font-size: 0.8em; } /* القوس */
+        /* السطر الثاني (المنتجات) */
+        .w9 { animation-delay: 2.2s; color: #aaa; font-size: 0.8em; } /* ( */
+        .w10 { animation-delay: 2.4s; color: #2ecc71; } /* شوم */
+        .w11 { animation-delay: 2.6s; } /* - */
+        .w12 { animation-delay: 2.8s; color: #3498db; } /* نبوت */
+        .w13 { animation-delay: 3.0s; } /* - */
+        .w14 { animation-delay: 3.2s; color: #f1c40f; } /* خرزان */
+        .w15 { animation-delay: 3.4s; color: #aaa; font-size: 0.8em; } /* ) */
+        
+        .w16 { animation-delay: 3.6s; color: #aaa; font-size: 0.8em; } /* ( */
+        .w17 { animation-delay: 3.8s; color: #9b59b6; } /* عكاز */
+        .w18 { animation-delay: 4.0s; } /* - */
+        .w19 { animation-delay: 4.2s; color: #e67e22; text-shadow: 0 0 5px orange; font-size: 1.05em; } /* بيسبول */
+        .w20 { animation-delay: 4.4s; } /* - */
+        .w21 { animation-delay: 4.6s; color: #8d6e63; } /* زان */
+        .w22 { animation-delay: 4.8s; color: #aaa; font-size: 0.8em; } /* ) */
 
 
         /* باقي التنسيقات */
@@ -154,7 +161,6 @@
             margin-bottom: 10px; display: inline-block; border-bottom: 1px solid #444; padding-bottom: 5px;
         }
 
-        /* زرار القطاعي */
         @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
         @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
@@ -242,15 +248,25 @@
             <span class="word w2">وتدوّر</span>
             <span class="word w3">كتير</span>
             <span class="word w4">.. خشبنا</span>
-            <span class="word w5">أقوى من التغيير!</span>
+            <span class="word w5">أصيل</span>
+            <span class="word w6">.. وسعرنا</span>
+            <span class="word w7">خطير!</span>
             <br>
-            <span class="word w6">(</span>
-            <span class="word w7">شوم حديد</span>
-            <span class="word w8">-</span>
-            <span class="word w9">نبوت شديد</span>
-            <span class="word w10">-</span>
-            <span class="word w11">عكاز ولاد أصول</span>
-            <span class="word w12">)</span>
+            <span class="word w9">(</span>
+            <span class="word w10">شوم</span>
+            <span class="word w11">-</span>
+            <span class="word w12">نبوت</span>
+            <span class="word w13">-</span>
+            <span class="word w14">خرزان</span>
+            <span class="word w15">)</span>
+            <br>
+            <span class="word w16">(</span>
+            <span class="word w17">عكاز</span>
+            <span class="word w18">-</span>
+            <span class="word w19">بيسبول</span>
+            <span class="word w20">-</span>
+            <span class="word w21">زان</span>
+            <span class="word w22">)</span>
         </div>
     </header>
 
@@ -302,33 +318,3 @@
         <div class="seo-content animate-in" style="animation-delay: 0.8s;">
             <h2>مؤسسة عبد المنعم العندليب - أصل الخرزان</h2>
             <p>
-                مرحباً بكم في المقر الرئيسي لـ <strong>مؤسسة عبد المنعم العندليب</strong> في قلب منطقة <strong>باب البحر</strong> التاريخية بالقاهرة. نحن الاسم الأعرق والمعروف بـ "<strong>عبد المنعم بتاع الخرزان</strong>".
-            </p>
-            <p>
-                نتميز بتوفير جميع خامات الخشب الطبيعي: <span class="highlight">شوم، نبوت، عكاز طبي، عصي خرزان، وعصا الردع (بيسبول)</span> بأسعار <span class="highlight">جملة الجملة</span>.
-            </p>
-            <p>
-                عنواننا المميز في <strong>13 عطفة درب البرقى، كلوت بك</strong> يجعلنا المركز الرئيسي للتوزيع لجميع المحافظات.
-            </p>
-        </div>
-
-        <div class="footer animate-in" style="animation-delay: 0.9s;">
-            <span class="footer-address">
-                <i class="fas fa-map-pin"></i> المقر الرئيسي للوكالة:<br>
-                13 عطفة درب البرقى، متفرع من شارع باب البحر مع كلوت بك، القاهرة
-            </span>
-            
-            <br>
-            <div class="dev-signature">
-                <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">
-                    تنفيذ وتطوير الحلول المتكاملة لخدمات الويب والنظم الامنية عن بعد
-                </a>
-                <br>
-                <a href="https://www.3yuon.com" target="_blank" class="dev-link">Powered by 3yuon.com</a>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
