@@ -3,62 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وكالة العندليب | أصل الهيبة والشوم - المعلم منعم</title>
- <link rel="icon" type="image/jpg" href="logo.jpg">
-    <meta name="description" content="وكالة العندليب لبيع أجود أنواع الشوم والنبوت والعكاز والتحف - بإدارة المعلم منعم. هيبة وأصل في قلب 3yuon.com">
-    
+    <title>وكالة العندليب | أصل الهيبة</title>
+    <meta name="description" content="وكالة العندليب لبيع أجود أنواع الشوم والنبوت والعكاز والتحف - تجارة جملة وقطاعي">
+    <link rel="icon" type="image/jpg" href="logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { --gold: #D4AF37; --wood: #3e2723; --cream: #fdf5e6; }
-        body { font-family: 'Amiri', serif; background-color: #1a1a1a; color: white; margin: 0; padding: 0; }
+        :root { --gold: #D4AF37; --wood: #3e2723; --cream: #fdf5e6; --dark: #1a1a1a; }
+        body { font-family: 'Amiri', serif; background-color: var(--dark); color: white; margin: 0; padding: 0; text-align: center; }
         
-        .main-container { max-width: 800px; margin: auto; text-align: center; padding: 20px; }
-        
-        .logo-frame { border: 4px solid var(--gold); border-radius: 20px; padding: 10px; display: inline-block; margin-top: 30px; background: #2a2a2a; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-        .logo-img { max-width: 100%; height: auto; border-radius: 10px; width: 350px; }
-        
-        h1 { font-family: 'Aref+Ruqaa', serif; color: var(--gold); font-size: 3em; margin: 20px 0 10px; }
-        .tagline { font-size: 1.5em; color: #ccc; margin-bottom: 40px; }
+        /* الهيدر */
+        header { padding: 30px 10px; background: linear-gradient(to bottom, #000, #1a1a1a); border-bottom: 3px solid var(--gold); }
+        .logo-img { width: 150px; border-radius: 50%; border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+        h1 { font-family: 'Aref Ruqaa', serif; color: var(--gold); font-size: 2.8em; margin: 15px 0 5px; }
+        .slogan { font-size: 1.2em; color: #ccc; margin-bottom: 20px; }
 
-        .btn-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .btn { padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.2em; transition: 0.3s; border: 1px solid var(--gold); color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        /* المحتوى */
+        .container { max-width: 800px; margin: auto; padding: 20px; }
         
-        .btn-wa { background: #25d366; border: none; color: black; grid-column: span 2; }
-        .btn-fb { background: #1877f2; border: none; }
-        .btn-site { background: var(--wood); }
+        .intro-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--wood); margin-bottom: 30px; }
+        .intro-box h3 { color: var(--gold); margin-top: 0; }
+        .intro-box p { font-size: 1.1em; line-height: 1.8; color: #eee; }
+
+        /* تقسيم الأزرار (شجرة التوجيه) */
+        .branch-title { display: flex; align-items: center; justify-content: center; margin: 30px 0 15px; }
+        .branch-title::before, .branch-title::after { content: ""; flex: 1; border-bottom: 1px solid var(--gold); margin: 0 10px; opacity: 0.5; }
+        .branch-title span { color: var(--gold); font-weight: bold; font-family: 'Aref Ruqaa'; font-size: 1.5em; }
+
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
         
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
+        .btn { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 20px; border-radius: 15px; text-decoration: none; color: white; 
+            transition: 0.3s; border: 2px solid transparent; position: relative; overflow: hidden;
+        }
+        .btn i { font-size: 2em; margin-bottom: 10px; }
+        .btn span { font-weight: bold; font-size: 1.2em; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+        /* ستايل أزرار الجملة (فخامة) */
+        .btn-gomla { background: linear-gradient(45deg, #3e2723, #5d4037); border-color: var(--gold); }
+        .btn-gomla:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+
+        /* ستايل أزرار القطاعي (مودرن) */
+        .btn-retail { background: linear-gradient(45deg, #1b5e20, #2e7d32); border-color: #81c784; }
         
-        .footer { margin-top: 50px; padding: 20px; font-size: 0.9em; border-top: 1px solid #333; color: #888; }
-        .solutions-link { color: var(--gold); text-decoration: none; }
+        /* الفوتر */
+        .footer-links { margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; }
+        .small-btn { display: inline-block; padding: 10px 20px; margin: 5px; border-radius: 20px; text-decoration: none; font-size: 0.9em; background: #333; color: #ccc; border: 1px solid #555; }
+        .small-btn:hover { background: var(--gold); color: black; border-color: var(--gold); }
+
+        .copyright { font-size: 0.8em; color: #777; margin-top: 30px; padding-bottom: 20px; }
+
+        /* للموبايل */
+        @media (max-width: 600px) {
+            .btn-grid { grid-template-columns: 1fr; } /* الأزرار تحت بعض في الموبايل */
+        }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="logo-frame">
-            <img src="logo.jpg" alt="وكالة العندليب - المعلم منعم" class="logo-img">
-        </div>
-
+    <header>
+        <img src="logo.jpg" alt="لوجو وكالة العندليب" class="logo-img">
         <h1>وكالة العندليب</h1>
-        <p class="tagline">"للشوم والنبوت والعكاز.. أصل الصعيد في قلب القاهرة"</p>
+        <div class="slogan">"للشوم والنبوت والعكاز.. أصل الصعيد في قلب القاهرة"</div>
+    </header>
 
-        <div class="btn-box">
-            <a href="https://wa.me/201090921815" class="btn btn-wa">طلب استشارة من المعلم منعم (واتساب)</a>
-            
-            <a href="https://www.facebook.com/3yuon.Elandaleeb" class="btn btn-fb">صفحة الوكالة</a>
-            
-            <a href="https://3yuon.com" class="btn btn-site">منصة عيون</a>
+    <div class="container">
+        
+        <div class="intro-box">
+            <h3><i class="fas fa-crown"></i> فخر الصناعة اليدوية</h3>
+            <p>
+                نقدم لكم أفخم أنواع الشوم والنبوت المصنوع من خشب الزان والأبنوس، مطعم بالنحاس ومصمم ليعيش العمر. 
+                شغل معلمين يليق بأصحاب المقامات الرفيعة.
+            </p>
         </div>
 
-        <div class="footer">
-            جميع الحقوق محفوظة لوكالة العندليب &copy; 2026 <br>
-            تنفيذ وإدارة: <a href="#" class="solutions-link">الحلول المتكاملة لخدمات الويب</a> <br>
-            بإشراف م/ محمد فتحي
+        <div class="branch-title"><span>حدد طلبك يا كبير</span></div>
+        
+        <div class="btn-grid">
+            <a href="https://wa.me/201149555959" class="btn btn-gomla">
+                <i class="fab fa-whatsapp"></i>
+                <span>طلبات الجملة</span>
+                <small style="color:var(--gold); margin-top:5px;">(مع المعلم منعم)</small>
+            </a>
+
+            <a href="https://www.3yuon.com/okaz" class="btn btn-retail">
+                <i class="fas fa-store"></i>
+                <span>طلبات القطاعي</span>
+                <small style="color:#a5d6a7; margin-top:5px;">(سوق عكاز - أ. صلاح)</small>
+            </a>
         </div>
+
+        <div class="branch-title"><span>اتفرج على البضاعة</span></div>
+
+        <div class="btn-grid">
+            <a href="https://www.facebook.com/3yuon.Elandaleeb" class="btn" style="background: #1877f2;">
+                <i class="fab fa-facebook"></i>
+                <span>ألبوم الجملة</span>
+                <small>صفحة الوكالة الرسمية</small>
+            </a>
+
+            <a href="https://wa.me/c/201550912888" class="btn" style="background: #25d366;">
+                <i class="fas fa-images"></i>
+                <span>ألبوم القطاعي</span>
+                <small>كتالوج سوق عكاز</small>
+            </a>
+        </div>
+
+        <div class="footer-links">
+            <p style="color:#888; margin-bottom:10px;">خدمة العملاء والشكاوى</p>
+            <a href="https://wa.me/201149555959" class="small-btn"><i class="fas fa-headset"></i> تقديم شكوى</a>
+            <a href="#contact" class="small-btn" onclick="alert('المقر: 185 شارع النزهة، ميدان الحجاز، مصر الجديدة. \nإدارة م/ محمد فتحي')" ><i class="fas fa-map-marker-alt"></i> اتصل بنا / العنوان</a>
+        </div>
+
+        <div class="copyright">
+            تصميم وتنفيذ شركة الحلول المتكاملة لخدمات الويب<br>
+            بإشراف م/ محمد فتحي © 2026
+        </div>
+
     </div>
 
 </body>
-
 </html>
