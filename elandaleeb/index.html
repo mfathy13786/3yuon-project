@@ -57,30 +57,27 @@
             color: var(--text-light);
             margin: 0; padding: 0;
             text-align: center;
+            overflow-x: hidden; /* منع السكرول الجانبي */
         }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* أنيميشن الكلام السطر بسطر */
-        @keyframes textSlide {
-            0% { opacity: 0; transform: translateX(20px); }
-            100% { opacity: 1; transform: translateX(0); }
+        /* ============= أنيميشن الكلام (الهبوط القوي) ============= */
+        @keyframes heavyLand {
+            0% { opacity: 0; transform: scale(2.5); } /* يبدأ كبير جداً */
+            60% { opacity: 1; transform: scale(0.9); } /* يصغر عن حجمه الطبيعي (تأثير الاصطدام) */
+            80% { transform: scale(1.1); } /* ردة فعل خفيفة */
+            100% { opacity: 1; transform: scale(1); } /* يستقر */
         }
 
-        /* أنيميشن زرار القطاعي */
-        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
-        @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
-        @keyframes bounceDown { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(5px);} 60% {transform: translateY(3px);} }
-
-        /* ========== الهيدر المعدل (احترافي جداً) ========== */
+        /* تنسيق الهيدر */
         header {
-            padding: 5px; /* مسافات قليلة جداً */
+            padding: 5px;
             background: rgba(0, 0, 0, 0.9);
             border-bottom: 3px solid var(--gold);
             position: sticky; top: 0; z-index: 100;
-            overflow: hidden; /* عشان تأثير اللوجو الخلفي */
+            overflow: hidden;
             height: auto;
         }
 
@@ -92,62 +89,52 @@
             width: 300px; height: 300px;
             background-image: url('logo.jpg');
             background-size: cover;
-            opacity: 0.1; /* شفاف جداً */
-            z-index: -1;
-            filter: grayscale(100%);
+            opacity: 0.1; z-index: -1; filter: grayscale(100%);
         }
         
-        .logo-container {
-            margin-bottom: -15px; /* سحب اللوجو لتحت لتقليل الفراغ */
-            position: relative; z-index: 2;
-        }
-
+        .logo-container { margin-bottom: -15px; position: relative; z-index: 2; }
         .logo-img {
             width: 85px; height: 85px;
             border-radius: 50%; border: 2px solid var(--gold);
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); object-fit: cover;
         }
 
-        /* عنوان الوكالة (مرفوع لفوق عشان يلزق في اللوجو) */
         h1 { 
             font-family: 'Aref Ruqaa', serif; color: var(--gold); 
-            font-size: 2em; margin: 0 0 5px; 
-            text-shadow: 0 2px 10px #000;
+            font-size: 2em; margin: 0 0 5px; text-shadow: 0 2px 10px #000;
             position: relative; z-index: 2;
         }
         
-        /* الشعار المتحرك الجديد */
+        /* تنسيق جملة المنتجات */
         .slogan-box {
-            font-size: 1.1em; /* تكبير الخط */
-            color: #fff;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            font-weight: bold;
-            position: relative; z-index: 2;
+            font-size: 1.1em; color: #fff; line-height: 1.6; margin-bottom: 10px;
+            font-weight: bold; position: relative; z-index: 2;
+            direction: rtl;
         }
 
-        /* السطر الأول */
-        .line-1 { 
-            display: block; 
-            opacity: 0; 
-            animation: textSlide 0.8s ease-out forwards; 
-            animation-delay: 0.5s; 
+        /* تنسيق الكلمات المنفصلة */
+        .word {
+            display: inline-block;
+            opacity: 0; /* مخفي في البداية */
+            animation: heavyLand 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            margin: 0 2px;
         }
+
+        /* تأخير ظهور الكلمات (عشان يظهروا ورا بعض) */
+        .w1 { animation-delay: 0.5s; }
+        .w2 { animation-delay: 0.7s; color: var(--gold); text-shadow: 0 0 5px var(--gold); }
+        .w3 { animation-delay: 0.9s; color: var(--gold); text-shadow: 0 0 5px var(--gold); }
+        .w4 { animation-delay: 1.1s; }
+        .w5 { animation-delay: 1.3s; }
         
-        /* السطر الثاني */
-        .line-2 { 
-            display: block; 
-            font-size: 0.9em; color: #ccc; 
-            margin-top: 3px;
-            opacity: 0; 
-            animation: textSlide 0.8s ease-out forwards; 
-            animation-delay: 1.5s; /* يظهر بعد السطر الأول بثانية */
-        }
-
-        .highlight { color: var(--gold); text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); }
+        .w6 { animation-delay: 1.8s; } /* بداية السطر الثاني */
+        .w7 { animation-delay: 2.0s; color: #eebb99; } /* أبنوس */
+        .w8 { animation-delay: 2.2s; color: #d35400; } /* زان */
+        .w9 { animation-delay: 2.4s; }
+        .w10 { animation-delay: 2.6s; color: #e74c3c; text-shadow: 0 0 8px red; font-size:1.1em; } /* بيسبول */
 
 
-        /* باقي التنسيقات (زي ما هي) */
+        /* باقي التنسيقات (القطاعي والزراير) */
         .container { max-width: 700px; margin: auto; padding: 10px 15px; }
 
         .section-card {
@@ -160,6 +147,12 @@
             color: var(--gold); font-family: 'Aref Ruqaa'; font-size: 1.4em;
             margin-bottom: 10px; display: inline-block; border-bottom: 1px solid #444; padding-bottom: 5px;
         }
+
+        /* زرار القطاعي (المشع) */
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+        @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
+        @keyframes bounceDown { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(5px);} 60% {transform: translateY(3px);} }
 
         .retail-title {
             color: #2ecc71; background: rgba(46, 204, 113, 0.1); border: 1px solid #2ecc71;
@@ -239,12 +232,17 @@
         <h1 class="animate-in" style="animation-delay: 0.2s;">وكالة العندليب</h1>
         
         <div class="slogan-box">
-            <span class="line-1">
-                ملوك <span class="highlight">الشوم والنبوت</span> .. والخرزان المظبوط
-            </span>
-            <span class="line-2">
-                عكازك <span class="highlight">أبنوس وزان</span> .. وعصا <span class="highlight">البيسبول</span> كمان
-            </span>
+            <span class="word w1">ملوك</span>
+            <span class="word w2">الشوم</span>
+            <span class="word w3">والنبوت</span>
+            <span class="word w4">..</span>
+            <span class="word w5">والخرزان</span>
+            <br>
+            <span class="word w6">عكازك</span>
+            <span class="word w7">أبنوس</span>
+            <span class="word w8">وزان</span>
+            <span class="word w9">.. وعصا</span>
+            <span class="word w10">البيسبول</span>
         </div>
     </header>
 
