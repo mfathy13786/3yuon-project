@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>سوق عكاز | شوم، نبوت، عكاز طبي - بيع جملة وقطاعي</title>
-    <meta name="description" content="سوق عكاز (إدارة صلاح). وجهتك الأولى لأقوى خامات الشوم وعصي الدفاع (بيسبول) والعكاز الطبي الفاخر. بيع جملة وقطاعي، شحن لجميع المحافظات.">
-    <meta name="keywords" content="سوق عكاز, عصا بيسبول, شوم حديد, عكاز أبنوس, هدايا كبار السن, عصي دفاع عن النفس, سوق عكاز صلاح, الحلول المتكاملة, 01090921815">
+    
+    <meta name="description" content="سوق عكاز (إدارة صلاح). وجهتك الأولى لأقوى خامات الشوم وعصي الدفاع (بيسبول) والعكاز الطبي الفاخر. بيع جملة وقطاعي. إدارة شركة الحلول المتكاملة.">
+    
+    <meta name="keywords" content="سوق عكاز, عصا بيسبول, شوم حديد, عكاز أبنوس, هدايا كبار السن, عصي دفاع عن النفس, نبوت فتوة, عصاية خرزان, سوق عكاز صلاح, الحلول المتكاملة, تصميم مواقع, استضافة ويب, سيرفرات, كاميرات مراقبة, صيانة كمبيوتر, محمد فتحي, 3yuon, Integrated Solutions, Web Hosting, Security Systems, 01090921815">
+    
     <meta name="author" content="Integrated Solutions - Eng. Mohamed Fathi">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="سوق عكاز | القوة والأناقة">
-    <meta property="og:description" content="كتالوج منتجاتنا (شوم - بيسبول - عكاز). متاح جملة وقطاعي.">
+    <meta property="og:description" content="تصفح كتالوج منتجاتنا (شوم - بيسبول - عكاز). متاح جملة وقطاعي.">
     <meta property="og:image" content="https://www.3yuon.com/okaz/logo.png">
     <meta property="og:url" content="https://www.3yuon.com/okaz">
     <meta property="og:type" content="product">
@@ -27,7 +30,14 @@
       "name": "سوق عكاز",
       "image": "https://www.3yuon.com/okaz/logo.png",
       "description": "متجر متخصص في بيع عصي الدفاع والشوم والعكازات الفاخرة.",
-      "telephone": "+201550912888"
+      "telephone": "+201550912888",
+      "sameAs": ["https://www.facebook.com/3yuon.okaz"],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Integrated Solutions - 3yuon",
+        "url": "https://www.3yuon.com",
+        "telephone": "+201090921815"
+      }
     }
     </script>
 
@@ -53,20 +63,20 @@
         .fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ============= الهيدر (تم التعديل: تصغير وإزالة اللوجو) ============= */
+        /* ============= الهيدر (بدون لوجو - حجم مناسب) ============= */
         .hero-header {
             position: relative;
-            background-color: #2c1a0e; /* لون احتياطي */
+            background-color: #2c1a0e;
             
-            /* هنا السحر: الكود بيدور على الصورة جنب ملف الـ html */
-            background-image: url('header-banner.jpg'); 
+            /* إضافة ?v=2 لإجبار المتصفح على تحميل الصورة من جديد */
+            background-image: url('header-banner.jpg?v=2'); 
             
             background-size: cover;
             background-position: center center;
             
-            /* تم تصغير الارتفاع ليكون أشيك */
-            height: 50vw; 
-            max-height: 400px; 
+            /* تصغير الارتفاع قليلاً ليكون أشيك */
+            height: 45vw; 
+            max-height: 450px; 
             min-height: 250px; 
             
             display: flex; align-items: flex-end; justify-content: center;
@@ -74,9 +84,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* طبقة سوداء خفيفة عشان الزرار يبان */
         .hero-header::before {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50%;
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); z-index: 1;
         }
 
@@ -85,7 +94,7 @@
             padding-bottom: 25px; width: 90%; max-width: 450px;
         }
 
-        /* تم إخفاء اللوجو الظاهري، والاكتفاء به في السيو */
+        /* كلاس السيو المخفي */
         .seo-hidden {
             position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
             overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
@@ -147,7 +156,10 @@
         <div class="seo-hidden">
             <h1>سوق عكاز | بيع شوم ونبوت وعكاز</h1>
             <h2>إدارة شركة الحلول المتكاملة لخدمات الويب والنظم الأمنية</h2>
-            <p>للتواصل: 01090921815 - م/ محمد فتحي | 01550912888 - أ/ صلاح</p>
+            <p>خدماتنا الأخرى: تصميم مواقع، استضافة (Web Hosting)، سيرفرات، صيانة، كاميرات مراقبة، نظم أمنية.</p>
+            <p>للتواصل مع الإدارة الهندسية: 01090921815 - م/ محمد فتحي</p>
+            <p>لطلبات الشراء والقطاعي: 01550912888 - أ/ صلاح</p>
+            <h3>أفضل سعر عصا بيسبول في مصر، عكاز طبي، خشب زان وأبنوس</h3>
         </div>
         
         <div class="header-content-overlay">
