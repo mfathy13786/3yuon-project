@@ -141,7 +141,6 @@
         .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .feat-item i { color: var(--primary); font-size: 1.2em; }
 
-        /* ============= تنسيق السوشيال ميديا ============= */
         .social-section { margin-top: 40px; margin-bottom: 20px; }
         .social-title { font-size: 0.9em; color: #ccc; margin-bottom: 15px; display: block; }
         .social-icons { display: flex; justify-content: center; gap: 20px; }
@@ -153,13 +152,10 @@
             color: #ccc; text-decoration: none; font-size: 1.5em; transition: 0.3s;
         }
         .social-link:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            color: var(--primary); /* كله ينور برتقالي عشان البراند */
-            box-shadow: 0 0 15px var(--primary-glow);
+            transform: translateY(-5px); border-color: var(--primary);
+            color: var(--primary); box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        /* الفوتر */
         .footer { 
             font-size: 0.85em; color: #888; margin-top: 20px; line-height: 1.8; 
             border-top: 1px solid #333; padding: 25px 0; background: #080808;
@@ -179,6 +175,9 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
+        /* ====== أزرار التواصل العائمة ====== */
+        
+        /* 1. زرار واتساب (تحت خالص) */
         .float-wa {
             position: fixed; bottom: 20px; right: 20px;
             background: #25D366; color: #fff;
@@ -188,6 +187,18 @@
             z-index: 200; transition: 0.3s; text-decoration: none;
         }
         .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 20px #25D366; }
+
+        /* 2. زرار ماسنجر (فوق الواتساب) */
+        .float-messenger {
+            position: fixed; bottom: 90px; right: 20px; /* مرفوع لفوق عشان ميركبوش على بعض */
+            background: linear-gradient(45deg, #00B2FF, #006AFF); /* لون ماسنجر الأزرق */
+            color: #fff;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2em; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 200; transition: 0.3s; text-decoration: none;
+        }
+        .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
 
     </style>
 </head>
@@ -293,41 +304,10 @@
                 <a href="https://www.facebook.com/3yuon.okaz" target="_blank" class="social-link">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                
-                <a href="#" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                
-                <a href="#" class="social-link">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
 
         <div class="footer fade-in" style="animation-delay: 0.7s;">
-            
             <div class="legal-links">
-                <a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a>
-                <a href="policy.html"><i class="fas fa-file-contract"></i> سياسة الاسترجاع</a>
-                <a href="https://wa.me/201550912888?text=عندي%20شكوى%20أو%20اقتراح" target="_blank" style="color:#e74c3c;"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
-            </div>
-
-            سوق عكاز - علامة مسجلة في عالم الأنتيكات والدفاع عن النفس<br>
-            
-            <div class="dev-signature">
-                <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">
-                    تنفيذ وتطوير الحلول المتكاملة لخدمات الويب والنظم الامنية عن بعد
-                </a>
-                <br>
-                <a href="https://www.3yuon.com" target="_blank" class="dev-link">Powered by 3yuon.com</a>
-            </div>
-        </div>
-
-    </div>
-
-    <a href="https://wa.me/201550912888" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-</body>
-</html>
