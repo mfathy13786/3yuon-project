@@ -63,14 +63,19 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* أنيميشن التكرار (Infinite Loop) */
+        /* ============= أنيميشن الهبوط مرة واحدة (للجملة الأولى) ============= */
+        @keyframes landOnce {
+            0% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+            60% { transform: translateY(10px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ============= أنيميشن التكرار (للمنتجات) ============= */
         @keyframes loopingLand {
-            0% { opacity: 0; transform: scale(2.5) translateY(-50px); }
-            10% { opacity: 1; transform: scale(1) translateY(0); }
-            15% { transform: scale(1.1); }
-            20% { transform: scale(1); }
+            0% { opacity: 0; transform: scale(1.5); }
+            10% { opacity: 1; transform: scale(1); }
             80% { opacity: 1; transform: scale(1); filter: blur(0px); }
-            90% { opacity: 0; transform: scale(0.8) translateY(20px); filter: blur(5px); }
+            90% { opacity: 0; transform: scale(0.8); filter: blur(4px); }
             100% { opacity: 0; }
         }
 
@@ -106,48 +111,63 @@
             position: relative; z-index: 2;
         }
         
-        /* تنسيق جملة المنتجات */
+        /* حاوية الشعارات */
         .slogan-box {
-            font-size: 1.3em; color: #fff; line-height: 1.5; margin-bottom: 10px;
+            font-size: 1.2em; line-height: 1.6; margin-bottom: 10px;
             font-weight: bold; position: relative; z-index: 2;
-            direction: rtl; min-height: 65px;
+            direction: rtl;
         }
 
-        .word {
-            display: inline-block; opacity: 0;
-            animation: loopingLand 6s infinite; /* مدة أطول عشان الجملة طويلة */
+        /* === الجملة الأولى (نيون وثابتة) === */
+        .neon-text {
+            display: block;
+            color: #fff;
+            font-family: 'Aref Ruqaa';
+            /* تأثير النيون الذهبي */
+            text-shadow: 
+                0 0 5px #D4AF37,
+                0 0 10px #D4AF37,
+                0 0 20px #D4AF37,
+                0 0 40px #b8860b;
+            animation: landOnce 1.2s ease-out forwards; /* تنزل مرة واحدة وتثبت */
+            margin-bottom: 5px;
+        }
+
+        /* === الجملة الثانية (المنتجات في سطر واحد ومتحركة) === */
+        .products-line {
+            display: block;
+            font-size: 0.95em;
+            white-space: nowrap; /* إجبار الكلام يكون في سطر واحد */
+        }
+
+        .loop-word {
+            display: inline-block;
+            opacity: 0;
+            animation: loopingLand 4s infinite; /* بتتكرر علطول */
             margin: 0 2px;
         }
 
-        /* توقيتات ظهور الكلمات */
-        .w1 { animation-delay: 0s; } /* متلفش */
-        .w2 { animation-delay: 0.2s; } /* وتدور */
-        .w3 { animation-delay: 0.4s; } /* كتير */
-        .w4 { animation-delay: 0.6s; } /* .. */
-        .w5 { animation-delay: 0.8s; } /* خشبنا */
-        .w6 { animation-delay: 1.0s; color: var(--gold); text-shadow: 0 0 5px #fff; transform: scale(1.1); } /* أصيل */
-        .w7 { animation-delay: 1.2s; } /* وسعرنا */
-        .w8 { animation-delay: 1.4s; color: #e74c3c; text-shadow: 0 0 5px red; transform: scale(1.1); } /* خطير */
-        
-        /* السطر الثاني (المنتجات) */
-        .w9 { animation-delay: 2.2s; color: #aaa; font-size: 0.8em; } /* ( */
-        .w10 { animation-delay: 2.4s; color: #2ecc71; } /* شوم */
-        .w11 { animation-delay: 2.6s; } /* - */
-        .w12 { animation-delay: 2.8s; color: #3498db; } /* نبوت */
-        .w13 { animation-delay: 3.0s; } /* - */
-        .w14 { animation-delay: 3.2s; color: #f1c40f; } /* خرزان */
-        .w15 { animation-delay: 3.4s; color: #aaa; font-size: 0.8em; } /* ) */
-        
-        .w16 { animation-delay: 3.6s; color: #aaa; font-size: 0.8em; } /* ( */
-        .w17 { animation-delay: 3.8s; color: #9b59b6; } /* عكاز */
-        .w18 { animation-delay: 4.0s; } /* - */
-        .w19 { animation-delay: 4.2s; color: #e67e22; text-shadow: 0 0 5px orange; font-size: 1.05em; } /* بيسبول */
-        .w20 { animation-delay: 4.4s; } /* - */
-        .w21 { animation-delay: 4.6s; color: #8d6e63; } /* زان */
-        .w22 { animation-delay: 4.8s; color: #aaa; font-size: 0.8em; } /* ) */
+        /* ألوان المنتجات */
+        .p-gold { color: #f1c40f; }
+        .p-green { color: #2ecc71; }
+        .p-blue { color: #3498db; }
+        .p-red { color: #e74c3c; }
+        .p-white { color: #ccc; font-size: 0.8em; }
+
+        /* تأخير ظهور المنتجات عشان تظهر بالتتابع */
+        .d1 { animation-delay: 1.5s; }
+        .d2 { animation-delay: 1.7s; }
+        .d3 { animation-delay: 1.9s; }
+        .d4 { animation-delay: 2.1s; }
+        .d5 { animation-delay: 2.3s; }
+        .d6 { animation-delay: 2.5s; }
+        .d7 { animation-delay: 2.7s; }
+        .d8 { animation-delay: 2.9s; }
+        .d9 { animation-delay: 3.1s; }
+        .d10 { animation-delay: 3.3s; }
 
 
-        /* باقي التنسيقات */
+        /* باقي التنسيقات (زي ما هي) */
         .container { max-width: 700px; margin: auto; padding: 10px 15px; }
 
         .section-card {
@@ -161,11 +181,6 @@
             margin-bottom: 10px; display: inline-block; border-bottom: 1px solid #444; padding-bottom: 5px;
         }
 
-        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
-        @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
-        @keyframes bounceDown { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(5px);} 60% {transform: translateY(3px);} }
-
         .retail-title {
             color: #2ecc71; background: rgba(46, 204, 113, 0.1); border: 1px solid #2ecc71;
             padding: 5px 15px; border-radius: 20px; box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
@@ -173,6 +188,7 @@
             display: inline-flex; align-items: center; gap: 8px; margin-bottom: 15px;
         }
         .retail-arrow { animation: bounceDown 2s infinite; color: #fff; font-size: 0.8em; }
+        @keyframes bounceDown { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(5px);} 60% {transform: translateY(3px);} }
 
         .btn {
             display: flex; width: 100%; padding: 12px; margin: 8px 0;
@@ -185,6 +201,10 @@
         .btn-main { background: linear-gradient(135deg, #d4af37, #8a6e05); border: 1px solid var(--gold); color: #000; }
         .btn-catalog { background: linear-gradient(135deg, #333, #222); border: 1px solid #555; color: var(--gold); }
         .btn-location { background: linear-gradient(135deg, #243447, #1c2a38); border: 1px solid #375a7f; color: #ecf0f1; }
+
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+        @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
 
         .btn-retail {
             background: linear-gradient(45deg, #1b5e20, #27ae60, #2ecc71, #1b5e20); background-size: 300% 300%;
@@ -244,29 +264,25 @@
         <h1 class="animate-in" style="animation-delay: 0.2s;">وكالة العندليب</h1>
         
         <div class="slogan-box">
-            <span class="word w1">متلفش</span>
-            <span class="word w2">وتدوّر</span>
-            <span class="word w3">كتير</span>
-            <span class="word w4">.. خشبنا</span>
-            <span class="word w5">أصيل</span>
-            <span class="word w6">.. وسعرنا</span>
-            <span class="word w7">خطير!</span>
-            <br>
-            <span class="word w9">(</span>
-            <span class="word w10">شوم</span>
-            <span class="word w11">-</span>
-            <span class="word w12">نبوت</span>
-            <span class="word w13">-</span>
-            <span class="word w14">خرزان</span>
-            <span class="word w15">)</span>
-            <br>
-            <span class="word w16">(</span>
-            <span class="word w17">عكاز</span>
-            <span class="word w18">-</span>
-            <span class="word w19">بيسبول</span>
-            <span class="word w20">-</span>
-            <span class="word w21">زان</span>
-            <span class="word w22">)</span>
+            <span class="neon-text">
+                متلفش وتدوّر كتير .. خشبنا أصيل .. وسعرنا خطير!
+            </span>
+            
+            <div class="products-line">
+                <span class="loop-word d1 p-white">(</span>
+                <span class="loop-word d2 p-gold">شوم</span>
+                <span class="loop-word d3 p-white">-</span>
+                <span class="loop-word d4 p-green">نبوت</span>
+                <span class="loop-word d5 p-white">-</span>
+                <span class="loop-word d6 p-blue">خرزان</span>
+                <span class="loop-word d7 p-white">) (</span>
+                <span class="loop-word d8 p-gold">عكاز</span>
+                <span class="loop-word d9 p-white">-</span>
+                <span class="loop-word d10 p-red">بيسبول</span>
+                <span class="loop-word d10 p-white">-</span>
+                <span class="loop-word d10 p-green">زان</span>
+                <span class="loop-word d10 p-white">)</span>
+            </div>
         </div>
     </header>
 
@@ -309,12 +325,4 @@
         </div>
 
         <div class="admin-grid animate-in" style="animation-delay: 0.7s;">
-            <a href="payment.html" class="special-btn btn-pay"><i class="fas fa-wallet"></i> طرق الدفع</a>
-            <a href="policy.html" class="special-btn btn-policy"><i class="fas fa-file-contract"></i> سياسة البيع</a>
-            <a href="about.html" class="special-btn btn-about"><i class="fas fa-info-circle"></i> من نحن</a>
-            <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
-        </div>
-
-        <div class="seo-content animate-in" style="animation-delay: 0.8s;">
-            <h2>مؤسسة عبد المنعم العندليب - أصل الخرزان</h2>
-            <p>
+            <a href="payment.html" class="special-btn btn-pay"><i class="fas fa-wallet">
