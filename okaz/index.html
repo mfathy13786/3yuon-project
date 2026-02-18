@@ -56,49 +56,49 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* ============= الهيدر الجديد (صورة كاملة متجاوبة) ============= */
+        /* ============= الهيدر الجديد (التعديل النهائي) ============= */
         .hero-container {
             position: relative;
             width: 100%;
             display: block;
-            min-height: 200px; /* ضمان ظهور الهيدر */
-            border-bottom: 3px solid var(--primary);
+            border-bottom: 4px solid var(--primary); /* الخط البرتقالي */
             background-color: #000;
+            margin-bottom: 40px; /* مسافة عشان الزرار مايغطيش اللي تحته */
         }
 
         .hero-image {
             width: 100%;
-            height: auto; /* ضبط الطول تلقائياً */
+            height: auto;
             display: block;
-            object-fit: contain; /* يظهر الصورة بالكامل */
+            object-fit: contain; /* يضمن ظهور الصورة كاملة */
         }
 
-        /* تعديل للكمبيوتر عشان الصورة متفرشش زيادة */
-        @media (min-width: 769px) {
-            .hero-image {
-                max-height: 85vh; 
-                object-fit: cover; 
-                object-position: top;
-            }
-        }
-
+        /* حاوية الزرار: عشان يركب على الخط */
         .hero-overlay {
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 40%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            display: flex; align-items: flex-end; justify-content: center;
-            padding-bottom: 25px;
+            position: absolute;
+            bottom: 0; /* محاذاة للأسفل */
+            left: 50%; /* في المنتصف */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* السحر هنا: بنزله لتحت بنسبة 50% من ارتفاعه */
+            transform: translate(-50%, 50%); 
+            z-index: 10;
         }
 
+        /* كلاس لإخفاء نصوص السيو */
         .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
+        /* زرار الكتالوج */
         .catalog-btn {
             display: inline-flex; align-items: center; gap: 8px;
             font-size: 1em; font-weight: bold; color: #fff; text-decoration: none;
             background: linear-gradient(45deg, #d35400, #e67e22);
             padding: 10px 25px; border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8); /* ظل قوي للفصل */
+            transition: 0.3s; 
+            border: 2px solid #fff; /* إطار أبيض عشان يبان فوق الخط */
+            white-space: nowrap;
         }
         .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
 
@@ -106,16 +106,25 @@
         .container { max-width: 800px; margin: auto; padding: 20px; }
         .category-title { text-align: right; font-size: 1.3em; color: var(--primary); margin: 30px 10px 15px; border-right: 4px solid var(--primary); padding-right: 10px; font-weight: bold; }
         .grid-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .product-card { background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid #333; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        
+        .product-card {
+            background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid #333;
+            transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
         .product-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px var(--primary-glow); }
+        
         .p-icon { font-size: 2.5em; margin-bottom: 10px; display: block; }
         .fa-baseball-bat-ball { color: #e74c3c; } .fa-user-secret { color: #f39c12; } .fa-person-cane { color: #3498db; } .fa-gem { color: #9b59b6; }
+        
         .p-name { font-size: 1.1em; font-weight: bold; margin-bottom: 5px; display: block; }
         .p-desc { font-size: 0.75em; color: #888; margin-bottom: 15px; display: block; height: 35px; }
+        
         .btn-buy { display: block; width: 100%; padding: 8px; background: var(--primary); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9em; transition: 0.3s; }
         .btn-buy:hover { background: #fff; box-shadow: 0 0 10px #fff; }
+        
         .badge { position: absolute; top: 10px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.7em; padding: 2px 25px; transform: rotate(-45deg); box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: pulseBadge 2s infinite; }
         @keyframes pulseBadge { 0% { opacity: 0.8; } 50% { opacity: 1; text-shadow: 0 0 5px #fff; } 100% { opacity: 0.8; } }
+        
         .features-row { display: flex; justify-content: space-around; margin-top: 40px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
         .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .feat-item i { color: var(--primary); font-size: 1.2em; }
@@ -138,8 +147,8 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
-        /* ============= الأزرار العائمة (متجاوبة) ============= */
-        /* النسخة القياسية للكمبيوتر */
+        /* ============= الأزرار العائمة ============= */
+        /* النسخة القياسية */
         .float-wa, .float-messenger {
             position: fixed; right: 20px;
             width: 50px; height: 50px; 
@@ -156,7 +165,7 @@
         .float-messenger { bottom: 85px; background: linear-gradient(45deg, #00B2FF, #006AFF); }
         .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
 
-        /* نسخة الموبايل (أصغر) */
+        /* === نسخة الموبايل (أصغر) === */
         @media (max-width: 480px) {
             .float-wa, .float-messenger {
                 width: 40px; height: 40px; 
@@ -166,7 +175,8 @@
             .float-wa { bottom: 15px; }
             .float-messenger { bottom: 65px; } 
             
-            .catalog-btn { font-size: 0.9em; padding: 8px 20px; }
+            /* تظبيط مقاس زرار الكتالوج للموبايل */
+            .catalog-btn { font-size: 0.85em; padding: 8px 20px; }
         }
 
     </style>
