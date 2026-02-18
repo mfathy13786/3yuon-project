@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>سوق عكاز | شوم، نبوت، عكاز طبي - بيع جملة وقطاعي</title>
-    
-    <meta name="description" content="سوق عكاز (إدارة صلاح). وجهتك الأولى لأقوى خامات الشوم وعصي الدفاع (بيسبول) والعكاز الطبي الفاخر. بيع جملة وقطاعي. إدارة شركة الحلول المتكاملة.">
-    <meta name="keywords" content="سوق عكاز, عصا بيسبول, شوم حديد, عكاز أبنوس, هدايا كبار السن, عصي دفاع عن النفس, نبوت فتوة, عصاية خرزان, سوق عكاز صلاح, الحلول المتكاملة, تصميم مواقع, استضافة ويب, سيرفرات, كاميرات مراقبة, صيانة كمبيوتر, محمد فتحي, 3yuon, Integrated Solutions, Web Hosting, Security Systems, 01090921815">
+    <meta name="description" content="سوق عكاز (إدارة صلاح). وجهتك الأولى لأقوى خامات الشوم وعصي الدفاع (بيسبول) والعكاز الطبي الفاخر. بيع جملة وقطاعي، شحن لجميع المحافظات.">
+    <meta name="keywords" content="سوق عكاز, عصا بيسبول, شوم حديد, عكاز أبنوس, هدايا كبار السن, عصي دفاع عن النفس, سوق عكاز صلاح">
     <meta name="author" content="Integrated Solutions - Eng. Mohamed Fathi">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="سوق عكاز | القوة والأناقة">
     <meta property="og:description" content="تصفح كتالوج منتجاتنا (شوم - بيسبول - عكاز). متاح جملة وقطاعي.">
-    <meta property="og:image" content="https://www.3yuon.com/okaz/logo.png">
+    <meta property="og:image" content="https://www.3yuon.com/okaz/header-banner.jpg">
     <meta property="og:url" content="https://www.3yuon.com/okaz">
     <meta property="og:type" content="product">
     
-    <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,16 +24,13 @@
       "@context": "https://schema.org",
       "@type": "Store",
       "name": "سوق عكاز",
-      "image": "https://www.3yuon.com/okaz/logo.png",
-      "description": "متجر متخصص في بيع عصي الدفاع والشوم والعكازات الفاخرة.",
+      "image": "https://www.3yuon.com/okaz/header-banner.jpg",
+      "description": "متجر متخصص في بيع عصي الدفاع والشوم والعكازات الفاخرة (جملة وقطاعي).",
       "telephone": "+201550912888",
-      "sameAs": ["https://www.facebook.com/3yuon.okaz"],
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Integrated Solutions - 3yuon",
-        "url": "https://www.3yuon.com",
-        "telephone": "+201090921815"
-      }
+      "sameAs": [
+        "https://www.facebook.com/3yuon.okaz"
+      ],
+      "priceRange": "$$"
     }
     </script>
 
@@ -51,109 +46,98 @@
         body {
             font-family: 'Cairo', sans-serif;
             background-color: var(--dark);
-            background-image: radial-gradient(circle at 50% 0%, #25160b 0%, #0a0a0a 90%);
+            /* خلفية متدرجة تليق مع صورة الهيدر */
+            background-image: radial-gradient(circle at 50% 0%, #3e2714 0%, #0a0a0a 80%);
             color: var(--text-light);
             margin: 0; padding: 0;
             text-align: center;
             overflow-x: hidden;
         }
 
-        .fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* ============= الهيدر المطور (الحل النهائي) ============= */
-        .hero-header {
+        /* ============= الهيدر الجديد (صورة كاملة متجاوبة) ============= */
+        .hero-container {
             position: relative;
             width: 100%;
-            /* تحديد ارتفاع أقصى للديسك توب عشان متفرشش وتبكسل */
-            height: 50vh; 
-            max-height: 450px; /* سقف الارتفاع */
-            min-height: 250px; /* أقل ارتفاع للموبايل */
-            
-            overflow: hidden;
+            overflow: hidden; 
             border-bottom: 3px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #2c1a0e;
+            background-color: #000; /* لون احتياطي */
         }
 
-        /* تنسيق الصورة: تملأ المساحة بذكاء */
-        .header-image-full {
+        .hero-image {
+            width: 100%;       /* العرض كامل */
+            height: auto;      /* الطول أوتوماتيك للحفاظ على الأبعاد */
+            display: block;    /* إزالة الفراغات */
+            object-fit: contain;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 100%; 
-            display: block;
-            
-            /* ده أهم سطر: بيخلي الصورة تغطي المساحة من غير ما تمط، ويقص الجناب لو لازم */
-            object-fit: cover; 
-            
-            /* تركيز الصورة على الجزء العلوي (عشان اللوجو يفضل ظاهر) */
-            object-position: top center; 
-        }
-
-        .hero-overlay-gradient {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 50%;
+            height: 40%; /* مساحة الظل */
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            z-index: 1;
-        }
-
-        /* حاوية الزرار: توسيط */
-        .header-btn-container {
-            position: absolute;
-            bottom: 30px; 
-            left: 0; right: 0; /* طريقة التوسيط المطلق */
             display: flex;
+            align-items: flex-end; /* الزرار تحت */
             justify-content: center;
-            align-items: center;
-            z-index: 2;
+            padding-bottom: 20px;
         }
 
-        .seo-hidden {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-            overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
-        }
+        /* كلاس لإخفاء نصوص السيو */
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-        /* تنسيق الزرار الجديد (ملموم وشيك) */
+        /* زرار الكتالوج */
         .catalog-btn {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            
-            /* أبعاد الزرار */
-            width: auto; /* مش 100% */
-            min-width: 200px; /* عشان ميبقاش صغير أوي */
-            max-width: 90%; /* عشان مياكلش الشاشة في الموبايلات القديمة */
-            
+            display: inline-flex; align-items: center; gap: 8px;
             font-size: 1em; font-weight: bold; color: #fff; text-decoration: none;
             background: linear-gradient(45deg, #d35400, #e67e22);
-            padding: 12px 30px; /* حشوة مريحة */
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
+            padding: 10px 25px; border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            transition: 0.3s; border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
         }
-        .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--primary-glow); background: var(--primary); }
+        .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
 
-        /* ============= باقي التنسيقات (زي ما هي) ============= */
+        /* باقي التنسيقات */
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        .category-title { text-align: right; font-size: 1.3em; color: var(--primary); margin: 30px 10px 20px; border-right: 4px solid var(--primary); padding-right: 10px; font-weight: bold; }
+        .category-title { text-align: right; font-size: 1.3em; color: var(--primary); margin: 30px 10px 15px; border-right: 4px solid var(--primary); padding-right: 10px; font-weight: bold; }
         .grid-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .product-card { background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid #333; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        
+        .product-card {
+            background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid #333;
+            transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
         .product-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px var(--primary-glow); }
+        
         .p-icon { font-size: 2.5em; margin-bottom: 10px; display: block; }
         .fa-baseball-bat-ball { color: #e74c3c; } .fa-user-secret { color: #f39c12; } .fa-person-cane { color: #3498db; } .fa-gem { color: #9b59b6; }
+        
         .p-name { font-size: 1.1em; font-weight: bold; margin-bottom: 5px; display: block; }
         .p-desc { font-size: 0.75em; color: #888; margin-bottom: 15px; display: block; height: 35px; }
+        
         .btn-buy { display: block; width: 100%; padding: 8px; background: var(--primary); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9em; transition: 0.3s; }
         .btn-buy:hover { background: #fff; box-shadow: 0 0 10px #fff; }
+        
         .badge { position: absolute; top: 10px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.7em; padding: 2px 25px; transform: rotate(-45deg); box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: pulseBadge 2s infinite; }
         @keyframes pulseBadge { 0% { opacity: 0.8; } 50% { opacity: 1; text-shadow: 0 0 5px #fff; } 100% { opacity: 0.8; } }
         
+        .features-row { display: flex; justify-content: space-around; margin-top: 40px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
+        .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .feat-item i { color: var(--primary); font-size: 1.2em; }
+        
+        /* تنسيق السوشيال ميديا */
         .social-section { margin-top: 50px; margin-bottom: 30px; }
-        .social-title { font-size: 1em; color: #ccc; margin-bottom: 20px; display: block; font-weight: bold; }
+        .social-title { font-size: 0.95em; color: #ccc; margin-bottom: 20px; display: block; font-weight: bold; }
         .social-icons { display: flex; justify-content: center; gap: 20px; }
         .social-link { width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 1.4em; transition: all 0.4s ease; backdrop-filter: blur(5px); }
         .social-link.fb:hover { background: #1877f2; border-color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.6); transform: translateY(-5px); }
         .social-link.insta:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; box-shadow: 0 0 20px rgba(220, 39, 67, 0.6); transform: translateY(-5px); }
         .social-link.tiktok:hover { background: #000; border-color: #25f4ee; text-shadow: 2px 2px 0px #fe2c55, -2px -2px 0px #25f4ee; box-shadow: 3px 3px 0 #fe2c55, -3px -3px 0 #25f4ee; transform: translateY(-5px); }
 
+        /* الفوتر */
         .footer { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.8; border-top: 1px solid #333; padding: 30px 0; background: #080808; }
         .legal-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #333; }
         .legal-links a { color: #ccc; text-decoration: none; font-size: 0.9em; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
@@ -162,28 +146,30 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
+        /* الأزرار العائمة (مصغرة) */
         .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6em; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; }
         .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 20px #25D366; }
         .float-messenger { position: fixed; bottom: 85px; right: 20px; background: linear-gradient(45deg, #00B2FF, #006AFF); color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6em; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; }
         .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
 
+        /* تظبيط للموبايل الصغير جداً */
+        @media (max-width: 480px) {
+            .catalog-btn { font-size: 0.9em; padding: 8px 15px; margin-bottom: 10px; }
+        }
+
     </style>
 </head>
 <body>
 
-    <header class="hero-header fade-in" style="animation-delay: 0.1s;">
-        
-        <div class="seo-hidden">
-            <h1>سوق عكاز | بيع شوم ونبوت وعكاز</h1>
-            <h2>إدارة شركة الحلول المتكاملة لخدمات الويب والنظم الأمنية</h2>
-            <p>للتواصل: 01090921815 - م/ محمد فتحي | 01550912888 - أ/ صلاح</p>
+    <header class="hero-container fade-in" style="animation-delay: 0.1s;">
+        <div class="visually-hidden">
+            <h1>سوق عكاز</h1>
+            <h2>أصل الشوم والنبوت - جملة وقطاعي</h2>
         </div>
+
+        <img src="header-banner.jpg" alt="سوق عكاز - أصل الشوم والنبوت" class="hero-image">
         
-        <img src="header-banner.jpg?v=5" alt="سوق عكاز" class="header-image-full">
-        
-        <div class="hero-overlay-gradient"></div>
-        
-        <div class="header-btn-container">
+        <div class="hero-overlay">
             <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank">
                 <i class="fas fa-images"></i> تصفح كتالوج الصور والأسعار
             </a>
