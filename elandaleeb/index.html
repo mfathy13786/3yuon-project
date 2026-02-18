@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>وكالة العندليب | مؤسسة عبد المنعم العندليب - باب البحر</title>
-    <meta name="description" content="مؤسسة عبد المنعم العندليب (باب البحر). المورد الأول لتجار الشوم والنبوت. تنفيذ وتطوير: شركة الحلول المتكاملة (م/ محمد فتحي 01090921815).">
-    <meta name="keywords" content="عبد المنعم بتاع الخرزان, شوم, نبوت, عكاز, باب البحر, الحلول المتكاملة, تصميم مواقع, كاميرات مراقبة, نظم أمنية, 3yuon, محمد فتحي, سوق عكاز">
+    <meta name="description" content="مؤسسة عبد المنعم العندليب (باب البحر). المورد الأول لتجار الشوم والنبوت جملة الجملة. تنفيذ وتطوير: شركة الحلول المتكاملة لخدمات الويب والنظم الأمنية (م/ محمد فتحي 01090921815).">
+    <meta name="keywords" content="عبد المنعم بتاع الخرزان, شوم, نبوت, عكاز, باب البحر, كلوت بك, الحلول المتكاملة, تصميم مواقع, استضافة ويب, كاميرات مراقبة متحركة, نظم أمنية عن بعد, 3yuon, محمد فتحي, سوق عكاز">
     <meta name="author" content="Integrated Solutions - Eng. Mohamed Fathi">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="مؤسسة عبد المنعم العندليب | جملة الجملة">
-    <meta property="og:description" content="أصل الشوم والنبوت في مصر. Powered by: Integrated Solutions">
+    <meta property="og:description" content="أصل الشوم والنبوت في مصر. Powered by: Integrated Solutions & 3yuon.com">
     <meta property="og:image" content="https://www.3yuon.com/elandaleeb/logo.jpg">
     <meta property="og:url" content="https://www.3yuon.com/elandaleeb">
     <meta property="og:type" content="website">
@@ -34,14 +34,16 @@
             "streetAddress": "13 عطفة درب البرقى، باب البحر",
             "addressLocality": "القاهرة",
             "addressCountry": "EG"
-          }
+          },
+          "priceRange": "$"
         },
         {
           "@type": "ProfessionalService",
           "name": "شركة الحلول المتكاملة لخدمات الويب والنظم الأمنية",
           "url": "https://www.3yuon.com",
           "telephone": "+201090921815",
-          "founder": "Eng. Mohamed Fathi"
+          "founder": "Eng. Mohamed Fathi",
+          "description": "تصميم مواقع، استضافة، برمجة، كاميرات مراقبة متحركة، ونظم أمنية عن بعد."
         }
       ]
     }
@@ -88,6 +90,7 @@
             height: auto;
         }
 
+        /* اللوجو الخلفي (Watermark) */
         header::before {
             content: "";
             position: absolute; top: -50%; left: 50%;
@@ -138,13 +141,14 @@
             display: block;
             font-size: 0.95em;
             white-space: nowrap; /* إجبار الكلام يكون في سطر واحد */
+            margin-top: 5px;
         }
 
         .loop-word {
             display: inline-block;
             opacity: 0;
             animation: loopingLand 4s infinite; /* بتتكرر علطول */
-            margin: 0 2px;
+            margin: 0 1px;
         }
 
         /* ألوان المنتجات */
@@ -152,19 +156,24 @@
         .p-green { color: #2ecc71; }
         .p-blue { color: #3498db; }
         .p-red { color: #e74c3c; }
-        .p-white { color: #ccc; font-size: 0.8em; }
+        .p-white { color: #888; font-size: 0.8em; }
 
         /* تأخير ظهور المنتجات عشان تظهر بالتتابع */
         .d1 { animation-delay: 1.5s; }
-        .d2 { animation-delay: 1.7s; }
-        .d3 { animation-delay: 1.9s; }
-        .d4 { animation-delay: 2.1s; }
-        .d5 { animation-delay: 2.3s; }
-        .d6 { animation-delay: 2.5s; }
-        .d7 { animation-delay: 2.7s; }
-        .d8 { animation-delay: 2.9s; }
-        .d9 { animation-delay: 3.1s; }
-        .d10 { animation-delay: 3.3s; }
+        .d2 { animation-delay: 1.6s; }
+        .d3 { animation-delay: 1.7s; }
+        .d4 { animation-delay: 1.8s; }
+        .d5 { animation-delay: 1.9s; }
+        .d6 { animation-delay: 2.0s; }
+        .d7 { animation-delay: 2.1s; }
+        
+        .d8 { animation-delay: 2.3s; }
+        .d9 { animation-delay: 2.4s; }
+        .d10 { animation-delay: 2.5s; }
+        .d11 { animation-delay: 2.6s; }
+        .d12 { animation-delay: 2.7s; }
+        .d13 { animation-delay: 2.8s; }
+        .d14 { animation-delay: 2.9s; }
 
 
         /* باقي التنسيقات (زي ما هي) */
@@ -234,133 +243,4 @@
             text-align: right; margin-top: 20px; padding: 15px;
             background: rgba(0,0,0,0.4); border-radius: 15px; font-size: 0.9em; color: #ccc; border: 1px solid #333;
         }
-        .seo-content h2 { color: var(--gold); font-size: 1.1em; margin-bottom: 10px; font-family: 'Aref Ruqaa'; border-bottom: 1px dashed #555; padding-bottom: 8px; }
-        .seo-content p { line-height: 1.6; margin-bottom: 10px; }
-        .highlight { color: #fff; font-weight: bold; }
-
-        .footer { 
-            font-size: 0.85em; color: #888; margin-top: 25px; line-height: 1.8; 
-            border-top: 1px solid #333; padding: 20px 0; background: #080808;
-        }
-        .footer-address { color: #fff; display: block; margin-bottom: 15px; font-weight: bold; font-size: 0.9em; }
-        .dev-signature { color: #555; font-size: 0.8em; margin-top: 10px; display: block; }
-        .dev-text-link {
-            color: #777; text-decoration: none; font-weight: bold; transition: 0.3s;
-            border-bottom: 1px dotted #444; padding-bottom: 2px; display: inline-block; margin-bottom: 5px;
-        }
-        .dev-text-link:hover { color: var(--gold); border-bottom-color: var(--gold); cursor: pointer; }
-        .dev-link { color: #aaa; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .dev-link:hover { color: #fff; text-shadow: 0 0 5px #fff; }
-
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container animate-in" style="animation-delay: 0.1s;">
-            <img src="logo.jpg" alt="مؤسسة عبد المنعم العندليب" class="logo-img">
-        </div>
-        
-        <h1 class="animate-in" style="animation-delay: 0.2s;">وكالة العندليب</h1>
-        
-        <div class="slogan-box">
-            <span class="neon-text">
-                متلفش وتدوّر كتير .. خشبنا أصيل .. وسعرنا خطير!
-            </span>
-            
-            <div class="products-line">
-                <span class="loop-word d1 p-white">(</span>
-                <span class="loop-word d2 p-gold">شوم</span>
-                <span class="loop-word d3 p-white">-</span>
-                <span class="loop-word d4 p-green">نبوت</span>
-                <span class="loop-word d5 p-white">-</span>
-                <span class="loop-word d6 p-blue">خرزان</span>
-                <span class="loop-word d7 p-white">) (</span>
-                <span class="loop-word d8 p-gold">عكاز</span>
-                <span class="loop-word d9 p-white">-</span>
-                <span class="loop-word d10 p-red">بيسبول</span>
-                <span class="loop-word d10 p-white">-</span>
-                <span class="loop-word d10 p-green">زان</span>
-                <span class="loop-word d10 p-white">)</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <div class="section-card animate-in" style="animation-delay: 0.4s; border-color: var(--gold);">
-            <div class="section-title"><i class="fas fa-crown"></i> إدارة الجملة وكبار التجار</div>
-            
-            <a href="https://wa.me/201149555959" class="btn btn-main" target="_blank">
-                <i class="fab fa-whatsapp" style="font-size:1.2em;"></i>
-                تواصل مع إدارة المبيعات (طلبات الجملة)
-            </a>
-
-            <a href="https://wa.me/c/201149555959" class="btn btn-catalog" target="_blank">
-                <i class="fas fa-images"></i>
-                كتالوج الأسعار والمنتجات
-            </a>
-
-            <a href="https://goo.gl/maps/placeholder" class="btn btn-location" target="_blank">
-                <i class="fas fa-map-marked-alt" style="color:#e74c3c;"></i>
-                موقعنا على الخريطة (باب البحر)
-            </a>
-
-            <div class="social-row">
-                <a href="https://www.facebook.com/3yuon.Elandaleeb" target="_blank" class="social-icon" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
-
-        <div class="section-card animate-in" style="animation-delay: 0.6s;">
-            <div class="retail-title">
-                <i class="fas fa-store"></i> طلبات القطاعي والأفراد <i class="fas fa-chevron-down retail-arrow"></i>
-            </div>
-            
-            <a href="https://www.3yuon.com/okaz" class="btn btn-retail" target="_blank">
-                <i class="fas fa-shopping-basket"></i>
-                الانتقال إلى "سوق عكاز"
-            </a>
-        </div>
-
-        <div class="admin-grid animate-in" style="animation-delay: 0.7s;">
-            <a href="payment.html" class="special-btn btn-pay"><i class="fas fa-wallet"></i> طرق الدفع</a>
-            <a href="policy.html" class="special-btn btn-policy"><i class="fas fa-file-contract"></i> سياسة البيع</a>
-            <a href="about.html" class="special-btn btn-about"><i class="fas fa-info-circle"></i> من نحن</a>
-            <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
-        </div>
-
-        <div class="seo-content animate-in" style="animation-delay: 0.8s;">
-            <h2>مؤسسة عبد المنعم العندليب - أصل الخرزان</h2>
-            <p>
-                مرحباً بكم في المقر الرئيسي لـ <strong>مؤسسة عبد المنعم العندليب</strong> في قلب منطقة <strong>باب البحر</strong> التاريخية بالقاهرة. نحن الاسم الأعرق والمعروف بـ "<strong>عبد المنعم بتاع الخرزان</strong>".
-            </p>
-            <p>
-                نتميز بتوفير جميع خامات الخشب الطبيعي: <span class="highlight">شوم، نبوت، عكاز طبي، عصي خرزان، وعصا الردع (بيسبول)</span> بأسعار <span class="highlight">جملة الجملة</span>.
-            </p>
-            <p>
-                عنواننا المميز في <strong>13 عطفة درب البرقى، كلوت بك</strong> يجعلنا المركز الرئيسي للتوزيع لجميع المحافظات.
-            </p>
-        </div>
-
-        <div class="footer animate-in" style="animation-delay: 0.9s;">
-            <span class="footer-address">
-                <i class="fas fa-map-pin"></i> المقر الرئيسي للوكالة:<br>
-                13 عطفة درب البرقى، متفرع من شارع باب البحر مع كلوت بك، القاهرة
-            </span>
-            
-            <br>
-            <div class="dev-signature">
-                <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">
-                    تنفيذ وتطوير الحلول المتكاملة لخدمات الويب والنظم الامنية عن بعد
-                </a>
-                <br>
-                <a href="https://www.3yuon.com" target="_blank" class="dev-link">Powered by 3yuon.com</a>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+        .seo-content h2 { color: var(--gold); font-size: 1.1em; margin-bottom: 10px; font-family: 'Aref Ruqaa'; border-bottom: 1px dashed #555;
