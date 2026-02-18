@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>وكالة العندليب | مؤسسة عبد المنعم العندليب - باب البحر</title>
-    <meta name="description" content="مؤسسة عبد المنعم العندليب (باب البحر). المورد الأول لتجار الشوم والنبوت. تنفيذ وتطوير: شركة الحلول المتكاملة (م/ محمد فتحي 01090921815).">
-    <meta name="keywords" content="عبد المنعم بتاع الخرزان, شوم, نبوت, عكاز, باب البحر, الحلول المتكاملة, تصميم مواقع, كاميرات مراقبة, نظم أمنية, 3yuon, محمد فتحي, سوق عكاز">
+    <meta name="description" content="مؤسسة عبد المنعم العندليب (باب البحر). المورد الأول لتجار الشوم والنبوت جملة الجملة. تنفيذ وتطوير: شركة الحلول المتكاملة لخدمات الويب والنظم الأمنية (م/ محمد فتحي 01090921815).">
+    <meta name="keywords" content="عبد المنعم بتاع الخرزان, شوم, نبوت, عكاز, باب البحر, كلوت بك, أبنوس, خرزان, الحلول المتكاملة, 3yuon, محمد فتحي, سوق عكاز">
     <meta name="author" content="Integrated Solutions - Eng. Mohamed Fathi">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="مؤسسة عبد المنعم العندليب | جملة الجملة">
-    <meta property="og:description" content="أصل الشوم والنبوت في مصر. Powered by: Integrated Solutions & 3yuon.com">
+    <meta property="og:description" content="أصل الشوم والنبوت والأبنوس في مصر. Powered by: Integrated Solutions">
     <meta property="og:image" content="https://www.3yuon.com/elandaleeb/logo.jpg">
     <meta property="og:url" content="https://www.3yuon.com/elandaleeb">
     <meta property="og:type" content="website">
@@ -63,13 +63,11 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* أنيميشن الهبوط مرة واحدة (للجملة النيون) */
         @keyframes landOnce {
             0% { opacity: 0; transform: translateY(-30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* أنيميشن التكرار الناعم (للمنتجات) */
         @keyframes smoothLoop {
             0%, 100% { opacity: 0; transform: scale(0.9); }
             10%, 90% { opacity: 1; transform: scale(1); }
@@ -106,41 +104,43 @@
             font-weight: bold; position: relative; z-index: 2; direction: rtl;
         }
 
-        /* === الجملة النيون الثابتة === */
         .neon-text {
             display: block; color: #fff; font-family: 'Aref Ruqaa';
             text-shadow: 0 0 5px #D4AF37, 0 0 10px #D4AF37, 0 0 20px #D4AF37, 0 0 40px #b8860b;
             animation: landOnce 1s ease-out forwards; margin-bottom: 8px;
         }
 
-        /* === شريط المنتجات الاحترافي === */
+        /* === شريط المنتجات (تم تصغير الخط للموبايل) === */
         .products-line {
-            display: block; font-size: 1.1em; white-space: nowrap; margin-top: 5px;
-            letter-spacing: 0.5px; /* تباعد خفيف بين الحروف */
+            display: block; 
+            font-size: 0.9em; /* تصغير الخط عشان يناسب الموبايل */
+            white-space: nowrap; 
+            margin-top: 5px;
+            letter-spacing: 0; /* تقليل المسافات */
         }
 
         .loop-word {
             display: inline-block; opacity: 0;
-            animation: smoothLoop 5s infinite; /* تكرار ناعم */
-            margin: 0 2px; font-weight: bold;
+            animation: smoothLoop 5s infinite; 
+            margin: 0 1px; font-weight: bold;
         }
 
-        /* ألوان المنتجات والفواصل */
-        .p-gold { color: #f1c40f; text-shadow: 0 0 5px rgba(241, 196, 15, 0.3); } /* مجموعة القوة */
-        .p-red { color: #e74c3c; text-shadow: 0 0 5px rgba(231, 76, 60, 0.3); } /* بيسبول */
-        .p-blue { color: #3498db; text-shadow: 0 0 5px rgba(52, 152, 219, 0.3); } /* مجموعة الكلاسيك */
-        .p-green { color: #2ecc71; text-shadow: 0 0 5px rgba(46, 204, 113, 0.3); } /* زان */
-        .sep { color: #555; font-size: 0.7em; vertical-align: middle; margin: 0 2px; } /* النقط */
-        .big-sep { color: var(--gold); margin: 0 8px; font-weight: lighter; opacity: 0.7; } /* الفاصل الكبير */
+        /* ألوان فخمة */
+        .p-gold { color: #f1c40f; text-shadow: 0 0 5px rgba(241, 196, 15, 0.3); } 
+        .p-red { color: #e74c3c; text-shadow: 0 0 5px rgba(231, 76, 60, 0.3); } 
+        .p-blue { color: #3498db; text-shadow: 0 0 5px rgba(52, 152, 219, 0.3); } 
+        .p-green { color: #2ecc71; text-shadow: 0 0 5px rgba(46, 204, 113, 0.3); }
+        .p-lux { color: #9b59b6; text-shadow: 0 0 8px rgba(155, 89, 182, 0.5); } 
+        
+        .sep { color: #555; font-size: 0.7em; vertical-align: middle; margin: 0 2px; }
 
-        /* توقيتات الظهور */
+        /* التوقيتات */
         .d1 { animation-delay: 1.2s; } .d2 { animation-delay: 1.4s; } .d3 { animation-delay: 1.6s; }
         .d4 { animation-delay: 1.8s; } .d5 { animation-delay: 2.0s; } .d6 { animation-delay: 2.2s; }
         .d7 { animation-delay: 2.4s; } .d8 { animation-delay: 2.6s; } .d9 { animation-delay: 2.8s; }
         .d10 { animation-delay: 3.0s; } .d11 { animation-delay: 3.2s; }
 
-
-        /* باقي التنسيقات (زي ما هي) */
+        /* باقي التنسيقات */
         .container { max-width: 700px; margin: auto; padding: 10px 15px; }
         .section-card { background: linear-gradient(145deg, #1a1a1a, #111); border: 1px solid #333; border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
         .section-title { color: var(--gold); font-family: 'Aref Ruqaa'; font-size: 1.4em; margin-bottom: 10px; display: inline-block; border-bottom: 1px solid #444; padding-bottom: 5px; }
@@ -196,13 +196,13 @@
                 <span class="loop-word d2 sep">•</span>
                 <span class="loop-word d3 p-gold">نبوت</span>
                 <span class="loop-word d4 sep">•</span>
-                <span class="loop-word d5 p-red">بيسبول</span>
-                
-                <span class="loop-word d6 big-sep">|</span> <span class="loop-word d7 p-blue">عكاز</span>
+                <span class="loop-word d5 p-green">زان</span>
+                <span class="loop-word d6 sep">•</span>
+                <span class="loop-word d7 p-blue">عكاز</span>
                 <span class="loop-word d8 sep">•</span>
                 <span class="loop-word d9 p-blue">خرزان</span>
                 <span class="loop-word d10 sep">•</span>
-                <span class="loop-word d11 p-green">زان</span>
+                <span class="loop-word d11 p-lux">أبنوس</span>
             </div>
         </div>
     </header>
@@ -235,7 +235,7 @@
         <div class="seo-content animate-in" style="animation-delay: 0.8s;">
             <h2>مؤسسة عبد المنعم العندليب - أصل الخرزان</h2>
             <p>مرحباً بكم في المقر الرئيسي لـ <strong>مؤسسة عبد المنعم العندليب</strong> في قلب منطقة <strong>باب البحر</strong> التاريخية بالقاهرة. نحن الاسم الأعرق والمعروف بـ "<strong>عبد المنعم بتاع الخرزان</strong>".</p>
-            <p>نتميز بتوفير جميع خامات الخشب الطبيعي: <span class="highlight">شوم، نبوت، عكاز طبي، عصي خرزان، وعصا الردع (بيسبول)</span> بأسعار <span class="highlight">جملة الجملة</span>.</p>
+            <p>نتميز بتوفير جميع خامات الخشب الطبيعي: <span class="highlight">شوم، نبوت، عكاز طبي، عصي خرزان، خشب أبنوس، وخشب الزان الأصلي</span> بأسعار <span class="highlight">جملة الجملة</span>.</p>
             <p>عنواننا المميز في <strong>13 عطفة درب البرقى، كلوت بك</strong> يجعلنا المركز الرئيسي للتوزيع لجميع المحافظات.</p>
         </div>
 
