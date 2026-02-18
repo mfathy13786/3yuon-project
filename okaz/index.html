@@ -141,20 +141,47 @@
         .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .feat-item i { color: var(--primary); font-size: 1.2em; }
 
+        /* ============= تنسيق السوشيال ميديا الاحترافي ============= */
         .social-section { margin-top: 40px; margin-bottom: 20px; }
         .social-title { font-size: 0.9em; color: #ccc; margin-bottom: 15px; display: block; }
         .social-icons { display: flex; justify-content: center; gap: 20px; }
         
         .social-link {
-            width: 50px; height: 50px; border-radius: 50%;
-            background: rgba(255,255,255,0.05); border: 1px solid #333;
+            width: 45px; height: 45px; /* تصغير طفيف للحجم */
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05); /* زجاجي */
+            border: 1px solid rgba(255,255,255,0.1);
             display: flex; align-items: center; justify-content: center;
-            color: #ccc; text-decoration: none; font-size: 1.5em; transition: 0.3s;
+            color: #fff; text-decoration: none; font-size: 1.3em; 
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
         }
-        .social-link:hover {
-            transform: translateY(-5px); border-color: var(--primary);
-            color: var(--primary); box-shadow: 0 0 15px var(--primary-glow);
+        
+        /* 1. تأثير الفيسبوك */
+        .social-link.fb:hover {
+            background: #1877f2; 
+            border-color: #1877f2;
+            box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
+            transform: translateY(-5px) rotate(5deg);
         }
+
+        /* 2. تأثير الانستجرام (تدرج لوني) */
+        .social-link.insta:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border: none;
+            box-shadow: 0 0 15px rgba(220, 39, 67, 0.5);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* 3. تأثير التيك توك (جليتش) */
+        .social-link.tiktok:hover {
+            background: #000;
+            border-color: #25f4ee;
+            text-shadow: 2px 2px 0px #fe2c55, -2px -2px 0px #25f4ee;
+            box-shadow: 3px 3px 0 #fe2c55, -3px -3px 0 #25f4ee;
+            transform: translateY(-5px);
+        }
+
 
         .footer { 
             font-size: 0.85em; color: #888; margin-top: 20px; line-height: 1.8; 
@@ -175,30 +202,34 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
-        /* ====== أزرار التواصل العائمة ====== */
+        /* ====== أزرار التواصل العائمة (مصغرة) ====== */
         
         /* 1. زرار واتساب (تحت خالص) */
         .float-wa {
             position: fixed; bottom: 20px; right: 20px;
             background: #25D366; color: #fff;
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 50px; height: 50px; /* تم التصغير لـ 50 */
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2em; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 1.6em; /* تصغير الأيقونة */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             z-index: 200; transition: 0.3s; text-decoration: none;
         }
-        .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 20px #25D366; }
+        .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
 
         /* 2. زرار ماسنجر (فوق الواتساب) */
         .float-messenger {
-            position: fixed; bottom: 90px; right: 20px; /* مرفوع لفوق عشان ميركبوش على بعض */
-            background: linear-gradient(45deg, #00B2FF, #006AFF); /* لون ماسنجر الأزرق */
+            position: fixed; bottom: 80px; right: 20px; /* تعديل المسافة */
+            background: linear-gradient(45deg, #00B2FF, #006AFF); 
             color: #fff;
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 50px; height: 50px; /* تم التصغير لـ 50 */
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2em; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 1.6em; /* تصغير الأيقونة */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             z-index: 200; transition: 0.3s; text-decoration: none;
         }
-        .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
+        .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 15px #0084FF; }
 
     </style>
 </head>
@@ -301,21 +332,31 @@
         <div class="social-section fade-in" style="animation-delay: 0.65s;">
             <span class="social-title">تابع أحدث العروض والمنتجات على:</span>
             <div class="social-icons">
-                <a href="https://www.facebook.com/3yuon.okaz" target="_blank" class="social-link">
+                
+                <a href="https://www.facebook.com/3yuon.okaz" target="_blank" class="social-link fb">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                
+                <a href="#" class="social-link insta">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="#" class="social-link tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
         </div>
 
         <div class="footer fade-in" style="animation-delay: 0.7s;">
+            
             <div class="legal-links">
                 <a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a>
                 <a href="policy.html"><i class="fas fa-file-contract"></i> سياسة الاسترجاع</a>
                 <a href="https://wa.me/201550912888?text=عندي%20شكوى%20أو%20اقتراح" target="_blank" style="color:#e74c3c;"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
             </div>
+
             سوق عكاز - علامة مسجلة في عالم الأنتيكات والدفاع عن النفس<br>
+            
             <div class="dev-signature">
                 <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">
                     تنفيذ وتطوير الحلول المتكاملة لخدمات الويب والنظم الامنية عن بعد
