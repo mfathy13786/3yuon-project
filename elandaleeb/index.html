@@ -222,12 +222,12 @@
         <div class="section-card animate-in" style="animation-delay: 0.4s; border-color: var(--gold);">
             <div class="section-title"><i class="fas fa-crown"></i> إدارة الجملة وكبار التجار</div>
             <a href="https://wa.me/201149555959?text=استفسار_جملة_من_الموقع" id="btn-wholesale-wa" class="btn btn-main" target="_blank"><i class="fab fa-whatsapp" style="font-size:1.2em;"></i> تواصل مع إدارة المبيعات (طلبات الجملة)</a>
-            <a href="https://wa.me/c/201149555959" id="btn-wholesale-catalog" class="btn btn-catalog" target="_blank"><i class="fas fa-images"></i> كتالوج الأسعار والمنتجات</a>
-            <a href="https://goo.gl/maps/placeholder" class="btn btn-location" target="_blank"><i class="fas fa-map-marked-alt" style="color:#e74c3c;"></i> موقعنا على الخريطة (باب البحر)</a>
+            <a href="https://wa.me/c/201149555959" id="btn-catalog" class="btn btn-catalog" target="_blank"><i class="fas fa-images"></i> كتالوج الأسعار والمنتجات</a>
+            <a href="https://goo.gl/maps/placeholder" id="btn-location" class="btn btn-location" target="_blank"><i class="fas fa-map-marked-alt" style="color:#e74c3c;"></i> موقعنا على الخريطة (باب البحر)</a>
             <div class="social-row">
-                <a href="https://www.facebook.com/3yuon.Elandaleeb" target="_blank" class="social-icon" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/3yuon.Elandaleeb" id="btn-fb" target="_blank" class="social-icon" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                <a href="#" id="btn-ig" target="_blank" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" id="btn-tiktok" target="_blank" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
 
@@ -237,9 +237,9 @@
         </div>
 
         <div class="admin-grid animate-in" style="animation-delay: 0.7s;">
-            <a href="payment.html" class="special-btn btn-pay"><i class="fas fa-wallet"></i> طرق الدفع</a>
-            <a href="policy.html" class="special-btn btn-policy"><i class="fas fa-file-contract"></i> سياسة البيع</a>
-            <a href="about.html" class="special-btn btn-about"><i class="fas fa-info-circle"></i> من نحن</a>
+            <a href="payment.html" class="special-btn btn-pay" target="_blank"><i class="fas fa-wallet"></i> طرق الدفع</a>
+            <a href="policy.html" class="special-btn btn-policy" target="_blank"><i class="fas fa-file-contract"></i> سياسة البيع</a>
+            <a href="about.html" class="special-btn btn-about" target="_blank"><i class="fas fa-info-circle"></i> من نحن</a>
             <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
         </div>
 
@@ -263,27 +263,48 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. تتبع زرار الجملة (واتساب المعلم منعم) كـ "تواصل - Contact"
+            // 1. تتبع زرار الجملة (واتساب المعلم منعم)
             var wholesaleBtn = document.getElementById('btn-wholesale-wa');
             if(wholesaleBtn) {
                 wholesaleBtn.addEventListener('click', function() {
-                    fbq('track', 'Contact', {
-                        content_name: 'Wholesale_WhatsApp_Click',
-                        project: 'Elandaleeb'
-                    });
+                    fbq('track', 'Contact', { content_name: 'Wholesale_WhatsApp_Click' });
                 });
             }
 
-            // 2. تتبع زرار القطاعي (سوق عكاز) كحدث مخصص "RedirectToRetail"
+            // 2. تتبع زرار القطاعي (سوق عكاز)
             var retailBtn = document.getElementById('btn-retail-redirect');
             if(retailBtn) {
                 retailBtn.addEventListener('click', function() {
-                    fbq('trackCustom', 'RedirectToRetail', {
-                        content_name: 'Souq_Okaz_Button_Click',
-                        project: 'Okaz'
-                    });
+                    fbq('trackCustom', 'RedirectToRetail', { content_name: 'Souq_Okaz_Button' });
                 });
             }
+
+            // 3. تتبع زرار الكتالوج
+            var catalogBtn = document.getElementById('btn-catalog');
+            if(catalogBtn) {
+                catalogBtn.addEventListener('click', function() {
+                    fbq('trackCustom', 'ViewCatalog', { content_name: 'Catalog_Click' });
+                });
+            }
+
+            // 4. تتبع زرار الخريطة (موقعنا)
+            var locationBtn = document.getElementById('btn-location');
+            if(locationBtn) {
+                locationBtn.addEventListener('click', function() {
+                    fbq('trackCustom', 'FindLocation', { content_name: 'Map_Click' });
+                });
+            }
+
+            // 5. تتبع أيقونات السوشيال ميديا
+            var fbBtn = document.getElementById('btn-fb');
+            if(fbBtn) fbBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'Facebook' }); });
+            
+            var igBtn = document.getElementById('btn-ig');
+            if(igBtn) igBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'Instagram' }); });
+
+            var tiktokBtn = document.getElementById('btn-tiktok');
+            if(tiktokBtn) tiktokBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'TikTok' }); });
+
         });
     </script>
 
