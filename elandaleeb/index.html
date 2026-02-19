@@ -47,6 +47,21 @@
     }
     </script>
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2779858392361794');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"
+    /></noscript>
     <style>
         :root { --gold: #D4AF37; --dark: #0a0a0a; --text-light: #f0f0f0; }
         
@@ -110,13 +125,12 @@
             animation: landOnce 1s ease-out forwards; margin-bottom: 8px;
         }
 
-        /* === شريط المنتجات (تم تصغير الخط للموبايل) === */
         .products-line {
             display: block; 
-            font-size: 0.9em; /* تصغير الخط عشان يناسب الموبايل */
+            font-size: 0.9em; 
             white-space: nowrap; 
             margin-top: 5px;
-            letter-spacing: 0; /* تقليل المسافات */
+            letter-spacing: 0; 
         }
 
         .loop-word {
@@ -125,7 +139,6 @@
             margin: 0 1px; font-weight: bold;
         }
 
-        /* ألوان فخمة */
         .p-gold { color: #f1c40f; text-shadow: 0 0 5px rgba(241, 196, 15, 0.3); } 
         .p-red { color: #e74c3c; text-shadow: 0 0 5px rgba(231, 76, 60, 0.3); } 
         .p-blue { color: #3498db; text-shadow: 0 0 5px rgba(52, 152, 219, 0.3); } 
@@ -134,13 +147,11 @@
         
         .sep { color: #555; font-size: 0.7em; vertical-align: middle; margin: 0 2px; }
 
-        /* التوقيتات */
         .d1 { animation-delay: 1.2s; } .d2 { animation-delay: 1.4s; } .d3 { animation-delay: 1.6s; }
         .d4 { animation-delay: 1.8s; } .d5 { animation-delay: 2.0s; } .d6 { animation-delay: 2.2s; }
         .d7 { animation-delay: 2.4s; } .d8 { animation-delay: 2.6s; } .d9 { animation-delay: 2.8s; }
         .d10 { animation-delay: 3.0s; } .d11 { animation-delay: 3.2s; }
 
-        /* باقي التنسيقات */
         .container { max-width: 700px; margin: auto; padding: 10px 15px; }
         .section-card { background: linear-gradient(145deg, #1a1a1a, #111); border: 1px solid #333; border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
         .section-title { color: var(--gold); font-family: 'Aref Ruqaa'; font-size: 1.4em; margin-bottom: 10px; display: inline-block; border-bottom: 1px solid #444; padding-bottom: 5px; }
@@ -248,6 +259,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. تتبع زرار الجملة (واتساب المعلم منعم) كـ "تواصل - Contact"
+            var wholesaleBtn = document.getElementById('btn-wholesale-wa');
+            if(wholesaleBtn) {
+                wholesaleBtn.addEventListener('click', function() {
+                    fbq('track', 'Contact', {
+                        content_name: 'Wholesale_WhatsApp_Click',
+                        project: 'Elandaleeb'
+                    });
+                });
+            }
+
+            // 2. تتبع زرار القطاعي (سوق عكاز) كحدث مخصص "RedirectToRetail"
+            var retailBtn = document.getElementById('btn-retail-redirect');
+            if(retailBtn) {
+                retailBtn.addEventListener('click', function() {
+                    fbq('trackCustom', 'RedirectToRetail', {
+                        content_name: 'Souq_Okaz_Button_Click',
+                        project: 'Okaz'
+                    });
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
