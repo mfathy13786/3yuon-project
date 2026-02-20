@@ -32,7 +32,7 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
 
-        /* ============= 1. الشريط العلوي الثابت (Sticky Navbar) ============= */
+        /* ============= 1. الشريط العلوي الثابت ============= */
         .top-nav {
             position: sticky; top: 0; left: 0; width: 100%;
             background: rgba(10, 10, 10, 0.95);
@@ -45,7 +45,7 @@
         .nav-call { background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; animation: pulseCall 2s infinite; }
         @keyframes pulseCall { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
 
-        /* ============= الهيدر (صورة) ============= */
+        /* ============= 2. الهيدر ============= */
         .hero-container { position: relative; width: 100%; display: block; border-bottom: 4px solid var(--primary); margin-bottom: 30px; }
         .hero-image { width: 100%; height: auto; display: block; object-fit: contain; }
         @media (min-width: 768px) { .hero-container { height: 400px; } .hero-image { width: 100%; height: 100%; object-fit: contain; } }
@@ -54,40 +54,53 @@
         .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
         .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-        /* ============= 2. الأقسام والكروت (مصغرة وملمومة) ============= */
-        .container { max-width: 900px; margin: auto; padding: 15px; }
-        
-        .section-header { background: rgba(230, 126, 34, 0.1); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; font-size: 1.2em; font-family: 'Reem Kufi', sans-serif; color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); }
+        /* ============= 3. الأقسام والكروت (متجاوبة جداً) ============= */
+        .container { max-width: 900px; margin: auto; padding: 10px; }
+        .section-header { background: rgba(230, 126, 34, 0.1); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; font-size: 1.1em; font-family: 'Reem Kufi', sans-serif; color: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
 
-        /* تصغير حجم الشبكة عشان تاخد كروت اكتر */
-        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+        /* إعداد الشبكة الافتراضي (للكمبيوتر) */
+        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
         
-        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px 10px; border: 1px solid #333; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px; border: 1px solid #333; transition: 0.3s; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: flex-start; align-items: center; }
         .product-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 8px 15px var(--primary-glow); }
         
-        .p-icon { font-size: 2em; margin-bottom: 10px; display: block; }
-        .p-name { font-size: 1em; font-weight: bold; margin-bottom: 5px; display: block; color: var(--primary); }
-        .p-desc { font-size: 0.75em; color: #aaa; margin-bottom: 15px; line-height: 1.5; text-align: center; } /* خليت الوصف في النص عشان يصغر */
+        .p-icon { font-size: 2.2em; margin-bottom: 8px; display: block; }
+        .p-name { font-size: 1.1em; font-weight: bold; margin-bottom: 5px; display: block; color: var(--primary); text-align: center; }
         
+        /* تنسيق الوصف المخفي وزرار التفاصيل */
+        .p-desc-content { display: none; /* مخفي افتراضياً */ font-size: 0.75em; color: #aaa; margin-bottom: 10px; line-height: 1.5; text-align: right; width: 100%; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; box-sizing: border-box; }
+        .read-more-btn { color: #3498db; font-size: 0.8em; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; font-weight: bold; transition: 0.3s; }
+        .read-more-btn:hover { color: #fff; }
+
         .btn-buy { display: flex; justify-content: center; align-items: center; gap: 5px; width: 100%; padding: 8px; background: rgba(230, 126, 34, 0.1); color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85em; transition: 0.3s; border: 1px solid var(--primary); margin-top: auto; box-sizing: border-box; }
         .btn-buy:hover { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary-glow); }
         
-        .badge { position: absolute; top: 10px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.7em; padding: 3px 25px; transform: rotate(-45deg); font-weight: bold; z-index: 2; }
+        .badge { position: absolute; top: 10px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.6em; padding: 3px 25px; transform: rotate(-45deg); font-weight: bold; z-index: 2; }
         .badge.royal { background: #8e44ad; } .badge.medical { background: #2ecc71; color: #000; }
 
-        /* مميزات وسوشيال */
+        /* ============= السحر هنا: كارتين للموبايل ============= */
+        @media (max-width: 480px) {
+            .grid-products { 
+                grid-template-columns: repeat(2, 1fr); /* كارتين جنب بعض إجباري */
+                gap: 10px; /* مسافة أقل بين الكروت */
+            }
+            .product-card { padding: 10px 5px; } /* تقليل الحواف عشان الكارت يكفي */
+            .p-icon { font-size: 1.6em; } /* تصغير الأيقونة */
+            .p-name { font-size: 0.85em; } /* تصغير العنوان */
+            .read-more-btn { font-size: 0.7em; margin-bottom: 10px; }
+            .btn-buy { font-size: 0.75em; padding: 6px; } /* تصغير زرار الشراء */
+            .catalog-btn { font-size: 0.85em; padding: 8px 18px; }
+        }
+
+        /* مميزات وسوشيال وفوتر */
         .features-row { display: flex; justify-content: space-around; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; flex-wrap: wrap; gap: 10px; }
         .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 80px; }
         .feat-item i { color: var(--primary); font-size: 1.3em; }
-        
         .social-section { margin-top: 40px; margin-bottom: 20px; }
         .social-title { font-size: 0.9em; color: #ccc; margin-bottom: 15px; display: block; font-weight: bold; }
         .social-icons { display: flex; justify-content: center; gap: 15px; }
         .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 1.2em; transition: all 0.4s ease; }
-        .social-link.fb:hover { background: #1877f2; border-color: #1877f2; }
-        .social-link.insta:hover { background: #c32aa3; border-color: #c32aa3; }
-        .social-link.tiktok:hover { background: #fe2c55; border-color: #fe2c55; }
-
+        .social-link.fb:hover { background: #1877f2; border-color: #1877f2; } .social-link.insta:hover { background: #c32aa3; border-color: #c32aa3; } .social-link.tiktok:hover { background: #fe2c55; border-color: #fe2c55; }
         .footer { font-size: 0.8em; color: #888; margin-top: 30px; line-height: 1.8; border-top: 1px solid #333; padding: 20px 0; background: #080808; }
         .legal-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #333; }
         .legal-links a { color: #ccc; text-decoration: none; font-size: 0.9em; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
@@ -96,50 +109,20 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
-        /* ============= 3. لفت الانتباه للأزرار العائمة ============= */
-        .float-call, .float-wa, .float-messenger { 
-            position: fixed; right: 15px; width: 45px; height: 45px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-size: 1.4em; color: #fff; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; 
-        }
+        /* الأزرار العائمة واليافطة */
+        .float-call, .float-wa, .float-messenger { position: fixed; right: 15px; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4em; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; }
         .float-call { bottom: 125px; background: linear-gradient(45deg, #e74c3c, #c0392b); }
         .float-messenger { bottom: 70px; background: linear-gradient(45deg, #00B2FF, #006AFF); }
-        
-        /* زرار الواتساب بينبض */
-        .float-wa { 
-            bottom: 15px; background: #25D366; 
-            animation: pulseWA 2s infinite; 
-        }
-        @keyframes pulseWA {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* اليافطة اللي بتتحرك جنب الواتساب */
-        .contact-tooltip {
-            position: fixed; bottom: 22px; right: 70px; /* مكانها جنب الواتساب */
-            background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 6px;
-            font-size: 0.8em; font-weight: bold; z-index: 199;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            animation: bounceLeftRight 1.5s infinite;
-            pointer-events: none; white-space: nowrap;
-        }
-        /* السهم الصغير بتاع اليافطة */
-        .contact-tooltip::after {
-            content: ''; position: absolute; top: 50%; right: -5px; transform: translateY(-50%);
-            border-width: 5px 0 5px 6px; border-style: solid; border-color: transparent transparent transparent var(--primary);
-        }
-        @keyframes bounceLeftRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(-10px); }
-        }
+        .float-wa { bottom: 15px; background: #25D366; animation: pulseWA 2s infinite; }
+        @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        .contact-tooltip { position: fixed; bottom: 22px; right: 70px; background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.8em; font-weight: bold; z-index: 199; box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: bounceLeftRight 1.5s infinite; pointer-events: none; white-space: nowrap; }
+        .contact-tooltip::after { content: ''; position: absolute; top: 50%; right: -5px; transform: translateY(-50%); border-width: 5px 0 5px 6px; border-style: solid; border-color: transparent transparent transparent var(--primary); }
+        @keyframes bounceLeftRight { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-10px); } }
 
         @media (max-width: 480px) {
             .float-call, .float-wa, .float-messenger { width: 40px; height: 40px; font-size: 1.2em; right: 10px; }
             .float-call { bottom: 115px; } .float-messenger { bottom: 65px; } .float-wa { bottom: 15px; }
             .contact-tooltip { bottom: 20px; right: 60px; font-size: 0.75em; }
-            .catalog-btn { font-size: 0.85em; padding: 8px 18px; }
         }
     </style>
 </head>
@@ -154,77 +137,118 @@
         <div class="visually-hidden"><h1>سوق عكاز</h1><h2>أصل الشوم والنبوت والسيوف - جملة وقطاعي</h2></div>
         <img src="header-banner.jpg" alt="سوق عكاز - أصل الشوم والنبوت" class="hero-image">
         <div class="hero-overlay">
-            <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank">
-                <i class="fas fa-images"></i> تصفح الكتالوج الشامل
-            </a>
+            <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank"><i class="fas fa-images"></i> الكتالوج الشامل</a>
         </div>
     </header>
 
     <div class="container">
 
-        <div class="section-header fade-in"><i class="fas fa-shield-alt"></i> قسم القوة والصلابة</div>
+        <div class="section-header fade-in"><i class="fas fa-shield-alt"></i> القوة والصلابة</div>
         <div class="grid-products fade-in" style="animation-delay: 0.2s;">
             <div class="product-card">
-                <div class="badge">الأكثر مبيعاً</div>
+                <div class="badge">مبيعات</div>
                 <i class="fas fa-user-secret p-icon" style="color:#e74c3c;"></i>
                 <span class="p-name">الشوم والنبوت</span>
-                <span class="p-desc">غشيم، مسنفر، معوج، ونبوت مخروط ومزخرف.</span>
+                
+                <div class="p-desc-content">
+                    • <b>الشوم:</b> غشيم، مسنفر، معوج، متر مزخرف.<br>
+                    • <b>شرم:</b> نبوت، خشب مخروط، زوجل 60سم.<br>
+                    • <b>لوز:</b> سادة ومدهون.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الشوم</a>
             </div>
+            
             <div class="product-card">
                 <i class="fas fa-magic p-icon" style="color:#2ecc71;"></i>
                 <span class="p-name">الخرزان والباكستاني</span>
-                <span class="p-desc">وزيري مجلب، جدور، وباكستاني معوج جميع المقاسات.</span>
+                <div class="p-desc-content">
+                    • <b>الخرزان:</b> وزيري مجلب، جدور، رفيع، عكاز.<br>
+                    • <b>الباكستاني:</b> معوج مقاسات (18، 22، 25 ملي).
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الخرزان</a>
             </div>
         </div>
 
-        <div class="section-header fade-in"><i class="fas fa-crutch"></i> قسم العكاز الطبي</div>
+        <div class="section-header fade-in"><i class="fas fa-crutch"></i> العكاز الطبي</div>
         <div class="grid-products fade-in" style="animation-delay: 0.3s;">
             <div class="product-card">
                 <i class="fas fa-person-cane p-icon" style="color:#3498db;"></i>
                 <span class="p-name">عكازات الفيبر</span>
-                <span class="p-desc">بلاستيك، معدن، بيد قرن، أو بيد نحاس (12 إلى 22 ملي).</span>
+                <div class="p-desc-content">
+                    • <b>12 ملي:</b> بلاستيك، أو معدن وقرن.<br>
+                    • <b>16 ملي:</b> بيد نحاس، معدن، أو قرن.<br>
+                    • <b>22 ملي:</b> بيد فيبر، قرن، أو نحاس.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الفيبر</a>
             </div>
+            
             <div class="product-card">
                 <div class="badge medical">طبي</div>
                 <i class="fas fa-kit-medical p-icon" style="color:#f1c40f;"></i>
                 <span class="p-name">الطبي والعاج</span>
-                <span class="p-desc">استليس بقاعدة كاوتش، وعاج صناعي ضد الكسر.</span>
+                <div class="p-desc-content">
+                    • <b>عكاز استليس:</b> بقاعدة كاوتش طبي للحماية.<br>
+                    • <b>عاج صناعي:</b> ضد الكسر (بيد معدن، نحاس، حتة واحدة).
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الطبي</a>
             </div>
         </div>
 
-        <div class="section-header fade-in"><i class="fas fa-gem"></i> قسم الوجاهة والنوادر</div>
+        <div class="section-header fade-in"><i class="fas fa-gem"></i> الوجاهة والنوادر</div>
         <div class="grid-products fade-in" style="animation-delay: 0.4s;">
             <div class="product-card">
                 <i class="fas fa-tree p-icon" style="color:#e67e22;"></i>
                 <span class="p-name">الفنجي والصدف</span>
-                <span class="p-desc">فنجي بيد قرن أو نحاس، ومطعم بصدف كامل.</span>
+                <div class="p-desc-content">
+                    • <b>الفنجي:</b> سادة، بيد قرن، أو بيد نحاس.<br>
+                    • <b>الصدف:</b> فنجي مطعم بالصدف، وفنجي صدف كامل.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الصدف</a>
             </div>
+            
             <div class="product-card">
                 <i class="fas fa-leaf p-icon" style="color:#27ae60;"></i>
                 <span class="p-name">أخشاب نادرة</span>
-                <span class="p-desc">خشب ورد، صندل، إفريقي، وزان بأشكال حيوانات.</span>
+                <div class="p-desc-content">
+                    • خشب شرم بيد معدن (أشكال حيوانات).<br>
+                    • خشب ورد طبيعي وخشب صندل.<br>
+                    • خشب إفريقي، وخشب زان.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الأخشاب</a>
             </div>
         </div>
 
-        <div class="section-header fade-in"><i class="fas fa-crown"></i> القسم الملكي والتحف</div>
+        <div class="section-header fade-in"><i class="fas fa-crown"></i> القسم الملكي</div>
         <div class="grid-products fade-in" style="animation-delay: 0.5s;">
             <div class="product-card">
                 <div class="badge royal">V.I.P</div>
                 <i class="fas fa-khanda p-icon" style="color:#9b59b6;"></i>
                 <span class="p-name">سيوف مخفية</span>
-                <span class="p-desc">عكازات معدن ونحاس بداخلها سيوف وأحجار كريمة.</span>
+                <div class="p-desc-content">
+                    • عكاز نحاس بالكامل وبداخله سيف محفور.<br>
+                    • عكاز معدن بيد نحاس وسيف داخلي.<br>
+                    • مطعمة بالأحجار الكريمة.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج السيوف</a>
             </div>
+            
             <div class="product-card">
                 <i class="fas fa-gift p-icon" style="color:#f39c12;"></i>
                 <span class="p-name">خناجر وتحف</span>
-                <span class="p-desc">سيوف ديكور، خناجر، كماليات (سبح، شماسي، سجاد).</span>
+                <div class="p-desc-content">
+                    • <b>أسلحة تراثية:</b> سيوف ديكور وخناجر.<br>
+                    • <b>مقابض:</b> نحاسية وأحجار كريمة منفصلة.<br>
+                    • <b>هدايا:</b> سبح، شماسي، سجاد.
+                </div>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج التحف</a>
             </div>
         </div>
@@ -265,5 +289,20 @@
     <a href="https://m.me/3yuon.okaz" class="float-messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
     <a href="https://wa.me/201550912888" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+    <script>
+        function toggleDesc(btn) {
+            // بيجيب العنصر اللي فوق الزرار على طول (اللي هو الوصف)
+            var desc = btn.previousElementSibling;
+            
+            // لو مقفول يفتحه، ولو مفتوح يقفله
+            if (desc.style.display === "none" || desc.style.display === "") {
+                desc.style.display = "block";
+                btn.innerHTML = 'إخفاء <i class="fas fa-chevron-up"></i>';
+            } else {
+                desc.style.display = "none";
+                btn.innerHTML = 'تفاصيل أكتر <i class="fas fa-chevron-down"></i>';
+            }
+        }
+    </script>
 </body>
 </html>
