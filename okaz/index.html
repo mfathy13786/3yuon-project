@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>سوق عكاز | شوم، نبوت، عكاز طبي - بيع جملة وقطاعي</title>
-    <meta name="description" content="سوق عكاز (إدارة صلاح). وجهتك الأولى لأقوى خامات الشوم وعصي الدفاع (بيسبول) والعكاز الطبي الفاخر. بيع جملة وقطاعي، شحن لجميع المحافظات.">
-    <meta name="keywords" content="سوق عكاز, عصا بيسبول, شوم حديد, عكاز أبنوس, هدايا كبار السن, عصي دفاع عن النفس, سوق عكاز صلاح">
+    <title>سوق عكاز | شوم، عكاز طبي، سيوف مخفية، وتحف</title>
+    <meta name="description" content="سوق عكاز. أكبر تشكيل شوم، خرزان، عكازات طبية وفيبر، عاج، وعكازات ملكية مخفي بها سيوف. بيع جملة وقطاعي، شحن لجميع المحافظات.">
+    <meta name="keywords" content="شوم غشيم, خرزان وزيري, عكاز فيبر, عكاز صدف, سيوف مخفية, خناجر, عاج ضد الكسر, خشب زان, سبح, سجاد, سوق عكاز">
     <meta name="author" content="Integrated Solutions - Eng. Mohamed Fathi">
     <meta name="robots" content="index, follow">
     
-    <meta property="og:title" content="سوق عكاز | القوة والأناقة">
-    <meta property="og:description" content="تصفح كتالوج منتجاتنا (شوم - بيسبول - عكاز). متاح جملة وقطاعي.">
+    <meta property="og:title" content="سوق عكاز | متحف القوة والفخامة">
+    <meta property="og:description" content="تصفح أضخم كتالوج للعصي، العكازات الملكية، السيوف المخفية، والأخشاب النادرة.">
     <meta property="og:image" content="https://www.3yuon.com/okaz/header-banner.jpg">
     <meta property="og:url" content="https://www.3yuon.com/okaz">
     <meta property="og:type" content="product">
@@ -25,12 +25,10 @@
       "@type": "Store",
       "name": "سوق عكاز",
       "image": "https://www.3yuon.com/okaz/header-banner.jpg",
-      "description": "متجر متخصص في بيع عصي الدفاع والشوم والعكازات الفاخرة (جملة وقطاعي).",
+      "description": "متجر متخصص في بيع عصي الدفاع، الشوم، العكازات الفاخرة، والسيوف.",
       "telephone": "+201550912888",
-      "sameAs": [
-        "https://www.facebook.com/3yuon.okaz"
-      ],
-      "priceRange": "$$"
+      "sameAs": ["https://www.facebook.com/3yuon.okaz"],
+      "priceRange": "$$$"
     }
     </script>
 
@@ -56,82 +54,75 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 
-        /* ============= الهيدر الجديد (التعديل النهائي) ============= */
+        /* ============= الهيدر ============= */
         .hero-container {
-            position: relative;
-            width: 100%;
-            display: block;
-            border-bottom: 4px solid var(--primary); /* الخط البرتقالي */
-            background-color: #000;
-            margin-bottom: 40px; /* مسافة عشان الزرار مايغطيش اللي تحته */
+            position: relative; width: 100%; display: block;
+            border-bottom: 4px solid var(--primary); background-color: #000; margin-bottom: 40px;
         }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain; /* يضمن ظهور الصورة كاملة */
+        .hero-image { width: 100%; height: auto; display: block; object-fit: contain; }
+        @media (min-width: 768px) {
+            .hero-container { height: 450px; }
+            .hero-image { width: 100%; height: 100%; object-fit: contain; }
         }
-
-        /* حاوية الزرار: عشان يركب على الخط */
         .hero-overlay {
-            position: absolute;
-            bottom: 0; /* محاذاة للأسفل */
-            left: 50%; /* في المنتصف */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            /* السحر هنا: بنزله لتحت بنسبة 50% من ارتفاعه */
-            transform: translate(-50%, 50%); 
-            z-index: 10;
+            position: absolute; bottom: 0; left: 50%; width: 100%; display: flex; justify-content: center;
+            transform: translate(-50%, 50%); z-index: 10; pointer-events: none;
         }
-
-        /* كلاس لإخفاء نصوص السيو */
-        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-
-        /* زرار الكتالوج */
         .catalog-btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 1em; font-weight: bold; color: #fff; text-decoration: none;
-            background: linear-gradient(45deg, #d35400, #e67e22);
-            padding: 10px 25px; border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.8); /* ظل قوي للفصل */
-            transition: 0.3s; 
-            border: 2px solid #fff; /* إطار أبيض عشان يبان فوق الخط */
-            white-space: nowrap;
+            pointer-events: auto; display: inline-flex; align-items: center; gap: 8px;
+            font-size: 1.1em; font-weight: bold; color: #fff; text-decoration: none;
+            background: linear-gradient(45deg, #d35400, #e67e22); padding: 12px 35px; border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8); transition: 0.3s; border: 2px solid #fff; white-space: nowrap;
         }
         .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
 
-        /* باقي التنسيقات */
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .category-title { text-align: right; font-size: 1.3em; color: var(--primary); margin: 30px 10px 15px; border-right: 4px solid var(--primary); padding-right: 10px; font-weight: bold; }
-        .grid-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+        /* ============= الأقسام والكروت ============= */
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        
+        /* استايل العناوين */
+        .section-header {
+            background: rgba(230, 126, 34, 0.1); border: 1px solid var(--primary);
+            padding: 10px 20px; border-radius: 10px; margin: 50px 0 20px;
+            display: inline-block; font-size: 1.5em; font-family: 'Reem Kufi', sans-serif;
+            color: var(--primary); box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .grid-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         
         .product-card {
-            background: var(--card-bg); border-radius: 15px; padding: 15px; border: 1px solid #333;
+            background: var(--card-bg); border-radius: 15px; padding: 20px; border: 1px solid #333;
             transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .product-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px var(--primary-glow); }
         
-        .p-icon { font-size: 2.5em; margin-bottom: 10px; display: block; }
-        .fa-baseball-bat-ball { color: #e74c3c; } .fa-user-secret { color: #f39c12; } .fa-person-cane { color: #3498db; } .fa-gem { color: #9b59b6; }
+        .p-icon { font-size: 3em; margin-bottom: 15px; display: block; }
+        .p-name { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; display: block; color: var(--primary); }
+        .p-desc { font-size: 0.85em; color: #aaa; margin-bottom: 20px; line-height: 1.6; text-align: right; }
         
-        .p-name { font-size: 1.1em; font-weight: bold; margin-bottom: 5px; display: block; }
-        .p-desc { font-size: 0.75em; color: #888; margin-bottom: 15px; display: block; height: 35px; }
+        .btn-buy {
+            display: block; width: 100%; padding: 10px; background: var(--primary); color: #000;
+            text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1em; transition: 0.3s; margin-top: auto;
+        }
+        .btn-buy:hover { background: #fff; box-shadow: 0 0 15px #fff; }
         
-        .btn-buy { display: block; width: 100%; padding: 8px; background: var(--primary); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9em; transition: 0.3s; }
-        .btn-buy:hover { background: #fff; box-shadow: 0 0 10px #fff; }
+        .badge {
+            position: absolute; top: 15px; left: -30px; background: #e74c3c; color: #fff;
+            font-size: 0.8em; padding: 5px 35px; transform: rotate(-45deg); box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            font-weight: bold; z-index: 2;
+        }
+        .badge.royal { background: #8e44ad; }
+        .badge.medical { background: #2ecc71; color: #000; }
+
+        /* مميزات وسوشيال */
+        .features-row { display: flex; justify-content: space-around; margin-top: 50px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; flex-wrap: wrap; gap: 15px; }
+        .feat-item { font-size: 0.9em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 100px; }
+        .feat-item i { color: var(--primary); font-size: 1.5em; }
         
-        .badge { position: absolute; top: 10px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.7em; padding: 2px 25px; transform: rotate(-45deg); box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: pulseBadge 2s infinite; }
-        @keyframes pulseBadge { 0% { opacity: 0.8; } 50% { opacity: 1; text-shadow: 0 0 5px #fff; } 100% { opacity: 0.8; } }
-        
-        .features-row { display: flex; justify-content: space-around; margin-top: 40px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; }
-        .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .feat-item i { color: var(--primary); font-size: 1.2em; }
-        
-        /* تنسيق السوشيال ميديا */
         .social-section { margin-top: 50px; margin-bottom: 30px; }
-        .social-title { font-size: 0.95em; color: #ccc; margin-bottom: 20px; display: block; font-weight: bold; }
+        .social-title { font-size: 1em; color: #ccc; margin-bottom: 20px; display: block; font-weight: bold; }
         .social-icons { display: flex; justify-content: center; gap: 20px; }
         .social-link { width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 1.4em; transition: all 0.4s ease; backdrop-filter: blur(5px); }
         .social-link.fb:hover { background: #1877f2; border-color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.6); transform: translateY(-5px); }
@@ -139,7 +130,7 @@
         .social-link.tiktok:hover { background: #000; border-color: #25f4ee; text-shadow: 2px 2px 0px #fe2c55, -2px -2px 0px #25f4ee; box-shadow: 3px 3px 0 #fe2c55, -3px -3px 0 #25f4ee; transform: translateY(-5px); }
 
         /* الفوتر */
-        .footer { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.8; border-top: 1px solid #333; padding: 30px 0; background: #080808; }
+        .footer { font-size: 0.85em; color: #888; margin-top: 40px; line-height: 1.8; border-top: 1px solid #333; padding: 30px 0; background: #080808; }
         .legal-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #333; }
         .legal-links a { color: #ccc; text-decoration: none; font-size: 0.9em; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
         .legal-links a:hover { color: var(--primary); }
@@ -147,119 +138,150 @@
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
-        /* ============= الأزرار العائمة ============= */
-        /* النسخة القياسية */
-        .float-wa, .float-messenger {
-            position: fixed; right: 20px;
-            width: 50px; height: 50px; 
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.6em; color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 200; transition: 0.3s; text-decoration: none;
-        }
-
-        .float-wa { bottom: 20px; background: #25D366; }
-        .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 20px #25D366; }
-
-        .float-messenger { bottom: 85px; background: linear-gradient(45deg, #00B2FF, #006AFF); }
-        .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
-
-        /* === نسخة الموبايل (أصغر) === */
+        /* الأزرار العائمة */
+        .float-wa, .float-messenger { position: fixed; right: 20px; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6em; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; }
+        .float-wa { bottom: 20px; background: #25D366; } .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 20px #25D366; }
+        .float-messenger { bottom: 85px; background: linear-gradient(45deg, #00B2FF, #006AFF); } .float-messenger:hover { transform: scale(1.1); box-shadow: 0 0 20px #0084FF; }
         @media (max-width: 480px) {
-            .float-wa, .float-messenger {
-                width: 40px; height: 40px; 
-                font-size: 1.3em;
-                right: 15px;
-            }
-            .float-wa { bottom: 15px; }
-            .float-messenger { bottom: 65px; } 
-            
-            /* تظبيط مقاس زرار الكتالوج للموبايل */
-            .catalog-btn { font-size: 0.85em; padding: 8px 20px; }
+            .float-wa, .float-messenger { width: 42px; height: 42px; font-size: 1.3em; right: 15px; }
+            .float-wa { bottom: 15px; } .float-messenger { bottom: 65px; } 
+            .catalog-btn { font-size: 0.9em; padding: 8px 20px; }
         }
-
     </style>
 </head>
 <body>
 
     <header class="hero-container fade-in" style="animation-delay: 0.1s;">
-        <div class="visually-hidden">
-            <h1>سوق عكاز</h1>
-            <h2>أصل الشوم والنبوت - جملة وقطاعي</h2>
-        </div>
-
+        <div class="visually-hidden"><h1>سوق عكاز</h1><h2>أصل الشوم والنبوت والسيوف - جملة وقطاعي</h2></div>
         <img src="header-banner.jpg" alt="سوق عكاز - أصل الشوم والنبوت" class="hero-image">
-        
         <div class="hero-overlay">
             <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank">
-                <i class="fas fa-images"></i> تصفح كتالوج الصور والأسعار
+                <i class="fas fa-images"></i> تصفح الكتالوج الشامل
             </a>
         </div>
     </header>
 
     <div class="container">
 
-        <div class="category-title fade-in" style="animation-delay: 0.2s;">
-            <i class="fas fa-shield-alt"></i> قسم الدفاع والردع
-        </div>
+        <div class="section-header fade-in"><i class="fas fa-shield-alt"></i> قسم القوة والصلابة (الدفاع)</div>
         
-        <div class="grid-products fade-in" style="animation-delay: 0.3s;">
+        <div class="grid-products fade-in" style="animation-delay: 0.2s;">
             <div class="product-card">
-                <div class="badge">الأكثر طلباً</div>
-                <i class="fas fa-baseball-bat-ball p-icon"></i>
-                <span class="p-name">عصا بيسبول</span>
-                <span class="p-desc">خشب زان طبيعي، تصميم انسيابي، متوفر ألوان.</span>
-                <a href="https://wa.me/201550912888?text=السلام%20عليكم%20يا%20أستاذ%20صلاح،%20كنت%20عايز%20أعرف%20سعر%20عصا%20البيسبول" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
+                <div class="badge">الأكثر مبيعاً</div>
+                <i class="fas fa-user-secret p-icon" style="color:#e74c3c;"></i>
+                <span class="p-name">عائلة الشوم والنبوت</span>
+                <span class="p-desc">
+                    • <b>الشوم:</b> غشيم، مسنفر، معوج عكاز، متر مشغول ومزخرف.<br>
+                    • <b>شرم:</b> نبوت، خشب مخروط ومزخرف، زوجل 60سم.<br>
+                    • <b>لوز:</b> سادة ومدهون.
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بقسم%20الشوم%20والنبوت" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
             </div>
+
             <div class="product-card">
-                <i class="fas fa-user-secret p-icon"></i>
-                <span class="p-name">شوم حديد</span>
-                <span class="p-desc">شوم خشب ناشف جداً، مقاسات مختلفة للحماية.</span>
-                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20محتاج%20شومة%20خشب%20للدفاع%20عن%20النفس" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
-            </div>
-             <div class="product-card">
-                <i class="fas fa-gavel p-icon" style="color:#e67e22;"></i>
-                <span class="p-name">نبوت فتوة</span>
-                <span class="p-desc">نبوت محمل، خشب معالج، طول ووزن مثالي.</span>
-                <a href="https://wa.me/201550912888?text=مساء%20الخير،%20ممكن%20صور%20للنبوت%20الخشب؟" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
+                <i class="fas fa-magic p-icon" style="color:#2ecc71;"></i>
+                <span class="p-name">الخرزان والباكستاني</span>
+                <span class="p-desc">
+                    • <b>الخرزان:</b> وزيري مجلب، جدور، رفيع، عكاز خرزان.<br>
+                    • <b>الباكستاني:</b> معوج مقاسات (18، 22، 25 ملي).<br>
+                    • مرونة عالية وخفة وزن لا مثيل لها.
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بالخرزان%20والباكستاني" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
             </div>
         </div>
 
-        <div class="category-title fade-in" style="animation-delay: 0.4s;">
-            <i class="fas fa-crown"></i> قسم الوجاهة والهيبة
+
+        <div class="section-header fade-in"><i class="fas fa-crutch"></i> قسم العكاز الطبي والعملي</div>
+
+        <div class="grid-products fade-in" style="animation-delay: 0.3s;">
+            <div class="product-card">
+                <i class="fas fa-person-cane p-icon" style="color:#3498db;"></i>
+                <span class="p-name">عكازات الفيبر الفاخرة</span>
+                <span class="p-desc">
+                    • <b>12 ملي:</b> بلاستيك، أو معدن وقرن.<br>
+                    • <b>16 ملي:</b> بيد نحاس، معدن، أو قرن وفيبر.<br>
+                    • <b>22 ملي (محمل):</b> بيد فيبر، قرن، أو نحاس.
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بعكازات%20الفيبر" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
+            </div>
+
+            <div class="product-card">
+                <div class="badge medical">طبي وعملي</div>
+                <i class="fas fa-kit-medical p-icon" style="color:#f1c40f;"></i>
+                <span class="p-name">الطبي والعاج الصناعي</span>
+                <span class="p-desc">
+                    • <b>عكاز استليس:</b> مزود بقاعدة كاوتش طبي للحماية والانزلاق.<br>
+                    • <b>عاج صناعي ضد الكسر:</b> متوفر (بيد معدن، بيد نحاس، أو حتة واحدة).
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بالعكاز%20الطبي%20والعاج" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
+            </div>
         </div>
+
+
+        <div class="section-header fade-in"><i class="fas fa-gem"></i> قسم الوجاهة والأخشاب النادرة</div>
+
+        <div class="grid-products fade-in" style="animation-delay: 0.4s;">
+            <div class="product-card">
+                <i class="fas fa-tree p-icon" style="color:#e67e22;"></i>
+                <span class="p-name">روائع الفنجي والصدف</span>
+                <span class="p-desc">
+                    • <b>عكاز فنجي:</b> سادة، بيد قرن، أو بيد نحاس.<br>
+                    • <b>الصدف:</b> فنجي مطعم بالصدف، وفنجي صدف كامل (قمة الفخامة).
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بعكازات%20الصدف%20والفنجي" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
+            </div>
+
+            <div class="product-card">
+                <i class="fas fa-leaf p-icon" style="color:#27ae60;"></i>
+                <span class="p-name">الأخشاب الطبيعية النادرة</span>
+                <span class="p-desc">
+                    • خشب شرم بيد معدن (حيوانات وأشكال أخرى).<br>
+                    • خشب ورد طبيعي.<br>
+                    • خشب صندل ذو الرائحة المميزة.<br>
+                    • خشب إفريقي، وخشب زان أصلي.
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بالأخشاب%20النادرة" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
+            </div>
+        </div>
+
+
+        <div class="section-header fade-in"><i class="fas fa-crown"></i> القسم الملكي (سيوف وتحف)</div>
 
         <div class="grid-products fade-in" style="animation-delay: 0.5s;">
             <div class="product-card">
-                <i class="fas fa-person-cane p-icon"></i>
-                <span class="p-name">عكاز طبي</span>
-                <span class="p-desc">خشب زان، كعب كاوتش، مريح لليد جداً.</span>
-                <a href="https://wa.me/201550912888?text=لو%20سمحت%20عايز%20عكاز%20طبي%20خشب%20شيك" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
+                <div class="badge royal">V.I.P</div>
+                <i class="fas fa-khanda p-icon" style="color:#9b59b6;"></i>
+                <span class="p-name">عكازات السيوف المخفية</span>
+                <span class="p-desc">
+                    • عكاز نحاس كامل وبداخله <b>سيف نحاس محفور أسماء الله الحسنى</b> وأحجار كريمة.<br>
+                    • عكاز معدن بيد نحاس مطلية فضي وسيف داخلي.<br>
+                    • عكاز نحاس مطلي فضة بسيف، وعكاز مقبض نحاس بقاعدة.
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بعكازات%20السيوف%20الداخلية" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
             </div>
+
             <div class="product-card">
-                <div class="badge" style="background:#8e44ad;">فخامة</div>
-                <i class="fas fa-gem p-icon"></i>
-                <span class="p-name">عصا أبنوس</span>
-                <span class="p-desc">خشب أبنوس أسود ملكي، تطعيم صدف (حسب الطلب).</span>
-                <a href="https://wa.me/201550912888?text=أستاذ%20صلاح،%20مهتم%20بشراء%20عصا%20أبنوس%20فخمة" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
-            </div>
-            <div class="product-card">
-                <i class="fas fa-magic p-icon" style="color:#2ecc71;"></i>
-                <span class="p-name">عصا خرزان</span>
-                <span class="p-desc">خرزان طبيعي مرن، خفيفة وعملية.</span>
-                <a href="https://wa.me/201550912888?text=بخصوص%20عصا%20الخرزان،%20ممكن%20السعر؟" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> اطلب الآن واتساب</a>
+                <i class="fas fa-gift p-icon" style="color:#f39c12;"></i>
+                <span class="p-name">خناجر، تحف، وكماليات</span>
+                <span class="p-desc">
+                    • <b>الأسلحة التراثية:</b> سيوف ديكور وخناجر بجميع الأشكال.<br>
+                    • <b>المقابض:</b> جميع المقابض النحاسية والأحجار الكريمة المنفصلة.<br>
+                    • <b>كماليات وهدايا:</b> تشكيلة فاخرة من (السبح، الشماسي، والسجاد).
+                </span>
+                <a href="https://wa.me/201550912888?text=السلام%20عليكم،%20مهتم%20بقسم%20الخناجر%20والكماليات" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> استفسار وطلب</a>
             </div>
         </div>
+
 
         <div class="features-row fade-in" style="animation-delay: 0.6s;">
             <div class="feat-item"><i class="fas fa-truck"></i> <span>شحن لجميع المحافظات</span></div>
             <div class="feat-item"><i class="fas fa-hand-holding-dollar"></i> <span>دفع عند الاستلام</span></div>
-            <div class="feat-item"><i class="fas fa-shield-halved"></i> <span>بيع جملة وقطاعي</span></div>
+            <div class="feat-item"><i class="fas fa-shield-halved"></i> <span>خامات أصلية 100%</span></div>
+            <div class="feat-item"><i class="fas fa-tags"></i> <span>بيع جملة وقطاعي</span></div>
         </div>
 
         <div class="social-section fade-in" style="animation-delay: 0.65s;">
-            <span class="social-title">تابع أحدث العروض والمنتجات على:</span>
+            <span class="social-title">تابع أحدث العروض والتحف على:</span>
             <div class="social-icons">
                 <a href="https://www.facebook.com/3yuon.okaz" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-link insta"><i class="fab fa-instagram"></i></a>
