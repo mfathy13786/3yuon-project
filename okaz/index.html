@@ -7,33 +7,31 @@
     <title>سوق عكاز | شوم، عكاز طبي، سيوف مخفية، وتحف</title>
     <meta name="description" content="سوق عكاز. أكبر تشكيل شوم، خرزان، عكازات طبية وفيبر، عاج، وعكازات ملكية مخفي بها سيوف.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ============= الألوان الجديدة (مريحة للعين وفخمة) ============= */
+        /* ============= الألوان الغامقة (الفخامة والهيبة) ============= */
         :root { 
-            --primary: #b87333; /* لون نحاسي/خشبي فخم */
-            --primary-light: #f9f1ea; /* خلفية خفيفة جداً للأقسام */
-            --secondary: #4a2c11; /* لون بني غامق للكتابة الأساسية */
-            --bg-body: #fdfbf7; /* لون عاجي/أوف وايت مريح جداً للعين */
-            --card-bg: #ffffff; /* كروت بيضاء ناصعة */
-            --text-dark: #333333; /* رمادي غامق للقراية المريحة */
-            --text-muted: #666666; /* رمادي فاتح للوصف */
-            --border-color: #e5dfd5; /* إطار خفيف للكروت */
+            --primary: #e67e22; 
+            --primary-glow: rgba(230, 126, 34, 0.4);
+            --dark: #121212; 
+            --card-bg: #1e1e1e;
+            --text-light: #ecf0f1; 
         }
         
-        * { box-sizing: border-box; } /* لمنع خروج العناصر بره الشاشة */
+        * { box-sizing: border-box; }
 
         html, body {
-            overflow-x: hidden; /* يمنع الشاشة من الحركة يمين وشمال */
+            overflow-x: hidden; /* بيمنع الشاشة تلعب يمين وشمال */
             width: 100%; margin: 0; padding: 0;
         }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
+            background-color: var(--dark);
+            background-image: radial-gradient(circle at 50% 0%, #3e2714 0%, #0a0a0a 80%);
+            color: var(--text-light);
             text-align: center;
         }
 
@@ -43,59 +41,58 @@
         /* ============= 1. الشريط العلوي ============= */
         .top-nav {
             position: sticky; top: 0; left: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             border-bottom: 2px solid var(--primary);
             z-index: 1000; display: flex; justify-content: space-between; align-items: center;
             padding: 10px 15px; backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
         }
-        .nav-logo { font-family: 'Reem Kufi', sans-serif; font-size: 1.5em; color: var(--secondary); text-decoration: none; font-weight: bold; }
-        .nav-call { background: #e74c3c; color: #fff; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4); }
+        .nav-logo { font-family: 'Reem Kufi', sans-serif; font-size: 1.4em; color: var(--primary); text-decoration: none; text-shadow: 0 0 10px var(--primary-glow); }
+        .nav-call { background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; animation: pulseCall 2s infinite; }
+        @keyframes pulseCall { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
 
         /* ============= 2. الهيدر ============= */
-        .hero-container { position: relative; width: 100%; display: block; border-bottom: 4px solid var(--primary); margin-bottom: 40px; background-color: #fff; }
+        .hero-container { position: relative; width: 100%; display: block; border-bottom: 4px solid var(--primary); margin-bottom: 30px; background-color: #000; }
         .hero-image { width: 100%; height: auto; display: block; object-fit: contain; }
-        @media (min-width: 768px) { .hero-container { height: 400px; background: #fdfbf7; } .hero-image { width: 100%; height: 100%; object-fit: contain; } }
+        @media (min-width: 768px) { .hero-container { height: 400px; } .hero-image { width: 100%; height: 100%; object-fit: contain; } }
         
         .hero-overlay { position: absolute; bottom: 0; left: 50%; width: 100%; display: flex; justify-content: center; transform: translate(-50%, 50%); z-index: 10; pointer-events: none; }
-        
-        .catalog-btn { pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 1em; font-weight: bold; color: #fff; text-decoration: none; background: linear-gradient(45deg, var(--secondary), var(--primary)); padding: 12px 30px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; border: 3px solid #fff; white-space: nowrap; }
-        .catalog-btn:hover { transform: scale(1.05); background: var(--secondary); }
+        .catalog-btn { pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 1em; font-weight: bold; color: #fff; text-decoration: none; background: linear-gradient(45deg, #d35400, #e67e22); padding: 10px 25px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); transition: 0.3s; border: 2px solid #fff; white-space: nowrap; }
+        .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
         .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
         /* ============= 3. الأقسام والكروت ============= */
         .container { max-width: 900px; margin: auto; padding: 10px; width: 100%; }
         
-        .section-header { background: var(--primary-light); border: 1px solid var(--primary); padding: 8px 20px; border-radius: 8px; margin: 30px 0 20px; display: inline-block; font-size: 1.2em; font-family: 'Reem Kufi', sans-serif; color: var(--secondary); box-shadow: 0 4px 10px rgba(184, 115, 51, 0.1); }
+        .section-header { background: rgba(230, 126, 34, 0.1); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; font-size: 1.1em; font-family: 'Reem Kufi', sans-serif; color: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
 
         /* الشبكة المرنة للموبايل والكمبيوتر */
-        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
+        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
         
-        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px 10px; border: 1px solid var(--border-color); transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.04); display: flex; flex-direction: column; align-items: center; }
-        .product-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 8px 20px rgba(184, 115, 51, 0.15); }
+        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px 10px; border: 1px solid #333; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; }
+        .product-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 8px 15px var(--primary-glow); }
         
-        .p-icon { font-size: 2.2em; margin-bottom: 10px; display: block; color: var(--primary); }
-        .p-name { font-size: 1.05em; font-weight: 900; margin-bottom: 5px; display: block; color: var(--secondary); text-align: center; }
+        .p-icon { font-size: 2.2em; margin-bottom: 8px; display: block; color: var(--text-light); }
+        .p-name { font-size: 1.05em; font-weight: bold; margin-bottom: 5px; display: block; color: var(--primary); text-align: center; }
         
-        /* الوصف المخفي بالألوان الجديدة */
-        .p-desc-content { display: none; font-size: 0.75em; color: var(--text-muted); margin-bottom: 10px; line-height: 1.6; text-align: right; width: 100%; background: #fcfaf8; padding: 10px; border-radius: 6px; border: 1px solid #eee; }
-        .read-more-btn { color: var(--primary); font-size: 0.85em; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; font-weight: bold; transition: 0.3s; }
-        .read-more-btn:hover { color: var(--secondary); }
+        /* الوصف المخفي بالألوان الغامقة المريحة */
+        .p-desc-content { display: none; font-size: 0.75em; color: #ccc; margin-bottom: 10px; line-height: 1.6; text-align: right; width: 100%; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; border: 1px solid #444; }
+        .read-more-btn { color: #3498db; font-size: 0.85em; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; font-weight: bold; transition: 0.3s; }
+        .read-more-btn:hover { color: #fff; }
 
-        /* زرار الكتالوج جوه الكارت */
-        .btn-buy { display: flex; justify-content: center; align-items: center; gap: 5px; width: 100%; padding: 8px; background: #fff; color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85em; transition: 0.3s; border: 1px solid var(--primary); margin-top: auto; }
-        .btn-buy:hover { background: var(--primary); color: #fff; }
+        .btn-buy { display: flex; justify-content: center; align-items: center; gap: 5px; width: 100%; padding: 8px; background: rgba(230, 126, 34, 0.1); color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85em; transition: 0.3s; border: 1px solid var(--primary); margin-top: auto; }
+        .btn-buy:hover { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary-glow); }
         
-        .badge { position: absolute; top: 12px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.65em; padding: 3px 25px; transform: rotate(-45deg); font-weight: bold; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .badge { position: absolute; top: 12px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.65em; padding: 3px 25px; transform: rotate(-45deg); font-weight: bold; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .badge.royal { background: #8e44ad; } .badge.medical { background: #27ae60; color: #fff; }
 
-        /* ============= مقاسات الموبايل المضبوطة بالمللي ============= */
+        /* ============= مقاسات الموبايل (كارتين جنب بعض) ============= */
         @media (max-width: 480px) {
             .grid-products { 
                 grid-template-columns: repeat(2, 1fr); /* كارتين متساويين */
-                gap: 8px; /* مسافة بسيطة عشان الكروت تاخد راحتها */
+                gap: 8px; /* مسافة بسيطة */
             }
-            .product-card { padding: 12px 6px; } /* حواف داخلية أقل */
+            .product-card { padding: 12px 6px; }
             .p-icon { font-size: 1.8em; margin-bottom: 5px; }
             .p-name { font-size: 0.85em; }
             .read-more-btn { font-size: 0.75em; margin-bottom: 10px; }
@@ -105,36 +102,36 @@
         }
 
         /* ============= 4. الفوتر والمميزات ============= */
-        .features-row { display: flex; justify-content: space-around; margin-top: 40px; background: #fff; padding: 20px 10px; border-radius: 10px; flex-wrap: wrap; gap: 10px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .feat-item { font-size: 0.8em; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 70px; font-weight: 600; }
+        .features-row { display: flex; justify-content: space-around; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 15px 10px; border-radius: 10px; flex-wrap: wrap; gap: 10px; }
+        .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 70px; }
         .feat-item i { color: var(--primary); font-size: 1.5em; }
         
         .social-section { margin-top: 40px; margin-bottom: 20px; }
-        .social-title { font-size: 0.95em; color: var(--secondary); margin-bottom: 15px; display: block; font-weight: bold; }
+        .social-title { font-size: 0.95em; color: #ccc; margin-bottom: 15px; display: block; font-weight: bold; }
         .social-icons { display: flex; justify-content: center; gap: 15px; }
-        .social-link { width: 45px; height: 45px; border-radius: 50%; background: #fff; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--primary); text-decoration: none; font-size: 1.2em; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .social-link.fb:hover { background: #1877f2; color: #fff; border-color: #1877f2; } 
-        .social-link.insta:hover { background: #c32aa3; color: #fff; border-color: #c32aa3; } 
-        .social-link.tiktok:hover { background: #000; color: #fff; border-color: #000; }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 1.2em; transition: 0.3s; }
+        .social-link.fb:hover { background: #1877f2; border-color: #1877f2; } 
+        .social-link.insta:hover { background: #c32aa3; border-color: #c32aa3; } 
+        .social-link.tiktok:hover { background: #fe2c55; border-color: #fe2c55; }
 
-        .footer { font-size: 0.85em; color: var(--text-muted); margin-top: 40px; line-height: 1.8; border-top: 1px solid var(--border-color); padding: 25px 0; background: #fff; }
-        .legal-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
-        .legal-links a { color: var(--secondary); text-decoration: none; font-size: 0.9em; transition: 0.3s; display: flex; align-items: center; gap: 5px; font-weight: 600; }
+        .footer { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.8; border-top: 1px solid #333; padding: 20px 0; background: #080808; }
+        .legal-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #333; }
+        .legal-links a { color: #ccc; text-decoration: none; font-size: 0.9em; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
         .legal-links a:hover { color: var(--primary); }
         .dev-signature { font-size: 0.8em; margin-top: 10px; display: block; }
-        .dev-text-link { color: var(--text-muted); text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #ccc; padding-bottom: 2px; }
+        .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; }
         .dev-text-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
 
         /* ============= 5. الأزرار العائمة ============= */
-        .float-call, .float-wa, .float-messenger { position: fixed; right: 15px; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3em; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 200; transition: 0.3s; text-decoration: none; }
+        .float-call, .float-wa, .float-messenger { position: fixed; right: 15px; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3em; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 200; transition: 0.3s; text-decoration: none; }
         .float-call { bottom: 125px; background: linear-gradient(45deg, #e74c3c, #c0392b); }
         .float-messenger { bottom: 70px; background: linear-gradient(45deg, #00B2FF, #006AFF); }
         .float-wa { bottom: 15px; background: #25D366; animation: pulseWA 2s infinite; }
         
         @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
         
-        .contact-tooltip { position: fixed; bottom: 22px; right: 70px; background: var(--secondary); color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.8em; font-weight: bold; z-index: 199; box-shadow: 0 2px 5px rgba(0,0,0,0.2); animation: bounceLeftRight 1.5s infinite; pointer-events: none; white-space: nowrap; }
-        .contact-tooltip::after { content: ''; position: absolute; top: 50%; right: -5px; transform: translateY(-50%); border-width: 5px 0 5px 6px; border-style: solid; border-color: transparent transparent transparent var(--secondary); }
+        .contact-tooltip { position: fixed; bottom: 22px; right: 70px; background: var(--primary); color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.8em; font-weight: bold; z-index: 199; box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: bounceLeftRight 1.5s infinite; pointer-events: none; white-space: nowrap; }
+        .contact-tooltip::after { content: ''; position: absolute; top: 50%; right: -5px; transform: translateY(-50%); border-width: 5px 0 5px 6px; border-style: solid; border-color: transparent transparent transparent var(--primary); }
         @keyframes bounceLeftRight { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-8px); } }
 
         @media (max-width: 480px) {
@@ -165,7 +162,7 @@
         <div class="grid-products fade-in" style="animation-delay: 0.2s;">
             <div class="product-card">
                 <div class="badge">الأكثر طلباً</div>
-                <i class="fas fa-user-secret p-icon"></i>
+                <i class="fas fa-user-secret p-icon" style="color:#e74c3c;"></i>
                 <span class="p-name">الشوم والنبوت</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -177,7 +174,7 @@
             </div>
             
             <div class="product-card">
-                <i class="fas fa-magic p-icon"></i>
+                <i class="fas fa-magic p-icon" style="color:#2ecc71;"></i>
                 <span class="p-name">الخرزان والباكستاني</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -191,7 +188,7 @@
         <div class="section-header fade-in"><i class="fas fa-crutch"></i> العكاز الطبي</div>
         <div class="grid-products fade-in" style="animation-delay: 0.3s;">
             <div class="product-card">
-                <i class="fas fa-person-cane p-icon"></i>
+                <i class="fas fa-person-cane p-icon" style="color:#3498db;"></i>
                 <span class="p-name">عكازات الفيبر</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -204,7 +201,7 @@
             
             <div class="product-card">
                 <div class="badge medical">طبي وعملي</div>
-                <i class="fas fa-kit-medical p-icon"></i>
+                <i class="fas fa-kit-medical p-icon" style="color:#f1c40f;"></i>
                 <span class="p-name">الطبي والعاج</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -218,7 +215,7 @@
         <div class="section-header fade-in"><i class="fas fa-gem"></i> الوجاهة والنوادر</div>
         <div class="grid-products fade-in" style="animation-delay: 0.4s;">
             <div class="product-card">
-                <i class="fas fa-tree p-icon"></i>
+                <i class="fas fa-tree p-icon" style="color:#e67e22;"></i>
                 <span class="p-name">الفنجي والصدف</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -229,7 +226,7 @@
             </div>
             
             <div class="product-card">
-                <i class="fas fa-leaf p-icon"></i>
+                <i class="fas fa-leaf p-icon" style="color:#27ae60;"></i>
                 <span class="p-name">أخشاب نادرة</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -245,7 +242,7 @@
         <div class="grid-products fade-in" style="animation-delay: 0.5s;">
             <div class="product-card">
                 <div class="badge royal">V.I.P</div>
-                <i class="fas fa-khanda p-icon"></i>
+                <i class="fas fa-khanda p-icon" style="color:#9b59b6;"></i>
                 <span class="p-name">سيوف مخفية</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
@@ -257,7 +254,7 @@
             </div>
             
             <div class="product-card">
-                <i class="fas fa-gift p-icon"></i>
+                <i class="fas fa-gift p-icon" style="color:#f39c12;"></i>
                 <span class="p-name">خناجر وتحف</span>
                 <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
                 <div class="p-desc-content">
