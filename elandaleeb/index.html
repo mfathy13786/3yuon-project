@@ -169,7 +169,7 @@
         .btn-retail { background: linear-gradient(45deg, #1b5e20, #27ae60, #2ecc71, #1b5e20); background-size: 300% 300%; border: 2px solid #2ecc71; font-size: 1.2em; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: gradientFlow 4s ease infinite, pulseGlow 2s infinite; }
         .btn-retail i { animation: iconShake 2s ease-in-out infinite; font-size: 1.3em; }
         .social-row { display: flex; justify-content: center; gap: 25px; margin-top: 15px; padding-top: 10px; border-top: 1px solid #333; }
-        .social-icon { font-size: 1.8em; transition: 0.3s; }
+        .social-icon { font-size: 1.8em; transition: 0.3s; color: #ccc; }
         .social-icon:hover { transform: scale(1.2); }
         .fa-facebook { color: #1877f2; } .fa-instagram { color: #c32aa3; } .fa-tiktok { color: #fe2c55; }
         .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
@@ -180,14 +180,48 @@
         .seo-content h2 { color: var(--gold); font-size: 1.1em; margin-bottom: 10px; font-family: 'Aref Ruqaa'; border-bottom: 1px dashed #555; padding-bottom: 8px; }
         .seo-content p { line-height: 1.6; margin-bottom: 10px; } .highlight { color: #fff; font-weight: bold; }
         
-        /* تظبيط الفوتر وتنسيقاته */
-        .footer { font-size: 0.85em; color: #888; margin-top: 25px; line-height: 1.6; border-top: 1px solid #333; padding: 20px 0; background: #080808; }
+        .footer { font-size: 0.85em; color: #888; margin-top: 25px; line-height: 1.6; border-top: 1px solid #333; padding: 20px 0; background: #080808; padding-bottom: 80px; }
         .footer-address { color: #fff; display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9em; }
         .dev-signature { color: #555; font-size: 0.8em; display: block; }
         .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; display: inline-block; margin-bottom: 3px; }
         .dev-text-link:hover { color: var(--gold); border-bottom-color: var(--gold); cursor: pointer; }
         .dev-link { color: #aaa; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .dev-link:hover { color: #fff; text-shadow: 0 0 5px #fff; }
+
+        /* الأزرار العائمة السوداء المطورة */
+        .float-btn {
+            position: fixed;
+            right: 20px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5em;
+            color: var(--gold); 
+            background: #111; 
+            border: 1px solid #333; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            background: #000;
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); 
+        }
+
+        .float-wa { bottom: 20px; }
+        .float-messenger { bottom: 80px; }
+        .float-call { bottom: 140px; }
+
+        @media (max-width: 480px) {
+            .float-btn { width: 45px; height: 45px; font-size: 1.3em; right: 15px; }
+            .float-wa { bottom: 15px; }
+            .float-messenger { bottom: 70px; }
+            .float-call { bottom: 125px; }
+        }
     </style>
 </head>
 <body>
@@ -230,8 +264,8 @@
             
             <div class="social-row">
                 <a href="https://www.facebook.com/3yuon.Elandaleeb" id="btn-fb" target="_blank" class="social-icon" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
-                <a href="#" id="btn-ig" target="_blank" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
-                <a href="#" id="btn-tiktok" target="_blank" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/wakalet.elandaleeb/" id="btn-ig" target="_blank" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@wakalet.elandaleeb" id="btn-tiktok" target="_blank" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
 
@@ -241,10 +275,10 @@
         </div>
 
         <div class="admin-grid animate-in" style="animation-delay: 0.7s;">
-            <a href="payment.html" class="special-btn btn-pay" target="_blank"><i class="fas fa-wallet"></i> طرق الدفع</a>
-            <a href="shipping.html" class="special-btn btn-shipping" target="_blank"><i class="fas fa-truck"></i> سياسة الشحن</a>
-            <a href="policy.html" class="special-btn btn-policy" target="_blank"><i class="fas fa-file-contract"></i> سياسة البيع</a>
-            <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
+            <a href="payment.html" id="btn-pay" class="special-btn btn-pay" target="_blank"><i class="fas fa-wallet"></i> طرق الدفع</a>
+            <a href="shipping.html" id="btn-shipping" class="special-btn btn-shipping" target="_blank"><i class="fas fa-truck"></i> سياسة الشحن</a>
+            <a href="policy.html" id="btn-policy" class="special-btn btn-policy" target="_blank"><i class="fas fa-file-contract"></i> سياسة البيع</a>
+            <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" id="btn-comp" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
         </div>
 
         <div class="seo-content animate-in" style="animation-delay: 0.8s;">
@@ -263,45 +297,46 @@
         </div>
     </div>
 
+    <a href="tel:+20109111183" id="float-call" class="float-btn float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://m.me/3yuon.Elandaleeb" id="float-messenger" class="float-btn float-messenger" target="_blank" title="راسلنا على الماسنجر"><i class="fab fa-facebook-messenger"></i></a>
+    <a href="https://wa.me/201149555959" id="float-wa" class="float-btn float-wa" target="_blank" title="راسلنا على الواتساب"><i class="fab fa-whatsapp"></i></a>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            var wholesaleBtn = document.getElementById('btn-wholesale-wa');
-            if(wholesaleBtn) {
-                wholesaleBtn.addEventListener('click', function() {
-                    fbq('track', 'Contact', { content_name: 'Wholesale_WhatsApp_Click' });
-                });
+            // دالة مساعدة لربط الزرار بالحدث بسهولة
+            function setupTracking(elementId, eventName) {
+                var btn = document.getElementById(elementId);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        fbq('trackCustom', eventName);
+                    });
+                }
             }
 
-            var retailBtn = document.getElementById('btn-retail-redirect');
-            if(retailBtn) {
-                retailBtn.addEventListener('click', function() {
-                    fbq('trackCustom', 'RedirectToRetail', { content_name: 'Souq_Okaz_Button' });
-                });
-            }
-
-            var catalogBtn = document.getElementById('btn-catalog');
-            if(catalogBtn) {
-                catalogBtn.addEventListener('click', function() {
-                    fbq('trackCustom', 'ViewCatalog', { content_name: 'Catalog_Click' });
-                });
-            }
-
-            var locationBtn = document.getElementById('btn-location');
-            if(locationBtn) {
-                locationBtn.addEventListener('click', function() {
-                    fbq('trackCustom', 'FindLocation', { content_name: 'Map_Click' });
-                });
-            }
-
-            var fbBtn = document.getElementById('btn-fb');
-            if(fbBtn) fbBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'Facebook' }); });
+            // 1. أزرار القسم الرئيسي (الجملة)
+            setupTracking('btn-wholesale-wa', 'Wholesale_Main_WA');
+            setupTracking('btn-catalog', 'View_Catalog_Main');
+            setupTracking('btn-location', 'Map_Location_Click');
             
-            var igBtn = document.getElementById('btn-ig');
-            if(igBtn) igBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'Instagram' }); });
+            // 2. السوشيال ميديا
+            setupTracking('btn-fb', 'Social_Facebook');
+            setupTracking('btn-ig', 'Social_Instagram');
+            setupTracking('btn-tiktok', 'Social_TikTok');
 
-            var tiktokBtn = document.getElementById('btn-tiktok');
-            if(tiktokBtn) tiktokBtn.addEventListener('click', function() { fbq('trackCustom', 'SocialClick', { platform: 'TikTok' }); });
+            // 3. التحويل للقطاعي
+            setupTracking('btn-retail-redirect', 'Go_To_Retail_Okaz');
+
+            // 4. أزرار الإدارة (الدفع والشحن وغيرها)
+            setupTracking('btn-pay', 'Page_Payment_Methods');
+            setupTracking('btn-shipping', 'Page_Shipping_Policy');
+            setupTracking('btn-policy', 'Page_Sales_Policy');
+            setupTracking('btn-comp', 'Complaints_WhatsApp');
+
+            // 5. الأزرار العائمة (العلامات المائية)
+            setupTracking('float-call', 'Floating_Call_Button');
+            setupTracking('float-messenger', 'Floating_Messenger_Button');
+            setupTracking('float-wa', 'Floating_WhatsApp_Button');
 
         });
     </script>
