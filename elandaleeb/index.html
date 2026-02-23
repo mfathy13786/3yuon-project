@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -313,12 +312,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // دالة مساعدة لربط الزرار بالحدث بسهولة
+            // دالة مساعدة لربط الزرار بالحدث بسهولة (تم تطويرها لتبعت لجوجل وفيسبوك مع بعض)
             function setupTracking(elementId, eventName) {
                 var btn = document.getElementById(elementId);
                 if(btn) {
                     btn.addEventListener('click', function() {
-                        fbq('trackCustom', eventName);
+                        // 1. إرسال الحدث لبيكسل فيسبوك
+                        if (typeof fbq === 'function') {
+                            fbq('trackCustom', eventName);
+                        }
+                        // 2. إرسال نفس الحدث لجوجل أناليتكس في نفس اللحظة
+                        if (typeof gtag === 'function') {
+                            gtag('event', eventName);
+                        }
                     });
                 }
             }
@@ -352,5 +358,3 @@
 
 </body>
 </html>
-
-
