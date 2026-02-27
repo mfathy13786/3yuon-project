@@ -23,8 +23,8 @@
         }
     </script>
 
-    <title>عيون 3yuon | الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد</title>
-    <meta name="description" content="عيون (3yuon) - المهندس محمد فتحي. استضافة، برمجة، تسويق، وكاميرات مراقبة. خبرة 23 عاماً في الحلول التقنية المتكاملة. 01090921815">
+    <title>شبكة عيون | الحلول المتكاملة للنظم الأمنية وتطوير الويب</title>
+    <meta name="description" content="شبكة عيون (3yuon) - المهندس محمد فتحي. استضافة، برمجة، تسويق، وكاميرات مراقبة. خبرة تقنية تمتد لأكثر من 23 عاماً.">
     <meta name="keywords" content="01090921815, محمد فتحي, عيون, 3yuon, استضافة, تصميم, برمجة, تسويق, كاميرات مراقبة, الحلول المتكاملة">
     
     <script type="application/ld+json">
@@ -53,163 +53,120 @@
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"/></noscript>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root { --accent: #00f2ff; --bg: #02020a; --glass: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.1); }
+        /* ================== المتغيرات والألوان ================== */
+        :root { 
+            --cyan: #00f2ff; 
+            --blue: #0055ff;
+            --dark-bg: #050814; 
+            --card-bg: rgba(13, 17, 33, 0.7);
+            --glass-border: rgba(0, 242, 255, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold: #D4AF37;
+            --emerald: #10b981;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; line-height: 1.4; }
-        h1, h2, h3, .logo { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 85, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
+        }
+        
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        .en-text { font-family: 'Rajdhani', sans-serif; }
 
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: fixed; width: 100%; z-index: 1000; backdrop-filter: blur(10px); background: rgba(0,0,0,0.7); border-bottom: 1px solid var(--border); }
-        .logo { font-size: 1.8rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
-        .nav-links { list-style: none; display: flex; gap: 20px; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--accent); }
+        /* ================== الهيدر والناف بار ================== */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; position: fixed; width: 100%; z-index: 1000; 
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            background: rgba(5, 8, 20, 0.8); border-bottom: 1px solid var(--glass-border); 
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        .logo { font-size: 2rem; font-weight: 800; color: var(--text-main); letter-spacing: 2px; display: flex; align-items: center; gap: 8px;}
+        .logo span { color: var(--cyan); text-shadow: 0 0 10px rgba(0,242,255,0.4); }
+        .nav-links { list-style: none; display: flex; gap: 30px; font-weight: 600; }
+        .nav-links a:hover { color: var(--cyan); text-shadow: 0 0 8px rgba(0,242,255,0.5); }
+        
+        .contact-btn-nav {
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            padding: 8px 20px; border-radius: 30px; font-weight: 700; color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
+        }
+        .contact-btn-nav:hover { box-shadow: 0 4px 25px rgba(0, 242, 255, 0.6); transform: translateY(-2px); }
 
-        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(2,2,10,0.85), rgba(2,2,10,0.85)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1500&q=80') center/cover; position: relative; }
-        .hero-content { z-index: 2; padding: 20px; }
-        .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 15px; }
-        .hero-title span { color: var(--accent); text-shadow: 0 0 15px rgba(0,242,255,0.3); }
-        .hero-text { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 650px; margin-inline: auto; }
+        /* ================== قسم الـ Hero ================== */
+        .hero { 
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+            text-align: center; position: relative; padding: 100px 20px 20px;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--dark-bg)); z-index: 1;
+        }
+        .hero-content { z-index: 2; max-width: 800px; }
+        .badge-tech {
+            display: inline-block; background: rgba(0, 242, 255, 0.1); border: 1px solid var(--cyan);
+            color: var(--cyan); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;
+            font-weight: 700; margin-bottom: 20px; letter-spacing: 1px;
+        }
+        .hero-title { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; margin-bottom: 20px; line-height: 1.2; }
+        .hero-title span { 
+            background: linear-gradient(90deg, var(--cyan), var(--blue)); 
+            -webkit-background-clip: text; color: transparent; 
+        }
+        .hero-text { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
+        
+        .btn-glow {
+            position: relative; display: inline-flex; align-items: center; gap: 10px;
+            padding: 15px 40px; border-radius: 8px; font-size: 1.1rem; font-weight: 800;
+            background: var(--dark-bg); color: var(--cyan); border: 2px solid var(--cyan);
+            overflow: hidden; z-index: 1; transition: 0.4s;
+        }
+        .btn-glow::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+            background: var(--cyan); z-index: -1; transition: 0.4s ease-in-out;
+        }
+        .btn-glow:hover::before { width: 100%; }
+        .btn-glow:hover { color: var(--dark-bg); box-shadow: 0 0 20px rgba(0,242,255,0.6); }
 
-        .section { padding: 40px 5%; }
-        .section-title { margin-bottom: 30px; color: var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--glass); border: 1px solid var(--border); padding: 25px 20px; border-radius: 12px; text-align: center; transition: 0.3s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
-        .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-        .card p { font-size: 0.85rem; color: #aaa; }
+        /* ================== شريط الإحصائيات ================== */
+        .stats-container {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; 
+            padding: 40px 20px; background: rgba(255,255,255,0.02);
+            border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+            position: relative; z-index: 5;
+        }
+        .stat-item { text-align: center; }
+        .stat-num { font-size: 2.5rem; font-weight: 900; color: var(--text-main); display: block; font-family: 'Rajdhani';}
+        .stat-num span { color: var(--blue); }
+        .stat-text { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
 
-        /* ستايل روابط المشاريع الفرعية */
-        .project-link { display: inline-block; margin-top: 15px; font-size: 0.9rem; color: var(--accent); border-bottom: 1px solid transparent; }
-        .project-link:hover { border-bottom-color: var(--accent); }
+        /* ================== الأقسام العامة والكروت ================== */
+        .section { padding: 80px 5%; position: relative; z-index: 2; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: auto; }
 
-        .consult { background: var(--glass); border: 1px solid var(--accent); padding: 35px; border-radius: 15px; text-align: center; margin-top: 20px; }
-        .btn { padding: 12px 30px; border-radius: 4px; font-weight: 700; cursor: pointer; display: inline-block; transition: 0.3s; border: 2px solid var(--accent); background: var(--accent); color: #000; font-size: 0.9rem; }
-        .btn:hover { background: transparent; color: var(--accent); box-shadow: 0 0 15px var(--accent); }
-
-        footer { padding: 30px 5%; text-align: center; border-top: 1px solid var(--border); background: #010105; }
-        .footer-logo { font-size: 1.5rem; margin-bottom: 10px; color: var(--accent); }
-        .copy { font-size: 0.75rem; color: #444; margin-top: 15px; }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .hero { height: 65vh; } }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">3YUON</div>
-        <ul class="nav-links">
-            <li><a href="#hero">الرئيسية</a></li>
-            <li><a href="#services">خدماتنا</a></li>
-            <li><a href="#projects">مشاريعنا</a></li>
-            <li><a href="https://wa.me/201090921815">اتصل بنا</a></li>
-        </ul>
-    </header>
-
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">نؤمن حاضرك..<br><span>لنحمي مستقبلك</span></h1>
-            <p class="hero-text">الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد. خبرة تقنية تمتد لأكثر من 23 عاماً.</p>
-            <a href="#consult" id="btn-hero-consult" class="btn">طلب استشارة فنية</a>
-        </div>
-    </section>
-
-    <section class="section" id="services">
-        <h2 class="section-title">قطاعات الأعمال</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>الأمن والـ CCTV</h3>
-                <p>أحدث كاميرات المراقبة وأنظمة الأمان الذكية والتحكم عن بعد.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-network-wired"></i>
-                <h3>الشبكات والسيرفرات</h3>
-                <p>بنية تحتية متطورة وحلول ربط شبكي فائقة السرعة للأعمال.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-globe"></i>
-                <h3>الويب والتسويق</h3>
-                <p>استضافة سحابية، برمجة مواقع، وحلول الدعاية والإعلان الرقمي.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="projects" style="background: rgba(255,255,255,0.02);">
-        <h2 class="section-title">مشاريعنا التجارية</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fa-solid fa-crown"></i>
-                <h3>وكالة العندليب</h3>
-                <p>المورد الأول لتجار الشوم والنبوت والخرزان في مصر (جملة).</p>
-                <a href="/elandaleeb" id="home-to-elandaleeb" class="project-link">زيارة الموقع الرسمي <i class="fa-solid fa-arrow-left"></i></a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-store"></i>
-                <h3>سوق عكاز</h3>
-                <p>أكبر تشكيل عكازات طبية، سيوف، وتحف وأنتيكات (قطاعي).</p>
-                <a href="/okaz" id="home-to-okaz" class="project-link">تسوق الآن <i class="fa-solid fa-arrow-left"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="consult" id="consult">
-            <h2 style="margin-bottom:10px; font-size: 1.6rem;">هل تبحث عن <span>تميز تقني؟</span></h2>
-            <p style="margin-bottom:20px; color:#888;">فريقنا جاهز لدعم أعمالكم بخبرات تقنية بدأت منذ عام 2001.</p>
-            <a href="https://wa.me/201090921815" id="btn-wa-support" class="btn"><i class="fa-brands fa-whatsapp"></i> تواصل مع الدعم الفني</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">3<span>YUON</span></div>
-        <p style="font-size: 0.85rem; color: #888;">حلول متكاملة لخدمات الويب والنظم الأمنية</p>
-        <p class="copy">جميع الحقوق محفوظة © 2026 لـ عيون (3yuon.com)</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const CF_WORKER_URL = '/capi-track';
-
-            // دالة الإرسال المتطورة (CAPI) - جاهزة لربط البيانات مستقبلاً
-            function sendToCAPI(eventName, extraData = {}) {
-                try {
-                    const payload = { 
-                        eventName: eventName, 
-                        url: window.location.href,
-                        ...extraData 
-                    };
-                    fetch(CF_WORKER_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    }).catch(e => {}); 
-                } catch(e) {}
-            }
-
-            // تتبع زيارة الصفحة الرئيسية
-            sendToCAPI('PageView_Home');
-
-            function setupTracking(elementId, eventName) {
-                var btn = document.getElementById(elementId);
-                if(btn) {
-                    btn.addEventListener('click', function() {
-                        if (typeof fbq === 'function') { fbq('trackCustom', eventName); }
-                        if (typeof gtag === 'function') { gtag('event', eventName); }
-                        sendToCAPI(eventName);
-                    });
-                }
-            }
-
-            // ربط تتبع الأزرار والروابط في الرئيسية
-            setupTracking('btn-hero-consult', 'Home_Consultation_Click');
-            setupTracking('btn-wa-support', 'Home_WhatsApp_Support');
-            setupTracking('home-to-elandaleeb', 'Home_Go_To_Elandaleeb');
-            setupTracking('home-to-okaz', 'Home_Go_To_Okaz');
-        });
-    </script>
-</body>
-</html>
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        /* كروت الخدمات */
+        .service-card { 
+            background: var(--card-bg); border: 1px solid var(--glass-border); 
+            padding: 40px 30px; border-radius: 20px; text-align: center; transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--cyan); box-shadow: 0 10px 30px rgba(0,242,255,0.1); }
+        .service-icon { 
+            width: 7
