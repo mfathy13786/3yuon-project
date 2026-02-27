@@ -169,4 +169,211 @@
         .btn { display: flex; width: 100%; padding: 12px; margin: 8px 0; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; font-size: 1em; align-items: center; justify-content: center; gap: 10px; box-sizing: border-box; transition: all 0.3s; position: relative; overflow: hidden; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .btn-main { background: linear-gradient(135deg, #d4af37, #8a6e05); border: 1px solid var(--gold); color: #000; }
-        .btn-catalog { background: linear-gradient(135deg, #
+        .btn-catalog { background: linear-gradient(135deg, #333, #222); border: 1px solid #555; color: var(--gold); }
+        .btn-location { background: linear-gradient(135deg, #243447, #1c2a38); border: 1px solid #375a7f; color: #ecf0f1; }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes pulseGlow { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(46, 204, 113, 0.3); border-color: #fff; } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+        @keyframes iconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 75% { transform: rotate(15deg); } }
+        .btn-retail { background: linear-gradient(45deg, #1b5e20, #27ae60, #2ecc71, #1b5e20); background-size: 300% 300%; border: 2px solid #2ecc71; font-size: 1.2em; text-shadow: 0 2px 5px rgba(0,0,0,0.8); animation: gradientFlow 4s ease infinite, pulseGlow 2s infinite; }
+        .btn-retail i { animation: iconShake 2s ease-in-out infinite; font-size: 1.3em; }
+        .social-row { display: flex; justify-content: center; gap: 25px; margin-top: 15px; padding-top: 10px; border-top: 1px solid #333; }
+        .social-icon { font-size: 1.8em; transition: 0.3s; color: #ccc; }
+        .social-icon:hover { transform: scale(1.2); }
+        .fa-facebook { color: #1877f2; } .fa-instagram { color: #c32aa3; } .fa-tiktok { color: #fe2c55; }
+        .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+        .special-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 12px; text-decoration: none; font-size: 0.85em; font-weight: bold; background: rgba(255,255,255,0.03); border: 1px solid; transition: 0.3s; }
+        .special-btn:hover { background: rgba(255,255,255,0.1); transform: scale(1.02); }
+        .btn-pay { color: #f1c40f; border-color: #f1c40f; } .btn-policy { color: #3498db; border-color: #3498db; } .btn-shipping { color: #9b59b6; border-color: #9b59b6; } .btn-comp { color: #e74c3c; border-color: #e74c3c; }
+        .seo-content { text-align: right; margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 15px; font-size: 0.9em; color: #ccc; border: 1px solid #333; }
+        .seo-content h2 { color: var(--gold); font-size: 1.1em; margin-bottom: 10px; font-family: 'Aref Ruqaa'; border-bottom: 1px dashed #555; padding-bottom: 8px; }
+        .seo-content p { line-height: 1.6; margin-bottom: 10px; } .highlight { color: #fff; font-weight: bold; }
+        
+        .footer { font-size: 0.85em; color: #888; margin-top: 25px; line-height: 1.6; border-top: 1px solid #333; padding: 20px 0; background: #080808; padding-bottom: 80px; }
+        .footer-address { color: #fff; display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9em; }
+        .dev-signature { color: #555; font-size: 0.8em; display: block; }
+        .dev-text-link { color: #777; text-decoration: none; font-weight: bold; transition: 0.3s; border-bottom: 1px dotted #444; padding-bottom: 2px; display: inline-block; margin-bottom: 3px; }
+        .dev-text-link:hover { color: var(--gold); border-bottom-color: var(--gold); cursor: pointer; }
+        .dev-link { color: #aaa; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .dev-link:hover { color: #fff; text-shadow: 0 0 5px #fff; }
+
+        /* الأزرار العائمة السوداء المطورة */
+        .float-btn {
+            position: fixed;
+            right: 20px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5em;
+            color: var(--gold); 
+            background: #111; 
+            border: 1px solid #333; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            background: #000;
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); 
+        }
+
+        .float-wa { bottom: 20px; }
+        .float-messenger { bottom: 80px; }
+        .float-call { bottom: 140px; }
+
+        @media (max-width: 480px) {
+            .float-btn { width: 45px; height: 45px; font-size: 1.3em; right: 15px; }
+            .float-wa { bottom: 15px; }
+            .float-messenger { bottom: 70px; }
+            .float-call { bottom: 125px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container animate-in" style="animation-delay: 0.1s;">
+            <img src="logo.jpg" alt="مؤسسة عبد المنعم العندليب" class="logo-img">
+        </div>
+        
+        <h1 class="animate-in" style="animation-delay: 0.2s;">وكالة العندليب</h1>
+        
+        <div class="slogan-box">
+            <span class="neon-text">
+                متلفش وتدوّر كتير .. خشبنا أصيل .. وسعرنا خطير!
+            </span>
+            
+            <div class="products-line">
+                <span class="loop-word d1 p-gold">شوم</span>
+                <span class="loop-word d2 sep">•</span>
+                <span class="loop-word d3 p-gold">نبوت</span>
+                <span class="loop-word d4 sep">•</span>
+                <span class="loop-word d5 p-green">زان</span>
+                <span class="loop-word d6 sep">•</span>
+                <span class="loop-word d7 p-blue">عكاز</span>
+                <span class="loop-word d8 sep">•</span>
+                <span class="loop-word d9 p-blue">خرزان</span>
+                <span class="loop-word d10 sep">•</span>
+                <span class="loop-word d11 p-lux">أبنوس</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-card animate-in" style="animation-delay: 0.4s; border-color: var(--gold);">
+            <div class="section-title"><i class="fas fa-crown"></i> إدارة الجملة وكبار التجار</div>
+            <a href="https://wa.me/201149555959?text=استفسار_جملة_من_الموقع" id="btn-wholesale-wa" class="btn btn-main" target="_blank"><i class="fab fa-whatsapp" style="font-size:1.2em;"></i> تواصل مع إدارة المبيعات (طلبات الجملة)</a>
+            <a href="https://wa.me/c/201149555959" id="btn-catalog" class="btn btn-catalog" target="_blank"><i class="fas fa-images"></i> كتالوج الأسعار والمنتجات</a>
+            
+            <a href="https://www.google.com/maps/search/13+عطفة+درب+البرقى،+باب+البحر،+القاهرة" id="btn-location" class="btn btn-location" target="_blank"><i class="fas fa-map-marked-alt" style="color:#e74c3c;"></i> موقعنا على الخريطة (باب البحر)</a>
+            
+            <div class="social-row">
+                <a href="https://www.facebook.com/3yuon.Elandaleeb" id="btn-fb" target="_blank" class="social-icon" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/wakalet.elandaleeb/" id="btn-ig" target="_blank" class="social-icon" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@wakalet.elandaleeb" id="btn-tiktok" target="_blank" class="social-icon" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="section-card animate-in" style="animation-delay: 0.6s;">
+            <div class="retail-title"><i class="fas fa-store"></i> طلبات القطاعي والأفراد <i class="fas fa-chevron-down retail-arrow"></i></div>
+            <a href="https://www.3yuon.com/okaz" id="btn-retail-redirect" class="btn btn-retail" target="_blank"><i class="fas fa-shopping-basket"></i> اطلب قطاعي الآن من "سوق عكاز"</a>
+        </div>
+
+        <div class="admin-grid animate-in" style="animation-delay: 0.7s;">
+            <a href="payment.html" id="btn-pay" class="special-btn btn-pay" target="_blank"><i class="fas fa-wallet"></i> طرق الدفع</a>
+            <a href="shipping.html" id="btn-shipping" class="special-btn btn-shipping" target="_blank"><i class="fas fa-truck"></i> سياسة الشحن</a>
+            <a href="policy.html" id="btn-policy" class="special-btn btn-policy" target="_blank"><i class="fas fa-file-contract"></i> سياسة البيع</a>
+            <a href="https://wa.me/201149555959?text=شكوى%20بخصوص%20طلب%20جملة" id="btn-comp" class="special-btn btn-comp" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى ومقترحات</a>
+        </div>
+
+        <div class="seo-content animate-in" style="animation-delay: 0.8s;">
+            <h2>مؤسسة عبد المنعم العندليب - أصل الخرزان</h2>
+            <p>مرحباً بكم في المقر الرئيسي لـ <strong>مؤسسة عبد المنعم العندليب</strong> في قلب منطقة <strong>باب البحر</strong> التاريخية بالقاهرة. نحن الاسم الأعرق والمعروف بـ "<strong>عبد المنعم بتاع الخرزان</strong>".</p>
+            <p>نتميز بتوفير جميع خامات الخشب الطبيعي: <span class="highlight">شوم، نبوت، عكاز طبي، عصي خرزان، خشب أبنوس، وخشب الزان الأصلي</span> بأسعار <span class="highlight">جملة الجملة</span>.</p>
+            <p>عنواننا المميز في <strong>13 عطفة درب البرقى، كلوت بك</strong> يجعلنا المركز الرئيسي للتوزيع لجميع المحافظات.</p>
+        </div>
+
+        <div class="footer animate-in" style="animation-delay: 0.9s;">
+            <span class="footer-address"><i class="fas fa-map-pin"></i> المقر الرئيسي للوكالة: 13 عطفة درب البرقى، متفرع من شارع باب البحر مع كلوت بك، القاهرة</span>
+            <div class="dev-signature">
+                <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">تنفيذ وتطوير الحلول المتكاملة لخدمات الويب والنظم الامنية عن بعد</a><br>
+                <a href="https://www.3yuon.com" target="_blank" class="dev-link">Powered by 3yuon.com</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="tel:+201091111183" id="float-call" class="float-btn float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://m.me/3yuon.Elandaleeb" id="float-messenger" class="float-btn float-messenger" target="_blank" title="راسلنا على الماسنجر"><i class="fab fa-facebook-messenger"></i></a>
+    <a href="https://wa.me/201149555959" id="float-wa" class="float-btn float-wa" target="_blank" title="راسلنا على الواتساب"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // رابط الـ Worker على كلاود فلير
+            const CF_WORKER_URL = '/capi-track';
+
+            // دالة الإرسال للسيرفر (CAPI) 
+            function sendToCAPI(eventName) {
+                try {
+                    fetch(CF_WORKER_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ eventName: eventName, url: window.location.href })
+                    }).catch(e => console.log('CAPI Silent Error')); 
+                } catch(e) {}
+            }
+
+            // إرسال PageView أول ما الصفحة تفتح للسيرفر كمان
+            sendToCAPI('PageView');
+
+            // دالة مساعدة لربط الزرار بالحدث بسهولة (محدثة)
+            function setupTracking(elementId, eventName) {
+                var btn = document.getElementById(elementId);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        // 1. إرسال الحدث لبيكسل فيسبوك (Browser)
+                        if (typeof fbq === 'function') {
+                            fbq('trackCustom', eventName);
+                        }
+                        // 2. إرسال نفس الحدث لجوجل أناليتكس (Browser)
+                        if (typeof gtag === 'function') {
+                            gtag('event', eventName);
+                        }
+                        // 3. إرسال الحدث لسيرفر Cloudflare (Server-Side CAPI)
+                        sendToCAPI(eventName);
+                    });
+                }
+            }
+
+            // 1. أزرار القسم الرئيسي (الجملة)
+            setupTracking('btn-wholesale-wa', 'Wholesale_Main_WA');
+            setupTracking('btn-catalog', 'View_Catalog_Main');
+            setupTracking('btn-location', 'Map_Location_Click');
+            
+            // 2. السوشيال ميديا
+            setupTracking('btn-fb', 'Social_Facebook');
+            setupTracking('btn-ig', 'Social_Instagram');
+            setupTracking('btn-tiktok', 'Social_TikTok');
+
+            // 3. التحويل للقطاعي
+            setupTracking('btn-retail-redirect', 'Go_To_Retail_Okaz');
+
+            // 4. أزرار الإدارة (الدفع والشحن وغيرها)
+            setupTracking('btn-pay', 'Page_Payment_Methods');
+            setupTracking('btn-shipping', 'Page_Shipping_Policy');
+            setupTracking('btn-policy', 'Page_Sales_Policy');
+            setupTracking('btn-comp', 'Complaints_WhatsApp');
+
+            // 5. الأزرار العائمة (العلامات المائية)
+            setupTracking('float-call', 'Floating_Call_Button');
+            setupTracking('float-messenger', 'Floating_Messenger_Button');
+            setupTracking('float-wa', 'Floating_WhatsApp_Button');
+
+        });
+    </script>
+
+</body>
+</html>
