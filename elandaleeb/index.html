@@ -238,6 +238,19 @@
             .float-messenger { bottom: 70px; }
             .float-call { bottom: 125px; }
         }
+
+        /* 1. إخفاء أيقونات ورسائل Tawk.to بصرياً تماماً */
+        iframe[src*="tawk.to"], .tawk-min-container {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            z-index: -99999 !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 0px !important;
+            height: 0px !important;
+        }
     </style>
 </head>
 <body>
@@ -369,10 +382,28 @@
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var originalTitle = document.title;
+            var titleElement = document.querySelector('title');
+            
+            if (titleElement) {
+                // مراقبة أي تغيير يحصل في عنوان الصفحة
+                var observer = new MutationObserver(function(mutations) {
+                    if (document.title !== originalTitle) {
+                        // لو Tawk.to حاول يغير العنوان، رجعه فوراً للعنوان الأصلي
+                        document.title = originalTitle; 
+                    }
+                });
+                observer.observe(titleElement, { childList: true, characterData: true, subtree: true });
+            }
+        });
+    </script>
+
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     
-    // دالة الإخفاء البرمجي فور التحميل (لإرسال الإشعار بدون الظهور للزائر)
+    // إخفاء إضافي تأكيدي من داخل السكريبت
     Tawk_API.onLoad = function(){
         Tawk_API.hideWidget();
     };
