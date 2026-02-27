@@ -238,6 +238,14 @@
             .float-messenger { bottom: 70px; }
             .float-call { bottom: 125px; }
         }
+
+        /* الإخفاء البصري لـ Tawk.to عشان يشتغل من غير ما يظهر */
+        iframe[src*="tawk.to"] {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: -9999 !important;
+            transform: scale(0) !important;
+        }
     </style>
 </head>
 <body>
@@ -374,7 +382,7 @@
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/67bcd61303e839190977286a/1ikshas5a';
+    s1.src='https://embed.tawk.to/69a14c753ed46b1c34affa79/1jif15b13';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
