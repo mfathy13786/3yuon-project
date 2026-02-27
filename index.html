@@ -169,4 +169,205 @@
         }
         .service-card:hover { transform: translateY(-10px); border-color: var(--cyan); box-shadow: 0 10px 30px rgba(0,242,255,0.1); }
         .service-icon { 
-            width: 7
+            width: 70px; height: 70px; background: rgba(0, 242, 255, 0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+            font-size: 2rem; color: var(--cyan); transition: 0.4s;
+        }
+        .service-card:hover .service-icon { background: var(--cyan); color: var(--dark-bg); }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* كروت المشاريع (العندليب وعكاز) */
+        .project-card {
+            position: relative; border-radius: 20px; overflow: hidden; padding: 40px;
+            display: flex; flex-direction: column; justify-content: center; min-height: 280px;
+            border: 1px solid var(--glass-border); transition: 0.4s; text-align: right;
+            background-size: cover !important; background-position: center !important;
+        }
+        .project-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(5,8,20,0.95) 0%, rgba(5,8,20,0.7) 100%); z-index: 1;
+        }
+        .project-card:hover { transform: scale(1.02); border-color: var(--text-main); }
+        .project-card > * { position: relative; z-index: 2; }
+        
+        .p-brand i { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .c-gold i, .c-gold h3 { color: var(--gold); }
+        .c-emerald i, .c-emerald h3 { color: var(--emerald); }
+        
+        .project-card h3 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 800; }
+        .project-card p { color: #cbd5e1; margin-bottom: 25px; font-size: 1rem; }
+        .project-link { 
+            display: inline-flex; align-items: center; gap: 8px; font-weight: 700; 
+            padding: 10px 25px; border-radius: 8px; font-size: 0.95rem; transition: 0.3s;
+        }
+        .btn-gold { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 1px solid var(--gold); }
+        .btn-gold:hover { background: var(--gold); color: #000; }
+        .btn-emerald { background: rgba(16, 185, 129, 0.1); color: var(--emerald); border: 1px solid var(--emerald); }
+        .btn-emerald:hover { background: var(--emerald); color: #000; }
+
+        /* ================== الفوتر ================== */
+        footer { 
+            padding: 50px 5% 30px; text-align: center; border-top: 1px solid var(--glass-border); 
+            background: #02040a; position: relative; z-index: 2;
+        }
+        .footer-logo { font-size: 2rem; margin-bottom: 15px; font-weight: 900; }
+        .footer-logo span { color: var(--cyan); }
+        .social-row { display: flex; justify-content: center; gap: 20px; margin: 25px 0; }
+        .social-row a { 
+            width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            border: 1px solid var(--glass-border); transition: 0.3s;
+        }
+        .social-row a:hover { background: var(--cyan); color: var(--dark-bg); transform: translateY(-5px); }
+        .copy { font-size: 0.85rem; color: #64748b; margin-top: 20px; border-top: 1px dashed #1e293b; padding-top: 20px; }
+        .dev-link { color: var(--cyan); font-weight: bold; }
+
+        @media (max-width: 768px) { 
+            .nav-links, .contact-btn-nav { display: none; } 
+            .hero { padding-top: 120px; }
+            .hero-title { font-size: 2.2rem; }
+            .stats-container { gap: 20px; padding: 25px 10px; }
+            .stat-num { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">3YUON <span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#services">الخدمات التقنية</a></li>
+            <li><a href="#projects">المشاريع التجارية</a></li>
+        </ul>
+        <a href="https://wa.me/201090921815" id="nav-wa-btn" class="contact-btn-nav">الدعم الفني</a>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="badge-tech en-text">INTEGRATED SOLUTIONS</div>
+            <h1 class="hero-title">نؤمن حاضرك..<br><span>ونبتكر مستقبلك</span></h1>
+            <p class="hero-text">البوابة التقنية الشاملة. نقدم أحدث حلول تطوير الويب، التجارة الإلكترونية، وأنظمة المراقبة الذكية بخبرة تمتد لأكثر من 23 عاماً.</p>
+            <a href="https://wa.me/201090921815" id="hero-wa-btn" class="btn-glow"><i class="fa-brands fa-whatsapp"></i> ابدأ مشروعك الآن</a>
+        </div>
+    </section>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-num en-text">2001<span>+</span></span>
+            <span class="stat-text">بداية الخبرة التقنية</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num en-text">100<span>%</span></span>
+            <span class="stat-text">حماية واستقرار</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num en-text">24<span>/7</span></span>
+            <span class="stat-text">دعم فني عن بعد</span>
+        </div>
+    </div>
+
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>الخدمات التقنية والأمنية</h2>
+            <p>مجموعة متكاملة من الحلول التكنولوجية المصممة لرفع كفاءة أعمالك وحمايتها.</p>
+        </div>
+        <div class="grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>تطوير الويب والمتاجر</h3>
+                <p>برمجة مواقع وتطبيقات حديثة، استضافة سحابية سريعة، وبناء متاجر إلكترونية متكاملة.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>الأنظمة الأمنية (CCTV)</h3>
+                <p>تركيب وبرمجة أحدث كاميرات المراقبة، وأنظمة الأمان الذكية مع تحكم كامل عن بعد.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>التسويق الرقمي</h3>
+                <p>حملات إعلانية موجهة، تحسين محركات البحث (SEO)، وإدارة حسابات السوشيال ميديا.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="section-header">
+            <h2>مشاريعنا التجارية</h2>
+            <p>نفخر بإدارة وتطوير علامات تجارية رائدة في السوق المصري بنظام التجارة الإلكترونية.</p>
+        </div>
+        <div class="grid">
+            <div class="project-card c-gold">
+                <div class="p-brand"><i class="fa-solid fa-crown"></i></div>
+                <h3>وكالة العندليب</h3>
+                <p>المورد الأول والأساسي لتجار الشوم والنبوت والخرزان في مصر. متخصصون في البيع بنظام "جملة الجملة" للتجار.</p>
+                <div><a href="/elandaleeb" id="link-elandaleeb" class="project-link btn-gold">دخول وكالة الجملة <i class="fa-solid fa-arrow-left"></i></a></div>
+            </div>
+
+            <div class="project-card c-emerald">
+                <div class="p-brand"><i class="fa-solid fa-store"></i></div>
+                <h3>سوق عكاز</h3>
+                <p>الوجهة الأولى لطلبات القطاعي. تشكيل ضخم من العكازات الطبية، السيوف المخفية، والأنتيكات الفاخرة.</p>
+                <div><a href="/okaz" id="link-okaz" class="project-link btn-emerald">تسوق الآن قطاعي <i class="fa-solid fa-arrow-left"></i></a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo en-text">3YUON <span>.</span></div>
+        <p>المركز الرئيسي للحلول المتكاملة لخدمات الويب والنظم الأمنية</p>
+        <div class="social-row">
+            <a href="https://wa.me/201090921815" id="footer-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" id="footer-fb" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="mailto:info@3yuon.com" id="footer-mail"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="copy">جميع الحقوق محفوظة © 2026 | تطوير: <a href="https://wa.me/201090921815" class="dev-link">م/ محمد فتحي</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const CF_WORKER_URL = '/capi-track';
+
+            // دالة الإرسال الذكية للسيرفر
+            function sendToCAPI(eventName, extraData = {}) {
+                try {
+                    const payload = { 
+                        eventName: eventName, 
+                        url: window.location.href,
+                        ...extraData 
+                    };
+                    fetch(CF_WORKER_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }).catch(e => {}); 
+                } catch(e) {}
+            }
+
+            // تتبع زيارة الصفحة الرئيسية
+            sendToCAPI('PageView_Home_Main');
+
+            // دالة ربط الأزرار
+            function setupTracking(elementId, eventName) {
+                var btn = document.getElementById(elementId);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        if (typeof fbq === 'function') { fbq('trackCustom', eventName); }
+                        if (typeof gtag === 'function') { gtag('event', eventName); }
+                        sendToCAPI(eventName);
+                    });
+                }
+            }
+
+            // ربط تفاعلات الزوار
+            setupTracking('nav-wa-btn', 'Home_Nav_WhatsApp');
+            setupTracking('hero-wa-btn', 'Home_Hero_WhatsApp');
+            setupTracking('link-elandaleeb', 'Home_GoTo_Elandaleeb');
+            setupTracking('link-okaz', 'Home_GoTo_Okaz');
+            setupTracking('footer-wa', 'Home_Footer_WhatsApp');
+        });
+    </script>
+
+</body>
+</html>
