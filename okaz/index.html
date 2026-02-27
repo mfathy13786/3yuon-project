@@ -35,6 +35,7 @@
     /></noscript>
     
     <style>
+        /* ============= الألوان الغامقة (الفخامة والهيبة) ============= */
         :root { 
             --primary: #e67e22; 
             --primary-glow: rgba(230, 126, 34, 0.4);
@@ -42,8 +43,14 @@
             --card-bg: #1e1e1e;
             --text-light: #ecf0f1; 
         }
+        
         * { box-sizing: border-box; }
-        html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+
+        html, body {
+            overflow-x: hidden; 
+            width: 100%; margin: 0; padding: 0;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
             background-color: var(--dark);
@@ -51,8 +58,10 @@
             color: var(--text-light);
             text-align: center;
         }
+
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+
         .top-nav {
             position: sticky; top: 0; left: 0; width: 100%;
             background: rgba(10, 10, 10, 0.95);
@@ -64,46 +73,61 @@
         .nav-logo { font-family: 'Reem Kufi', sans-serif; font-size: 1.4em; color: var(--primary); text-decoration: none; text-shadow: 0 0 10px var(--primary-glow); }
         .nav-call { background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; animation: pulseCall 2s infinite; }
         @keyframes pulseCall { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
+
         .hero-container { position: relative; width: 100%; display: block; border-bottom: 4px solid var(--primary); margin-bottom: 30px; background-color: #000; }
         .hero-image { width: 100%; height: auto; display: block; object-fit: contain; }
         @media (min-width: 768px) { .hero-container { height: 400px; } .hero-image { width: 100%; height: 100%; object-fit: contain; } }
+        
         .hero-overlay { position: absolute; bottom: 0; left: 50%; width: 100%; display: flex; justify-content: center; transform: translate(-50%, 50%); z-index: 10; pointer-events: none; }
         .catalog-btn { pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 1em; font-weight: bold; color: #fff; text-decoration: none; background: linear-gradient(45deg, #d35400, #e67e22); padding: 10px 25px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); transition: 0.3s; border: 2px solid #fff; white-space: nowrap; }
         .catalog-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-glow); background: var(--primary); }
         .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
         .container { max-width: 900px; margin: auto; padding: 10px; width: 100%; }
         .section-header { background: rgba(230, 126, 34, 0.1); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 8px; margin: 30px 0 15px; display: inline-block; font-size: 1.1em; font-family: 'Reem Kufi', sans-serif; color: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
+
         .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
         .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px 10px; border: 1px solid #333; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; }
         .product-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 8px 15px var(--primary-glow); }
+        
         .p-icon { font-size: 2.2em; margin-bottom: 8px; display: block; color: var(--text-light); }
         .p-name { font-size: 1.05em; font-weight: bold; margin-bottom: 5px; display: block; color: var(--primary); text-align: center; }
+        
         .p-desc-content { display: none; font-size: 0.75em; color: #ccc; margin-bottom: 10px; line-height: 1.6; text-align: right; width: 100%; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; border: 1px solid #444; }
         .read-more-btn { color: #3498db; font-size: 0.85em; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; font-weight: bold; transition: 0.3s; }
         .read-more-btn:hover { color: #fff; }
+
         .btn-buy { display: flex; justify-content: center; align-items: center; gap: 5px; width: 100%; padding: 8px; background: rgba(230, 126, 34, 0.1); color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85em; transition: 0.3s; border: 1px solid var(--primary); margin-top: auto; }
         .btn-buy:hover { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary-glow); }
+        
         .badge { position: absolute; top: 12px; left: -25px; background: #e74c3c; color: #fff; font-size: 0.65em; padding: 3px 25px; transform: rotate(-45deg); font-weight: bold; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .badge.royal { background: #8e44ad; } .badge.medical { background: #27ae60; color: #fff; }
 
         @media (max-width: 480px) {
-            .grid-products { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .grid-products { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 8px; 
+            }
             .product-card { padding: 12px 6px; }
-            .p-icon { font-size: 1.8em; }
+            .p-icon { font-size: 1.8em; margin-bottom: 5px; }
             .p-name { font-size: 0.85em; }
+            .read-more-btn { font-size: 0.75em; margin-bottom: 10px; }
             .btn-buy { font-size: 0.75em; padding: 6px; }
+            .catalog-btn { font-size: 0.9em; padding: 10px 20px; }
+            .section-header { font-size: 1em; padding: 5px 15px; margin: 25px 0 10px; }
         }
 
         .features-row { display: flex; justify-content: space-around; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 15px 10px; border-radius: 10px; flex-wrap: wrap; gap: 10px; }
         .feat-item { font-size: 0.8em; color: #ccc; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 70px; }
         .feat-item i { color: var(--primary); font-size: 1.5em; }
+        
         .social-section { margin-top: 40px; margin-bottom: 20px; }
         .social-title { font-size: 0.95em; color: #ccc; margin-bottom: 15px; display: block; font-weight: bold; }
         .social-icons { display: flex; justify-content: center; gap: 15px; }
         .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 1.2em; transition: 0.3s; }
-        .social-link.fb:hover { background: #1877f2; } 
-        .social-link.insta:hover { background: #c32aa3; } 
-        .social-link.tiktok:hover { background: #fe2c55; }
+        .social-link.fb:hover { background: #1877f2; border-color: #1877f2; } 
+        .social-link.insta:hover { background: #c32aa3; border-color: #c32aa3; } 
+        .social-link.tiktok:hover { background: #fe2c55; border-color: #fe2c55; }
 
         .footer { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.8; border-top: 1px solid #333; padding: 20px 0; background: #080808; }
         .legal-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #333; }
@@ -117,10 +141,18 @@
         .float-call { bottom: 125px; background: linear-gradient(45deg, #e74c3c, #c0392b); }
         .float-messenger { bottom: 70px; background: linear-gradient(45deg, #00B2FF, #006AFF); }
         .float-wa { bottom: 15px; background: #25D366; animation: pulseWA 2s infinite; }
+        
         @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        
         .contact-tooltip { position: fixed; bottom: 22px; right: 70px; background: var(--primary); color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.8em; font-weight: bold; z-index: 199; box-shadow: 0 2px 5px rgba(0,0,0,0.5); animation: bounceLeftRight 1.5s infinite; pointer-events: none; white-space: nowrap; }
         .contact-tooltip::after { content: ''; position: absolute; top: 50%; right: -5px; transform: translateY(-50%); border-width: 5px 0 5px 6px; border-style: solid; border-color: transparent transparent transparent var(--primary); }
         @keyframes bounceLeftRight { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-8px); } }
+
+        @media (max-width: 480px) {
+            .float-call, .float-wa, .float-messenger { width: 42px; height: 42px; font-size: 1.2em; right: 10px; }
+            .float-call { bottom: 115px; } .float-messenger { bottom: 65px; } .float-wa { bottom: 15px; }
+            .contact-tooltip { bottom: 20px; right: 60px; font-size: 0.75em; }
+        }
     </style>
 </head>
 <body>
@@ -130,7 +162,8 @@
         <a href="tel:+201550912888" id="btn-nav-call" class="nav-call"><i class="fas fa-phone-alt"></i> اطلب الآن</a>
     </nav>
 
-    <header class="hero-container fade-in">
+    <header class="hero-container fade-in" style="animation-delay: 0.1s;">
+        <div class="visually-hidden"><h1>سوق عكاز</h1><h2>أصل الشوم والنبوت والسيوف - جملة وقطاعي</h2></div>
         <img src="header-banner.jpg" alt="سوق عكاز - أصل الشوم والنبوت" class="hero-image">
         <div class="hero-overlay">
             <a href="https://wa.me/c/201550912888" id="btn-main-catalog" class="catalog-btn" target="_blank"><i class="fas fa-images"></i> الكتالوج الشامل</a>
@@ -138,52 +171,166 @@
     </header>
 
     <div class="container">
-        <div class="section-header fade-in">القوة والصلابة</div>
-        <div class="grid-products fade-in">
+
+        <div class="section-header fade-in"><i class="fas fa-shield-alt"></i> القوة والصلابة</div>
+        <div class="grid-products fade-in" style="animation-delay: 0.2s;">
             <div class="product-card">
                 <div class="badge">الأكثر طلباً</div>
                 <i class="fas fa-user-secret p-icon" style="color:#e74c3c;"></i>
                 <span class="p-name">الشوم والنبوت</span>
-                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر</span>
-                <div class="p-desc-content">نبوت، خشب مخروط، زوجل 60سم.</div>
-                <a href="https://wa.me/c/201550912888" id="btn-retail-shoum" class="btn-buy" target="_blank">كتالوج الشوم</a>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>الشوم:</b> غشيم، مسنفر، معوج، متر مزخرف.<br>
+                    • <b>شرم:</b> نبوت، خشب مخروط، زوجل 60سم.<br>
+                    • <b>لوز:</b> سادة ومدهون.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-shoum" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الشوم</a>
             </div>
+            
             <div class="product-card">
                 <i class="fas fa-magic p-icon" style="color:#2ecc71;"></i>
-                <span class="p-name">الخرزان</span>
-                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر</span>
-                <div class="p-desc-content">وزيري مجلب، جدور، رفيع، عكاز.</div>
-                <a href="https://wa.me/c/201550912888" id="btn-retail-kharzan" class="btn-buy" target="_blank">كتالوج الخرزان</a>
+                <span class="p-name">الخرزان والباكستاني</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>الخرزان:</b> وزيري مجلب، جدور، رفيع، عكاز.<br>
+                    • <b>الباكستاني:</b> معوج مقاسات (18، 22، 25 ملي).
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-kharzan" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الخرزان</a>
             </div>
         </div>
 
-        <div class="footer fade-in">
-            <div class="legal-links">
-                <a href="about.html" id="btn-about-okaz">من نحن</a>
-                <a href="policy.html" id="btn-policy-okaz">سياسة الاسترجاع</a>
-                <a href="https://wa.me/201550912888" id="btn-complaint-okaz">شكاوى</a>
+        <div class="section-header fade-in"><i class="fas fa-crutch"></i> العكاز الطبي</div>
+        <div class="grid-products fade-in" style="animation-delay: 0.3s;">
+            <div class="product-card">
+                <i class="fas fa-person-cane p-icon" style="color:#3498db;"></i>
+                <span class="p-name">عكازات الفيبر</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>12 ملي:</b> بلاستيك، أو معدن وقرن.<br>
+                    • <b>16 ملي:</b> بيد نحاس، معدن، أو قرن.<br>
+                    • <b>22 ملي:</b> بيد فيبر، قرن، أو نحاس.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-fiber" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الفيبر</a>
             </div>
-            سوق عكاز - علامة مسجلة<br>
+            
+            <div class="product-card">
+                <div class="badge medical">طبي وعملي</div>
+                <i class="fas fa-kit-medical p-icon" style="color:#f1c40f;"></i>
+                <span class="p-name">الطبي والعاج</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>عكاز استليس:</b> بقاعدة كاوتش طبي للحماية.<br>
+                    • <b>عاج صناعي:</b> ضد الكسر (بيد معدن، نحاس، حتة واحدة).
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-medical" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الطبي</a>
+            </div>
+        </div>
+
+        <div class="section-header fade-in"><i class="fas fa-gem"></i> الوجاهة والنوادر</div>
+        <div class="grid-products fade-in" style="animation-delay: 0.4s;">
+            <div class="product-card">
+                <i class="fas fa-tree p-icon" style="color:#e67e22;"></i>
+                <span class="p-name">الفنجي والصدف</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>الفنجي:</b> سادة، بيد قرن، أو بيد نحاس.<br>
+                    • <b>الصدف:</b> فنجي مطعم بالصدف، وفنجي صدف كامل.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-sadaf" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الصدف</a>
+            </div>
+            
+            <div class="product-card">
+                <i class="fas fa-leaf p-icon" style="color:#27ae60;"></i>
+                <span class="p-name">أخشاب نادرة</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • خشب شرم بيد معدن (أشكال حيوانات).<br>
+                    • خشب ورد طبيعي وخشب صندل.<br>
+                    • خشب إفريقي، وخشب زان.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-rarewood" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الأخشاب</a>
+            </div>
+        </div>
+
+        <div class="section-header fade-in"><i class="fas fa-crown"></i> القسم الملكي والتحف</div>
+        <div class="grid-products fade-in" style="animation-delay: 0.5s;">
+            <div class="product-card">
+                <div class="badge royal">V.I.P</div>
+                <i class="fas fa-khanda p-icon" style="color:#9b59b6;"></i>
+                <span class="p-name">سيوف مخفية</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • عكاز نحاس بالكامل وبداخله سيف محفور.<br>
+                    • عكاز معدن بيد نحاس وسيف داخلي.<br>
+                    • مطعمة بالأحجار الكريمة.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-swords" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج السيوف</a>
+            </div>
+            
+            <div class="product-card">
+                <i class="fas fa-gift p-icon" style="color:#f39c12;"></i>
+                <span class="p-name">خناجر وتحف</span>
+                <span class="read-more-btn" onclick="toggleDesc(this)">تفاصيل أكتر <i class="fas fa-chevron-down"></i></span>
+                <div class="p-desc-content">
+                    • <b>أسلحة تراثية:</b> سيوف ديكور وخناجر.<br>
+                    • <b>مقابض:</b> نحاسية وأحجار كريمة منفصلة.<br>
+                    • <b>هدايا:</b> سبح، شماسي، سجاد.
+                </div>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-antiques" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج التحف</a>
+            </div>
+        </div>
+
+        <div class="features-row fade-in" style="animation-delay: 0.6s;">
+            <div class="feat-item"><i class="fas fa-truck"></i> <span>شحن محافظات</span></div>
+            <div class="feat-item"><i class="fas fa-hand-holding-dollar"></i> <span>دفع عند الاستلام</span></div>
+            <div class="feat-item"><i class="fas fa-shield-halved"></i> <span>خامات أصلية</span></div>
+        </div>
+
+        <div class="social-section fade-in" style="animation-delay: 0.65s;">
+            <span class="social-title">تابع أحدث العروض والتحف على:</span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/3yuon.okaz" id="btn-fb-okaz" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link insta"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer fade-in" style="animation-delay: 0.7s;">
+            <div class="legal-links">
+                <a href="about.html" id="btn-about-okaz"><i class="fas fa-info-circle"></i> من نحن</a>
+                <a href="policy.html" id="btn-policy-okaz"><i class="fas fa-file-contract"></i> سياسة الاسترجاع</a>
+                <a href="https://wa.me/201550912888?text=عندي%20شكوى" id="btn-complaint-okaz" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى</a>
+            </div>
+            سوق عكاز - علامة مسجلة في عالم الأنتيكات والدفاع عن النفس<br>
             <div class="dev-signature">
-                <a href="https://wa.me/201090921815" class="dev-text-link">تنفيذ الحلول المتكاملة</a>
+                <a href="https://wa.me/201090921815" target="_blank" class="dev-text-link">تنفيذ وتطوير الحلول المتكاملة</a><br>
+                <a href="https://www.3yuon.com" target="_blank" class="dev-link">Powered by 3yuon.com</a>
             </div>
         </div>
     </div>
 
-    <a href="tel:+201550912888" id="float-call-okaz" class="float-call"><i class="fas fa-phone-alt"></i></a>
-    <a href="https://m.me/3yuon.okaz" id="float-messenger-okaz" class="float-messenger"><i class="fab fa-facebook-messenger"></i></a>
-    <a href="https://wa.me/201550912888" id="float-wa-okaz" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+    <div class="contact-tooltip">تواصل معنا الآن 👈</div>
+
+    <a href="tel:+201550912888" id="float-call-okaz" class="float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://m.me/3yuon.okaz" id="float-messenger-okaz" class="float-messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+    <a href="https://wa.me/201550912888" id="float-wa-okaz" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function toggleDesc(btn) {
             var desc = btn.nextElementSibling;
-            desc.style.display = (desc.style.display === "none" || desc.style.display === "") ? "block" : "none";
+            if (desc.style.display === "none" || desc.style.display === "") {
+                desc.style.display = "block";
+                btn.innerHTML = 'إخفاء <i class="fas fa-chevron-up"></i>';
+            } else {
+                desc.style.display = "none";
+                btn.innerHTML = 'تفاصيل أكتر <i class="fas fa-chevron-down"></i>';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const CF_WORKER_URL = '/capi-track';
 
-            // دالة الإرسال المتطورة (جاهزة لاستقبال بيانات الفورمة وقاعدة البيانات)
+            // دالة الإرسال المتطورة - تمت البرمجة بواسطة الحلول المتكاملة
             function sendToCAPI(eventName, extraData = {}) {
                 try {
                     const payload = { 
@@ -191,6 +338,7 @@
                         url: window.location.href,
                         ...extraData 
                     };
+
                     fetch(CF_WORKER_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -199,6 +347,7 @@
                 } catch(e) {}
             }
 
+            // إرسال PageView عند الدخول
             sendToCAPI('PageView_Okaz_Retail');
 
             function setupTracking(elementId, eventName) {
@@ -216,6 +365,12 @@
             setupTracking('btn-main-catalog', 'View_Catalog_Okaz');
             setupTracking('btn-retail-shoum', 'Retail_WA_Shoum');
             setupTracking('btn-retail-kharzan', 'Retail_WA_Kharzan');
+            setupTracking('btn-retail-fiber', 'Retail_WA_Fiber');
+            setupTracking('btn-retail-medical', 'Retail_WA_Medical');
+            setupTracking('btn-retail-sadaf', 'Retail_WA_Sadaf');
+            setupTracking('btn-retail-rarewood', 'Retail_WA_RareWood');
+            setupTracking('btn-retail-swords', 'Retail_WA_Swords');
+            setupTracking('btn-retail-antiques', 'Retail_WA_Antiques');
             setupTracking('btn-fb-okaz', 'Social_Facebook_Okaz');
             setupTracking('btn-complaint-okaz', 'Complaint_WA_Okaz');
             setupTracking('float-call-okaz', 'Floating_Call_Okaz');
