@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -18,6 +17,22 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2779858392361794');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"
+    /></noscript>
     
     <style>
         /* ============= الألوان الغامقة (الفخامة والهيبة) ============= */
@@ -154,14 +169,14 @@
 
     <nav class="top-nav fade-in">
         <a href="#" class="nav-logo">سوق عكاز</a>
-        <a href="tel:+201550912888" class="nav-call"><i class="fas fa-phone-alt"></i> اطلب الآن</a>
+        <a href="tel:+201550912888" id="btn-nav-call" class="nav-call"><i class="fas fa-phone-alt"></i> اطلب الآن</a>
     </nav>
 
     <header class="hero-container fade-in" style="animation-delay: 0.1s;">
         <div class="visually-hidden"><h1>سوق عكاز</h1><h2>أصل الشوم والنبوت والسيوف - جملة وقطاعي</h2></div>
         <img src="header-banner.jpg" alt="سوق عكاز - أصل الشوم والنبوت" class="hero-image">
         <div class="hero-overlay">
-            <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank"><i class="fas fa-images"></i> الكتالوج الشامل</a>
+            <a href="https://wa.me/c/201550912888" id="btn-main-catalog" class="catalog-btn" target="_blank"><i class="fas fa-images"></i> الكتالوج الشامل</a>
         </div>
     </header>
 
@@ -179,7 +194,7 @@
                     • <b>شرم:</b> نبوت، خشب مخروط، زوجل 60سم.<br>
                     • <b>لوز:</b> سادة ومدهون.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الشوم</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-shoum" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الشوم</a>
             </div>
             
             <div class="product-card">
@@ -190,7 +205,7 @@
                     • <b>الخرزان:</b> وزيري مجلب، جدور، رفيع، عكاز.<br>
                     • <b>الباكستاني:</b> معوج مقاسات (18، 22، 25 ملي).
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الخرزان</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-kharzan" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الخرزان</a>
             </div>
         </div>
 
@@ -205,7 +220,7 @@
                     • <b>16 ملي:</b> بيد نحاس، معدن، أو قرن.<br>
                     • <b>22 ملي:</b> بيد فيبر، قرن، أو نحاس.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الفيبر</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-fiber" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الفيبر</a>
             </div>
             
             <div class="product-card">
@@ -217,7 +232,7 @@
                     • <b>عكاز استليس:</b> بقاعدة كاوتش طبي للحماية.<br>
                     • <b>عاج صناعي:</b> ضد الكسر (بيد معدن، نحاس، حتة واحدة).
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الطبي</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-medical" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الطبي</a>
             </div>
         </div>
 
@@ -231,7 +246,7 @@
                     • <b>الفنجي:</b> سادة، بيد قرن، أو بيد نحاس.<br>
                     • <b>الصدف:</b> فنجي مطعم بالصدف، وفنجي صدف كامل.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الصدف</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-sadaf" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الصدف</a>
             </div>
             
             <div class="product-card">
@@ -243,7 +258,7 @@
                     • خشب ورد طبيعي وخشب صندل.<br>
                     • خشب إفريقي، وخشب زان.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الأخشاب</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-rarewood" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج الأخشاب</a>
             </div>
         </div>
 
@@ -259,7 +274,7 @@
                     • عكاز معدن بيد نحاس وسيف داخلي.<br>
                     • مطعمة بالأحجار الكريمة.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج السيوف</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-swords" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج السيوف</a>
             </div>
             
             <div class="product-card">
@@ -271,7 +286,7 @@
                     • <b>مقابض:</b> نحاسية وأحجار كريمة منفصلة.<br>
                     • <b>هدايا:</b> سبح، شماسي، سجاد.
                 </div>
-                <a href="https://wa.me/c/201550912888" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج التحف</a>
+                <a href="https://wa.me/c/201550912888" id="btn-retail-antiques" class="btn-buy" target="_blank"><i class="fas fa-store"></i> كتالوج التحف</a>
             </div>
         </div>
 
@@ -284,7 +299,7 @@
         <div class="social-section fade-in" style="animation-delay: 0.65s;">
             <span class="social-title">تابع أحدث العروض والتحف على:</span>
             <div class="social-icons">
-                <a href="https://www.facebook.com/3yuon.okaz" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/3yuon.okaz" id="btn-fb-okaz" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-link insta"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
             </div>
@@ -292,9 +307,9 @@
 
         <div class="footer fade-in" style="animation-delay: 0.7s;">
             <div class="legal-links">
-                <a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a>
-                <a href="policy.html"><i class="fas fa-file-contract"></i> سياسة الاسترجاع</a>
-                <a href="https://wa.me/201550912888?text=عندي%20شكوى" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى</a>
+                <a href="about.html" id="btn-about-okaz"><i class="fas fa-info-circle"></i> من نحن</a>
+                <a href="policy.html" id="btn-policy-okaz"><i class="fas fa-file-contract"></i> سياسة الاسترجاع</a>
+                <a href="https://wa.me/201550912888?text=عندي%20شكوى" id="btn-complaint-okaz" target="_blank"><i class="fas fa-exclamation-triangle"></i> شكاوى</a>
             </div>
             سوق عكاز - علامة مسجلة في عالم الأنتيكات والدفاع عن النفس<br>
             <div class="dev-signature">
@@ -307,9 +322,9 @@
 
     <div class="contact-tooltip">تواصل معنا الآن 👈</div>
 
-    <a href="tel:+201550912888" class="float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
-    <a href="https://m.me/3yuon.okaz" class="float-messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-    <a href="https://wa.me/201550912888" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+201550912888" id="float-call-okaz" class="float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://m.me/3yuon.okaz" id="float-messenger-okaz" class="float-messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+    <a href="https://wa.me/201550912888" id="float-wa-okaz" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function toggleDesc(btn) {
@@ -322,6 +337,58 @@
                 btn.innerHTML = 'تفاصيل أكتر <i class="fas fa-chevron-down"></i>';
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // رابط الـ Worker (نفس المسار اللي عملناه للعندليب)
+            const CF_WORKER_URL = '/capi-track';
+
+            // دالة الإرسال للسيرفر (CAPI) 
+            function sendToCAPI(eventName) {
+                try {
+                    fetch(CF_WORKER_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ eventName: eventName, url: window.location.href })
+                    }).catch(e => console.log('CAPI Silent Error')); 
+                } catch(e) {}
+            }
+
+            // إرسال PageView عند الفتح للسيرفر
+            sendToCAPI('PageView_Okaz_Retail');
+
+            // دالة التتبع الشاملة لموقع سوق عكاز
+            function setupTracking(elementId, eventName) {
+                var btn = document.getElementById(elementId);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        // 1. فيسبوك (Browser)
+                        if (typeof fbq === 'function') { fbq('trackCustom', eventName); }
+                        // 2. جوجل (Browser)
+                        if (typeof gtag === 'function') { gtag('event', eventName); }
+                        // 3. كلاود فلير (Server-Side)
+                        sendToCAPI(eventName);
+                    });
+                }
+            }
+
+            // ربط الأزرار بالأحداث (سوق عكاز - قطاعي)
+            setupTracking('btn-nav-call', 'Retail_Call_Top');
+            setupTracking('btn-main-catalog', 'View_Catalog_Okaz');
+            setupTracking('btn-retail-shoum', 'Retail_WA_Shoum');
+            setupTracking('btn-retail-kharzan', 'Retail_WA_Kharzan');
+            setupTracking('btn-retail-fiber', 'Retail_WA_Fiber');
+            setupTracking('btn-retail-medical', 'Retail_WA_Medical');
+            setupTracking('btn-retail-sadaf', 'Retail_WA_Sadaf');
+            setupTracking('btn-retail-rarewood', 'Retail_WA_RareWood');
+            setupTracking('btn-retail-swords', 'Retail_WA_Swords');
+            setupTracking('btn-retail-antiques', 'Retail_WA_Antiques');
+            setupTracking('btn-fb-okaz', 'Social_Facebook_Okaz');
+            setupTracking('btn-complaint-okaz', 'Complaint_WA_Okaz');
+            setupTracking('float-call-okaz', 'Floating_Call_Okaz');
+            setupTracking('float-messenger-okaz', 'Floating_Messenger_Okaz');
+            setupTracking('float-wa-okaz', 'Floating_WA_Okaz');
+        });
     </script>
 </body>
 </html>
