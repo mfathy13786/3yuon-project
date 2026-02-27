@@ -24,84 +24,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root { 
-            --primary: #e67e22; 
-            --primary-glow: rgba(230, 126, 34, 0.4);
-            --dark: #121212; 
-            --card-bg: #1e1e1e;
-            --text-light: #ecf0f1; 
-        }
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2779858392361794');
+    fbq('track', 'PageView');
+    </script>
 
-        /* إخفاء أيقونة الشات Tawk.to مع الإبقاء على مراقبة الزبون */
+    <style>
+        :root { --primary: #e67e22; --dark: #121212; --card-bg: #1e1e1e; --text-light: #ecf0f1; }
+        
+        /* كود إخفاء الشات اللي طلبته */
         iframe#tawkchat-container { display: none !important; }
 
         * { box-sizing: border-box; }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--dark);
-            background-image: radial-gradient(circle at 50% 0%, #3e2714 0%, #0a0a0a 80%);
-            color: var(--text-light);
-            text-align: center;
-            margin: 0; padding: 0;
-        }
-
-        .top-nav {
-            position: sticky; top: 0; background: rgba(10, 10, 10, 0.95);
-            border-bottom: 2px solid var(--primary); z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;
-        }
-
+        html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--dark); color: var(--text-light); text-align: center; }
+        
+        .top-nav { position: sticky; top: 0; background: rgba(10, 10, 10, 0.95); border-bottom: 2px solid var(--primary); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
         .nav-logo { font-family: 'Reem Kufi', sans-serif; font-size: 1.4em; color: var(--primary); text-decoration: none; }
-        .hero-container { border-bottom: 4px solid var(--primary); background: #000; }
+        .nav-call { background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; }
+        
+        .hero-container { border-bottom: 4px solid var(--primary); background: #000; position: relative; }
         .hero-image { width: 100%; height: auto; display: block; }
+        .catalog-btn { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; border: 2px solid #fff; }
 
         .container { max-width: 900px; margin: auto; padding: 10px; }
-        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
-        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px; border: 1px solid #333; transition: 0.3s; }
-        .product-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-
-        .btn-buy { 
-            display: block; padding: 10px; background: rgba(230, 126, 34, 0.1); 
-            color: var(--primary); text-decoration: none; border-radius: 6px; 
-            border: 1px solid var(--primary); font-weight: bold; margin-top: 10px;
-        }
-
-        .footer { font-size: 0.85em; color: #888; padding: 20px 0; background: #080808; border-top: 1px solid #333; padding-bottom: 80px; }
-        .float-wa { position: fixed; bottom: 15px; right: 15px; width: 45px; height: 45px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 200; text-decoration: none; font-size: 1.3em; }
+        .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 20px; }
+        .product-card { background: var(--card-bg); border-radius: 12px; padding: 15px; border: 1px solid #333; display: flex; flex-direction: column; align-items: center; }
+        .btn-buy { width: 100%; padding: 8px; background: rgba(230, 126, 34, 0.1); color: var(--primary); text-decoration: none; border: 1px solid var(--primary); border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        
+        .footer { font-size: 0.85em; color: #888; margin-top: 30px; border-top: 1px solid #333; padding: 20px 0; background: #080808; padding-bottom: 80px; }
+        .float-wa { position: fixed; bottom: 15px; right: 15px; width: 45px; height: 45px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3em; text-decoration: none; z-index: 1000; }
     </style>
 </head>
 <body>
 
     <nav class="top-nav">
         <a href="#" class="nav-logo">سوق عكاز</a>
-        <a href="tel:+201550912888" class="nav-call" style="background: #e74c3c; color: white; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8em;">اطلب الآن</a>
+        <a href="tel:+201550912888" class="nav-call">اطلب الآن</a>
     </nav>
 
     <header class="hero-container">
         <img src="header-banner.jpg" alt="سوق عكاز" class="hero-image">
+        <a href="https://wa.me/c/201550912888" class="catalog-btn" target="_blank">الكتالوج الشامل</a>
     </header>
 
     <div class="container">
         <div class="grid-products">
             <div class="product-card">
-                <i class="fas fa-user-secret" style="font-size: 2em; color: #e67e22;"></i>
-                <h3 style="color: var(--primary);">الشوم والنبوت</h3>
-                <p style="font-size: 0.8em; color: #ccc;">أقوى أنواع الخشب الطبيعي للوجاهة والقوة.</p>
+                <i class="fas fa-user-secret" style="font-size: 2em; color: var(--primary);"></i>
+                <h3 style="margin: 10px 0;">الشوم والنبوت</h3>
                 <a href="https://wa.me/201550912888?text=أريد_استفسار_عن_أسعار_الشوم_والنبوت_قطاعي" class="btn-buy" target="_blank">طلب شراء</a>
             </div>
-
             <div class="product-card">
                 <i class="fas fa-magic" style="font-size: 2em; color: #2ecc71;"></i>
-                <h3 style="color: var(--primary);">الخرزان الأصلي</h3>
-                <p style="font-size: 0.8em; color: #ccc;">عصي خرزان وزيري وجدور خفيفة وصلبة.</p>
-                <a href="https://wa.me/201550912888?text=استفسار_عن_عصي_الخرزان_المتاحة" class="btn-buy" target="_blank">طلب شراء</a>
+                <h3 style="margin: 10px 0;">الخرزان</h3>
+                <a href="https://wa.me/201550912888?text=استفسار_عن_عصي_الخرزان_قطاعي" class="btn-buy" target="_blank">طلب شراء</a>
             </div>
         </div>
 
         <footer class="footer">
             سوق عكاز - جميع الحقوق محفوظة لـ "وكالة العندليب"<br>
-            <small>تطوير: الحلول المتكاملة - م/ محمد فتحي</small>
+            <a href="https://wa.me/201090921815" style="color:#666; text-decoration:none;">تطوير: الحلول المتكاملة - م/ محمد فتحي</a>
         </footer>
     </div>
 
