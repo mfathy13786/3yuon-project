@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DJXLTTVQ0H');
+    </script>
 
-  gtag('config', 'G-DJXLTTVQ0H');
-</script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJXLTTVQ0H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DJXLTTVQ0H');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script>
-        // إذا كان الرابط يحتوي على أي مسار إضافي غير الرئيسية، يتم التحويل فوراً
+        // سكربت التحويل الذكي للمسارات
         if (window.location.pathname !== '/' && 
             window.location.pathname !== '/index.html' && 
-            !window.location.href.includes('#')) {
+            !window.location.href.includes('#') &&
+            !window.location.pathname.startsWith('/elandaleeb') &&
+            !window.location.pathname.startsWith('/okaz')) {
             window.location.replace('/'); 
         }
     </script>
 
     <title>عيون 3yuon | الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد</title>
-    <meta name="description" content="عيون (3yuon) - محمد فتحي أحمد حسن (Mr.zabado). استضافة، برمجة، تسويق، وكاميرات مراقبة. خبرة 23 عاماً. 01090921815">
-    <meta name="keywords" content="01090921815, محمد فتحي أحمد حسن, Mohamed Fathy ahmed hassan, مستر زبادو, mr.zabadooo, Mr.zabado, عيون, 3yuon, استضافة, تصميم, برمجة, تسويق, دعاية وإعلان, سوشيال ميديا, كاميرات مراقبة">
+    <meta name="description" content="عيون (3yuon) - المهندس محمد فتحي. استضافة، برمجة، تسويق، وكاميرات مراقبة. خبرة 23 عاماً في الحلول التقنية المتكاملة. 01090921815">
+    <meta name="keywords" content="01090921815, محمد فتحي, عيون, 3yuon, استضافة, تصميم, برمجة, تسويق, كاميرات مراقبة, الحلول المتكاملة">
     
     <script type="application/ld+json">
     {
@@ -41,9 +33,25 @@
       "@type": "ProfessionalService",
       "name": "عيون 3yuon للحلول المتكاملة",
       "telephone": "+201090921815",
-      "founder": { "@type": "Person", "name": "Mohamed Fathy Ahmed Hassan", "alternateName": "Mr.zabado" }
+      "founder": { "@type": "Person", "name": "Mohamed Fathy Ahmed Hassan", "alternateName": "Mr.zabado" },
+      "url": "https://www.3yuon.com"
     }
     </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2779858392361794');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"/></noscript>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
@@ -66,12 +74,17 @@
         .hero-text { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 650px; margin-inline: auto; }
 
         .section { padding: 40px 5%; }
+        .section-title { margin-bottom: 30px; color: var(--accent); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .card { background: var(--glass); border: 1px solid var(--border); padding: 25px 20px; border-radius: 12px; text-align: center; transition: 0.3s; }
         .card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
         .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
         .card p { font-size: 0.85rem; color: #aaa; }
+
+        /* ستايل روابط المشاريع الفرعية */
+        .project-link { display: inline-block; margin-top: 15px; font-size: 0.9rem; color: var(--accent); border-bottom: 1px solid transparent; }
+        .project-link:hover { border-bottom-color: var(--accent); }
 
         .consult { background: var(--glass); border: 1px solid var(--accent); padding: 35px; border-radius: 15px; text-align: center; margin-top: 20px; }
         .btn { padding: 12px 30px; border-radius: 4px; font-weight: 700; cursor: pointer; display: inline-block; transition: 0.3s; border: 2px solid var(--accent); background: var(--accent); color: #000; font-size: 0.9rem; }
@@ -91,6 +104,7 @@
         <ul class="nav-links">
             <li><a href="#hero">الرئيسية</a></li>
             <li><a href="#services">خدماتنا</a></li>
+            <li><a href="#projects">مشاريعنا</a></li>
             <li><a href="https://wa.me/201090921815">اتصل بنا</a></li>
         </ul>
     </header>
@@ -99,11 +113,12 @@
         <div class="hero-content">
             <h1 class="hero-title">نؤمن حاضرك..<br><span>لنحمي مستقبلك</span></h1>
             <p class="hero-text">الحلول المتكاملة لخدمات الويب والنظم الأمنية عن بعد. خبرة تقنية تمتد لأكثر من 23 عاماً.</p>
-            <a href="#consult" class="btn">طلب استشارة فنية</a>
+            <a href="#consult" id="btn-hero-consult" class="btn">طلب استشارة فنية</a>
         </div>
     </section>
 
     <section class="section" id="services">
+        <h2 class="section-title">قطاعات الأعمال</h2>
         <div class="grid">
             <div class="card">
                 <i class="fa-solid fa-shield-halved"></i>
@@ -121,11 +136,31 @@
                 <p>استضافة سحابية، برمجة مواقع، وحلول الدعاية والإعلان الرقمي.</p>
             </div>
         </div>
+    </section>
 
+    <section class="section" id="projects" style="background: rgba(255,255,255,0.02);">
+        <h2 class="section-title">مشاريعنا التجارية</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-crown"></i>
+                <h3>وكالة العندليب</h3>
+                <p>المورد الأول لتجار الشوم والنبوت والخرزان في مصر (جملة).</p>
+                <a href="/elandaleeb" id="home-to-elandaleeb" class="project-link">زيارة الموقع الرسمي <i class="fa-solid fa-arrow-left"></i></a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-store"></i>
+                <h3>سوق عكاز</h3>
+                <p>أكبر تشكيل عكازات طبية، سيوف، وتحف وأنتيكات (قطاعي).</p>
+                <a href="/okaz" id="home-to-okaz" class="project-link">تسوق الآن <i class="fa-solid fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
         <div class="consult" id="consult">
             <h2 style="margin-bottom:10px; font-size: 1.6rem;">هل تبحث عن <span>تميز تقني؟</span></h2>
             <p style="margin-bottom:20px; color:#888;">فريقنا جاهز لدعم أعمالكم بخبرات تقنية بدأت منذ عام 2001.</p>
-            <a href="https://wa.me/201090921815" class="btn"><i class="fa-brands fa-whatsapp"></i> تواصل مع الدعم الفني</a>
+            <a href="https://wa.me/201090921815" id="btn-wa-support" class="btn"><i class="fa-brands fa-whatsapp"></i> تواصل مع الدعم الفني</a>
         </div>
     </section>
 
@@ -135,7 +170,46 @@
         <p class="copy">جميع الحقوق محفوظة © 2026 لـ عيون (3yuon.com)</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const CF_WORKER_URL = '/capi-track';
+
+            // دالة الإرسال المتطورة (CAPI) - جاهزة لربط البيانات مستقبلاً
+            function sendToCAPI(eventName, extraData = {}) {
+                try {
+                    const payload = { 
+                        eventName: eventName, 
+                        url: window.location.href,
+                        ...extraData 
+                    };
+                    fetch(CF_WORKER_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }).catch(e => {}); 
+                } catch(e) {}
+            }
+
+            // تتبع زيارة الصفحة الرئيسية
+            sendToCAPI('PageView_Home');
+
+            function setupTracking(elementId, eventName) {
+                var btn = document.getElementById(elementId);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        if (typeof fbq === 'function') { fbq('trackCustom', eventName); }
+                        if (typeof gtag === 'function') { gtag('event', eventName); }
+                        sendToCAPI(eventName);
+                    });
+                }
+            }
+
+            // ربط تتبع الأزرار والروابط في الرئيسية
+            setupTracking('btn-hero-consult', 'Home_Consultation_Click');
+            setupTracking('btn-wa-support', 'Home_WhatsApp_Support');
+            setupTracking('home-to-elandaleeb', 'Home_Go_To_Elandaleeb');
+            setupTracking('home-to-okaz', 'Home_Go_To_Okaz');
+        });
+    </script>
 </body>
-
 </html>
-
