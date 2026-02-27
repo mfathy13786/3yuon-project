@@ -34,6 +34,14 @@
     src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"
     /></noscript>
     
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vnv72gl138");
+    </script>
+
     <style>
         /* ============= الألوان الغامقة (الفخامة والهيبة) ============= */
         :root { 
@@ -152,6 +160,19 @@
             .float-call, .float-wa, .float-messenger { width: 42px; height: 42px; font-size: 1.2em; right: 10px; }
             .float-call { bottom: 115px; } .float-messenger { bottom: 65px; } .float-wa { bottom: 15px; }
             .contact-tooltip { bottom: 20px; right: 60px; font-size: 0.75em; }
+        }
+
+        /* الإخفاء البصري لـ Tawk.to (عشان يشتغل في صمت) */
+        iframe[src*="tawk.to"], .tawk-min-container {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            z-index: -99999 !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 0px !important;
+            height: 0px !important;
         }
     </style>
 </head>
@@ -313,7 +334,7 @@
 
     <a href="tel:+201550912888" id="float-call-okaz" class="float-call" title="اتصل بنا"><i class="fas fa-phone-alt"></i></a>
     <a href="https://m.me/3yuon.okaz" id="float-messenger-okaz" class="float-messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-    <a href="https://wa.me/201550912888" id="float-wa-okaz" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/201550912888?text=أهلاً أ/ صلاح، أود الاستفسار عن شراء قطاعي من سوق عكاز" id="float-wa-okaz" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function toggleDesc(btn) {
@@ -377,6 +398,40 @@
             setupTracking('float-messenger-okaz', 'Floating_Messenger_Okaz');
             setupTracking('float-wa-okaz', 'Floating_WA_Okaz');
         });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var originalTitle = document.title;
+            var titleElement = document.querySelector('title');
+            
+            if (titleElement) {
+                var observer = new MutationObserver(function(mutations) {
+                    if (document.title !== originalTitle) {
+                        document.title = originalTitle; 
+                    }
+                });
+                observer.observe(titleElement, { childList: true, characterData: true, subtree: true });
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    
+    // إخفاء إضافي تأكيدي من داخل السكريبت
+    Tawk_API.onLoad = function(){
+        Tawk_API.hideWidget();
+    };
+
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69a14c753ed46b1c34affa79/1jif15b13';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
     </script>
 </body>
 </html>
