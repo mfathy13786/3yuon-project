@@ -70,6 +70,15 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2779858392361794&ev=PageView&noscript=1"
     /></noscript>
+    
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vnv72gl138");
+    </script>
+
     <style>
         :root { --gold: #D4AF37; --dark: #0a0a0a; --text-light: #f0f0f0; }
         
@@ -264,7 +273,7 @@
     <div class="container">
         <div class="section-card animate-in" style="animation-delay: 0.4s; border-color: var(--gold);">
             <div class="section-title"><i class="fas fa-crown"></i> إدارة الجملة وكبار التجار</div>
-            <a href="https://wa.me/201149555959?text=استفسار_جملة_من_الموقع" id="btn-wholesale-wa" class="btn btn-main" target="_blank"><i class="fab fa-whatsapp" style="font-size:1.2em;"></i> تواصل مع إدارة المبيعات (طلبات الجملة)</a>
+            <a href="https://wa.me/201149555959?text=أريد_طلبية_جملة_من_المعلم_عبد_المنعم_العندليب" id="btn-wholesale-wa" class="btn btn-main" target="_blank"><i class="fab fa-whatsapp" style="font-size:1.2em;"></i> تواصل مع إدارة المبيعات (طلبات الجملة)</a>
             <a href="https://wa.me/c/201149555959" id="btn-catalog" class="btn btn-catalog" target="_blank"><i class="fas fa-images"></i> كتالوج الأسعار والمنتجات</a>
             
             <a href="https://www.google.com/maps/search/13+عطفة+درب+البرقى،+باب+البحر،+القاهرة" id="btn-location" class="btn btn-location" target="_blank"><i class="fas fa-map-marked-alt" style="color:#e74c3c;"></i> موقعنا على الخريطة (باب البحر)</a>
@@ -313,7 +322,6 @@
             
             const CF_WORKER_URL = '/capi-track';
 
-            // دالة الإرسال المتطورة (محدثة لتوافق نظام "صح الصح" لربط البيانات لاحقاً)
             function sendToCAPI(eventName, extraData = {}) {
                 try {
                     const payload = { 
@@ -330,24 +338,19 @@
                 } catch(e) {}
             }
 
-            // إرسال PageView عند الدخول
             sendToCAPI('PageView');
 
             function setupTracking(elementId, eventName) {
                 var btn = document.getElementById(elementId);
                 if(btn) {
                     btn.addEventListener('click', function() {
-                        // 1. فيسبوك (Browser)
                         if (typeof fbq === 'function') { fbq('trackCustom', eventName); }
-                        // 2. جوجل (Browser)
                         if (typeof gtag === 'function') { gtag('event', eventName); }
-                        // 3. كلاود فلير (Server-Side)
                         sendToCAPI(eventName);
                     });
                 }
             }
 
-            // ربط الأزرار بالأحداث (وكالة العندليب)
             setupTracking('btn-wholesale-wa', 'Wholesale_Main_WA');
             setupTracking('btn-catalog', 'View_Catalog_Main');
             setupTracking('btn-location', 'Map_Location_Click');
@@ -366,5 +369,19 @@
         });
     </script>
 
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    Tawk_API.onLoad = function(){
+        Tawk_API.hideWidget();
+    };
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67bcd61303e839190977286a/1ikshas5a';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 </body>
 </html>
