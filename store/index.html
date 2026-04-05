@@ -276,9 +276,9 @@
     <script>
         // إعدادات الـ API الحقيقي
         const API_KEY = 'AIzaSyCA9UBxYuCL0oW4r5YfjCpYAVzkJE02JgQ';
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
         
-        // التعليمات السرية للذكاء الاصطناعي (عشان يرد كأنه شريكك)
+        // التعليمات السرية للذكاء الاصطناعي
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
         أنت تتحدث الآن مع مستثمر عقاري وتاجر ملابس كبير (64 عاماً)، وهو المرشح لدفع مبلغ الاستثمار.
         مهمتك: إقناع المستثمر، الرد على أسئلته باحترافية، واستخدام لغة التجارة والسوق (مثل: خلو رجل، أصول، إيجار، تشطيب، عجز مخازن).
@@ -354,16 +354,21 @@
                 if (data.candidates && data.candidates[0].content) {
                     const botText = data.candidates[0].content.parts[0].text;
                     addMessage(botText, 'gemini');
-                    // حفظ رد البوت في الذاكرة
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
+                } else if (data.error) {
+                    // عرض الخطأ الفعلي القادم من سيرفر جوجل
+                    console.error("API Error:", data.error);
+                    addMessage("خطأ من السيرفر: " + data.error.message, 'gemini');
+                    chatHistory.pop();
                 } else {
-                    addMessage("عذراً، حدث خطأ غير متوقع. يرجى إعادة المحاولة.", 'gemini');
+                    addMessage("عذراً، حدث خطأ غير متوقع. يرجى فحص الـ Console.", 'gemini');
+                    console.log("Data Payload:", data);
                     chatHistory.pop();
                 }
             } catch (error) {
-                console.error(error);
+                console.error("Fetch Error:", error);
                 addMessage("عذراً، لا يوجد اتصال بالخادم. تأكد من الإنترنت وحاول ثانية.", 'gemini');
-                chatHistory.pop(); // مسح الرسالة عشان تتسأل تاني
+                chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
             }
@@ -375,7 +380,6 @@
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender);
-            // تحويل النص لـ HTML بسيط عشان الفقرات
             messageDiv.innerHTML = text.replace(/\n/g, '<br>');
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
