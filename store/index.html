@@ -274,11 +274,12 @@
     </div>
 
     <script>
-        // إعدادات الـ API الحقيقي (تم إدراج المفتاح الجديد)
+        // إعدادات الـ API والموديل اللي شغال معاك
         const API_KEY = 'AIzaSyArO6akrbXiwYbBsWiAW9g4hNugBLhDhLI';
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
+        const MODEL_NAME = 'gemini-2.5-flash';
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
         
-        // التعليمات السرية للذكاء الاصطناعي
+        // التعليمات السرية للذكاء الاصطناعي (ممنوع ذكر Arab VPS)
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
         أنت تتحدث الآن مع مستثمر عقاري وتاجر ملابس كبير (64 عاماً)، وهو المرشح لدفع مبلغ الاستثمار.
         مهمتك: إقناع المستثمر، الرد على أسئلته باحترافية، واستخدام لغة التجارة والسوق (مثل: خلو رجل، أصول، إيجار، تشطيب، عجز مخازن).
@@ -291,7 +292,7 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر في شيراتون هليوبوليس.
         - التوسع: بعد مصر، سيتم فتح المشروع للخليج (إيجارات بالريال).
         
-        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكة سابقة. كن ودوداً، مختصراً، ومقنعاً جداً.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكة سابقة مع Arab VPS. كن ودوداً، مختصراً، ومقنعاً جداً.`;
 
         let chatHistory = []; // ذاكرة المحادثة
 
@@ -316,7 +317,7 @@
         }, { threshold: 0.1 });
         accordions.forEach(acc => observer.observe(acc));
 
-        // منطق الشات بوت الحقيقي
+        // منطق الشات بوت الحقيقي مع الرادار
         const openChat = document.getElementById('openChat');
         const geminiChat = document.getElementById('geminiChat');
         const closeChat = document.getElementById('closeChat');
@@ -336,10 +337,13 @@
             chatInput.value = "";
             typingIndicator.style.display = 'block';
 
-            // إضافة رسالة المستخدم للذاكرة
+            console.log("\n=== 🚀 بدء تتبع طلب المستثمر ===");
+            console.log("📍 [1] تم أخذ نص رسالة المستخدم وتجهيزها.");
+
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
             try {
+                console.log(`⏳ [2] جاري الاتصال بسيرفرات جوجل (الموديل: ${MODEL_NAME})...`);
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -349,28 +353,30 @@
                     })
                 });
 
+                console.log("📍 [3] تم استلام الرد من جوجل. جاري تحليل البيانات...");
                 const data = await response.json();
                 
                 if (data.candidates && data.candidates[0].content) {
+                    console.log("✅ [4] تمت العملية بنجاح! جاري عرض رد الذكاء الاصطناعي.");
                     const botText = data.candidates[0].content.parts[0].text;
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                 } else if (data.error) {
-                    // عرض الخطأ الفعلي القادم من سيرفر جوجل
-                    console.error("API Error:", data.error);
-                    addMessage("خطأ من السيرفر: " + data.error.message, 'gemini');
+                    console.error("❌ [خطأ في الرادار - رفض من السيرفر]:", data.error);
+                    addMessage("عذراً، حدث خطأ من السيرفر. (الرجاء مراجعة الـ Console)", 'gemini');
                     chatHistory.pop();
                 } else {
+                    console.error("❌ [خطأ في الرادار - رد غير مفهوم]:", data);
                     addMessage("عذراً، حدث خطأ غير متوقع. يرجى فحص الـ Console.", 'gemini');
-                    console.log("Data Payload:", data);
                     chatHistory.pop();
                 }
             } catch (error) {
-                console.error("Fetch Error:", error);
+                console.error("❌ [خطأ في الرادار - مشكلة اتصال]:", error);
                 addMessage("عذراً، لا يوجد اتصال بالخادم. تأكد من الإنترنت وحاول ثانية.", 'gemini');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
+                console.log("=== 🏁 انتهاء التتبع ===\n");
             }
         }
 
