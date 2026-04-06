@@ -229,11 +229,11 @@
     </div>
 
     <script>
-        // إدراج المفتاح زي ما طلبته بالظبط
+        // إدراج المفتاح اللي بعته
         const API_KEY = 'AIzaSyDZDKxgm1OgUeLVGhsei8WIei8gGYHMs7k'; 
         
-        // إدراج الموديل زي ما طلبته بالظبط
-        const MODEL_NAME = 'gemini-2.4-flash';
+        // إدراج الموديل 2.5
+        const MODEL_NAME = 'gemini-2.5-flash';
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
         
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
@@ -248,7 +248,7 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر في شيراتون هليوبوليس.
         - التوسع: بعد مصر، سيتم فتح المشروع للخليج (إيجارات بالريال).
         
-        تعليمات صارمة: كن ودوداً، مختصراً، ومقنعاً جداً.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن أي شراكات سابقة مع عرب في بي اس (Arab VPS). كن ودوداً، مختصراً، ومقنعاً جداً.`;
 
         let chatHistory = []; 
 
