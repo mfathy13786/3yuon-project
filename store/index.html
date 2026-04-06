@@ -27,7 +27,7 @@
 
         .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #0d315c 100%); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .header-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; line-height: 1.4; }
-        .header-hero p.subtitle { font-size: 1.2rem; color: #e0e0e0; max-width: 750px; margin: 0 auto 30px; line-height: 1.6; }
+        .header-hero p.subtitle { font-size: 1.2rem; color: #e0e0e0; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
 
         .hook-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; padding: 30px; max-width: 850px; margin: 0 auto; text-align: right; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
         .hook-card h2 { color: var(--secondary); font-size: 1.6rem; margin-bottom: 20px; font-weight: 800; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 10px; }
@@ -52,7 +52,7 @@
         .content li { margin-bottom: 12px; }
         .highlight-box { background: #fdfbf5; border-right: 5px solid var(--secondary); padding: 20px; margin: 20px 0; border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 1.15rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.02); }
 
-        /* الترس المخفي */
+        /* الترس المخفي - هيظهر بس لما ننزل تحت */
         .admin-fab { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
         .admin-fab.visible { opacity: 1; pointer-events: auto; }
         .main-fab { width: 55px; height: 55px; background-color: #eee; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: none; transition: 0.3s; }
@@ -62,7 +62,7 @@
         .sub-fab { width: 45px; height: 45px; background-color: #fff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1); cursor: pointer; border: 1px solid #eaeaea; transition: 0.3s; }
         .sub-fab:hover { background-color: #fdfbf5; border-color: var(--secondary); }
 
-        /* تنسيقات زر الشات الدائري */
+        /* تنسيقات زر الشات الدائري والنص الدوار */
         .chat-widget-container { position: fixed; bottom: 25px; left: 25px; z-index: 999; display: flex; align-items: center; justify-content: center; width: 100px; height: 100px; }
         .open-chat-fab { position: absolute; width: 65px; height: 65px; background-color: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; transition: all 0.3s ease; border: 2px solid var(--secondary); z-index: 2; }
         .open-chat-fab:hover { transform: scale(1.08); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
@@ -75,38 +75,24 @@
         .gemini-chat { position: fixed; bottom: 25px; left: 25px; width: 380px; background-color: var(--chat-bg); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 1000; display: flex; flex-direction: column; transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #eaeaea; overflow: hidden; }
         .gemini-chat.open { transform: translateY(0); }
         .chat-header { background-color: var(--primary); color: var(--secondary); padding: 15px 20px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; }
-        
-        .header-actions { display: flex; align-items: center; gap: 15px; }
-        .sound-toggle-btn { background: none; border: none; color: var(--secondary); font-size: 1.3rem; cursor: pointer; transition: 0.2s; }
-        .sound-toggle-btn:hover { color: #fff; transform: scale(1.1); }
         .close-chat { background: none; border: none; color: var(--secondary); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: 0.2s; }
         .close-chat:hover { color: #fff; transform: scale(1.1); }
-        
         .chat-messages { height: 350px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; background-color: #fafafa; scroll-behavior: smooth; }
-        .message { padding: 12px 15px; border-radius: 12px; max-width: 85%; line-height: 1.6; position: relative; font-weight: 600; word-wrap: break-word; }
+        .message { padding: 12px 15px; border-radius: 12px; max-width: 85%; line-height: 1.6; position: relative; font-weight: 600; }
         .message.gemini { background-color: #e8f0fe; color: #0a2342; align-self: flex-start; border-bottom-right-radius: 2px; border: 1px solid #d2e3fc; }
         .message.user { background-color: var(--primary); color: white; align-self: flex-end; border-bottom-left-radius: 2px; }
         .message.error { background-color: #ffebee; color: #d32f2f; align-self: flex-start; border: 1px solid #ffcdd2; font-weight: bold; border-bottom-right-radius: 2px; }
         
-        .message img { max-width: 100%; border-radius: 8px; margin-top: 5px; }
+        .message-avatar { position: absolute; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; z-index: 1; }
+        .message.gemini .message-avatar { left: -35px; top: 0; background-color: var(--primary); color: var(--secondary); }
+        .message.user .message-avatar { right: -35px; top: 0; background-color: #ddd; color: #555; }
 
-        .chat-input-container { padding: 10px 15px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 5px; }
-        .image-preview-container { display: none; padding: 5px; background: #f0f0f0; border-radius: 8px; align-items: center; gap: 10px; font-size: 0.8rem; }
-        .image-preview-container img { height: 30px; border-radius: 4px; }
-        .remove-image { color: #d32f2f; cursor: pointer; font-weight: bold; }
-        
-        .chat-controls { display: flex; gap: 8px; align-items: center; }
-        .action-btn { background: none; border: none; color: var(--primary); font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 5px; }
-        .action-btn:hover { color: var(--secondary); }
-        .action-btn.recording { color: #d32f2f; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-        
-        .chat-controls input[type="text"] { flex-grow: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
-        .chat-controls input[type="text"]:focus { border-color: var(--secondary); }
-        .send-btn { background-color: var(--secondary); color: var(--primary); font-weight: 800; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .send-btn:hover { background-color: #c5a030; transform: scale(1.05); }
-        
-        .typing-indicator { font-style: italic; color: #888; font-size: 0.85rem; display: none; padding: 5px 20px 10px; font-weight: 600; }
+        .chat-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 10px; background: white; }
+        .chat-input input { flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Cairo', sans-serif; transition: border 0.3s; font-size: 1rem; }
+        .chat-input input:focus { border-color: var(--secondary); box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+        .send-btn { background-color: var(--secondary); color: var(--primary); font-weight: 800; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .send-btn:hover { background-color: #c5a030; }
+        .typing-indicator { font-style: italic; color: #888; font-size: 0.9rem; margin-top: 5px; display: none; padding: 0 20px 10px; font-weight: 600; }
 
         /* الفوتر المنسق */
         .footer-note { background-color: var(--primary); color: white; text-align: center; padding: 30px 20px; margin-top: 50px; border-top: 4px solid var(--secondary); }
@@ -119,11 +105,7 @@
             .header-hero h1 { font-size: 1.8rem; }
             .hook-card { padding: 20px; }
             summary { font-size: 1.1rem; padding: 15px 15px 15px 40px; }
-            .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 80vh; max-height: 500px; }
-            .chat-messages { height: calc(100% - 120px); }
-            .chat-widget-container { bottom: 15px; left: 15px; width: 80px; height: 80px; }
-            .open-chat-fab { width: 55px; height: 55px; font-size: 1.6rem; }
-            .rotating-text text { font-size: 15px; }
+            .gemini-chat { width: calc(100vw - 40px); left: 20px; bottom: 20px; }
         }
     </style>
 </head>
@@ -137,7 +119,7 @@
             <h2>سؤال للمستثمر الذكي: بـ 400,000 جنيه كاش اليوم، تقدر تمتلك إيه في سوق العقارات التجارية؟</h2>
             <p style="font-size: 1.2rem; margin-bottom: 15px; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: لا شيء يُذكر! بالكاد مقدم لمحل صغير غير مشطب.</p>
             <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; margin-top: 10px;">لكن في سوق "العقارات الرقمية" الحديثة:</h3>
-            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">هذا المبلغ يمنحك <strong>حصة ملكية صافية 30%</strong> في "مول تجاري عملاق" مبني برمجياً بالكامل، ومجهز لاستضافة آلاف المتاجر لجميع الأنشطة (تجزئة، ملابس، إلكترونيات).</p>
+            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">هذا المبلغ يمنحك <strong>حصة ملكية صافية 30%</strong> في "مول تجاري عملاق" مبني برمجياً بالكامل، ومجهز لاستضافة آلاف المتاجر لجميع الأنشطة (قطاعي، ملابس، إلكترونيات).</p>
             <ul>
                 <li><strong>قيمة الأصول الحالية:</strong> التقييم الفعلي للبرمجيات والبنية التحتية يتخطى المليون جنيه.</li>
                 <li><strong>العائد المتوقع لحصتك:</strong> أرباح نقدية دورية تتخطى 1.1 مليون جنيه خلال 3 سنوات.</li>
@@ -185,7 +167,7 @@
         <details class="accordion">
             <summary>4. نموذج العمل ومصادر الإيرادات</summary>
             <div class="content">
-                المشروع لا يعتمد على مصدر دخل واحد، بل منظومة إيرادات مستدامة:
+                المشروع مش مبني على مصدر دخل واحد، بل منظومة إيرادات مستدامة:
                 <ul>
                     <li><strong>إيجار المتاجر (الاشتراكات):</strong> باقات شهرية، ربع سنوية، وسنوية للمتاجر. (الدخل الأساسي المستمر).</li>
                     <li><strong>ترقيات النظام (Add-ons):</strong> رسوم إضافية للمتاجر التي ترغب في تفعيل بوابات الدفع الإلكتروني (فيزا) أو الربط الآلي مع شركات الشحن.</li>
@@ -254,10 +236,10 @@
     </div>
 
     <div class="admin-fab" id="adminFabContainer">
-        <button class="main-fab" id="mainFab" title="إعدادات إضافية"><i class="fa-solid fa-gear"></i></button>
+        <button class="main-fab" id="mainFab" title="تحكم"><i class="fa-solid fa-gear"></i></button>
         <div class="sub-fabs">
             <button class="sub-fab" id="scrollTop" title="أعلى الصفحة"><i class="fa-solid fa-arrow-up"></i></button>
-            <button class="sub-fab" id="closeTabs" title="إغلاق التبويبات"><i class="fa-solid fa-xmark"></i></button>
+            <button class="sub-fab" id="closeTabs" title="اقفل التبويبات"><i class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 
@@ -266,45 +248,32 @@
             <path id="curve" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent"/>
             <text><textPath href="#curve">اسألني عن تفاصيل المشروع • مستشار الذكاء الاصطناعي • </textPath></text>
         </svg>
-        <div class="open-chat-fab" id="openChat" title="تحدث مع المستشار الذكي">🤖</div>
+        <div class="open-chat-fab" id="openChat" title="اسأل المستشار الذكي">🤖</div>
     </div>
 
     <div class="gemini-chat" id="geminiChat">
         <div class="chat-header">
             <span>🤖 المستشار الذكي للاستثمار</span>
-            <div class="header-actions">
-                <button class="sound-toggle-btn" id="toggleSoundBtn" title="كتم/تشغيل الصوت"><i class="fa-solid fa-volume-up"></i></button>
-                <button class="close-chat" id="closeChat" title="إغلاق">&times;</button>
-            </div>
+            <button class="close-chat" id="closeChat">&times;</button>
         </div>
         <div class="chat-messages" id="chatMessages">
             <div class="message gemini">
-                مرحباً بك يا فندم في منصة العرض الاستثماري. أنا الذكاء الاصطناعي المكلف بالرد على استفساراتك. يمكنك سؤالي كتابياً أو صوتياً، كما يمكنك إرفاق أي صورة لتفاصيل تريد مناقشتها.
+                <div class="message-avatar"><i class="fa-solid fa-robot"></i></div>
+                أهلاً بحضرتك يا فندم. أنا الذكاء الاصطناعي الخاص بالرد على السادة المستثمرين. يمكنك سؤالي صوتياً بالضغط على زر الميكروفون بالأسفل، وأنا سأجيبك أيضاً بصوتي. تحت أمرك في أي سؤال.
             </div>
         </div>
         <div class="typing-indicator" id="typingIndicator">المستشار يكتب الآن...</div>
-        
-        <div class="chat-input-container">
-            <div class="image-preview-container" id="imagePreviewContainer">
-                <img id="previewImg" src="" alt="preview">
-                <span class="remove-image" id="removeImg" title="إزالة">&times;</span>
-            </div>
-            <div class="chat-controls">
-                <button class="action-btn" id="attachBtn" title="إرفاق صورة"><i class="fa-solid fa-paperclip"></i></button>
-                <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" style="display: none;">
-                
-                <button class="action-btn" id="voiceBtn" title="تحدث بالصوت"><i class="fa-solid fa-microphone"></i></button>
-                
-                <input type="text" id="chatInput" placeholder="اكتب أو تحدث هنا...">
-                <button class="send-btn" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
+        <div class="chat-input">
+            <button class="send-btn" id="voiceBtn" title="تحدث بالصوت" style="background-color: var(--accent);"><i class="fa-solid fa-microphone"></i></button>
+            <input type="text" id="chatInput" placeholder="اكتب سؤالك الاستثماري هنا...">
+            <button class="send-btn" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
     <div class="footer-note fade-in">
         <p>هذا العرض سري ومقدم حصرياً للشراكة الاستراتيجية، ولا يجوز تداوله.</p>
         <p class="disclaimer">جميع الأرقام المذكورة هي تقديرات مبنية على دراسة سوق واقعية قابلة للتحقيق.</p>
-        <a href="https://3yuon.com" target="_blank" class="dev-link">برمجة وتطوير الحلول المتكاملة لخدمات الويب - 3yuon.com</a>
+        <a href="https://3yuon.com" target="_blank" class="dev-link">برمجة وتطوير الحلول المتكاملة لخدمات الويب</a>
     </div>
 
     <script>
@@ -325,13 +294,10 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، الإدارة في شيراتون هليوبوليس وميدان الحجاز.
         - التوسع: الخطة تشمل التوسع للسعودية والإمارات.
         
-        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكات سابقة. كن ودوداً جداً، تحترم خبرة المستثمر، استنتج معلومات من الصور إذا قام المستخدم برفعها.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكات سابقة. كن ودوداً جداً، تحترم خبرة المستثمر، استخدم ردود مختصرة ومقنعة بالأرقام.`;
 
         let chatHistory = []; 
-        let currentBase64Image = null;
-        let isMuted = false;
 
-        // UI Elements
         const accordions = document.querySelectorAll('details.accordion');
         const adminFabContainer = document.getElementById('adminFabContainer');
         const mainFab = document.getElementById('mainFab');
@@ -346,22 +312,16 @@
         const sendMessage = document.getElementById('sendMessage');
         const chatMessages = document.getElementById('chatMessages');
         const typingIndicator = document.getElementById('typingIndicator');
-        
-        const fileInput = document.getElementById('fileInput');
-        const attachBtn = document.getElementById('attachBtn');
-        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-        const previewImg = document.getElementById('previewImg');
-        const removeImg = document.getElementById('removeImg');
         const voiceBtn = document.getElementById('voiceBtn');
-        const toggleSoundBtn = document.getElementById('toggleSoundBtn');
 
         // Scroll Event للترس المخفي
         window.addEventListener('scroll', () => {
+            // لو المستخدم نزل لمسافة قريبة من نهاية الصفحة
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300) {
                 adminFabContainer.classList.add('visible');
             } else {
                 adminFabContainer.classList.remove('visible');
-                adminFabContainer.classList.remove('open');
+                adminFabContainer.classList.remove('open'); // يقفله لو طلع فوق
             }
         });
 
@@ -369,7 +329,6 @@
         scrollTop.addEventListener('click', () => { window.scrollTo(0, 0); });
         closeTabs.addEventListener('click', () => { accordions.forEach(acc => acc.open = false); adminFabContainer.classList.remove('open'); });
 
-        // Animations
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
@@ -378,7 +337,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        accordions.forEach(acc => observer.observe(acc));
 
         // Chat UI
         openChat.addEventListener('click', () => { 
@@ -392,118 +351,59 @@
             if (window.speechSynthesis) window.speechSynthesis.cancel(); // يسكت لو الشات اتقفل
         });
 
-        // Image Attachment Logic
-        attachBtn.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', function() {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    currentBase64Image = e.target.result;
-                    previewImg.src = currentBase64Image;
-                    imagePreviewContainer.style.display = 'flex';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        removeImg.addEventListener('click', () => {
-            currentBase64Image = null;
-            fileInput.value = '';
-            imagePreviewContainer.style.display = 'none';
-        });
+        // Text to Speech Logic (الرد الصوتي للبوت)
+        function speakText(text) {
+            if (!window.speechSynthesis) return;
+            
+            // تنظيف النص من علامات الماركداون عشان ميقرأش (نجمة نجمة)
+            const cleanText = text.replace(/[*#_`]/g, '');
+            
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.lang = 'ar-SA'; // لهجة عربية السعودية (أفضل المتاح)
+            utterance.rate = 1.1; // سرعة الكلام
+            window.speechSynthesis.speak(utterance);
+        }
 
         // Speech to Text Logic (تسجيل الصوت من المايك)
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (SpeechRecognition) {
             const recognition = new SpeechRecognition();
-            recognition.lang = 'ar-EG';
-            recognition.continuous = false;
+            recognition.lang = 'ar-EG'; // لهجة مصرية
+            recognition.continuous = false; // يقف أول ما المستثمر يسكت
 
             voiceBtn.addEventListener('click', () => {
+                if (window.speechSynthesis) window.speechSynthesis.cancel(); // يسكت البوت القديم
                 recognition.start();
-                voiceBtn.classList.add('recording');
-                chatInput.placeholder = "جاري الاستماع...";
+                voiceBtn.innerHTML = '<i class="fa-solid fa-circle-stop"></i>'; // شكل التسجيل
+                chatInput.placeholder = "جاري الاستماع لحضرتك...";
             });
 
             recognition.onresult = (event) => {
                 const transcript = event.results[0][0].transcript;
-                chatInput.value += transcript;
+                chatInput.value = transcript;
+                setTimeout(handleUserMessage, 500); // يبعت تلقائي بعدها
             };
 
             recognition.onend = () => {
-                voiceBtn.classList.remove('recording');
-                chatInput.placeholder = "اكتب أو تحدث هنا...";
+                voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+                chatInput.placeholder = "اكتب سؤالك الاستثماري هنا...";
             };
         } else {
-            voiceBtn.style.display = 'none';
+            voiceBtn.style.display = 'none'; // لو المتصفح تعبان ومبيدعمش
         }
 
-        // Text to Speech Logic (الرد الصوتي للبوت)
-        toggleSoundBtn.addEventListener('click', () => {
-            isMuted = !isMuted;
-            if (isMuted) {
-                toggleSoundBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-                if (window.speechSynthesis) window.speechSynthesis.cancel();
-            } else {
-                toggleSoundBtn.innerHTML = '<i class="fa-solid fa-volume-up"></i>';
-            }
-        });
-
-        function speakText(text) {
-            if (isMuted || !window.speechSynthesis) return;
-            
-            // تنظيف النص من علامات الماركداون عشان ميقرأش (نجمة نجمة)
-            const cleanText = text.replace(/[*#_`]/g, '');
-            
-            window.speechSynthesis.cancel(); // إيقاف أي كلام قديم
-            const utterance = new SpeechSynthesisUtterance(cleanText);
-            utterance.lang = 'ar-SA'; // أفضل لهجة عربية مدعومة في أغلب المتصفحات
-            utterance.rate = 1.1; // سرعة الكلام
-            window.speechSynthesis.speak(utterance);
-        }
-
-        // Message Handling
         async function handleUserMessage() {
             const userText = chatInput.value.trim();
-            if (!userText && !currentBase64Image) return;
+            if (!userText) return;
 
-            // لو اليوزر بعت رسالة جديدة، نسكت البوت القديم
-            if (window.speechSynthesis) window.speechSynthesis.cancel();
-
-            // بناء واجهة رسالة المستخدم
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', 'user');
-            if (userText) messageDiv.innerText = userText;
-            if (currentBase64Image) {
-                const img = document.createElement('img');
-                img.src = currentBase64Image;
-                messageDiv.appendChild(img);
-            }
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
+            addMessage(userText, 'user');
             chatInput.value = "";
             typingIndicator.style.display = 'block';
 
-            // تجهيز البيانات للإرسال
-            let userParts = [];
-            if (userText) userParts.push({ text: userText });
-            if (currentBase64Image) {
-                const base64Data = currentBase64Image.split(',')[1];
-                const mimeType = currentBase64Image.substring(currentBase64Image.indexOf(':') + 1, currentBase64Image.indexOf(';'));
-                userParts.push({
-                    inlineData: { data: base64Data, mimeType: mimeType }
-                });
-            }
-            
-            chatHistory.push({ role: "user", parts: userParts });
-
-            // تفريغ الصورة بعد الإرسال
-            currentBase64Image = null;
-            fileInput.value = '';
-            imagePreviewContainer.style.display = 'none';
+            chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
             try {
+                // بنكلم الكوبري المتأمن
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -524,7 +424,7 @@
                     speakText(botText);
                     
                 } else {
-                    addMessage("⚠️ عذراً، حدث خطأ أثناء معالجة الطلب.", 'error');
+                    addMessage("⚠️ عذراً، حدث خطأ غير متوقع.", 'error');
                     chatHistory.pop();
                 }
             } catch (error) {
@@ -542,7 +442,18 @@
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', sender);
-            messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+            
+            // إضافة الأفاتار
+            const avatarDiv = document.createElement('div');
+            avatarDiv.classList.add('message-avatar');
+            avatarDiv.innerHTML = sender === 'gemini' ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>';
+            messageDiv.appendChild(avatarDiv);
+
+            // إضافة النص
+            const textSpan = document.createElement('span');
+            textSpan.innerHTML = text.replace(/\n/g, '<br>');
+            messageDiv.appendChild(textSpan);
+
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
