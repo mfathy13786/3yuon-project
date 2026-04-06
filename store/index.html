@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>العرض الاستثماري | مشروع المول الرقمي العملاق</title>
+    <title>العرض الاستثماري | مشروع المول الرقمي (SaaS)</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,85 +26,90 @@
         .fade-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
 
         /* الهيدر */
-        .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #061528 100%); color: white; padding: 50px 15px; text-align: center; border-bottom: 5px solid var(--secondary); }
-        .header-hero h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 15px; line-height: 1.4; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .header-hero p.subtitle { font-size: 1.1rem; color: #d1d8e0; max-width: 800px; margin: 0 auto 30px; line-height: 1.6; }
+        .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #061528 100%); color: white; padding: 60px 15px; text-align: center; border-bottom: 5px solid var(--secondary); }
+        .header-hero h1 { font-size: 2.3rem; font-weight: 900; margin-bottom: 15px; line-height: 1.4; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .header-hero p.subtitle { font-size: 1.15rem; color: #d1d8e0; max-width: 800px; margin: 0 auto 30px; line-height: 1.6; }
 
-        .hook-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; max-width: 900px; margin: 0 auto; text-align: right; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .hook-card h2 { color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 10px; }
+        .hook-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; max-width: 900px; margin: 0 auto; text-align: right; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .hook-card h2 { color: var(--secondary); font-size: 1.6rem; margin-bottom: 15px; font-weight: 800; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 10px; }
         .hook-card p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
         .hook-card ul { list-style: none; margin-top: 15px; }
         .hook-card ul li { position: relative; padding-right: 25px; margin-bottom: 12px; font-weight: 600; font-size: 1.05rem; }
         .hook-card ul li::before { content: '✓'; color: var(--secondary); position: absolute; right: 0; font-size: 1.2rem; font-weight: bold; }
 
         /* المحتوى */
-        .container { max-width: 950px; margin: 40px auto; padding: 0 15px; }
-        .section-title { text-align: center; color: var(--primary); font-size: 1.7rem; font-weight: 900; margin-bottom: 30px; }
+        .container { max-width: 950px; margin: 50px auto; padding: 0 15px; }
+        .section-title { text-align: center; color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 40px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--secondary); margin: 10px auto 0; border-radius: 2px; }
 
         .accordion { margin-bottom: 15px; border-radius: 10px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eaeaea; transition: 0.3s; }
         .accordion:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: #d4af3755; }
-        summary { padding: 18px 20px 18px 50px; font-size: 1.15rem; font-weight: 800; color: var(--primary); cursor: pointer; list-style: none; position: relative; outline: none; }
+        summary { padding: 20px 20px 20px 50px; font-size: 1.2rem; font-weight: 800; color: var(--primary); cursor: pointer; list-style: none; position: relative; outline: none; }
         summary::-webkit-details-marker { display: none; }
         summary::after { content: '+'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--secondary); transition: 0.3s; }
         details[open] summary::after { content: '−'; color: var(--primary); }
         details[open] summary { background-color: #fdfcf8; border-bottom: 1px solid #eaeaea; }
-        .content { padding: 20px; color: var(--text-light); font-size: 1.05rem; line-height: 1.8; }
+        .content { padding: 20px 25px; color: var(--text-light); font-size: 1.05rem; line-height: 1.9; }
         .content strong { color: var(--primary); font-weight: 800; }
         .content ul { padding-right: 20px; margin-top: 10px; }
         .content li { margin-bottom: 10px; }
         .highlight-box { background: #fdfcf8; border-right: 4px solid var(--secondary); padding: 15px; margin: 15px 0; border-radius: 6px; font-weight: 700; color: var(--primary); }
 
         /* الترس */
-        .admin-fab { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 900; opacity: 0; pointer-events: none; transition: 0.5s; }
+        .admin-fab { position: fixed; bottom: 90px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 900; opacity: 0; pointer-events: none; transition: 0.5s; }
         .admin-fab.visible { opacity: 1; pointer-events: auto; }
-        .main-fab { width: 50px; height: 50px; background-color: #e0e0e0; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .main-fab { width: 45px; height: 45px; background-color: #e0e0e0; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .sub-fabs { display: flex; flex-direction: column; gap: 8px; opacity: 0; transform: translateY(20px); pointer-events: none; transition: 0.3s; }
         .admin-fab.open .sub-fabs { opacity: 1; transform: translateY(0); pointer-events: auto; }
         .sub-fab { width: 40px; height: 40px; background-color: #fff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid #ddd; cursor: pointer; }
 
-        /* البوت والشات (محدث احترافي) */
-        .chat-widget-container { position: fixed; bottom: 25px; left: 25px; z-index: 999; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        
-        .chat-tooltip { background-color: var(--primary); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2); animation: bounce 2s infinite; border: 1px solid var(--secondary); white-space: nowrap; cursor: pointer; }
-        .chat-tooltip::after { content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); border-width: 6px 6px 0; border-style: solid; border-color: var(--primary) transparent transparent transparent; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        /* زر البوت الاحترافي (Pill Shaped) */
+        .chat-widget-container { position: fixed; bottom: 25px; left: 25px; z-index: 999; }
+        .open-chat-btn { background: linear-gradient(135deg, var(--primary), #113661); color: white; border: 2px solid var(--secondary); padding: 12px 25px; border-radius: 30px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .open-chat-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); background: linear-gradient(135deg, #113661, var(--primary)); }
+        .open-chat-btn i { color: var(--secondary); font-size: 1.3rem; animation: pulse 2s infinite; }
 
-        .open-chat-fab { width: 65px; height: 65px; background: linear-gradient(135deg, var(--secondary), #b5952f); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.3); cursor: pointer; transition: 0.3s; border: 3px solid #fff; }
-        .open-chat-fab:hover { transform: scale(1.08); }
-
-        .gemini-chat { position: fixed; bottom: 25px; left: 25px; width: 360px; background-color: var(--chat-bg); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 1000; display: flex; flex-direction: column; transform: translateY(120%) scale(0.9); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; border: 1px solid #ddd; }
+        /* الشات بوكس */
+        .gemini-chat { position: fixed; bottom: 25px; left: 25px; width: 380px; background-color: var(--chat-bg); border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); z-index: 1000; display: flex; flex-direction: column; transform: translateY(120%) scale(0.9); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; border: 1px solid #ddd; }
         .gemini-chat.open { transform: translateY(0) scale(1); opacity: 1; }
         
-        .chat-header { background-color: var(--primary); color: white; padding: 15px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; }
-        .header-title { display: flex; align-items: center; gap: 8px; }
-        .header-actions { display: flex; gap: 12px; }
-        .header-btn { background: none; border: none; color: var(--secondary); font-size: 1.3rem; cursor: pointer; transition: 0.2s; }
+        .chat-header { background-color: var(--primary); color: white; padding: 18px 20px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; border-bottom: 3px solid var(--secondary); }
+        .header-title { display: flex; align-items: center; gap: 10px; }
+        .header-actions { display: flex; gap: 15px; }
+        .header-btn { background: none; border: none; color: var(--secondary); font-size: 1.4rem; cursor: pointer; transition: 0.2s; }
         .header-btn:hover { color: #fff; transform: scale(1.1); }
         
-        .chat-messages { height: 360px; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem; background-color: #f9fbfd; scroll-behavior: smooth; }
-        .message { padding: 12px 15px; border-radius: 12px; max-width: 85%; line-height: 1.5; font-weight: 600; word-wrap: break-word; }
+        .chat-messages { height: 400px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; background-color: #f9fbfd; scroll-behavior: smooth; }
+        .message { padding: 12px 16px; border-radius: 12px; max-width: 85%; line-height: 1.6; font-weight: 600; word-wrap: break-word; }
         .message.gemini { background-color: #fff; color: var(--primary); align-self: flex-start; border-bottom-right-radius: 2px; border: 1px solid #e0e6ed; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
         .message.user { background-color: var(--primary); color: white; align-self: flex-end; border-bottom-left-radius: 2px; }
+        .message img { max-width: 100%; border-radius: 8px; margin-top: 8px; border: 1px solid #ddd; }
         
-        .suggestions-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
-        .suggestion-chip { background: rgba(212, 175, 55, 0.1); color: var(--primary); border: 1px solid var(--secondary); padding: 6px 12px; border-radius: 15px; font-size: 0.85rem; cursor: pointer; font-weight: 700; transition: 0.2s; }
-        .suggestion-chip:hover { background: var(--secondary); color: #fff; }
+        .suggestions-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .suggestion-chip { background: rgba(212, 175, 55, 0.1); color: var(--primary); border: 1px solid var(--secondary); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 700; transition: 0.2s; }
+        .suggestion-chip:hover { background: var(--secondary); color: #fff; transform: translateY(-2px); }
 
-        .chat-input-container { padding: 10px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 5px; }
-        .chat-controls { display: flex; gap: 8px; align-items: center; }
-        .action-btn { background: none; border: none; color: var(--primary); font-size: 1.2rem; cursor: pointer; padding: 5px; }
-        .action-btn.recording { color: #d32f2f; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        /* منطقة الإدخال ورفع الصور */
+        .chat-input-container { padding: 12px 15px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 8px; }
+        .image-preview-container { display: none; padding: 8px; background: #f0f4f8; border-radius: 8px; align-items: center; gap: 10px; font-size: 0.85rem; border: 1px dashed #ccc; }
+        .image-preview-container img { height: 35px; border-radius: 4px; object-fit: cover; }
+        .remove-image { color: #d32f2f; cursor: pointer; font-weight: bold; font-size: 1.2rem; }
+
+        .chat-controls { display: flex; gap: 10px; align-items: center; }
+        .action-btn { background: #f0f4f8; border: none; color: var(--primary); font-size: 1.2rem; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .action-btn:hover { background: #e0e6ed; color: var(--secondary); }
+        .action-btn.recording { color: #fff; background-color: #d32f2f; animation: pulseRecord 1s infinite; }
+        @keyframes pulseRecord { 0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); } 100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); } }
         
-        .chat-controls input { flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
-        .chat-controls input:focus { border-color: var(--secondary); }
-        .send-btn { background-color: var(--secondary); color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .chat-controls input { flex-grow: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 25px; outline: none; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #fafafa; }
+        .chat-controls input:focus { border-color: var(--secondary); background: #fff; }
+        .send-btn { background-color: var(--secondary); color: var(--primary); border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
+        .send-btn:hover { background-color: #c5a030; transform: scale(1.05); }
 
-        .typing-indicator { font-style: italic; color: #888; font-size: 0.85rem; display: none; padding: 0 15px 10px; font-weight: 600; }
+        .typing-indicator { font-style: italic; color: #888; font-size: 0.85rem; display: none; padding: 0 20px 10px; font-weight: 600; }
 
         /* الفوتر */
-        .footer-note { background-color: var(--primary); color: white; text-align: center; padding: 40px 15px; margin-top: 40px; border-top: 4px solid var(--secondary); }
+        .footer-note { background-color: var(--primary); color: white; text-align: center; padding: 40px 15px; margin-top: 50px; border-top: 4px solid var(--secondary); }
         .footer-note p { margin-bottom: 10px; font-size: 1.05rem; }
         .footer-note .disclaimer { font-size: 0.9rem; color: #a0b0c0; margin-bottom: 25px; }
         .dev-link { display: inline-flex; align-items: center; gap: 8px; background-color: rgba(255,255,255,0.05); color: var(--secondary); text-decoration: none; font-weight: 800; font-size: 1rem; border: 1px solid rgba(212, 175, 55, 0.4); padding: 10px 25px; border-radius: 30px; transition: 0.3s; }
@@ -116,30 +121,31 @@
         }
 
         @media (max-width: 768px) {
-            .header-hero h1 { font-size: 1.7rem; }
+            .header-hero h1 { font-size: 1.8rem; }
             .hook-card { padding: 20px; }
             summary { font-size: 1.05rem; padding: 15px 15px 15px 40px; }
-            .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 85vh; max-height: 550px; }
-            .chat-messages { height: calc(100% - 130px); }
-            .chat-widget-container { bottom: 15px; left: 15px; }
-            .open-chat-fab { width: 55px; height: 55px; font-size: 1.5rem; }
-            .chat-tooltip { font-size: 0.8rem; padding: 5px 10px; }
+            
+            .chat-widget-container { bottom: 15px; left: 15px; z-index: 9999; }
+            .open-chat-btn { padding: 10px 20px; font-size: 1rem; }
+            
+            .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 85vh; max-height: 600px; z-index: 10000; }
+            .chat-messages { height: calc(100% - 140px); }
         }
     </style>
 </head>
 <body>
 
     <header class="header-hero">
-        <h1 class="fade-in">عرض شراكة استراتيجية: أضخم "مول تجاري إلكتروني" متعدد الأنشطة</h1>
-        <p class="subtitle fade-in" style="animation-delay: 0.1s;">في ظل التغيرات العالمية المتسارعة، التجارة الإلكترونية هي الملاذ الآمن. استثمار بعوائد تفوق العقار التقليدي بمراحل.</p>
+        <h1 class="fade-in">عرض شراكة استراتيجية: أضخم نظام SaaS لتجارة التجزئة</h1>
+        <p class="subtitle fade-in" style="animation-delay: 0.1s;">في ظل التغيرات العالمية، التجارة الإلكترونية هي الملاذ الآمن. فرصة للاستحواذ على منصة تنافس الكبار بعوائد تفوق العقار التقليدي.</p>
         
         <div class="hook-card fade-in" style="animation-delay: 0.2s;">
             <h2>بخبرتك في السوق: بـ 400,000 جنيه كاش اليوم، تمتلك إيه في العقار التجاري؟</h2>
             <p style="font-size: 1.2rem; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: لا شيء يُذكر! بالكاد مقدم لمحل صغير على الطوب.</p>
-            <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px;">لكن في سوق "العقارات الرقمية" (الفرصة الذهبية الآن):</h3>
-            <p>المبلغ ده يمنحك <strong>حصة ملكية 30%</strong> في "مول تجاري عملاق" مبني برمجياً، ومجهز لاستضافة آلاف المتاجر لجميع الأنشطة (تجار ملابس، تجزئة، وقطاعي).</p>
+            <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px;">لكن في سوق "الاستثمار التقني" (الفرصة الذهبية الآن):</h3>
+            <p>المبلغ ده يمنحك <strong>حصة ملكية 30%</strong> في منصة SaaS متكاملة (مول رقمي ديناميكي بالكامل)، مجهزة لاستضافة آلاف المتاجر لجميع الأنشطة بضغطة زر.</p>
             <ul>
-                <li><strong>التقييم الحالي للأصول:</strong> البنية التحتية والبرمجيات تتخطى المليون جنيه.</li>
+                <li><strong>التقييم الحالي للأصول:</strong> البنية التحتية البرمجية الجاهزة تتخطى المليون جنيه.</li>
                 <li><strong>العائد المادي لحصتك:</strong> أرباح دورية تتخطى 1.1 مليون جنيه خلال 3 سنوات.</li>
                 <li><strong>الضمان المالي (0% مخاطرة):</strong> تعهد صريح وموثق باسترداد كامل استثمارك كاش إذا قررت التخارج في أول سنة.</li>
             </ul>
@@ -147,68 +153,68 @@
     </header>
 
     <div class="container fade-in" style="animation-delay: 0.4s;">
-        <h2 class="section-title">التفاصيل التنفيذية وحقائق السوق</h2>
+        <h2 class="section-title">التفاصيل التنفيذية وتكنولوجيا المنصة</h2>
 
         <details class="accordion">
-            <summary>1. لغة الأرقام (تكلفة التأسيس الحقيقية في السوق)</summary>
+            <summary>1. نظام SaaS متكامل (ننافس شوبيفاي وسلة)</summary>
             <div class="content">
-                التاجر العادي عشان يعمل متجر إلكتروني مستقل (غير مكتمل) بيكلفه كحد أدنى <strong>15,000 جنيه</strong>. ولو حب يعمله بنفس المواصفات الاحترافية اللي بنقدمها (نظام محاسبة ERP، شات بوت، وتطبيق متكامل) التكلفة مش هتقل عن <strong>70,000 جنيه</strong>!<br><br>
-                إحنا بنوفر للتاجر كل ده في المول بتاعنا بـ "إيجار رمزي"، وده اللي هيخلي الإقبال على المول بتاعنا أسرع من أي منافس.
-            </div>
-        </details>
-
-        <details class="accordion">
-            <summary>2. ليه التاجر هيسيب الشارع ويأجر عندنا؟ (حل الكوابيس)</summary>
-            <div class="content">
-                المول بتاعنا بيمنح التاجر "فريق عمل ديجيتال" بيحلله أكبر 3 كوابيس:
+                نحن لا نبيع مجرد موقع، نحن نمتلك <strong>منصة SaaS (Software as a Service)</strong> احترافية.<br>
                 <ul>
-                    <li><strong>زبون السهرة (الإغلاق المبكر):</strong> المحلات بتقفل بالليل. متجرنا شغال 24/7. البوت الآلي بيرد على العميل الفجر ويقفل البيعة، التاجر يصحى يلاقي الأوردر جاهز.</li>
-                    <li><strong>عجز المخازن والسرقة:</strong> نظام الـ ERP المحاسبي المدمج بيجرد بالقطعة ويحسب المكسب بالقرش ويمنع أي تلاعب.</li>
-                    <li><strong>البضاعة المركونة:</strong> الذكاء الاصطناعي بيحلل المبيعات وينبه التاجر لعمل خصومات على الأصناف الراكدة لتسييلها.</li>
+                    <li><strong>ديناميكية بالكامل:</strong> لوحة تحكم للتاجر يتحكم من خلالها في كل تفصيلة (الصفحة الرئيسية، صفحات الأقسام، المنتجات، الألوان) بشكل ديناميكي كامل وبدون أي تدخل برمجي.</li>
+                    <li><strong>تسعير يكتسح السوق:</strong> منصات مثل Shopify تكلف التاجر اشتراكاً بالدولار وتستقطع عمولة من مبيعاته، ومنصات مثل سلة مسعرة للسوق الخليجي. نحن نوفر نفس التكنولوجيا بسعر وإيجار يكتسح السوق المصري ويحقق هامش ربح للتاجر.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>3. التوقيت المثالي والتوسع العالمي</summary>
+            <summary>2. منظومة "الذكاء الاصطناعي" الثلاثية (السر الحقيقي)</summary>
             <div class="content">
-                في ظل الحروب والتغيرات الجيوسياسية الحالية، العالم كله بيتجه للرقمنة. الانتشار الديجيتال أسرع وأكثر أماناً من فتح فروع على الأرض.<br>
-                المشروع مش مقتصر على مصر، بمجرد تثبيت الأقدام محلياً، سنستنسخ النظام للـ <strong>سوق السعودي والإماراتي</strong> لتحصيل إيجارات المتاجر بالريال والدرهم.
+                النظام مزود بـ 3 مستويات من الـ AI لتقليل العمالة وزيادة المبيعات:
+                <ul>
+                    <li><strong>بوت لوحة التحكم (مساعد التاجر):</strong> التاجر يسأل البوت في لوحة التحكم، والبوت يقرأ الداتابيز بالكامل ويرد عليه (مثال: إيه أكتر منتج اتباع النهاردة؟ أو إزاي أضيف قسم جديد؟).</li>
+                    <li><strong>بوت البيع متعدد القنوات (Omnichannel):</strong> بوت ذكي مربوط بـ (فيسبوك، واتساب، إنستجرام) يستقبل العميل، يعرض المنتجات، ويُتمم الأوردر بالكامل لحين الشحن، يعمل 24/7.</li>
+                    <li><strong>التحليل المحاسبي (ERP):</strong> جرد لحظي يمنع السرقة وعجز المخازن، ويقترح خصومات على البضاعة الراكدة.</li>
+                </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>4. مصادر الدخل (خطة الاستدامة)</summary>
+            <summary>3. لغة الأرقام (لماذا سيأتي التجار إلينا؟)</summary>
             <div class="content">
-                <ul>
-                    <li><strong>الإيجارات (الاشتراكات):</strong> باقات (شهرية، ربع سنوية، سنوية) للمتاجر. (الدخل الأساسي).</li>
-                    <li><strong>الترقيات المدفوعة:</strong> ربط المتجر ببوابات الدفع (فيزا) وشركات الشحن السريع.</li>
-                    <li><strong>خدمات التجهيز:</strong> تسليم المتاجر للتجار "على المفتاح" شاملة التصميم وإدخال المنتجات بمقابل إضافي.</li>
-                </ul>
+                التاجر العادي لكي يُنشئ متجراً إلكترونياً مستقلاً (غير مكتمل) سيكلفه كحد أدنى <strong>15,000 جنيه</strong>. ولكي يبني نظاماً بنفس المواصفات التي نمتلكها (نظام ERP، شات بوت، وواجهة ديناميكية) التكلفة لن تقل عن <strong>70,000 جنيه</strong>!<br>
+                نحن نوفر له كل ذلك بنظام "تأجير المحل في المول" باشتراك رمزي، مما يجعل عرضنا لا يُرفض.
+            </div>
+        </details>
+
+        <details class="accordion">
+            <summary>4. التوقيت المثالي والتوسع الإقليمي</summary>
+            <div class="content">
+                في ظل الحروب والتقلبات الاقتصادية العالمية، الاستثمار في التكنولوجيا والتجارة الإلكترونية هو الملاذ الآمن والأسرع نمواً.<br>
+                النظام مصمم ليكون عابراً للحدود. بمجرد تثبيت الأقدام في مصر، سيتم استنساخ النظام للسوقين <strong>السعودي والإماراتي</strong> لتحصيل الاشتراكات بالعملة الصعبة (الريال والدرهم) وإدارة العمليات من مصر.
             </div>
         </details>
 
         <details class="accordion">
             <summary>5. أين سيتم ضخ الـ 400 ألف جنيه؟</summary>
             <div class="content">
-                البرمجة مكتملة! الاستثمار موجه بالكامل لـ <strong>الانتشار (Go-to-Market)</strong>:
+                <strong>البرمجة مكتملة 100%!</strong> الاستثمار موجه بالكامل لـ مرحلة الانتشار (Go-to-Market):
                 <ul>
-                    <li><strong>البنية التحتية:</strong> سيرفرات سحابية تتحمل ضغط آلاف الزوار يومياً دون سقوط.</li>
-                    <li><strong>التسويق الشرس:</strong> حملات إعلانية مكثفة لاستقطاب تجار الملابس والقطاعي لفتح متاجرهم.</li>
+                    <li><strong>البنية التحتية السحابية:</strong> تأجير سيرفرات عملاقة لتتحمل ضغط آلاف المتاجر والزوار يومياً دون أي بطء.</li>
+                    <li><strong>التسويق الشرس:</strong> حملات إعلانية مكثفة لاستقطاب تجار الجملة والتجزئة لفتح متاجرهم لدينا.</li>
                 </ul>
-                <em>الدفع على مراحل للجدية: 200 ألف مقدم، 100 ألف الشهر الأول، 100 ألف الشهر الثالث.</em>
+                <em>آلية الدفع لضمان الجدية: 200 ألف مقدم، 100 ألف الشهر الأول، 100 ألف الشهر الثالث.</em>
             </div>
         </details>
 
         <details class="accordion">
             <summary>6. الأرباح النقدية المتوقعة (لحصتكم الـ 30%)</summary>
             <div class="content">
-                بناءً على دراسة سوق متحفظة (على أقل باقة اشتراك):
+                بناءً على دراسة سوق متحفظة (مبنية على إيرادات أقل باقة اشتراك):
                 <ul>
-                    <li><strong>السنة 1:</strong> إعادة ضخ الأرباح للتوسع السريع.</li>
-                    <li><strong>السنة 2 (500 متجر):</strong> أرباح نقدية موزعة لحصتكم <strong>~ 342,000 جنيه</strong>.</li>
-                    <li><strong>السنة 3 (1200 متجر):</strong> أرباح نقدية <strong>~ 1,185,000 جنيه</strong>.</li>
-                    <li><strong>السنة 4 (2500 متجر):</strong> أرباح نقدية <strong>~ 3,450,000 جنيه</strong>.</li>
+                    <li><strong>السنة 1:</strong> إعادة ضخ الأرباح للتوسع السريع وتكبير حصة السوق.</li>
+                    <li><strong>السنة 2 (الهدف 500 متجر):</strong> أرباح نقدية موزعة لحصتكم <strong>~ 342,000 جنيه</strong>.</li>
+                    <li><strong>السنة 3 (الهدف 1200 متجر):</strong> أرباح نقدية <strong>~ 1,185,000 جنيه</strong>.</li>
+                    <li><strong>السنة 4 (الهدف 2500 متجر):</strong> أرباح نقدية <strong>~ 3,450,000 جنيه</strong>.</li>
                 </ul>
             </div>
         </details>
@@ -216,10 +222,10 @@
         <details class="accordion">
             <summary>7. تضخم القيمة الرأسمالية (خلو الرجل)</summary>
             <div class="content">
-                بعيداً عن الأرباح الدورية، قيمة حصتكم كـ "أصل" تتضاعف:
+                بعيداً عن الأرباح الدورية النقدية، قيمة حصتكم في الشركة كـ "أصل" تتضاعف سريعاً:
                 <ul>
-                    <li>نهاية <strong>السنة الأولى</strong>: قيمة حصتكم كأصل تُقدر بـ <strong>750,000 جنيه</strong>.</li>
-                    <li>نهاية <strong>السنة الثالثة</strong>: قيمة حصتكم تُقدر بـ <strong>3,600,000 جنيه</strong>.</li>
+                    <li>نهاية <strong>السنة الأولى</strong>: تُقدر قيمة حصتكم كأصل للبيع بـ <strong>750,000 جنيه</strong>.</li>
+                    <li>نهاية <strong>السنة الثالثة</strong>: تُقدر قيمة حصتكم للبيع بـ <strong>3,600,000 جنيه</strong>.</li>
                 </ul>
             </div>
         </details>
@@ -227,10 +233,10 @@
         <details class="accordion">
             <summary>8. الاستقرار والثقة (لماذا نحن؟)</summary>
             <div class="content">
-                نحن كيان راسخ:
+                أنت لا تستثمر في مجرد فكرة، أنت تشارك كياناً راسخاً:
                 <ul>
-                    <li>خبرة <strong>23 عاماً</strong> في البرمجة، السيرفرات، وإدارة المواقع.</li>
-                    <li>إدارة العمليات تتم من مقراتنا الإدارية المعروفة في (شيراتون هليوبوليس) و (ميدان الحجاز).</li>
+                    <li>خبرة <strong>23 عاماً</strong> في البرمجة وتطوير الأنظمة المعقدة وإدارة الخوادم.</li>
+                    <li>إدارة العمليات تتم من مقراتنا الإدارية الفعلية في (شيراتون هليوبوليس) و (ميدان الحجاز).</li>
                 </ul>
             </div>
         </details>
@@ -245,34 +251,45 @@
     </div>
 
     <div class="chat-widget-container">
-        <div class="chat-tooltip" onclick="document.getElementById('openChat').click()">اسأل مستشارك الذكي هنا 👇</div>
-        <div class="open-chat-fab" id="openChat"><i class="fa-solid fa-robot"></i></div>
+        <button class="open-chat-btn" id="openChat">
+            <i class="fa-solid fa-robot"></i> مستشارك الاستثماري
+        </button>
     </div>
 
     <div class="gemini-chat" id="geminiChat">
         <div class="chat-header">
-            <div class="header-title"><i class="fa-solid fa-chart-line"></i> المستشار الاستثماري</div>
+            <div class="header-title"><i class="fa-solid fa-chart-line"></i> المساعد الذكي للمشروع</div>
             <div class="header-actions">
-                <button class="header-btn" id="toggleSoundBtn" title="الصوت"><i class="fa-solid fa-volume-up"></i></button>
-                <button class="header-btn" id="closeChat" title="إغلاق">&times;</button>
+                <button class="header-btn" id="toggleSoundBtn" title="كتم/تشغيل الصوت"><i class="fa-solid fa-volume-up"></i></button>
+                <button class="header-btn" id="closeChat" title="إغلاق النافذة">&times;</button>
             </div>
         </div>
         <div class="chat-messages" id="chatMessages">
             <div class="message gemini">
-                أهلاً بحضرتك يا فندم. أنا الذكاء الاصطناعي المالي الخاص بالمشروع.<br>
-                قرأت العرض؟ يمكنك سؤالي كتابياً، أو <strong>استخدام الميكروفون</strong> للتحدث معي مباشرة.<br>
+                أهلاً بحضرتك يا فندم. أنا الذكاء الاصطناعي الاستثماري الملحق بهذا العرض.<br>
+                المنصة التي نعرضها هي <strong>SaaS متكاملة ومزودة بـ AI</strong>.<br>
+                يمكنك التحدث معي بالصوت، أو رفع أي صورة للمناقشة.<br>
                 <div class="suggestions-container">
-                    <span class="suggestion-chip" onclick="fillAndSend('إيه هي الضمانات المالية لعدم الخسارة؟')">الضمانات المالية؟</span>
-                    <span class="suggestion-chip" onclick="fillAndSend('إزاي التكلفة الحقيقية 70 ألف وإنتو بتقدموها بإيجار؟')">تكلفة التأسيس؟</span>
-                    <span class="suggestion-chip" onclick="fillAndSend('إيه خطة التوسع في الخليج؟')">التوسع للخليج؟</span>
+                    <span class="suggestion-chip" onclick="fillAndSend('كيف ننافس شوبيفاي وسلة؟')">كيف ننافس شوبيفاي؟</span>
+                    <span class="suggestion-chip" onclick="fillAndSend('ما هي تفاصيل الضمان لعدم الخسارة؟')">الضمان المالي؟</span>
+                    <span class="suggestion-chip" onclick="fillAndSend('اشرح لي بوت اللوحة وبوت المبيعات')">منظومة الذكاء الاصطناعي؟</span>
                 </div>
             </div>
         </div>
-        <div class="typing-indicator" id="typingIndicator">يتم تحليل البيانات...</div>
+        <div class="typing-indicator" id="typingIndicator">يقوم المستشار بتحليل البيانات...</div>
         
         <div class="chat-input-container">
+            <div class="image-preview-container" id="imagePreviewContainer">
+                <img id="previewImg" src="" alt="preview">
+                <span class="remove-image" id="removeImg" title="إزالة الصورة">&times;</span>
+            </div>
+            
             <div class="chat-controls">
-                <button class="action-btn" id="voiceBtn" title="تحدث بالصوت"><i class="fa-solid fa-microphone"></i></button>
+                <button class="action-btn" id="attachBtn" title="إرفاق صورة للتوضيح"><i class="fa-solid fa-paperclip"></i></button>
+                <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                
+                <button class="action-btn" id="voiceBtn" title="تحدث معي بالصوت"><i class="fa-solid fa-microphone"></i></button>
+                
                 <input type="text" id="chatInput" placeholder="اكتب سؤالك، أو اختر من الأعلى...">
                 <button class="send-btn" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
@@ -281,7 +298,7 @@
 
     <div class="footer-note fade-in">
         <p>العرض سري ومقدم حصرياً للشراكة الاستراتيجية.</p>
-        <p class="disclaimer">جميع الأرقام المذكورة هي تقديرات مبنية على دراسة سوق واقعية للتجارة الإلكترونية.</p>
+        <p class="disclaimer">جميع الأرقام المذكورة هي تقديرات مبنية على دراسة سوق واقعية لقطاع تقنية المعلومات والتجارة الإلكترونية.</p>
         <a href="https://www.3yuon.com" target="_blank" class="dev-link"><i class="fa-solid fa-code"></i> برمجة وتطوير الحلول المتكاملة لخدمات الويب</a>
     </div>
 
@@ -303,21 +320,24 @@
     <script>
         const WORKER_URL = 'https://gemini-proxy.m-fathy-13786.workers.dev'; 
         
-        const systemPrompt = `أنت المساعد الذكي (AI) المالي لصفحة عرض استثماري لمشروع "المول التجاري الإلكتروني". 
-        المستثمر رجل أعمال خبرة 64 عاماً. هدفك إقناعه وإغلاق الصفقة بذكاء واحترام لسنه.
+        const systemPrompt = `أنت المساعد الذكي (AI) المالي لصفحة عرض استثماري لمشروع "منصة SaaS للتجارة الإلكترونية (مول رقمي)". 
+        المستثمر المستهدف هو رجل أعمال خبرة 64 عاماً. هدفك إقناعه بذكاء وإغلاق الصفقة لأنها فرصة ذهبية.
         
-        حقائق المشروع للرد بها:
-        - تكلفة إنشاء متجر إلكتروني عادي في السوق لا تقل عن 15 ألف، ولو بمواصفاتنا (ERP وشات بوت) لا يقل عن 70 ألف جنيه. نحن نوفر ذلك للتاجر بإيجار مرن، مما يضمن اكتساح السوق.
-        - التمويل: 400 ألف جنيه مقابل 30% من الشركة.
-        - الأرباح المتوقعة: 342 ألف (سنة 2)، 1.18 مليون (سنة 3)، 3.45 مليون (سنة 4).
-        - الضمان: تعهد مكتوب برد 400 ألف كاش وتخارجه بلا خسارة في أول سنة.
-        - التوسع: في ظل الحروب والأزمات عالمياً، الملاذ الآمن هو الديجيتال. سننطلق محلياً ثم ننسخ النظام للخليج (إيجارات بالريال).
-        - المقر: شيراتون وميدان الحجاز، بخبرة 23 سنة للمؤسس.
+        حقائق المشروع والمميزات التي يجب أن تفخر بها:
+        - نحن نبني نظام SaaS ديناميكي بالكامل ينافس (شوبيفاي، سلة، زد) ولكن بتسعير محلي لا يقبل المنافسة وبدون أخذ عمولات على المبيعات.
+        - منظومة AI جبارة: 1. بوت داخل لوحة تحكم التاجر يقرأ الداتابيز ويرد على استفساراته الإدارية. 2. بوت مبيعات للعميل (Omnichannel) يغلق الطلبات على فيسبوك وواتس وانستا. 3. نظام ERP يجرد ويمنع السرقة.
+        - تكلفة تأسيس منصة مماثلة في السوق للتاجر لا تقل عن 70 ألف جنيه، نحن نوفرها بإيجار مما يضمن اكتساح السوق.
+        - التمويل المطلوب: 400 ألف جنيه (تصرف على السيرفرات السحابية والتسويق الشرس) مقابل 30% ملكية.
+        - الأرباح الموزعة لحصته المتوقعة: 342 ألف (سنة 2)، 1.18 مليون (سنة 3)، 3.45 مليون (سنة 4).
+        - الضمان: تعهد مكتوب برد الـ 400 ألف كاش والتخارج بلا خسارة في أول سنة.
+        - التوسع: في ظل الأزمات العالمية، الملاذ الآمن هو الاستثمار التقني. الخطة تشمل التوسع للسعودية والإمارات.
+        - خبرة المؤسس: 23 سنة في البرمجة، والمقرات في شيراتون وميدان الحجاز.
         
-        تعليمات: ردود مختصرة، قوية، مقنعة. لا تذكر شراكات سابقة. ادفع المستثمر للموافقة لأنها فرصة ذهبية في الوقت الحالي.`;
+        تعليمات صارمة: ردودك مختصرة، قوية، تستخدم لغة البزنس والسوق. ادفع المستثمر للموافقة الفورية. يمكنك تحليل الصور إذا رفعها المستخدم لمعرفة المحتوى وربطه بالمشروع. لا تذكر شراكات سابقة.`;
 
         let chatHistory = []; 
         let isMuted = false;
+        let currentBase64Image = null;
 
         // UI Interactions
         const accordions = document.querySelectorAll('details.accordion');
@@ -326,8 +346,9 @@
         const chatWidget = document.querySelector('.chat-widget-container');
         const geminiChat = document.getElementById('geminiChat');
         
+        // إظهار الترس في آخر الصفحة
         window.addEventListener('scroll', () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 250) {
                 adminFabContainer.classList.add('visible');
             } else {
                 adminFabContainer.classList.remove('visible');
@@ -339,17 +360,44 @@
         document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo(0, 0));
         document.getElementById('closeTabs').addEventListener('click', () => { accordions.forEach(acc => acc.open = false); adminFabContainer.classList.remove('open'); });
 
+        // فتح وإغلاق الشات
         document.getElementById('openChat').addEventListener('click', () => { 
             geminiChat.classList.add('open'); 
             chatWidget.style.display = 'none';
         });
         document.getElementById('closeChat').addEventListener('click', () => { 
             geminiChat.classList.remove('open'); 
-            setTimeout(() => chatWidget.style.display = 'flex', 300); 
+            setTimeout(() => chatWidget.style.display = 'block', 300); 
             if (window.speechSynthesis) window.speechSynthesis.cancel();
         });
 
-        // الصوت
+        // التعامل مع رفع الصور
+        const fileInput = document.getElementById('fileInput');
+        const attachBtn = document.getElementById('attachBtn');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const previewImg = document.getElementById('previewImg');
+        const removeImg = document.getElementById('removeImg');
+
+        attachBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentBase64Image = e.target.result;
+                    previewImg.src = currentBase64Image;
+                    imagePreviewContainer.style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        removeImg.addEventListener('click', () => {
+            currentBase64Image = null;
+            fileInput.value = '';
+            imagePreviewContainer.style.display = 'none';
+        });
+
+        // الرد الصوتي للمساعد
         const toggleSoundBtn = document.getElementById('toggleSoundBtn');
         toggleSoundBtn.addEventListener('click', () => {
             isMuted = !isMuted;
@@ -366,7 +414,7 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        // تسجيل المايك
+        // تسجيل المايك للمستخدم
         const voiceBtn = document.getElementById('voiceBtn');
         const chatInput = document.getElementById('chatInput');
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -381,33 +429,65 @@
                 voiceBtn.classList.add('recording');
                 chatInput.placeholder = "تحدث الآن...";
             });
-            recognition.onresult = (e) => chatInput.value = e.results[0][0].transcript;
+            recognition.onresult = (e) => {
+                chatInput.value += e.results[0][0].transcript + " ";
+            };
             recognition.onend = () => {
                 voiceBtn.classList.remove('recording');
                 chatInput.placeholder = "اكتب سؤالك، أو اختر من الأعلى...";
-                if(chatInput.value) handleUserMessage();
             };
         } else {
             voiceBtn.style.display = 'none';
         }
 
-        // إرسال الرسائل
+        // إرسال الرسائل الجاهزة
         function fillAndSend(text) {
             chatInput.value = text;
             handleUserMessage();
         }
 
+        // المعالجة الأساسية للإرسال (نص + صورة)
         async function handleUserMessage() {
             const userText = chatInput.value.trim();
-            if (!userText) return;
+            if (!userText && !currentBase64Image) return;
 
             if (window.speechSynthesis) window.speechSynthesis.cancel();
 
-            addMessage(userText, 'user');
+            // رسم رسالة المستخدم في الشات
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', 'user');
+            if (userText) messageDiv.innerText = userText;
+            if (currentBase64Image) {
+                const img = document.createElement('img');
+                img.src = currentBase64Image;
+                messageDiv.appendChild(img);
+            }
+            document.getElementById('chatMessages').appendChild(messageDiv);
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+
+            // تجهيز البايلود
+            let userParts = [];
+            if (userText) userParts.push({ text: userText });
+            if (currentBase64Image) {
+                const base64Data = currentBase64Image.split(',')[1];
+                const mimeType = currentBase64Image.substring(currentBase64Image.indexOf(':') + 1, currentBase64Image.indexOf(';'));
+                userParts.push({
+                    inlineData: { data: base64Data, mimeType: mimeType }
+                });
+            }
+
+            chatHistory.push({ role: "user", parts: userParts });
+
+            // تفريغ المدخلات
             chatInput.value = "";
+            currentBase64Image = null;
+            fileInput.value = '';
+            imagePreviewContainer.style.display = 'none';
             document.getElementById('typingIndicator').style.display = 'block';
 
-            chatHistory.push({ role: "user", parts: [{ text: userText }] });
+            // إخفاء الاقتراحات لو موجودة
+            const suggestions = document.querySelector('.suggestions-container');
+            if(suggestions) suggestions.style.display = 'none';
 
             try {
                 const response = await fetch(WORKER_URL, {
@@ -426,7 +506,7 @@
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                     speakText(botText);
                 } else {
-                    addMessage("⚠️ عذراً، خطأ تقني.", 'error');
+                    addMessage("⚠️ عذراً، خطأ تقني من السيرفر.", 'error');
                     chatHistory.pop();
                 }
             } catch (error) {
@@ -447,10 +527,6 @@
             msgDiv.innerHTML = text.replace(/\n/g, '<br>');
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // إخفاء الاقتراحات لو اليوزر سأل
-            const suggestions = document.querySelector('.suggestions-container');
-            if(suggestions && sender === 'user') suggestions.style.display = 'none';
         }
     </script>
 </body>
