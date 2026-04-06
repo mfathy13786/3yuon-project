@@ -229,10 +229,11 @@
     </div>
 
     <script>
-        // المفتاح اللي إنت كتبته بالظبط
-        const API_KEY = 'AIzaSyDZDKxgm1OgUeLVGhsei8WIei8gGYHMs7k'.trim(); 
+        // إدراج المفتاح زي ما طلبته بالظبط
+        const API_KEY = 'AIzaSyDZDKxgm1OgUeLVGhsei8WIei8gGYHMs7k'; 
         
-        const MODEL_NAME = 'gemini-1.5-flash';
+        // إدراج الموديل زي ما طلبته بالظبط
+        const MODEL_NAME = 'gemini-2.4-flash';
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
         
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
@@ -247,7 +248,7 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر في شيراتون هليوبوليس.
         - التوسع: بعد مصر، سيتم فتح المشروع للخليج (إيجارات بالريال).
         
-        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن أي شراكات سابقة. كن ودوداً، مختصراً، ومقنعاً جداً.`;
+        تعليمات صارمة: كن ودوداً، مختصراً، ومقنعاً جداً.`;
 
         let chatHistory = []; 
 
@@ -292,7 +293,6 @@
 
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
-            // ======== نظام الرادار لتحديد الأخطاء ========
             console.log("📡 [الرادار]: 1. تم تجهيز الطلب...");
             console.log(`📡 [الرادار]: 2. جاري إرسال الطلب لـ (${MODEL_NAME})...`);
 
@@ -316,18 +316,17 @@
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                 } else if (data.error) {
-                    // تحليل الخطأ وعرضه للمستخدم في الشات
                     let radarMessage = `⚠️ رسالة من سيرفر جوجل: ${data.error.message}`;
                     
                     if (data.error.code === 400 && data.error.message.includes('API key not valid')) {
-                        radarMessage = "🚨 [الرادار بيقولك]: المفتاح اللي إنت حطيته في الكود فيه حرف ناقص أو مسافة غلط! (راجع النسخ واللصق).";
+                        radarMessage = "🚨 [الرادار بيقولك]: المفتاح اللي إنت حطيته في الكود فيه حرف ناقص أو مسافة غلط! أو محروق من جوجل (راجع النسخ واللصق).";
                     } else if (data.error.code === 403) {
                         radarMessage = "🚨 [الرادار بيقولك]: الدومين بتاعك مش متسجل صح في حماية المفتاح على جوجل، أو جوجل وقفت المفتاح ده عشان اتنشر.";
                     } else if (data.error.code === 404) {
                         radarMessage = `🚨 [الرادار بيقولك]: الموديل (${MODEL_NAME}) مش موجود أو مش متفعل في مشروعك.`;
                     }
 
-                    addMessage(radarMessage, 'error'); // رسالة لونها أحمر
+                    addMessage(radarMessage, 'error'); 
                     chatHistory.pop();
                 } else {
                     addMessage("⚠️ [الرادار]: عذراً، الرد غير متوقع من السيرفر.", 'error');
@@ -335,7 +334,7 @@
                 }
             } catch (error) {
                 console.error("❌ [الرادار]: مشكلة في الاتصال (Network Error):", error);
-                addMessage("⚠️ [الرادار]: لا يوجد اتصال بالإنترنت أو الموقع عليه جدار حماية قافل الـ API.", 'error');
+                addMessage("⚠️ [الرادار]: لا يوجد اتصال بالإنترنت أو الخادم.", 'error');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
