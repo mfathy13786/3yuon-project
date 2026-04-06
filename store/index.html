@@ -74,6 +74,16 @@
         .legal-guarantee h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; font-weight: 900; }
         .legal-guarantee p { font-size: 1.15rem; font-weight: 600; line-height: 1.8; }
 
+        /* قسم اتخاذ القرار (الـ CTA) */
+        .cta-section { background: linear-gradient(135deg, var(--primary) 0%, #113661 100%); padding: 50px 20px; border-radius: 15px; text-align: center; color: white; margin-top: 60px; position: relative; box-shadow: 0 15px 40px rgba(10, 35, 66, 0.3); border-bottom: 5px solid var(--secondary); }
+        .cta-section h2 { font-size: 2rem; font-weight: 900; color: var(--secondary); margin-bottom: 15px; }
+        .cta-section p { font-size: 1.2rem; font-weight: 600; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+        .fomo-badge { display: inline-block; background: rgba(220, 53, 69, 0.2); color: #ff6b6b; border: 1px solid #dc3545; padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 1rem; margin-bottom: 25px; animation: pulse 2s infinite; }
+        .cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: var(--secondary); color: var(--primary); font-size: 1.4rem; font-weight: 900; text-decoration: none; padding: 15px 40px; border-radius: 50px; transition: 0.3s; box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); border: none; cursor: pointer; }
+        .cta-btn:hover { background: #e6c243; transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5); }
+        
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); } }
+
         /* القوائم المنسدلة Accordions */
         .accordion { margin-bottom: 15px; border-radius: 10px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eaeaea; transition: 0.3s; }
         .accordion:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: #d4af3755; }
@@ -160,13 +170,13 @@
 <body>
 
     <header class="header-hero">
-        <h1 class="fade-in">عرض شراكة استراتيجية: الاستحواذ على أضخم "مول تجاري رقمي"</h1>
-        <p class="subtitle fade-in" style="animation-delay: 0.1s;">العالم يتغير، والشراء اليوم أصبح من شاشة الموبايل. هذه فرصتك لامتلاك "العقار الرقمي" الذي يتسابق التجار لحجز مكانهم فيه.</p>
+        <h1 class="fade-in">فرصة استثمارية حصرية: الاستحواذ على أضخم "مول تجاري رقمي"</h1>
+        <p class="subtitle fade-in" style="animation-delay: 0.1s;">العالم يتغير، والسيولة النقدية تنتقل من الأسواق التقليدية إلى شاشات الموبايل. هذه هي فرصتك لامتلاك "أصل رقمي" يتسابق التجار لحجز مساحتهم فيه.</p>
         
         <div class="hook-card fade-in" style="animation-delay: 0.2s;">
-            <h2>بخبرتك في السوق: بـ 400,000 جنيه كاش اليوم، تقدر تمتلك إيه في العقار التجاري؟</h2>
-            <p style="font-size: 1.2rem; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: لا شيء يُذكر! بالكاد مقدم لمحل صغير على الطوب في منطقة نائية.</p>
-            <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">لكن في سوق "الاستثمار الرقمي"، هذا المبلغ يمنحك <strong>حصة ملكية 30%</strong> في "مول تجاري عملاق" مبني وجاهز، يستوعب آلاف المتاجر لجميع الأنشطة (تجار ملابس، تجزئة، وقطاعي).</p>
+            <h2>بعقلية المستثمر: بـ 400,000 جنيه كاش اليوم، ماذا يمكنك أن تمتلك في العقار التجاري؟</h2>
+            <p style="font-size: 1.2rem; color: #f0f0f0; font-weight: bold;">الإجابة في السوق الحالي: لا شيء يُذكر. بالكاد مقدم لمحل تجاري صغير "على الطوب" في منطقة نائية لا يدر عائداً.</p>
+            <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">لكن في "الاستثمار التكنولوجي"، هذا المبلغ يؤمن لك <strong>حصة ملكية 30%</strong> في "مول تجاري رقمي عملاق" مُبرمج وجاهز للتشغيل، يستوعب آلاف المتاجر بجميع فئاتها، مع عوائد تتخطى العقار التقليدي بمراحل.</p>
         </div>
     </header>
 
@@ -202,13 +212,13 @@
         <h2 class="section-title">لماذا نحن؟ (سرقة السوق من المنافسين)</h2>
         
         <p style="text-align: center; font-size: 1.15rem; font-weight: 700; color: var(--text-light); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-            بما أنك خبير وعشت في السعودية، بالتأكيد تابعت النجاح الملياري لمنصات مثل <strong style="color: var(--primary);">"سلة" و "زد"</strong>. <br>
-            نحن ننقل هذا النموذج الاستثماري المضمون للسوق المصري، ولكن بأسلوب <span style="color: var(--secondary);">أحدث، أرخص للتاجر، ومدعوم كلياً بالذكاء الاصطناعي</span>.
+            المستثمر المطلع يدرك جيداً التقييمات المليارية التي حققتها منصات مثل <strong style="color: var(--primary);">"شوبيفاي" عالمياً، و"سلة" و"زد" إقليمياً</strong>. <br>
+            نحن ننقل هذا النموذج الاستثماري المضمون للسوق المصري والشرق الأوسط، ولكن بأسلوب <span style="color: var(--secondary);">أحدث، أرخص للتاجر، ومدعوم كلياً بالذكاء الاصطناعي</span>، مما يضمن لنا اكتساح السوق بسهولة.
         </p>
 
         <div class="vs-container">
             <div class="vs-card ours">
-                <span class="badge-pro">مشروعنا (المول الرقمي)</span>
+                <span class="badge-pro">مشروعنا (اكتساح السوق)</span>
                 <h3><i class="fa-solid fa-crown text-warning"></i> نظامنا المتطور</h3>
                 <ul>
                     <li><i class="fa-solid fa-check"></i> <strong>المكسب السريع:</strong> إيجار رمزي ثابت يجذب أي تاجر مبتدئ فوراً (بدون عمولات خفية).</li>
@@ -231,18 +241,35 @@
         <h2 class="section-title">التفاصيل التنفيذية وحقائق السوق</h2>
 
         <details class="accordion">
-            <summary>1. تغيير ثقافة الشراء (نهاية عصر المحل التقليدي)</summary>
+            <summary>1. لغة الأرقام (لماذا سيأتي التجار إلينا طوعاً؟)</summary>
+            <div class="content">
+                التاجر اليوم يدرك أن من لا يبيع "أونلاين" سيخرج من السوق غداً. لكن تكلفة إنشاء متجر إلكتروني مستقل لا تقل عن <strong>15,000 جنيه</strong>، ولبناء متجر احترافي بنفس مواصفاتنا سيتكلف أكثر من <strong>70,000 جنيه</strong>!<br><br>
+                نحن نوفر للتاجر كل هذه التكنولوجيا المتطورة بنظام "الإيجار الشهري الرمزي"، مما يضمن لنا السيطرة على أكبر شريحة من التجار الباحثين عن حلول سريعة وغير مكلفة.
+            </div>
+        </details>
+
+        <details class="accordion">
+            <summary>2. تغيير ثقافة الشراء (نهاية عصر المحل التقليدي)</summary>
             <div class="content">
                 المستهلك اليوم أصبح يفضل الشراء من هاتفه وهو جالس في منزله بدلاً من النزول للأسواق. المول الرقمي الخاص بنا يوفر للتاجر "فريق عمل رقمي" يعمل لصالحه 24 ساعة ليلبي طلبات هذا المستهلك:
                 <ul>
                     <li><strong>اصطياد زبون السهرة:</strong> المحلات تغلق أبوابها، لكن متجرنا لا ينام. البوت الآلي يستقبل طلبات العملاء ليلاً، ويتمم البيع.</li>
                     <li><strong>حارس المخزن الأمين:</strong> نظام محاسبي متكامل يجرد البضاعة بالقطعة، يحسب الأرباح، ويمنع السرقات.</li>
+                    <li><strong>تسييل البضاعة الراكدة:</strong> النظام ينبه التاجر للأصناف التي لا تُباع ليقوم بعمل عروض عليها وتوفير سيولة نقدية.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>2. من أين تأتي الأرباح؟ (استدامة التدفق النقدي)</summary>
+            <summary>3. التوقيت الذهبي والتوسع الإقليمي (الملاذ الآمن)</summary>
+            <div class="content">
+                في ظل الظروف العالمية والأزمات الاقتصادية، أثبتت التجارة الإلكترونية أنها <strong>القطاع الوحيد المحصن والمستمر في النمو</strong>.<br>
+                كما أن استثمارك غير محصور في مصر؛ فبمجرد تثبيت أقدامنا محلياً، النظام مهيأ تقنياً للاستنساخ في <strong>السوق السعودي والإماراتي</strong>، مما يعني تحصيل إيجارات بالعملة الصعبة (الريال والدرهم) ومضاعفة عوائدك الاستثمارية.
+            </div>
+        </details>
+
+        <details class="accordion">
+            <summary>4. من أين تأتي الأرباح؟ (استدامة التدفق النقدي)</summary>
             <div class="content">
                 نموذج العمل مصمم ليضمن تدفقاً نقدياً مستمراً (Cash Flow) تماماً كالعقارات:
                 <ul>
@@ -254,7 +281,7 @@
         </details>
 
         <details class="accordion">
-            <summary>3. أين سيتم ضخ الـ 400 ألف جنيه؟</summary>
+            <summary>5. أين سيتم ضخ الـ 400 ألف جنيه؟ (الشفافية)</summary>
             <div class="content">
                 <strong>التأسيس البرمجي مكتمل 100%!</strong> أموالك لن تُصرف على تجارب، بل ستوجه بالكامل للتسويق والتشغيل:
                 <ul>
@@ -266,7 +293,20 @@
         </details>
 
         <details class="accordion">
-            <summary>4. تضخم القيمة الرأسمالية للأصل (خلو الرجل)</summary>
+            <summary>6. الأرباح النقدية المتوقعة (لحصتكم الـ 30%)</summary>
+            <div class="content">
+                بناءً على دراسة سوق متحفظة جداً:
+                <ul>
+                    <li><strong>السنة الأولى:</strong> تُعاد استثمار الأرباح للسيطرة على السوق وتكبير القاعدة.</li>
+                    <li><strong>السنة الثانية (الاستهداف: 500 متجر):</strong> أرباح نقدية صافية لحصتكم <strong>~ 342,000 جنيه</strong>.</li>
+                    <li><strong>السنة الثالثة (الاستهداف: 1200 متجر):</strong> أرباح نقدية صافية <strong>~ 1,185,000 جنيه</strong>.</li>
+                    <li><strong>السنة الرابعة (الاستهداف: 2500 متجر):</strong> أرباح نقدية صافية <strong>~ 3,450,000 جنيه</strong>.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="accordion">
+            <summary>7. تضخم القيمة الرأسمالية للأصل (خلو الرجل)</summary>
             <div class="content">
                 تماما كالعقار الذي يرتفع ثمنه مع الوقت، حصتك في الشركة كـ "أصل" تتضاعف قيمتها:
                 <ul>
@@ -277,7 +317,7 @@
         </details>
 
         <details class="accordion">
-            <summary>5. الاستقرار الإداري (لماذا تثق بنا؟)</summary>
+            <summary>8. الاستقرار الإداري (لماذا تثق بنا؟)</summary>
             <div class="content">
                 أنت تشارك كياناً راسخاً ومستقراً:
                 <ul>
@@ -286,6 +326,15 @@
                 </ul>
             </div>
         </details>
+
+        <!-- قسم الدعوة لاتخاذ الإجراء CTA -->
+        <div class="cta-section fade-in">
+            <span class="fomo-badge"><i class="fa-solid fa-hourglass-half"></i> فرصة لمرة واحدة</span>
+            <h2>هل أنت جاهز لاقتناص الفرصة؟</h2>
+            <p>هذا العرض الحصري متاح <strong>لشريك استراتيجي واحد فقط</strong>. بمجرد التوافق وتوقيع العقود سيتم إغلاق جولة التمويل تماماً للبدء في حصد الأرباح.</p>
+            <!-- قم بتعديل رقم الهاتف في الرابط أدناه -->
+            <a href="https://wa.me/201000000000?text=أهلاً،%20اطلعت%20على%20العرض%20الاستثماري%20للمول%20الرقمي%20وأرغب%20في%20إتمام%20الشراكة" class="cta-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> تواصل مع المؤسس لإغلاق الصفقة</a>
+        </div>
     </div>
 
     <!-- الترس الثابت -->
