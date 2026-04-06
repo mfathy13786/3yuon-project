@@ -29,6 +29,7 @@
 
         /* الهيدر */
         .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #061528 100%); color: white; padding: 60px 15px; text-align: center; border-bottom: 5px solid var(--secondary); }
+        .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #061528 100%); color: white; padding: 30px 15px 40px; text-align: center; border-bottom: 5px solid var(--secondary); }
         .header-hero h1 { font-size: 2.3rem; font-weight: 900; margin-bottom: 15px; line-height: 1.4; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .header-hero p.subtitle { font-size: 1.15rem; color: #d1d8e0; max-width: 800px; margin: 0 auto 30px; line-height: 1.6; }
 
@@ -43,6 +44,12 @@
 
         /* كروت الأرقام */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .main-stat-card { background: linear-gradient(135deg, var(--primary) 0%, #153866 100%); color: white; padding: 35px 20px; border-radius: 16px; text-align: center; box-shadow: 0 10px 30px rgba(10, 35, 66, 0.15); margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .main-stat-card .stat-icon { font-size: 2.8rem; color: var(--secondary); margin-bottom: 10px; }
+        .main-stat-card h3 { font-size: 2.4rem; font-weight: 900; margin-bottom: 5px; color: white; }
+        .main-stat-card p { font-size: 1.15rem; color: #d1d8e0; font-weight: 700; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 40px; }
         .stat-card { background: white; padding: 25px 15px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--secondary); transition: transform 0.3s; }
         .stat-card:hover { transform: translateY(-10px); }
         .stat-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
@@ -55,18 +62,24 @@
         .vs-card { background: white; border-radius: 15px; padding: 25px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eaeaea; position: relative; }
         .vs-card.ours { background: linear-gradient(to bottom, #fcfaf5, #ffffff); border: 2px solid var(--secondary); transform: scale(1.02); z-index: 2; }
         .vs-card.theirs { background: #f9fbfd; opacity: 0.95; border: 1px solid #e0e6ed; }
+        .vs-card { background: white; border-radius: 16px; padding: 30px 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; position: relative; transition: 0.3s; }
+        .vs-card.ours { border: 2px solid var(--primary); box-shadow: 0 10px 25px rgba(10, 35, 66, 0.1); transform: scale(1.02); z-index: 2; }
+        .vs-card.theirs { background: #fdfdfd; border: 1px solid #e8e8e8; }
         
         .vs-card h3 { text-align: center; font-size: 1.3rem; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .vs-card h3 { text-align: center; font-size: 1.25rem; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .vs-card.ours h3 { color: var(--primary); font-weight: 900; }
         .vs-card.theirs h3 { color: #666; font-weight: 800; }
         
         .vs-card ul { list-style: none; padding: 0; }
         .vs-card ul li { margin-bottom: 15px; font-size: 1.05rem; font-weight: 700; display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; }
+        .vs-card ul li { margin-bottom: 15px; font-size: 1rem; font-weight: 700; display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; color: var(--text-light); }
         .vs-card.ours ul li i { color: var(--success); font-size: 1.2rem; margin-top: 4px; }
         .vs-card.theirs ul li i { color: var(--danger); font-size: 1.2rem; margin-top: 4px; }
         
         /* بادج التميز */
         .badge-pro { position: absolute; top: -15px; right: -10px; background: var(--primary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 900; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .badge-pro { position: absolute; top: -15px; right: 20px; background: var(--secondary); color: var(--primary); padding: 6px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: 900; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         /* الضمان القانوني */
         .legal-guarantee { background: linear-gradient(to right, #fdfaf0, #ffffff); border: 2px solid var(--secondary); padding: 30px; border-radius: 12px; text-align: right; margin-bottom: 50px; position: relative; overflow: hidden; }
@@ -85,6 +98,12 @@
         .cta-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6); }
         
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); } }
+        .cta-section { background: var(--primary); padding: 50px 20px; border-radius: 16px; text-align: center; color: white; margin-top: 60px; margin-bottom: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .cta-section h2 { font-size: 1.8rem; font-weight: 900; color: white; margin-bottom: 15px; position: relative; z-index: 1; }
+        .cta-section p { font-size: 1.05rem; font-weight: 600; margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.8; color: #cbd5e1; position: relative; z-index: 1; }
+        .fomo-badge { display: inline-block; background: rgba(212, 175, 55, 0.15); color: var(--secondary); border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; margin-bottom: 20px; position: relative; z-index: 1; }
+        .cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: white; font-size: 1.15rem; font-weight: 800; text-decoration: none; padding: 14px 35px; border-radius: 50px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); cursor: pointer; z-index: 1; position: relative; }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); background: #20b858; }
 
         /* القوائم المنسدلة Accordions */
         .accordion { margin-bottom: 15px; border-radius: 10px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eaeaea; transition: 0.3s; }
@@ -162,11 +181,30 @@
             .header-hero h1 { font-size: 1.8rem; }
             .hook-card { padding: 20px; }
             summary { font-size: 1.05rem; padding: 15px 15px 15px 40px; }
+            .header-hero { padding: 15px 15px 25px; }
+            .header-hero h1 { font-size: 1.5rem; line-height: 1.4; margin-bottom: 10px; }
+            .header-hero p.subtitle { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+            .hook-card { padding: 20px 15px; }
+            .hook-card h2 { font-size: 1.2rem; }
+            .hook-card p { font-size: 0.95rem !important; }
+            .section-title { font-size: 1.35rem; margin-top: 30px; margin-bottom: 25px; }
+            .main-stat-card { padding: 25px 15px; }
+            .main-stat-card h3 { font-size: 2rem; }
+            .stat-card { padding: 15px 10px; }
+            .stat-card h3 { font-size: 1.2rem; margin-bottom: 5px; }
+            .stat-card p { font-size: 0.9rem; }
+            .vs-card.ours { transform: none; }
+            summary { font-size: 1rem; padding: 15px 15px 15px 35px; }
             .chat-widget-container { bottom: 15px; left: 15px; z-index: 9999; }
             .admin-fab { bottom: 15px; right: 15px; }
             .open-chat-btn { padding: 10px 20px; font-size: 1rem; }
             .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 85vh; max-height: 600px; z-index: 10000; }
             .chat-messages { height: calc(100% - 140px); }
+            .open-chat-btn { padding: 10px 15px; font-size: 0.95rem; }
+            .gemini-chat { width: calc(100vw - 20px); left: 10px; bottom: 10px; height: 88vh; max-height: 650px; z-index: 10000; }
+            .chat-messages { height: calc(100% - 130px); padding: 15px; }
+            .cta-section h2 { font-size: 1.4rem; }
+            .cta-btn { padding: 12px 20px; font-size: 1rem; width: 100%; }
         }
     </style>
 </head>
@@ -188,6 +226,15 @@
         <!-- قسم الأرقام والإحصائيات السريعة -->
         <h2 class="section-title">خلاصة الاستثمار في أرقام (لغة البزنس)</h2>
         <div class="stats-grid">
+        <h2 class="section-title" style="line-height: 1.3;">خلاصة الاستثمار في أرقام<br><span style="font-size: 0.65em; color: var(--text-light); font-weight: 700;">(لغة البزنس)</span></h2>
+        
+        <div class="main-stat-card fade-in">
+            <i class="fa-solid fa-sack-dollar stat-icon"></i>
+            <h3>400,000 ج.م</h3>
+            <p>قيمة الاستثمار المطلوب (كاش)</p>
+        </div>
+
+        <div class="stats-grid fade-in" style="animation-delay: 0.2s;">
             <div class="stat-card">
                 <i class="fa-solid fa-sack-dollar stat-icon"></i>
                 <h3>400,000 ج.م</h3>
@@ -213,6 +260,7 @@
 
         <!-- قسم الميزة التنافسية (كروت الموبايل) -->
         <h2 class="section-title">لماذا نحن؟ (سرقة السوق من المنافسين)</h2>
+        <h2 class="section-title">لماذا نحن؟ (الميزة التنافسية)</h2>
         
         <p style="text-align: center; font-size: 1.15rem; font-weight: 700; color: var(--text-light); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
             المستثمر المطلع يدرك جيداً التقييمات المليارية التي حققتها منصات مثل <strong style="color: var(--primary);">"شوبيفاي" عالمياً، و"سلة" و"زد" إقليمياً</strong>. <br>
@@ -333,10 +381,13 @@
         <!-- قسم الدعوة لاتخاذ الإجراء CTA -->
         <div class="cta-section fade-in">
             <span class="fomo-badge"><i class="fa-solid fa-hourglass-half"></i> فرصة لمرة واحدة</span>
+            <span class="fomo-badge"><i class="fa-solid fa-star"></i> فرصة استثنائية لشريك استراتيجي واحد</span>
             <h2>هل أنت جاهز لاقتناص الفرصة؟</h2>
             <p>هذا العرض الحصري متاح <strong>لشريك استراتيجي واحد فقط</strong>. بمجرد التوافق وتوقيع العقود سيتم إغلاق جولة التمويل تماماً للبدء في حصد الأرباح.</p>
+            <p>بمجرد التوافق وتوقيع العقود سيتم إغلاق جولة التمويل تماماً للبدء في حصد الأرباح.</p>
             <!-- قم بتعديل رقم الهاتف في الرابط أدناه -->
             <a href="https://wa.me/201000000000?text=أهلاً،%20اطلعت%20على%20العرض%20الاستثماري%20للمول%20الرقمي%20وأرغب%20في%20إتمام%20الشراكة" class="cta-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> تواصل مع المؤسس لإغلاق الصفقة</a>
+            <a href="https://wa.me/201000000000?text=أهلاً،%20اطلعت%20على%20العرض%20الاستثماري%20للمول%20الرقمي%20وأرغب%20في%20إتمام%20الشراكة" class="cta-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> تواصل لإغلاق الصفقة</a>
         </div>
     </div>
 
@@ -437,6 +488,23 @@
         let chatHistory = []; 
         let isMuted = false;
 
+        // حفظ واسترجاع المحادثة (الريفرش)
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedChat = sessionStorage.getItem('geminiChatHistory');
+            const savedApiHistory = sessionStorage.getItem('geminiApiHistory');
+            if (savedChat && savedApiHistory) {
+                document.getElementById('chatMessages').innerHTML = savedChat;
+                chatHistory = JSON.parse(savedApiHistory);
+                // التأكد من نزول السكرول لأسفل المحادثة
+                setTimeout(() => { document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight; }, 100);
+            }
+        });
+
+        function saveChatState() {
+            sessionStorage.setItem('geminiChatHistory', document.getElementById('chatMessages').innerHTML);
+            sessionStorage.setItem('geminiApiHistory', JSON.stringify(chatHistory));
+        }
+
         const accordions = document.querySelectorAll('details.accordion');
         const adminFabContainer = document.getElementById('adminFabContainer');
         const mainFab = document.getElementById('mainFab');
@@ -527,6 +595,7 @@
             if (userText) messageDiv.innerText = userText;
             document.getElementById('chatMessages').appendChild(messageDiv);
             document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+            saveChatState();
 
             let userParts = [];
             if (userText) userParts.push({ text: userText });
@@ -538,6 +607,7 @@
 
             const suggestions = document.querySelector('.suggestions-container');
             if(suggestions) suggestions.style.display = 'none';
+            saveChatState();
 
             try {
                 const response = await fetch(WORKER_URL, {
@@ -555,6 +625,7 @@
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                     speakText(botText);
+                    saveChatState();
                 } else {
                     addMessage("⚠️ عذراً، خطأ تقني من السيرفر.", 'error');
                     chatHistory.pop();
