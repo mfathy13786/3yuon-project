@@ -17,6 +17,8 @@
             --text-dark: #1a1a1a;
             --text-light: #4a4a4a;
             --chat-bg: #ffffff;
+            --success: #28a745;
+            --danger: #dc3545;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
@@ -33,15 +35,43 @@
         .hook-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; max-width: 900px; margin: 0 auto; text-align: right; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .hook-card h2 { color: var(--secondary); font-size: 1.6rem; margin-bottom: 15px; font-weight: 800; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 10px; }
         .hook-card p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
-        .hook-card ul { list-style: none; margin-top: 15px; }
-        .hook-card ul li { position: relative; padding-right: 25px; margin-bottom: 12px; font-weight: 600; font-size: 1.05rem; }
-        .hook-card ul li::before { content: '✓'; color: var(--secondary); position: absolute; right: 0; font-size: 1.2rem; font-weight: bold; }
 
-        /* المحتوى */
-        .container { max-width: 950px; margin: 50px auto; padding: 0 15px; }
-        .section-title { text-align: center; color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 40px; }
+        /* المحتوى الأساسي */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 15px; }
+        .section-title { text-align: center; color: var(--primary); font-size: 1.8rem; font-weight: 900; margin-bottom: 40px; margin-top: 50px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--secondary); margin: 10px auto 0; border-radius: 2px; }
 
+        /* كروت الأرقام */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stat-card { background: white; padding: 25px 15px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--secondary); transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-10px); }
+        .stat-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 1.5rem; font-weight: 900; color: var(--secondary); margin-bottom: 10px; }
+        .stat-card p { font-size: 1.05rem; font-weight: 700; color: var(--text-light); }
+
+        /* جدول المقارنة */
+        .table-responsive { overflow-x: auto; margin-bottom: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 12px; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: white; text-align: right; min-width: 700px; }
+        .comparison-table th, .comparison-table td { padding: 18px 15px; border-bottom: 1px solid #eaeaea; font-size: 1.05rem; }
+        .comparison-table th { background: var(--primary); color: white; font-weight: 800; }
+        .highlight-col { background-color: #fdfaf0; border-right: 2px solid var(--secondary); border-left: 2px solid var(--secondary); font-weight: 800; color: var(--primary); }
+        .comparison-table thead .highlight-col { background-color: var(--secondary); color: var(--primary); border: none; font-size: 1.1rem; }
+        .text-success { color: var(--success); font-size: 1.2rem; margin-left: 5px; }
+        .text-danger { color: var(--danger); font-size: 1.2rem; margin-left: 5px; }
+
+        /* الضمان القانوني */
+        .legal-guarantee { background: linear-gradient(to right, #fdfaf0, #ffffff); border: 2px solid var(--secondary); padding: 30px; border-radius: 12px; text-align: right; margin-bottom: 50px; position: relative; overflow: hidden; }
+        .legal-guarantee::before { content: '\f0e3'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 6rem; color: rgba(212, 175, 55, 0.1); pointer-events: none; }
+        .legal-guarantee h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; font-weight: 900; }
+        .legal-guarantee p { font-size: 1.15rem; font-weight: 600; line-height: 1.8; }
+
+        /* أماكن الصور التوضيحية Mockups */
+        .mockup-wrapper { margin: 40px 0; text-align: center; }
+        .mockup-img { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 5px solid white; transition: 0.3s; }
+        .mockup-img:hover { transform: scale(1.02); }
+        .mockup-caption { display: block; margin-top: 15px; font-weight: 700; color: var(--text-light); font-size: 1.1rem; }
+
+        /* القوائم المنسدلة Accordions */
         .accordion { margin-bottom: 15px; border-radius: 10px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eaeaea; transition: 0.3s; }
         .accordion:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: #d4af3755; }
         summary { padding: 20px 20px 20px 50px; font-size: 1.2rem; font-weight: 800; color: var(--primary); cursor: pointer; list-style: none; position: relative; outline: none; }
@@ -53,9 +83,8 @@
         .content strong { color: var(--primary); font-weight: 800; }
         .content ul { padding-right: 20px; margin-top: 10px; }
         .content li { margin-bottom: 10px; }
-        .highlight-box { background: #fdfcf8; border-right: 4px solid var(--secondary); padding: 15px; margin: 15px 0; border-radius: 6px; font-weight: 700; color: var(--primary); }
 
-        /* الترس */
+        /* الترس و البوت (نفس الستايل الأصلي الخاص بك) */
         .admin-fab { position: fixed; bottom: 90px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 900; opacity: 0; pointer-events: none; transition: 0.5s; }
         .admin-fab.visible { opacity: 1; pointer-events: auto; }
         .main-fab { width: 45px; height: 45px; background-color: #e0e0e0; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -63,7 +92,6 @@
         .admin-fab.open .sub-fabs { opacity: 1; transform: translateY(0); pointer-events: auto; }
         .sub-fab { width: 40px; height: 40px; background-color: #fff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid #ddd; cursor: pointer; }
 
-        /* زر البوت الاحترافي (Pill Shape) */
         .chat-widget-container { position: fixed; bottom: 25px; left: 25px; z-index: 999; }
         .open-chat-btn { background: linear-gradient(135deg, var(--primary), #113661); color: white; border: 2px solid var(--secondary); padding: 12px 25px; border-radius: 30px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transition: all 0.3s ease; }
         .open-chat-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); background: linear-gradient(135deg, #113661, var(--primary)); }
@@ -89,7 +117,6 @@
         .suggestion-chip { background: rgba(212, 175, 55, 0.1); color: var(--primary); border: 1px solid var(--secondary); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 700; transition: 0.2s; }
         .suggestion-chip:hover { background: var(--secondary); color: #fff; transform: translateY(-2px); }
 
-        /* منطقة الإدخال ورفع الصور */
         .chat-input-container { padding: 12px 15px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 8px; }
         .image-preview-container { display: none; padding: 8px; background: #f0f4f8; border-radius: 8px; align-items: center; gap: 10px; font-size: 0.85rem; border: 1px dashed #ccc; }
         .image-preview-container img { height: 35px; border-radius: 4px; object-fit: cover; }
@@ -105,7 +132,6 @@
         .chat-controls input:focus { border-color: var(--secondary); background: #fff; }
         .send-btn { background-color: var(--secondary); color: var(--primary); border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
         .send-btn:hover { background-color: #c5a030; transform: scale(1.05); }
-
         .typing-indicator { font-style: italic; color: #888; font-size: 0.85rem; display: none; padding: 0 20px 10px; font-weight: 600; }
 
         /* الفوتر */
@@ -115,19 +141,17 @@
         .dev-link { display: inline-flex; align-items: center; gap: 8px; background-color: rgba(255,255,255,0.05); color: var(--secondary); text-decoration: none; font-weight: 800; font-size: 1rem; border: 1px solid rgba(212, 175, 55, 0.4); padding: 10px 25px; border-radius: 30px; transition: 0.3s; }
         .dev-link:hover { background-color: var(--secondary); color: var(--primary); transform: translateY(-3px); }
 
-        /* إخفاء Tawk.to بالكامل */
+        /* إخفاء Tawk.to بالكامل مع إبقائه يعمل في الخلفية */
         iframe[src*="tawk.to"], .tawk-min-container, #tawkchat-minified-wrapper {
-            display: none !important; opacity: 0 !important; visibility: hidden !important; z-index: -99999 !important; pointer-events: none !important;
+            display: none !important; opacity: 0 !important; visibility: hidden !important; z-index: -99999 !important; pointer-events: none !important; position: absolute !important; bottom: -9999px !important;
         }
 
         @media (max-width: 768px) {
             .header-hero h1 { font-size: 1.8rem; }
             .hook-card { padding: 20px; }
             summary { font-size: 1.05rem; padding: 15px 15px 15px 40px; }
-            
             .chat-widget-container { bottom: 15px; left: 15px; z-index: 9999; }
             .open-chat-btn { padding: 10px 20px; font-size: 1rem; }
-            
             .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 85vh; max-height: 600px; z-index: 10000; }
             .chat-messages { height: calc(100% - 140px); }
         }
@@ -142,49 +166,101 @@
         <div class="hook-card fade-in" style="animation-delay: 0.2s;">
             <h2>بخبرتك في السوق: بـ 400,000 جنيه كاش اليوم، تقدر تمتلك إيه في العقار التجاري؟</h2>
             <p style="font-size: 1.2rem; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: لا شيء يُذكر! بالكاد مقدم لمحل صغير على الطوب في منطقة نائية.</p>
-            <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px;">لكن في سوق "الاستثمار الرقمي" (مستقبل التجارة):</h3>
-            <p>هذا المبلغ يمنحك <strong>حصة ملكية 30%</strong> في "مول تجاري عملاق" مبني وجاهز، يستوعب آلاف المتاجر لجميع الأنشطة (تجار ملابس، تجزئة، وقطاعي).</p>
-            <ul>
-                <li><strong>التقييم الحالي للأصول:</strong> البنية التحتية الجاهزة للمشروع تتخطى قيمتها المليون جنيه.</li>
-                <li><strong>العائد المادي المتوقع لحصتك:</strong> أرباح تشغيلية تتخطى 1.1 مليون جنيه خلال 3 سنوات.</li>
-                <li><strong>الضمان المالي (0% مخاطرة):</strong> تعهد صريح وموثق باسترداد كامل استثمارك "كاش" إذا قررت التخارج في أول سنة.</li>
-            </ul>
+            <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">لكن في سوق "الاستثمار الرقمي"، هذا المبلغ يمنحك <strong>حصة ملكية 30%</strong> في "مول تجاري عملاق" مبني وجاهز، يستوعب آلاف المتاجر لجميع الأنشطة (تجار ملابس، تجزئة، وقطاعي).</p>
         </div>
     </header>
 
     <div class="container fade-in" style="animation-delay: 0.4s;">
+        
+        <!-- قسم الأرقام والإحصائيات السريعة -->
+        <h2 class="section-title">خلاصة الاستثمار في أرقام (لغة البزنس)</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fa-solid fa-sack-dollar stat-icon"></i>
+                <h3>400,000 ج.م</h3>
+                <p>قيمة الاستثمار المطلوب (كاش)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-chart-pie stat-icon"></i>
+                <h3>30%</h3>
+                <p>حصة الملكية (أسهم الشركة)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-arrow-trend-up stat-icon"></i>
+                <h3>1.1 مليون ج.م</h3>
+                <p>أرباح متوقعة لحصتك (سنة 3)</p>
+            </div>
+        </div>
+
+        <!-- الضمان القانوني (رسالة طمأنة لرجل العقارات) -->
+        <div class="legal-guarantee">
+            <h3><i class="fa-solid fa-file-contract"></i> التوثيق القانوني وضمان رأس المال (0% مخاطرة)</h3>
+            <p>بما أن لغة البزنس هي العقود؛ سيتم توثيق الشراكة بعقد رسمي يتضمن بنداً صريحاً يتيح لك <strong>"التخارج الآمن" (Exit Strategy)</strong> واسترداد رأس مالك بالكامل (400 ألف جنيه) خلال أول 12 شهراً بدون أي خصومات، في حال لم تتطابق النتائج على أرض الواقع مع دراسة الجدوى.</p>
+        </div>
+
+        <!-- قسم الميزة التنافسية (جدول المقارنة) -->
+        <h2 class="section-title">لماذا نحن؟ (المنافسة مع عمالقة السوق)</h2>
+        <div class="table-responsive">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>الميزة الحصرية</th>
+                        <th class="highlight-col">مشروعنا (المول الرقمي)</th>
+                        <th>شوبيفاي (Shopify)</th>
+                        <th>المنصات المحلية (سلة / زد)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>التكلفة على التاجر</td>
+                        <td class="highlight-col">إيجار رمزي ثابت (بدون عمولات خفية)</td>
+                        <td>اشتراك بالدولار + عمولة مبيعات</td>
+                        <td>باقات مرتفعة + رسوم تأسيس</td>
+                    </tr>
+                    <tr>
+                        <td>الذكاء الاصطناعي</td>
+                        <td class="highlight-col"><i class="fa-solid fa-check text-success"></i> بائع آلي 24 ساعة</td>
+                        <td><i class="fa-solid fa-xmark text-danger"></i> يحتاج تطبيقات خارجية مكلفة</td>
+                        <td><i class="fa-solid fa-xmark text-danger"></i> غير متوفر بالكامل</td>
+                    </tr>
+                    <tr>
+                        <td>سهولة الاستخدام</td>
+                        <td class="highlight-col"><i class="fa-solid fa-check text-success"></i> مصمم للتاجر البسيط (من الموبايل)</td>
+                        <td><i class="fa-solid fa-xmark text-danger"></i> معقد ويحتاج مبرمجين</td>
+                        <td><i class="fa-solid fa-check text-success"></i> موجه للخليج، صعب في مصر</td>
+                    </tr>
+                    <tr>
+                        <td>التوطين (السوق المصري)</td>
+                        <td class="highlight-col"><i class="fa-solid fa-check text-success"></i> مربوط بشركات الشحن والدفع المحلية</td>
+                        <td><i class="fa-solid fa-xmark text-danger"></i> غير مخصص لمصر</td>
+                        <td><i class="fa-solid fa-xmark text-danger"></i> تركيزهم الأساسي على السعودية</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- مكان للصورة التوضيحية -->
+        <div class="mockup-wrapper">
+            <!-- ⚠️ ضع رابط الصورة الحقيقية للوحة التحكم هنا بدلاً من الرابط الوهمي -->
+            <img src="https://via.placeholder.com/800x450/0a2342/d4af37?text=صورة+توضيحية+للوحة+تحكم+التاجر+الاحترافية" alt="نظام المتاجر" class="mockup-img">
+            <span class="mockup-caption">↑ واجهة التحكم الاحترافية التي يستلمها التاجر لإدارة بضاعته بسهولة ↑</span>
+        </div>
+
         <h2 class="section-title">التفاصيل التنفيذية وحقائق السوق</h2>
 
         <details class="accordion">
-            <summary>1. لغة الأرقام (لماذا سيأتي التجار إلينا طوعاً؟)</summary>
-            <div class="content">
-                التاجر اليوم يدرك أن من لا يبيع "أونلاين" سيخرج من السوق غداً. لكن تكلفة إنشاء متجر إلكتروني مستقل (بسيط وغير مكتمل) لا تقل عن <strong>15,000 جنيه</strong>. ولكي يبني التاجر موقعاً بنفس المواصفات الاحترافية التي نقدمها سيتكلف أكثر من <strong>70,000 جنيه</strong>!<br><br>
-                نحن نوفر للتاجر كل هذه التكنولوجيا المتطورة بنظام "الإيجار الشهري الرمزي"، مما يضمن لنا اكتساح السوق والسيطرة على أكبر شريحة من التجار الباحثين عن حلول سريعة وغير مكلفة.
-            </div>
-        </details>
-
-        <details class="accordion">
-            <summary>2. تغيير ثقافة الشراء (نهاية عصر المحل التقليدي)</summary>
+            <summary>1. تغيير ثقافة الشراء (نهاية عصر المحل التقليدي)</summary>
             <div class="content">
                 المستهلك اليوم أصبح يفضل الشراء من هاتفه وهو جالس في منزله بدلاً من النزول للأسواق. المول الرقمي الخاص بنا يوفر للتاجر "فريق عمل رقمي" يعمل لصالحه 24 ساعة ليلبي طلبات هذا المستهلك:
                 <ul>
-                    <li><strong>اصطياد زبون السهرة:</strong> المحلات تغلق أبوابها، لكن متجرنا لا ينام. البوت الآلي يستقبل طلبات العملاء ليلاً، ويتمم البيع، ليستيقظ التاجر ويجد أرباحه جاهزة.</li>
-                    <li><strong>حارس المخزن الأمين:</strong> نظام محاسبي متكامل يجرد البضاعة بالقطعة، يحسب الأرباح، ويمنع أي تلاعب أو سرقات.</li>
-                    <li><strong>تسويق البضاعة الراكدة:</strong> النظام ينبه التاجر للأصناف التي لا تباع ليقوم بعمل عروض عليها وتسييلها لسيولة نقدية.</li>
+                    <li><strong>اصطياد زبون السهرة:</strong> المحلات تغلق أبوابها، لكن متجرنا لا ينام. البوت الآلي يستقبل طلبات العملاء ليلاً، ويتمم البيع.</li>
+                    <li><strong>حارس المخزن الأمين:</strong> نظام محاسبي متكامل يجرد البضاعة بالقطعة، يحسب الأرباح، ويمنع السرقات.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>3. التوقيت الذهبي للمشروع والتوسع الإقليمي</summary>
-            <div class="content">
-                في ظل الظروف العالمية والحروب والأزمات الاقتصادية، أثبتت التجارة الإلكترونية أنها <strong>القطاع الوحيد المحصن والمستمر في النمو</strong>.<br>
-                كما أن استثمارك غير محصور في مصر؛ فبمجرد تثبيت أقدامنا محلياً، النظام مهيأ تقنياً للاستنساخ في <strong>السوق السعودي والإماراتي</strong>، مما يعني تحصيل إيجارات بالعملة الصعبة (الريال والدرهم) ومضاعفة عوائدك الاستثمارية.
-            </div>
-        </details>
-
-        <details class="accordion">
-            <summary>4. من أين تأتي الأرباح؟ (استدامة التدفق النقدي)</summary>
+            <summary>2. من أين تأتي الأرباح؟ (استدامة التدفق النقدي)</summary>
             <div class="content">
                 نموذج العمل مصمم ليضمن تدفقاً نقدياً مستمراً (Cash Flow) تماماً كالعقارات:
                 <ul>
@@ -196,32 +272,19 @@
         </details>
 
         <details class="accordion">
-            <summary>5. أين سيتم ضخ الـ 400 ألف جنيه؟</summary>
+            <summary>3. أين سيتم ضخ الـ 400 ألف جنيه؟</summary>
             <div class="content">
                 <strong>التأسيس البرمجي مكتمل 100%!</strong> أموالك لن تُصرف على تجارب، بل ستوجه بالكامل للتسويق والتشغيل:
                 <ul>
-                    <li><strong>البنية التحتية القوية:</strong> حجز سيرفرات سحابية عملاقة قادرة على استيعاب آلاف الزوار يومياً دون أي أعطال.</li>
+                    <li><strong>البنية التحتية القوية:</strong> حجز سيرفرات سحابية عملاقة قادرة على استيعاب آلاف الزوار يومياً دون أعطال.</li>
                     <li><strong>التسويق الشرس:</strong> إطلاق حملات إعلانية مكثفة لضم تجار الملابس والقطاعي لبدء تحصيل الإيجارات فوراً.</li>
                 </ul>
-                <em>يتم الدفع على مراحل (200 ألف مقدم، 100 ألف الشهر الأول، 100 ألف الشهر الثالث) لضمان الشفافية.</em>
+                <em>يتم الدفع على مراحل لضمان الشفافية والمصداقية.</em>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>6. الأرباح النقدية المتوقعة (لحصتكم الـ 30%)</summary>
-            <div class="content">
-                بناءً على دراسة سوق متحفظة جداً:
-                <ul>
-                    <li><strong>السنة الأولى:</strong> تُعاد استثمار الأرباح للسيطرة على السوق وتكبير القاعدة.</li>
-                    <li><strong>السنة الثانية (الاستهداف: 500 متجر):</strong> أرباح نقدية صافية لحصتكم <strong>~ 342,000 جنيه</strong>.</li>
-                    <li><strong>السنة الثالثة (الاستهداف: 1200 متجر):</strong> أرباح نقدية صافية <strong>~ 1,185,000 جنيه</strong>.</li>
-                    <li><strong>السنة الرابعة (الاستهداف: 2500 متجر):</strong> أرباح نقدية صافية <strong>~ 3,450,000 جنيه</strong>.</li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="accordion">
-            <summary>7. تضخم القيمة الرأسمالية للأصل (خلو الرجل)</summary>
+            <summary>4. تضخم القيمة الرأسمالية للأصل (خلو الرجل)</summary>
             <div class="content">
                 تماما كالعقار الذي يرتفع ثمنه مع الوقت، حصتك في الشركة كـ "أصل" تتضاعف قيمتها:
                 <ul>
@@ -232,7 +295,7 @@
         </details>
 
         <details class="accordion">
-            <summary>8. الاستقرار الإداري (لماذا تثق بنا؟)</summary>
+            <summary>5. الاستقرار الإداري (لماذا تثق بنا؟)</summary>
             <div class="content">
                 أنت تشارك كياناً راسخاً ومستقراً:
                 <ul>
@@ -243,6 +306,7 @@
         </details>
     </div>
 
+    <!-- الترس الثابت -->
     <div class="admin-fab" id="adminFabContainer">
         <button class="main-fab" id="mainFab"><i class="fa-solid fa-gear"></i></button>
         <div class="sub-fabs">
@@ -251,12 +315,14 @@
         </div>
     </div>
 
+    <!-- زر فتح الشات -->
     <div class="chat-widget-container">
         <button class="open-chat-btn" id="openChat">
             <i class="fa-solid fa-robot"></i> مستشارك الاستثماري الذكي
         </button>
     </div>
 
+    <!-- نافذة الشات الذكي -->
     <div class="gemini-chat" id="geminiChat">
         <div class="chat-header">
             <div class="header-title"><i class="fa-solid fa-chart-line"></i> المستشار المالي للمشروع</div>
@@ -297,16 +363,18 @@
         </div>
     </div>
 
+    <!-- الفوتر -->
     <div class="footer-note fade-in">
         <p>العرض سري ومقدم حصرياً للشراكة الاستراتيجية.</p>
         <p class="disclaimer">جميع الأرقام المذكورة هي تقديرات واقعية مبنية على معدلات نمو التجارة الإلكترونية الحالية.</p>
         <a href="https://www.3yuon.com" target="_blank" class="dev-link"><i class="fa-solid fa-code"></i> برمجة وتطوير الحلول المتكاملة لخدمات الويب</a>
     </div>
 
+    <!-- كود Tawk.to لتتبع دخول المستثمر (مخفي برمجياً ومن خلال CSS) -->
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         Tawk_API.onLoad = function(){
-            Tawk_API.hideWidget();
+            Tawk_API.hideWidget(); // إخفاء الويدجت عن طريق الـ API الخاص بهم
         };
         (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -318,6 +386,7 @@
         })();
     </script>
 
+    <!-- سكريبت التفاعلات الخاصة بالصفحة والبوت -->
     <script>
         const WORKER_URL = 'https://gemini-proxy.m-fathy-13786.workers.dev'; 
         
@@ -326,17 +395,16 @@
         
         حقائق المشروع التي يجب أن تستخدمها لإقناعه:
         - سلوك الزبون تغير، الشراء أصبح من شاشة الموبايل، والتاجر الذي لن يواكب سيموت تجارياً. هذه هي "الأرض الرقمية" الجديدة.
-        - تكلفة إنشاء متجر إلكتروني احترافي للتاجر تكلفه أكثر من 70 ألف جنيه. نحن نوفرها له بإيجار شهري بسيط، مما يضمن لنا الإقبال الكثيف واكتساح السوق.
+        - تكلفة إنشاء متجر إلكتروني احترافي للتاجر تكلفه أكثر من 70 ألف جنيه. نحن نوفرها له بإيجار شهري بسيط، مما يضمن لنا الإقبال الكثيف واكتساح السوق وننافس (شوبيفاي، وسلة).
         - التمويل المطلوب: 400 ألف جنيه (تصرف على السيرفرات السحابية والتسويق لضم التجار) مقابل 30% ملكية. البرمجة انتهت بالكامل.
         - الأرباح الموزعة لحصته المتوقعة: 342 ألف (سنة 2)، 1.18 مليون (سنة 3)، 3.45 مليون (سنة 4).
-        - الضمان: تعهد صريح ومكتوب برد الـ 400 ألف كاش والتخارج بلا أي خسارة في أول سنة. (0% مخاطرة).
+        - الضمان القانوني: تعهد صريح ومكتوب في العقد برد الـ 400 ألف كاش والتخارج بلا أي خسارة في أول 12 شهر. (0% مخاطرة).
         - مميزات للتجار: نظام يبيع لهم 24 ساعة، دفتر جرد آلي يمنع السرقة وعجز المخازن.
-        - التوسع: في ظل الحروب والأزمات عالمياً، الملاذ الآمن هو التجارة الرقمية. الخطة تشمل التوسع للخليج لتحصيل إيجارات بالريال والدرهم.
         - خبرة المؤسس: 23 سنة في المجال، والمقرات في شيراتون وميدان الحجاز.
         
         تعليمات صارمة: 
-        - استخدم لغة السوق (أصول، إيجار، خلو رجل، بضاعة مركونة، زبون السهرة، سيولة).
-        - ردودك يجب أن تكون مختصرة، قوية، وتدفع المستثمر للموافقة الفورية لعدم تضييع الفرصة.
+        - استخدم لغة السوق العقارية (أصل يتضخم، إيجار ثابت، خلو رجل، بضاعة، زبون السهرة، سيولة، عقد موثق).
+        - ردودك يجب أن تكون مختصرة، قوية، وتدفع المستثمر للموافقة الفورية.
         - يمكنك تحليل الصور إذا رفعها المستخدم لمعرفة المحتوى وربطه بالمشروع. 
         - لا تذكر أبداً أي شراكات سابقة.`;
 
@@ -344,14 +412,13 @@
         let isMuted = false;
         let currentBase64Image = null;
 
-        // UI Interactions
         const accordions = document.querySelectorAll('details.accordion');
         const adminFabContainer = document.getElementById('adminFabContainer');
         const mainFab = document.getElementById('mainFab');
         const chatWidget = document.querySelector('.chat-widget-container');
         const geminiChat = document.getElementById('geminiChat');
         
-        // إظهار الترس في آخر الصفحة
+        // الترس في آخر الصفحة
         window.addEventListener('scroll', () => {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 250) {
                 adminFabContainer.classList.add('visible');
@@ -365,7 +432,7 @@
         document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo(0, 0));
         document.getElementById('closeTabs').addEventListener('click', () => { accordions.forEach(acc => acc.open = false); adminFabContainer.classList.remove('open'); });
 
-        // فتح وإغلاق الشات
+        // الشات
         document.getElementById('openChat').addEventListener('click', () => { 
             geminiChat.classList.add('open'); 
             chatWidget.style.display = 'none';
@@ -376,7 +443,7 @@
             if (window.speechSynthesis) window.speechSynthesis.cancel();
         });
 
-        // التعامل مع رفع الصور
+        // الصور
         const fileInput = document.getElementById('fileInput');
         const attachBtn = document.getElementById('attachBtn');
         const imagePreviewContainer = document.getElementById('imagePreviewContainer');
@@ -402,7 +469,7 @@
             imagePreviewContainer.style.display = 'none';
         });
 
-        // الرد الصوتي للمساعد
+        // الصوت
         const toggleSoundBtn = document.getElementById('toggleSoundBtn');
         toggleSoundBtn.addEventListener('click', () => {
             isMuted = !isMuted;
@@ -419,7 +486,7 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        // تسجيل المايك للمستخدم
+        // المايك
         const voiceBtn = document.getElementById('voiceBtn');
         const chatInput = document.getElementById('chatInput');
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -445,20 +512,17 @@
             voiceBtn.style.display = 'none';
         }
 
-        // إرسال الرسائل الجاهزة
         function fillAndSend(text) {
             chatInput.value = text;
             handleUserMessage();
         }
 
-        // المعالجة الأساسية للإرسال (نص + صورة)
         async function handleUserMessage() {
             const userText = chatInput.value.trim();
             if (!userText && !currentBase64Image) return;
 
             if (window.speechSynthesis) window.speechSynthesis.cancel();
 
-            // رسم رسالة المستخدم في الشات
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', 'user');
             if (userText) messageDiv.innerText = userText;
@@ -470,27 +534,22 @@
             document.getElementById('chatMessages').appendChild(messageDiv);
             document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
 
-            // تجهيز البايلود
             let userParts = [];
             if (userText) userParts.push({ text: userText });
             if (currentBase64Image) {
                 const base64Data = currentBase64Image.split(',')[1];
                 const mimeType = currentBase64Image.substring(currentBase64Image.indexOf(':') + 1, currentBase64Image.indexOf(';'));
-                userParts.push({
-                    inlineData: { data: base64Data, mimeType: mimeType }
-                });
+                userParts.push({ inlineData: { data: base64Data, mimeType: mimeType } });
             }
 
             chatHistory.push({ role: "user", parts: userParts });
 
-            // تفريغ المدخلات
             chatInput.value = "";
             currentBase64Image = null;
             fileInput.value = '';
             imagePreviewContainer.style.display = 'none';
             document.getElementById('typingIndicator').style.display = 'block';
 
-            // إخفاء الاقتراحات لو موجودة
             const suggestions = document.querySelector('.suggestions-container');
             if(suggestions) suggestions.style.display = 'none';
 
