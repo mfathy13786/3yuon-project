@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>العرض الاستثماري | مشروع المول الرقمي العملاق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap');
-        
         :root {
             --primary: #0a2342;
             --secondary: #d4af37;
@@ -26,7 +27,7 @@
 
         .header-hero { background: linear-gradient(135deg, var(--primary) 0%, #0d315c 100%); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .header-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; line-height: 1.4; }
-        .header-hero p.subtitle { font-size: 1.2rem; color: #e0e0e0; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
+        .header-hero p.subtitle { font-size: 1.2rem; color: #e0e0e0; max-width: 750px; margin: 0 auto 30px; line-height: 1.6; }
 
         .hook-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; padding: 30px; max-width: 850px; margin: 0 auto; text-align: right; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
         .hook-card h2 { color: var(--secondary); font-size: 1.6rem; margin-bottom: 20px; font-weight: 800; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 10px; }
@@ -51,241 +52,315 @@
         .content li { margin-bottom: 12px; }
         .highlight-box { background: #fdfbf5; border-right: 5px solid var(--secondary); padding: 20px; margin: 20px 0; border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 1.15rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.02); }
 
-        .admin-fab { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; }
-        .main-fab { width: 60px; height: 60px; background-color: var(--secondary); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; border: none; transition: 0.3s; }
-        .main-fab:hover { transform: scale(1.1); }
+        /* الترس المخفي - هيظهر بس لما ننزل تحت */
+        .admin-fab { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
+        .admin-fab.visible { opacity: 1; pointer-events: auto; }
+        .main-fab { width: 55px; height: 55px; background-color: #eee; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: none; transition: 0.3s; }
+        .main-fab:hover { background-color: #ddd; transform: scale(1.05); }
         .sub-fabs { display: flex; flex-direction: column; gap: 10px; opacity: 0; transform: translateY(20px); pointer-events: none; transition: 0.3s; }
         .admin-fab.open .sub-fabs { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        .sub-fab { width: 50px; height: 50px; background-color: #fff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1); cursor: pointer; border: 1px solid #eaeaea; transition: 0.3s; }
+        .sub-fab { width: 45px; height: 45px; background-color: #fff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1); cursor: pointer; border: 1px solid #eaeaea; transition: 0.3s; }
         .sub-fab:hover { background-color: #fdfbf5; border-color: var(--secondary); }
 
-        /* تنسيقات الشات */
-        .gemini-chat { position: fixed; bottom: 20px; left: 20px; width: 350px; background-color: var(--chat-bg); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 1000; display: flex; flex-direction: column; transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #eaeaea; overflow: hidden; }
+        /* تنسيقات زر الشات الدائري والنص الدوار */
+        .chat-widget-container { position: fixed; bottom: 25px; left: 25px; z-index: 999; display: flex; align-items: center; justify-content: center; width: 100px; height: 100px; }
+        .open-chat-fab { position: absolute; width: 65px; height: 65px; background-color: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; transition: all 0.3s ease; border: 2px solid var(--secondary); z-index: 2; }
+        .open-chat-fab:hover { transform: scale(1.08); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+        
+        .rotating-text { position: absolute; width: 100%; height: 100%; z-index: 1; animation: rotate 15s linear infinite; pointer-events: none; }
+        .rotating-text text { font-family: 'Cairo', sans-serif; font-size: 13.5px; font-weight: 800; fill: var(--primary); letter-spacing: 0.5px; }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        /* الشات بوكس */
+        .gemini-chat { position: fixed; bottom: 25px; left: 25px; width: 380px; background-color: var(--chat-bg); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 1000; display: flex; flex-direction: column; transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #eaeaea; overflow: hidden; }
         .gemini-chat.open { transform: translateY(0); }
-        .chat-header { background-color: var(--primary); color: var(--secondary); padding: 18px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; }
+        .chat-header { background-color: var(--primary); color: var(--secondary); padding: 15px 20px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; }
         .close-chat { background: none; border: none; color: var(--secondary); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: 0.2s; }
         .close-chat:hover { color: #fff; }
-        .chat-messages { height: 350px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; font-size: 1rem; background-color: #fafafa; scroll-behavior: smooth; }
-        .message { padding: 15px; border-radius: 12px; max-width: 85%; line-height: 1.6; position: relative; font-weight: 600; }
+        
+        .chat-messages { height: 350px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; background-color: #fafafa; scroll-behavior: smooth; }
+        .message { padding: 12px 15px; border-radius: 12px; max-width: 85%; line-height: 1.6; position: relative; font-weight: 600; word-wrap: break-word; }
         .message.gemini { background-color: #e8f0fe; color: #0a2342; align-self: flex-start; border-bottom-right-radius: 2px; border: 1px solid #d2e3fc; }
         .message.user { background-color: var(--primary); color: white; align-self: flex-end; border-bottom-left-radius: 2px; }
         .message.error { background-color: #ffebee; color: #d32f2f; align-self: flex-start; border: 1px solid #ffcdd2; font-weight: bold; border-bottom-right-radius: 2px; }
-        .chat-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 10px; background: white; }
-        .chat-input input { flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Cairo', sans-serif; transition: border 0.3s; font-size: 1rem; }
-        .chat-input input:focus { border-color: var(--secondary); box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
-        .chat-input button { background-color: var(--secondary); color: var(--primary); font-weight: 800; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-        .chat-input button:hover { background-color: #c5a030; }
         
-        .open-chat-fab { position: fixed; bottom: 20px; left: 20px; width: 65px; height: 65px; background-color: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; z-index: 999; transition: all 0.3s ease; border: 2px solid var(--secondary); }
-        .open-chat-fab:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-        .typing-indicator { font-style: italic; color: #888; font-size: 0.9rem; margin-top: 5px; display: none; padding: 0 20px 10px; font-weight: 600; }
+        .message img { max-width: 100%; border-radius: 8px; margin-top: 5px; }
+
+        .chat-input-container { padding: 10px 15px; background: white; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 5px; }
+        .image-preview-container { display: none; padding: 5px; background: #f0f0f0; border-radius: 8px; align-items: center; gap: 10px; font-size: 0.8rem; }
+        .image-preview-container img { height: 30px; border-radius: 4px; }
+        .remove-image { color: #d32f2f; cursor: pointer; font-weight: bold; }
+        
+        .chat-controls { display: flex; gap: 8px; align-items: center; }
+        .action-btn { background: none; border: none; color: var(--primary); font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 5px; }
+        .action-btn:hover { color: var(--secondary); }
+        .action-btn.recording { color: #d32f2f; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        
+        .chat-controls input[type="text"] { flex-grow: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
+        .chat-controls input[type="text"]:focus { border-color: var(--secondary); }
+        .send-btn { background-color: var(--secondary); color: var(--primary); font-weight: 800; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .send-btn:hover { background-color: #c5a030; transform: scale(1.05); }
+        
+        .typing-indicator { font-style: italic; color: #888; font-size: 0.85rem; display: none; padding: 5px 20px 10px; font-weight: 600; }
+
+        /* الفوتر المنسق */
+        .footer-note { background-color: var(--primary); color: white; text-align: center; padding: 30px 20px; margin-top: 50px; border-top: 4px solid var(--secondary); }
+        .footer-note p { margin-bottom: 10px; font-size: 1.05rem; }
+        .footer-note .disclaimer { font-size: 0.9rem; color: #bbb; margin-bottom: 20px; }
+        .dev-link { display: inline-block; color: var(--secondary); text-decoration: none; font-weight: 800; font-size: 1rem; border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 20px; border-radius: 20px; transition: all 0.3s ease; }
+        .dev-link:hover { background-color: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .header-hero h1 { font-size: 1.8rem; }
             .hook-card { padding: 20px; }
             summary { font-size: 1.1rem; padding: 15px 15px 15px 40px; }
-            .gemini-chat { width: calc(100vw - 40px); left: 20px; bottom: 20px; }
+            .gemini-chat { width: calc(100vw - 30px); left: 15px; bottom: 15px; height: 80vh; max-height: 500px; }
+            .chat-messages { height: calc(100% - 120px); }
+            .chat-widget-container { bottom: 15px; left: 15px; width: 80px; height: 80px; }
+            .open-chat-fab { width: 55px; height: 55px; font-size: 1.6rem; }
+            .rotating-text text { font-size: 15px; }
         }
     </style>
 </head>
 <body>
 
     <header class="header-hero">
-        <h1 class="fade-in">عرض شراكة استراتيجية: أكبر "مول تجاري إلكتروني" لتجار الملابس</h1>
-        <p class="subtitle fade-in" style="animation-delay: 0.1s;">استثمار آمن ومضمون في قطاع العقارات الرقمية والتجارة الإلكترونية، بعوائد تتخطى الاستثمار العقاري التقليدي.</p>
+        <h1 class="fade-in">عرض شراكة استراتيجية: أضخم "مول تجاري إلكتروني" متعدد الأنشطة</h1>
+        <p class="subtitle fade-in" style="animation-delay: 0.1s;">فرصة استثمارية متكاملة في قطاع البنية التحتية الرقمية والتجارة الإلكترونية، بعوائد تفوق الاستثمار العقاري التقليدي بمراحل.</p>
         
         <div class="hook-card fade-in" style="animation-delay: 0.2s;">
-            <h2>سؤال لحضرتك بخبرتك في السوق: بـ 400,000 جنيه كاش اليوم، تقدر تمتلك إيه في سوق العقارات التجارية؟</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 15px; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: تقريباً ولا حاجة! بالكاد مقدم لمحل صغير غير مشطب في منطقة نائية.</p>
-            <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; margin-top: 10px;">لكن في سوق "العقارات الرقمية" (التجارة الإلكترونية):</h3>
-            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">هذا المبلغ يمنحك <strong>حصة ملكية صافية 30%</strong> في "مول تجاري ضخم" مبني برمجياً بالكامل، متأسس، وجاهز لاستقبال آلاف التجار اليوم لفرش بضاعتهم.</p>
+            <h2>سؤال للمستثمر الذكي: بـ 400,000 جنيه كاش اليوم، تقدر تمتلك إيه في سوق العقارات التجارية؟</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 15px; color: #f0f0f0; font-weight: bold;">الإجابة الواقعية: لا شيء يُذكر! بالكاد مقدم لمحل صغير غير مشطب.</p>
+            <h3 style="color: white; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; margin-top: 10px;">لكن في سوق "العقارات الرقمية" الحديثة:</h3>
+            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">هذا المبلغ يمنحك <strong>حصة ملكية صافية 30%</strong> في "مول تجاري عملاق" مبني برمجياً بالكامل، ومجهز لاستضافة آلاف المتاجر لجميع الأنشطة (تجزئة، ملابس، إلكترونيات).</p>
             <ul>
-                <li><strong>قيمة أصول المول حالياً:</strong> التقييم الفعلي للبرمجيات والبنية التحتية يتخطى المليون جنيه.</li>
-                <li><strong>العائد المتوقع لحصتك (خلال 3 سنوات):</strong> أرباح نقدية تتخطى 1.1 مليون جنيه.</li>
-                <li><strong>الضمان المالي الفوري:</strong> تعهد صريح وموثق باسترداد كامل مبلغ الاستثمار (400 ألف كاش) إذا قررت التخارج في أول سنة. (نسبة المخاطرة 0%).</li>
+                <li><strong>قيمة الأصول الحالية:</strong> التقييم الفعلي للبرمجيات والبنية التحتية يتخطى المليون جنيه.</li>
+                <li><strong>العائد المتوقع لحصتك:</strong> أرباح نقدية دورية تتخطى 1.1 مليون جنيه خلال 3 سنوات.</li>
+                <li><strong>الضمان المالي لعدم المخاطرة:</strong> تعهد صريح وموثق باسترداد كامل مبلغ الاستثمار إذا قررت التخارج في أول سنة. (مخاطرة 0%).</li>
             </ul>
         </div>
     </header>
 
     <div class="container fade-in" style="animation-delay: 0.4s;">
-        <h2 class="section-title">التفاصيل التنفيذية والمالية للمشروع</h2>
+        <h2 class="section-title">التفاصيل التنفيذية للمشروع</h2>
 
         <details class="accordion">
-            <summary>1. الفكرة ببساطة (يعني إيه مول إلكتروني؟)</summary>
+            <summary>1. الفكرة ببساطة (ما هو المول الرقمي متعدد الأنشطة؟)</summary>
             <div class="content">
-                بخبرتك في العقارات، إنت عارف إن صاحب المول بيبني مبنى كبير ويقسمه محلات ويأجرها للتجار. إحنا عملنا نفس الفكرة بالظبط بس على <strong>الإنترنت</strong>.<br><br>
-                بدل ما التاجر يروح لشركة برمجة تدفعه 50 أو 100 ألف جنيه عشان تعمله موقع، وتدخله في دوامة سيرفرات وصيانة ومشاكل تقنية مبيفهمش فيها.. إحنا بنقوله: <strong>"المول بتاعنا مبني وجاهز! خدلك محل مساحته مفتوحة، افرش بضاعتك، وحط اللوجو بتاعك، وادفع لنا إيجار شهري أو سنوي بسيط"</strong>.<br>
-                ولأننا واخدين "ناصية ديجيتال" قوية، الزبون بيدخل يشتري من التاجر بكل سهولة، والتاجر بيدفعلنا الإيجار بانتظام وهو مرتاح لأنه بيحقق مبيعات بدون تكلفة تأسيس.
+                بمفهوم التطوير العقاري، المستثمر يبني صرحاً كبيراً ويقسمه لمساحات ويؤجرها للتجار. نحن قمنا بتأسيس نفس الصرح على <strong>الإنترنت</strong>.<br><br>
+                بدل أن يتكبد التاجر مبالغ طائلة لبرمجة موقع خاص وتأجير سيرفرات، نوفر له منصة متكاملة: <strong>"المول جاهز! احجز متجرك، اعرض بضاعتك (سواء ملابس، تجزئة، أو غيره)، وادفع إيجاراً رمزياً"</strong>.<br>
+                النظام مصمم ليتحمل مختلف أنواع التجارة، لكننا نستهدف قطاع <strong>تجار الملابس والتجزئة</strong> في المرحلة الأولى كونه الأسرع نمواً واحتياجاً للتحول الرقمي.
             </div>
         </details>
 
         <details class="accordion">
-            <summary>2. ليه التاجر هيسيب الشارع ويأجر عندنا؟ (حل كوابيس السوق الميداني)</summary>
+            <summary>2. لماذا سيختار التاجر الاستئجار لدينا؟ (حلول عملية لمعاناة السوق)</summary>
             <div class="content">
-                تاجر الملابس النهاردة بيعاني من 3 كوابيس رئيسية، والسيستم بتاعنا بيحلها كلها، وبنديله <strong>"طقم موظفين ديجيتال مجاني"</strong> مع المحل:
+                التاجر العادي يواجه تحديات يومية، والمول الرقمي الخاص بنا يمنحه "فريق عمل رقمي متكامل" مجاناً مع متجره:
                 <ul>
-                    <li><strong>أزمة المواعيد (البياع الآلي):</strong> الحكومة بتقفل المحلات الساعة 9 أو 10 بالليل، والتاجر بيخسر زباين السهرة. محله في المول عندنا فاتح 24 ساعة. الشات بوت بتاعنا مربوط بواتساب وفيس بوك، الزبون يبعت الفجر، البوت يرد عليه، يعرضله المقاسات، يقنعه، ويقفل البيعة. التاجر يصحى الصبح يلاقي الأوردر اتنفذ!</li>
-                    <li><strong>عجز المخازن والسرقة (المحاسب الذكي - ERP):</strong> التاجر بيتسرق ومبيعرفش يظبط جرد المخزن. السيستم بتاعنا فيه نظام ERP بيجرد المخزن بالقطعة، ويحسب المكسب بالقرش، ويطلعله تقرير يومي (بعت بكام، وكسبت كام، وفاضل إيه).</li>
-                    <li><strong>الركود (المستشار التسويقي AI):</strong> الذكاء الاصطناعي بيحلل مبيعات التاجر ويقوله: "الموديل الصيفي ده مركون بقاله شهر، اعمله خصم 15% النهاردة عشان تسيّله وتجيب بضاعة شتوي".</li>
-                    <li><strong>التشطيب والديكور:</strong> التاجر يقدر يغير واجهة محله وألوانه بضغطة زرار من غير ما يجيب مهندس ديكور ولا نقاش.</li>
+                    <li><strong>حل أزمة المواعيد (البائع الآلي المربوط بالواتساب):</strong> المتاجر التقليدية تغلق أبوابها ليلاً. متجرنا مفتوح 24/7. الشات بوت المدمج بالذكاء الاصطناعي يستقبل رسائل العملاء (زبون السهرة)، يعرض المنتجات، ويتمم البيع آلياً لتجد الطلبات جاهزة في الصباح.</li>
+                    <li><strong>القضاء على السرقة (نظام ERP المحاسبي):</strong> وداعاً لعجز المخازن. النظام يجرد المخزون لحظياً، يحسب الأرباح بدقة متناهية، ويصدر تقارير وافية عن حركة البيع.</li>
+                    <li><strong>المستشار التسويقي (AI):</strong> النظام يحلل ركود البضائع وينبه التاجر: "هذا الصنف متكدس، قم بعمل خصم 15% لتسييله".</li>
+                    <li><strong>مرونة التشطيب:</strong> يستطيع التاجر تعديل واجهة وألوان متجره بضغطة زر دون الحاجة لشركات تصميم.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>3. دراسة السوق (إزاي هنكتسح المنافسين الحاليين؟)</summary>
+            <summary>3. ميزتنا التنافسية (السيطرة على حصة السوقية)</summary>
             <div class="content">
-                السوق فيه منصات، لكن كلها فيها "عيوب قاتلة" للتجار المصريين، وهنا بتيجي ميزتنا التنافسية اللي هتخلي التجار يجروا علينا:
+                المنصات الحالية تفرض أعباء قاسية على التاجر المحلي، وهنا تبرز قوتنا:
                 <ul>
-                    <li><strong>المنافس الأجنبي (مثل Shopify):</strong> بياخد الإيجار بالدولار (وده عبء كبير مع فرق العملة)، والأخطر إنه <strong>بياخد عمولة على كل بيعة!</strong> يعني بيقاسم التاجر في رزقه. إحنا إيجارنا بالجنيه المصري وثابت، ومبناخدش ولا مليم من مبيعات التاجر. مكسبه كله ليه.</li>
-                    <li><strong>المنافس الخليجي (مثل سلة وزد):</strong> منصات ممتازة بس متسعرة للسوق السعودي بالريال ومكلفة جداً على التاجر المصري الصغير والمتوسط. إحنا بنقدم نفس التكنولوجيا المتقدمة، بتسعير محلي يناسب السوق المصري.</li>
-                    <li><strong>الدعم الفني المحلي:</strong> التاجر المصري بيحب اللي يكلمه بلغته ويفهمه، إحنا فريقنا في مصر وبندعمه فنياً خطوة بخطوة.</li>
+                    <li><strong>المنصات العالمية (Shopify):</strong> تتقاضى اشتراكات بالدولار، والأخطر أنها تقتطع <strong>عمولة على كل عملية بيع</strong>. نظامنا يعتمد إيجاراً ثابتاً بالعملة المحلية، وربح التاجر بالكامل يذهب لجيبه.</li>
+                    <li><strong>المنصات الإقليمية (سلة/زد):</strong> ممتازة لكنها مصممة وتسعر للسوق الخليجي (بالريال). نحن نقدم تكنولوجيا موازية أو تتفوق عليها بتسعير مصمم خصيصاً للتاجر المصري.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>4. مصادر الدخل للمشروع (من أين تأتي الأرباح؟)</summary>
+            <summary>4. نموذج العمل ومصادر الإيرادات</summary>
             <div class="content">
-                المشروع مبني على تعدد مصادر الدخل المستدامة، ومش بيعتمد على مصدر واحد:
+                المشروع لا يعتمد على مصدر دخل واحد، بل منظومة إيرادات مستدامة:
                 <ul>
-                    <li><strong>رسوم الاشتراكات (الإيجار):</strong> باقات مرنة للمحلات (اشتراك شهري، ربع سنوي، أو سنوي مخفض). الإيجار ده بيمثل الـ Cash Cow (البقرة الحلوب) اللي بتدخل سيولة مستمرة للمشروع.</li>
-                    <li><strong>الخدمات المضافة (Premium Features):</strong> التاجر اللي عايز يربط محله بشركات شحن، أو بوابات دفع إلكتروني (فيزا/ماستركارد)، بيدفع اشتراك إضافي للخدمات المتقدمة.</li>
-                    <li><strong>خدمات التصميم والتجهيز:</strong> تجار كتير مبيعرفوش يرفعوا منتجاتهم أو يصمموها، بنقدملهم خدمة "تجهيز المحل تسليم مفتاح" بمقابل مادي لمرة واحدة.</li>
+                    <li><strong>إيجار المتاجر (الاشتراكات):</strong> باقات شهرية، ربع سنوية، وسنوية للمتاجر. (الدخل الأساسي المستمر).</li>
+                    <li><strong>ترقيات النظام (Add-ons):</strong> رسوم إضافية للمتاجر التي ترغب في تفعيل بوابات الدفع الإلكتروني (فيزا) أو الربط الآلي مع شركات الشحن.</li>
+                    <li><strong>خدمات التأسيس:</strong> باقات مدفوعة للعملاء الراغبين في تسليم متاجرهم "على المفتاح" شاملة إدخال المنتجات والتصميم.</li>
                 </ul>
-                <div class="highlight-box">ملاحظة هامة: كل الأرباح المذكورة في هذا العرض محسوبة على "أقل باقة اشتراك شهري" لضمان أقصى درجات الواقعية وعدم المبالغة. الأرباح الفعلية المتوقعة ستتخطى الأرقام المذكورة.</div>
+                <div class="highlight-box">جميع الحسابات المالية والأرباح المذكورة لاحقاً محسوبة على افتراض "الباقة الشهرية الأدنى" لضمان الموثوقية وعدم المبالغة.</div>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>5. فلوسك هتتصرف في إيه؟ (خطة توجيه الاستثمار)</summary>
+            <summary>5. أين سيتم ضخ الاستثمار؟ (خطة الـ 400 ألف جنيه)</summary>
             <div class="content">
-                المشروع <strong>مبني برمجياً وجاهز بنسبة 100%</strong>. يعني فلوس حضرتك مش رايحة في تجارب برمجة أو تأسيس. الـ 400,000 جنيه هي <strong>ميزانية التشغيل واقتحام السوق (Go-to-Market)</strong>.<br>
-                ولضمان الشفافية والجدية، سيتم دفع المبلغ على أقساط مرتبطة بمراحل العمل: (200 ألف مقدم - 100 ألف الشهر الأول - 100 ألف الشهر الثالث).<br><br>
-                <strong>توجيه الميزانية:</strong>
+                بما أن <strong>تطوير البرمجيات مكتمل تماماً</strong>، فإن مبلغ الاستثمار لن يضيع في تجارب تقنية، بل سيوجه بالكامل لـ <strong>مرحلة إطلاق السوق (Go-to-Market)</strong>، ويتم ضخه على مراحل (200 ألف مقدم، 100 ألف الشهر الأول، 100 ألف الشهر الثالث):
                 <ul>
-                    <li><strong>البنية التحتية القوية (فواتير المول):</strong> حجز وإيجار سيرفرات سحابية عملاقة (Cloud Servers) قادرة على تحمل ضغط آلاف المتاجر وملايين الزيارات بدون أي بطء أو سقوط للموقع.</li>
-                    <li><strong>التسويق والمبيعات (الحملة الشرسة):</strong> إطلاق حملات إعلانية ممولة مكثفة على السوشيال ميديا لاستهداف تجار الملابس، لضمان تسكين أول دفعة كبيرة من المحلات في أسرع وقت.</li>
+                    <li><strong>البنية التحتية السحابية:</strong> تأجير سيرفرات عالمية فائقة السرعة تضمن عدم توقف المول أو بطئه حتى مع دخول آلاف الزوار في نفس اللحظة.</li>
+                    <li><strong>التسويق الشامل:</strong> إطلاق حملات إعلانية مكثفة ومدروسة تستهدف قطاع التجارة والتجزئة لدفعهم نحو فتح متاجرهم في المول بأسرع وتيرة.</li>
                 </ul>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>6. العوائد المالية المتوقعة (نصيبك الـ 30% من الأرباح النقدية)</summary>
+            <summary>6. الأرباح النقدية المتوقعة (حصة 30%)</summary>
             <div class="content">
-                بناءً على خطة التسويق المحافظة، هذه هي الأرباح التقديرية <strong>الصافية لحصتك (30%)</strong> بعد خصم كافة مصاريف التشغيل والسيرفرات:
+                بناءً على دراسة تحفظية، هذه هي العوائد المتوقعة الصافية لحصتكم بعد خصم التكاليف:
                 <ul>
-                    <li><strong>السنة الأولى (التأسيس والانتشار):</strong> سيتم إعادة ضخ كافة الأرباح في التسويق لتكبير قاعدة التجار. (فترة نمو).</li>
-                    <li><strong>السنة الثانية (الاستهداف: 500 محل فعّال):</strong> نصيب حصتك من الأرباح النقدية الموزعة <strong>~ 342,000 جنيه مصري</strong>. (هنا تكون قد استرددت حوالي 85% من رأس مالك).</li>
-                    <li><strong>السنة الثالثة (الاستهداف: 1200 محل فعّال):</strong> نصيب حصتك من الأرباح <strong>~ 1,185,000 جنيه مصري</strong>.</li>
-                    <li><strong>السنة الرابعة (الاستهداف: 2500 محل فعّال):</strong> نصيب حصتك من الأرباح <strong>~ 3,450,000 جنيه مصري</strong>.</li>
+                    <li><strong>السنة الأولى (التوسع السريع):</strong> سيتم إعادة استثمار الأرباح النقدية في التسويق لمضاعفة قاعدة التجار.</li>
+                    <li><strong>السنة الثانية (الاستهداف: 500 متجر):</strong> الأرباح النقدية الموزعة لحصتكم <strong>~ 342,000 جنيه مصري</strong>.</li>
+                    <li><strong>السنة الثالثة (الاستهداف: 1200 متجر):</strong> الأرباح النقدية الموزعة لحصتكم <strong>~ 1,185,000 جنيه مصري</strong>.</li>
+                    <li><strong>السنة الرابعة (الاستهداف: 2500 متجر):</strong> الأرباح النقدية الموزعة لحصتكم <strong>~ 3,450,000 جنيه مصري</strong>.</li>
                 </ul>
-                (هذا غير الزيادة في القيمة الرأسمالية لأصل الشركة نفسه).
             </div>
         </details>
 
         <details class="accordion">
-            <summary>7. مبدأ "خلو الرجل" وتضخم قيمة الأصول (ضماناتك المالية)</summary>
+            <summary>7. تضخم قيمة الأصول (خلو الرجل) وضماناتك المالية</summary>
             <div class="content">
-                إنت كمستثمر عقاري عارف إن المحل مش بس بيجيب إيجار، ده كمان سعره كـ "أصل" بيغلى (خلو الرجل).<br>
-                إحنا أصولنا عبارة عن <strong>كود برمجي ضخم، قاعدة بيانات تجار، وعلامة تجارية</strong>. القيمة الحالية للأصول البرمجية تتراوح بين 800 ألف إلى 1.5 مليون جنيه.<br><br>
-                <strong>كيف تتضخم قيمة حصتك (الـ 30%) كأصل للبيع لاحقاً؟</strong>
+                بالإضافة للأرباح الدورية، قيمة الشركة ذاتها كـ "أصل" تتضاعف بشكل سريع. القيمة الحالية للأصول البرمجية المقدرة من (800 ألف إلى 1.5 مليون جنيه).<br><br>
+                <strong>تطور القيمة الرأسمالية لحصتكم:</strong>
                 <ul>
-                    <li>بنهاية <strong>السنة الأولى</strong>، ومع دخول أول دفعة تجار، تُقدر قيمة حصتك بـ <strong>750,000 جنيه</strong>.</li>
-                    <li>بنهاية <strong>السنة الثالثة</strong>، ومع استقرار الإيرادات، تُقدر قيمة حصتك للبيع بـ <strong>3,600,000 جنيه</strong>.</li>
+                    <li>بنهاية <strong>السنة الأولى</strong>: تُقدر قيمة حصتكم كأصل للبيع بـ <strong>750,000 جنيه</strong>.</li>
+                    <li>بنهاية <strong>السنة الثالثة</strong>: تُقدر قيمة حصتكم للبيع بـ <strong>3,600,000 جنيه</strong>.</li>
                 </ul>
                 <div class="highlight-box">
-                    💎 الضمان الفولاذي: أقدم لحضرتك تعهداً صريحاً ومكتوباً، بشراء حصتك بالكامل ورد مبلغ الـ 400,000 جنيه "كاش" كما دفعتها، في حال أردت التخارج لعدم الرضا عن النتائج في أول سنة. (الخسارة المحتملة لحضرتك = صفر).
+                    💎 ضمان مالي 100%: التزام تعاقدي صريح برد كامل مبلغ الاستثمار (400,000 جنيه) وشراء حصتكم في حال رغبتم في التخارج خلال السنة الأولى لأي سبب كان.
                 </div>
             </div>
         </details>
 
         <details class="accordion">
-            <summary>8. خطة التوسع المستقبلية (من السوق المصري إلى الخليج)</summary>
+            <summary>8. التوسع الإقليمي (الخليج العربي)</summary>
             <div class="content">
-                ميزة "العقارات الرقمية" إننا مش محتاجين نشتري أرض في السعودية عشان نفتح فرع هناك. بمجرد نجاح وتثبيت أقدام المشروع في السوق المصري (والذي يعتبر أصعب سوق)، التوسع للخليج يتم بـ <strong>"ضغطة زرار" وتكلفة بناء (صفر)</strong>.<br>
-                سنقوم بعمل نسخة من المول موجهة للسوق السعودي والإماراتي، لنبدأ في تحصيل "الإيجارات" من المتاجر بـ <strong>الريال السعودي والدرهم الإماراتي</strong>، ونحن ندير العمليات بالكامل من مقرنا في مصر، مما يضاعف الأرباح بصورة خيالية بسبب فرق العملة.
+                من مميزات الاستثمار الرقمي أن التوسع الجغرافي لا يتطلب مقرات فعلية. بمجرد إثبات نجاح النموذج في مصر، سيتم استنساخ النظام للسوقين <strong>السعودي والإماراتي</strong> لتحصيل الاشتراكات بالعملة الصعبة (الريال والدرهم) مع إدارة العمليات بالكامل من داخل مصر.
             </div>
         </details>
 
         <details class="accordion">
-            <summary>9. ظهرك مسنود (من نحن؟ وليه تثق فينا؟)</summary>
+            <summary>9. الاستقرار والثقة (لماذا نحن؟)</summary>
             <div class="content">
-                إنت مش بتستثمر مع شباب لسه بيجربوا حظهم. إنت بتستثمر مع كيان مستقر:
+                الاستثمار هنا مدعوم بخبرة حقيقية وكيان مستقر:
                 <ul>
-                    <li><strong>خبرة عميقة:</strong> المؤسس يعمل في مجال البرمجيات، السيرفرات، وإدارة المواقع منذ <strong>23 عاماً</strong>. نحن نعرف تفاصيل هذا السوق التقني كما تعرف أنت تفاصيل سوق العقارات.</li>
-                    <li><strong>استقرار إداري:</strong> ندير أعمالنا من مقراتنا الثابتة والمعروفة في (شيراتون هليوبوليس) و (ميدان الحجاز).</li>
-                    <li><strong>المشروع الأكبر:</strong> هذا المول الرقمي هو تتويج لخبرة السنين، ونجاحه بالنسبة لنا هو مسألة حياة أو موت، وهو "السهل الممتنع" بناءً على البنية التحتية القوية التي تم تأسيسها بالفعل.</li>
+                    <li><strong>خبرة عميقة:</strong> إدارة تمتلك باعاً طويلاً وخبرة تتجاوز <strong>23 عاماً</strong> في هندسة البرمجيات، إدارة الخوادم (Servers)، وتهيئة محركات البحث.</li>
+                    <li><strong>تواجد واقعي:</strong> إدارة العمليات تتم من مقراتنا الإدارية المعروفة في (شيراتون هليوبوليس) و (ميدان الحجاز).</li>
                 </ul>
             </div>
         </details>
     </div>
 
     <div class="admin-fab" id="adminFabContainer">
-        <button class="main-fab" id="mainFab" title="تحكم">⚙️</button>
+        <button class="main-fab" id="mainFab" title="إعدادات إضافية"><i class="fa-solid fa-gear"></i></button>
         <div class="sub-fabs">
-            <button class="sub-fab" id="scrollTop" title="اطلع لفوق">⬆️</button>
-            <button class="sub-fab" id="closeTabs" title="اقفل الأقسام">❌</button>
+            <button class="sub-fab" id="scrollTop" title="أعلى الصفحة"><i class="fa-solid fa-arrow-up"></i></button>
+            <button class="sub-fab" id="closeTabs" title="إغلاق التبويبات"><i class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 
-    <div class="open-chat-fab" id="openChat" title="اسأل المساعد الذكي المالي">🤖</div>
+    <div class="chat-widget-container">
+        <svg viewBox="0 0 100 100" class="rotating-text" id="circularText">
+            <path id="curve" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent"/>
+            <text><textPath href="#curve">اسألني عن تفاصيل المشروع • مستشار الذكاء الاصطناعي • </textPath></text>
+        </svg>
+        <div class="open-chat-fab" id="openChat" title="تحدث مع المستشار الذكي">🤖</div>
+    </div>
 
     <div class="gemini-chat" id="geminiChat">
         <div class="chat-header">
-            <span>🤖 المستشار الذكي للمول (AI)</span>
-            <button class="close-chat" id="closeChat">×</button>
+            <span>🤖 المستشار الذكي للاستثمار</span>
+            <button class="close-chat" id="closeChat">&times;</button>
         </div>
         <div class="chat-messages" id="chatMessages">
             <div class="message gemini">
-                أهلاً بحضرتك يا فندم. أنا الذكاء الاصطناعي الخاص بالرد على السادة المستثمرين. قرأت العرض؟ تحت أمرك في أي سؤال عن دراسة الجدوى، الأرباح، الضمانات، أو الجانب التقني.
+                مرحباً بك يا فندم في منصة العرض الاستثماري. أنا الذكاء الاصطناعي المكلف بالرد على استفساراتك. يمكنك سؤالي كتابياً أو صوتياً، كما يمكنك إرفاق أي صورة لتفاصيل تريد مناقشتها.
             </div>
         </div>
         <div class="typing-indicator" id="typingIndicator">المستشار يكتب الآن...</div>
-        <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="اكتب سؤالك الاستثماري هنا...">
-            <button id="sendMessage">إرسال</button>
+        
+        <div class="chat-input-container">
+            <div class="image-preview-container" id="imagePreviewContainer">
+                <img id="previewImg" src="" alt="preview">
+                <span class="remove-image" id="removeImg" title="إزالة">&times;</span>
+            </div>
+            <div class="chat-controls">
+                <button class="action-btn" id="attachBtn" title="إرفاق صورة"><i class="fa-solid fa-paperclip"></i></button>
+                <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                
+                <button class="action-btn" id="voiceBtn" title="تحدث بالصوت"><i class="fa-solid fa-microphone"></i></button>
+                
+                <input type="text" id="chatInput" placeholder="اكتب أو تحدث هنا...">
+                <button class="send-btn" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
         </div>
     </div>
 
     <div class="footer-note fade-in">
         <p>هذا العرض سري ومقدم حصرياً للشراكة الاستراتيجية، ولا يجوز تداوله.</p>
-        <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">جميع الأرقام المذكورة هي تقديرات مبنية على دراسة سوق واقعية قابلة للتحقيق.</p>
+        <p class="disclaimer">جميع الأرقام المذكورة هي تقديرات مبنية على دراسة سوق واقعية قابلة للتحقيق.</p>
+        <a href="https://3yuon.com" target="_blank" class="dev-link">برمجة وتطوير الحلول المتكاملة لخدمات الويب - 3yuon.com</a>
     </div>
 
     <script>
-        // رابط سيرفر كلاود فلير السري (الكوبري) اللي بيشغل الموديل 2.5
+        // رابط سيرفر كلاود فلير السري
         const WORKER_URL = 'https://gemini-proxy.m-fathy-13786.workers.dev'; 
         
-        // System Prompt قوي ومتحدث بكل التفاصيل الجديدة عشان البوت يكون فاهم هو بيسوق لإيه
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
-        أنت تتحدث الآن مع مستثمر عقاري وتاجر ملابس كبير (64 عاماً)، وهو المرشح لدفع مبلغ الاستثمار.
-        مهمتك: إقناع المستثمر، الرد على أسئلته باحترافية، واستخدام لغة التجارة والسوق المصري (مثل: خلو رجل، أصول، إيجار، تشطيب، عجز مخازن، بضاعة مركونة، زبون السهرة).
+        أنت تتحدث الآن مع مستثمر عقاري وتاجر كبير (64 عاماً)، وهو المرشح لدفع مبلغ الاستثمار.
+        مهمتك: إقناع المستثمر، الرد على أسئلته باحترافية، واستخدام لغة التجارة والسوق (مثل: خلو رجل، أصول، إيجار، عجز مخازن، بضاعة مركونة).
         
-        بيانات المشروع التي يجب أن تعتمد عليها وتدافع عنها باستماتة:
+        بيانات المشروع التي يجب أن تعتمد عليها:
         - التمويل المطلوب: 400 ألف جنيه (مقسمة: 200 مقدم، 100 الشهر الأول، 100 الشهر الثالث) مقابل حصة ملكية 30% من الشركة.
-        - الأموال ستصرف على: تأجير سيرفرات سحابية عملاقة، وحملات تسويقية شرسة لضم التجار. (البرمجة تمت بالفعل).
+        - الأموال ستصرف على: تأجير سيرفرات سحابية عملاقة، وحملات تسويقية قوية. (البرمجة تمت بالفعل).
         - الأرباح المتوقعة لحصته (30%): في السنة الثانية 342 ألف، في السنة الثالثة 1.18 مليون، في الرابعة 3.45 مليون جنيه.
-        - قيمة الحصة كأصل للبيع (خلو رجل): 750 ألف في السنة الأولى، وتصل لـ 3.6 مليون في السنة الثالثة.
-        - الضمان الفولاذي: أصول الشركة البرمجية تتخطى المليون جنيه، وهناك تعهد صريح باسترداد الـ 400 ألف جنيه كاش إذا تخارج المستثمر في أول سنة بدون أي خسارة عليه.
-        - مميزات السيستم للتجار: يحل مشكلة الإغلاق بدري (المول يعمل 24 ساعة)، به نظام محاسبة ومخازن (ERP) لمنع السرقة وعجز المخازن، به شات بوت وAI مستشار تسويقي يرد على العملاء عبر الواتساب ويغلق البيعات آلياً. أرخص من سلة وشوبيفاي ولا نأخذ عمولة على المبيعات.
-        - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر الإداري الثابت في شيراتون هليوبوليس وميدان الحجاز.
-        - التوسع: الخطة تشمل التوسع للسعودية والإمارات لتحصيل اشتراكات بالريال والدرهم بعد تثبيت الأقدام في مصر.
+        - القيمة التقديرية للحصة كأصل للبيع: 750 ألف في السنة الأولى، 3.6 مليون في السنة الثالثة.
+        - الضمان: تعهد صريح باسترداد الـ 400 ألف جنيه كاش إذا تخارج في أول سنة.
+        - مميزات المنصة: مول متعدد الأنشطة (تجزئة، ملابس، الخ)، يعمل 24 ساعة، به نظام محاسبة (ERP)، شات بوت آلي للبيع.
+        - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، الإدارة في شيراتون هليوبوليس وميدان الحجاز.
+        - التوسع: الخطة تشمل التوسع للسعودية والإمارات.
         
-        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكات سابقة، ولا تذكر اسم "عرب في بي اس" نهائياً تحت أي ظرف. كن ودوداً جداً، تحترم خبرة المستثمر وسنه، استخدم ردود مختصرة ومقنعة بالأرقام.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكات سابقة. كن ودوداً جداً، تحترم خبرة المستثمر، استنتج معلومات من الصور إذا قام المستخدم برفعها.`;
 
         let chatHistory = []; 
+        let currentBase64Image = null;
 
+        // UI Elements
         const accordions = document.querySelectorAll('details.accordion');
         const adminFabContainer = document.getElementById('adminFabContainer');
         const mainFab = document.getElementById('mainFab');
         const scrollTop = document.getElementById('scrollTop');
         const closeTabs = document.getElementById('closeTabs');
+        
+        const openChat = document.getElementById('openChat');
+        const circularText = document.getElementById('circularText');
+        const geminiChat = document.getElementById('geminiChat');
+        const closeChat = document.getElementById('closeChat');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+        
+        const fileInput = document.getElementById('fileInput');
+        const attachBtn = document.getElementById('attachBtn');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const previewImg = document.getElementById('previewImg');
+        const removeImg = document.getElementById('removeImg');
+        const voiceBtn = document.getElementById('voiceBtn');
+
+        // Scroll Event للترس المخفي
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300) {
+                adminFabContainer.classList.add('visible');
+            } else {
+                adminFabContainer.classList.remove('visible');
+                adminFabContainer.classList.remove('open');
+            }
+        });
 
         mainFab.addEventListener('click', () => adminFabContainer.classList.toggle('open'));
-        scrollTop.addEventListener('click', () => { window.scrollTo(0, 0); adminFabContainer.classList.remove('open'); });
+        scrollTop.addEventListener('click', () => { window.scrollTo(0, 0); });
         closeTabs.addEventListener('click', () => { accordions.forEach(acc => acc.open = false); adminFabContainer.classList.remove('open'); });
 
+        // Animations
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
@@ -294,31 +369,104 @@
                 }
             });
         }, { threshold: 0.1 });
-        accordions.forEach(acc => observer.observe(acc));
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        const openChat = document.getElementById('openChat');
-        const geminiChat = document.getElementById('geminiChat');
-        const closeChat = document.getElementById('closeChat');
-        const chatInput = document.getElementById('chatInput');
-        const sendMessage = document.getElementById('sendMessage');
-        const chatMessages = document.getElementById('chatMessages');
-        const typingIndicator = document.getElementById('typingIndicator');
+        // Chat UI
+        openChat.addEventListener('click', () => { 
+            geminiChat.classList.add('open'); 
+            openChat.style.transform = 'scale(0)'; 
+            circularText.style.display = 'none';
+        });
+        closeChat.addEventListener('click', () => { 
+            geminiChat.classList.remove('open'); 
+            setTimeout(() => { openChat.style.transform = 'scale(1)'; circularText.style.display = 'block'; }, 300); 
+        });
 
-        openChat.addEventListener('click', () => { geminiChat.classList.add('open'); openChat.style.display = 'none'; });
-        closeChat.addEventListener('click', () => { geminiChat.classList.remove('open'); setTimeout(() => openChat.style.display = 'flex', 400); });
+        // Image Attachment Logic
+        attachBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentBase64Image = e.target.result;
+                    previewImg.src = currentBase64Image;
+                    imagePreviewContainer.style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        removeImg.addEventListener('click', () => {
+            currentBase64Image = null;
+            fileInput.value = '';
+            imagePreviewContainer.style.display = 'none';
+        });
 
+        // Speech to Text Logic
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ar-EG';
+            recognition.continuous = false;
+
+            voiceBtn.addEventListener('click', () => {
+                recognition.start();
+                voiceBtn.classList.add('recording');
+                chatInput.placeholder = "جاري الاستماع...";
+            });
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                chatInput.value += transcript;
+            };
+
+            recognition.onend = () => {
+                voiceBtn.classList.remove('recording');
+                chatInput.placeholder = "اكتب أو تحدث هنا...";
+            };
+        } else {
+            voiceBtn.style.display = 'none';
+        }
+
+        // Message Handling
         async function handleUserMessage() {
             const userText = chatInput.value.trim();
-            if (!userText) return;
+            if (!userText && !currentBase64Image) return;
 
-            addMessage(userText, 'user');
+            // بناء واجهة رسالة المستخدم
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', 'user');
+            if (userText) messageDiv.innerText = userText;
+            if (currentBase64Image) {
+                const img = document.createElement('img');
+                img.src = currentBase64Image;
+                messageDiv.appendChild(img);
+            }
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
             chatInput.value = "";
             typingIndicator.style.display = 'block';
 
-            chatHistory.push({ role: "user", parts: [{ text: userText }] });
+            // تجهيز البيانات للإرسال (بما فيها الصورة إن وجدت)
+            let userParts = [];
+            if (userText) userParts.push({ text: userText });
+            if (currentBase64Image) {
+                const base64Data = currentBase64Image.split(',')[1];
+                const mimeType = currentBase64Image.substring(currentBase64Image.indexOf(':') + 1, currentBase64Image.indexOf(';'));
+                userParts.push({
+                    inlineData: { data: base64Data, mimeType: mimeType }
+                });
+            }
+            
+            chatHistory.push({ role: "user", parts: userParts });
+
+            // تفريغ الصورة بعد الإرسال
+            currentBase64Image = null;
+            fileInput.value = '';
+            imagePreviewContainer.style.display = 'none';
 
             try {
-                // بنكلم الكوبري المتأمن
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -334,17 +482,13 @@
                     const botText = data.candidates[0].content.parts[0].text;
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
-                } else if (data.error) {
-                    let radarMessage = `⚠️ خطأ من السيرفر: ${data.error.message || JSON.stringify(data.error)}`;
-                    addMessage(radarMessage, 'error'); 
-                    chatHistory.pop();
                 } else {
-                    addMessage("⚠️ حدث خطأ غير متوقع من السيرفر الوسيط.", 'error');
+                    addMessage("⚠️ عذراً، حدث خطأ أثناء معالجة الطلب.", 'error');
                     chatHistory.pop();
                 }
             } catch (error) {
-                console.error("❌ مشكلة في الاتصال:", error);
-                addMessage("⚠️ لا يوجد اتصال. تأكد من الإنترنت أو إعدادات السيرفر.", 'error');
+                console.error(error);
+                addMessage("⚠️ لا يوجد اتصال. تأكد من الإنترنت.", 'error');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
