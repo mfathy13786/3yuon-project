@@ -66,6 +66,7 @@
         .message { padding: 12px; border-radius: 12px; max-width: 85%; line-height: 1.5; position: relative; }
         .message.gemini { background-color: #e8f0fe; color: #1a73e8; align-self: flex-start; border-bottom-right-radius: 2px; }
         .message.user { background-color: var(--primary); color: white; align-self: flex-end; border-bottom-left-radius: 2px; }
+        .message.error { background-color: #ffebee; color: #d32f2f; align-self: flex-start; border: 1px solid #ffcdd2; font-weight: bold; border-bottom-right-radius: 2px; }
         .chat-input { padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white; border-radius: 0 0 12px 12px; }
         .chat-input input { flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Cairo', sans-serif; transition: border 0.3s; }
         .chat-input input:focus { border-color: var(--secondary); }
@@ -228,8 +229,8 @@
     </div>
 
     <script>
-        // ضع المفتاح الجديد الخاص بك بدل كلمة YOUR_API_KEY_HERE واحتفظ بعلامات التنصيص
-        const API_KEY = 'YOUR_API_KEY_HERE'; 
+        // المفتاح اللي إنت كتبته بالظبط
+        const API_KEY = 'AIzaSyDZDKxgm1OgUeLVGhsei8WIei8gGYHMs7k'.trim(); 
         
         const MODEL_NAME = 'gemini-1.5-flash';
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
@@ -246,7 +247,7 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر في شيراتون هليوبوليس.
         - التوسع: بعد مصر، سيتم فتح المشروع للخليج (إيجارات بالريال).
         
-        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكة سابقة مع Arab VPS. كن ودوداً، مختصراً، ومقنعاً جداً.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن أي شراكات سابقة. كن ودوداً، مختصراً، ومقنعاً جداً.`;
 
         let chatHistory = []; 
 
@@ -291,6 +292,10 @@
 
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
+            // ======== نظام الرادار لتحديد الأخطاء ========
+            console.log("📡 [الرادار]: 1. تم تجهيز الطلب...");
+            console.log(`📡 [الرادار]: 2. جاري إرسال الطلب لـ (${MODEL_NAME})...`);
+
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
@@ -301,26 +306,40 @@
                     })
                 });
 
+                console.log("📡 [الرادار]: 3. حالة الرد (Status):", response.status);
                 const data = await response.json();
+                console.log("📡 [الرادار]: 4. تفاصيل الرد من جوجل:", data);
                 
                 if (response.ok && data.candidates && data.candidates[0].content) {
+                    console.log("✅ [الرادار]: تم الاستلام بنجاح!");
                     const botText = data.candidates[0].content.parts[0].text;
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                 } else if (data.error) {
-                    console.error("API Error Response:", data.error);
-                    addMessage(`⚠️ خطأ من جوجل: ${data.error.message || "طلب مرفوض"}`, 'gemini');
+                    // تحليل الخطأ وعرضه للمستخدم في الشات
+                    let radarMessage = `⚠️ رسالة من سيرفر جوجل: ${data.error.message}`;
+                    
+                    if (data.error.code === 400 && data.error.message.includes('API key not valid')) {
+                        radarMessage = "🚨 [الرادار بيقولك]: المفتاح اللي إنت حطيته في الكود فيه حرف ناقص أو مسافة غلط! (راجع النسخ واللصق).";
+                    } else if (data.error.code === 403) {
+                        radarMessage = "🚨 [الرادار بيقولك]: الدومين بتاعك مش متسجل صح في حماية المفتاح على جوجل، أو جوجل وقفت المفتاح ده عشان اتنشر.";
+                    } else if (data.error.code === 404) {
+                        radarMessage = `🚨 [الرادار بيقولك]: الموديل (${MODEL_NAME}) مش موجود أو مش متفعل في مشروعك.`;
+                    }
+
+                    addMessage(radarMessage, 'error'); // رسالة لونها أحمر
                     chatHistory.pop();
                 } else {
-                    addMessage("⚠️ عذراً، الرد غير متوقع من السيرفر.", 'gemini');
+                    addMessage("⚠️ [الرادار]: عذراً، الرد غير متوقع من السيرفر.", 'error');
                     chatHistory.pop();
                 }
             } catch (error) {
-                console.error("Network Error:", error);
-                addMessage("⚠️ لا يوجد اتصال بالإنترنت أو الخادم.", 'gemini');
+                console.error("❌ [الرادار]: مشكلة في الاتصال (Network Error):", error);
+                addMessage("⚠️ [الرادار]: لا يوجد اتصال بالإنترنت أو الموقع عليه جدار حماية قافل الـ API.", 'error');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
+                console.log("==================================");
             }
         }
 
