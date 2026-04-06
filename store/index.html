@@ -228,9 +228,10 @@
     </div>
 
     <script>
-        // إعدادات المفتاح والموديل 2.5 اللي شغال على حسابك
-        const API_KEY = 'AIzaSyDZDKxgm1OgUeLVGhsei8Wlei8gGYHMs7k';
-        const MODEL_NAME = 'gemini-2.5-flash';
+        // ضع المفتاح الجديد الخاص بك بدل كلمة YOUR_API_KEY_HERE واحتفظ بعلامات التنصيص
+        const API_KEY = 'YOUR_API_KEY_HERE'; 
+        
+        const MODEL_NAME = 'gemini-1.5-flash';
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
         
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
@@ -308,15 +309,15 @@
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                 } else if (data.error) {
                     console.error("API Error Response:", data.error);
-                    addMessage(`خطأ من السيرفر: ${data.error.message}`, 'gemini');
+                    addMessage(`⚠️ خطأ من جوجل: ${data.error.message || "طلب مرفوض"}`, 'gemini');
                     chatHistory.pop();
                 } else {
-                    addMessage("عذراً، الرد غير متوقع من السيرفر.", 'gemini');
+                    addMessage("⚠️ عذراً، الرد غير متوقع من السيرفر.", 'gemini');
                     chatHistory.pop();
                 }
             } catch (error) {
                 console.error("Network Error:", error);
-                addMessage("لا يوجد اتصال بالإنترنت أو الخادم.", 'gemini');
+                addMessage("⚠️ لا يوجد اتصال بالإنترنت أو الخادم.", 'gemini');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
