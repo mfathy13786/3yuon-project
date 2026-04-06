@@ -229,7 +229,7 @@
     </div>
 
     <script>
-        // ⚠️ الكوبري السحري: مفيش أي API Key هنا خالص بعد النهاردة ⚠️
+        // رابط سيرفر كلاود فلير السري (الكوبري)
         const WORKER_URL = 'https://gemini-proxy.m-fathy-13786.workers.dev'; 
         
         const systemPrompt = `أنت المساعد الذكي (AI) المتواجد داخل صفحة العرض الاستثماري لمشروع "المول التجاري الإلكتروني". 
@@ -244,7 +244,7 @@
         - خبرة المؤسس: 23 عاماً في البرمجة والسيرفرات، والمقر في شيراتون هليوبوليس.
         - التوسع: بعد مصر، سيتم فتح المشروع للخليج (إيجارات بالريال).
         
-        تعليمات صارمة: كن ودوداً، مختصراً، ومقنعاً جداً.`;
+        تعليمات صارمة: لا تذكر أبداً أي تفاصيل عن شراكات سابقة مع عرب في بي اس (Arab VPS). كن ودوداً، مختصراً، ومقنعاً جداً.`;
 
         let chatHistory = []; 
 
@@ -289,10 +289,8 @@
 
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
-            console.log("📡 [الرادار]: جاري إرسال الطلب لـ Cloudflare Worker...");
-
             try {
-                // بنكلم سيرفر كلاود فلير بدل جوجل مباشرة
+                // بنكلم سيرفر كلاود فلير المحمي
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -303,15 +301,13 @@
                 });
 
                 const data = await response.json();
-                console.log("📡 [الرادار]: تفاصيل الرد:", data);
                 
                 if (response.ok && data.candidates && data.candidates[0].content) {
-                    console.log("✅ [الرادار]: العملية نجحت!");
                     const botText = data.candidates[0].content.parts[0].text;
                     addMessage(botText, 'gemini');
                     chatHistory.push({ role: "model", parts: [{ text: botText }] });
                 } else if (data.error) {
-                    let radarMessage = `⚠️ خطأ: ${data.error.message || JSON.stringify(data.error)}`;
+                    let radarMessage = `⚠️ خطأ من السيرفر: ${data.error.message || JSON.stringify(data.error)}`;
                     addMessage(radarMessage, 'error'); 
                     chatHistory.pop();
                 } else {
@@ -319,8 +315,8 @@
                     chatHistory.pop();
                 }
             } catch (error) {
-                console.error("❌ [الرادار]: مشكلة في الاتصال بالسيرفر الوسيط:", error);
-                addMessage("⚠️ لا يوجد اتصال. راجع إعدادات كلاود فلير.", 'error');
+                console.error("❌ مشكلة في الاتصال:", error);
+                addMessage("⚠️ لا يوجد اتصال. راجع إعدادات كلاود فلير أو الإنترنت.", 'error');
                 chatHistory.pop();
             } finally {
                 typingIndicator.style.display = 'none';
