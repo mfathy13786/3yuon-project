@@ -32,10 +32,20 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "3yuon Integrated Solutions",
+      "legalName": "مؤسسة كاندي بلاس محمد فتحى احمد حسن",
+      "taxID": "547638132",
       "email": "M.fathy@3yuon.com",
       "telephone": "+201090921815",
       "founder": { "@type": "Person", "name": "Mohamed Fathy", "alternateName": "Mr.zabado" },
-      "url": "https://www.3yuon.com"
+      "url": "https://www.3yuon.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "محل رقم 4 بالقطعة 42 خدمات الحي السادس",
+        "addressLocality": "مدينة العبور",
+        "addressRegion": "القليوبية",
+        "postalCode": "13621",
+        "addressCountry": "EG"
+      }
     }
     </script>
 
@@ -223,12 +233,20 @@
         }
         .social-row a:hover { background: var(--cyan); color: var(--dark-bg); transform: translateY(-3px); }
         
+        .legal-notice {
+            margin-top: 20px; padding: 15px 20px; background: rgba(255,255,255,0.02);
+            border-radius: 12px; border: 1px solid rgba(0,242,255,0.1);
+            max-width: 750px; margin-left: auto; margin-right: auto;
+            font-size: 0.88rem; color: #94a3b8; line-height: 1.8;
+        }
+        .legal-notice strong { color: #f8fafc; }
+        .legal-highlight { color: var(--cyan); font-weight: 700; font-family: 'Rajdhani', sans-serif; font-size: 0.95rem; }
+
         .copy { font-size: 0.85rem; color: #64748b; margin-top: 15px; border-top: 1px dashed #1e293b; padding-top: 15px; direction: ltr; }
         .dev-link { color: var(--cyan); font-weight: bold; text-decoration: none; border-bottom: 1px dotted var(--cyan); transition: 0.3s; font-family: 'Rajdhani', sans-serif; font-size: 1rem; }
         .dev-link:hover { color: #fff; border-bottom-color: #fff; text-shadow: 0 0 8px rgba(0, 242, 255, 0.5); }
 
         /* ================== أزرار التواصل العائمة (يسار الشاشة) ================== */
-        /* تم نقلها لليسار لإعطاء مساحة لشات Tawk.to في اليمين */
         .float-btn {
             position: fixed; left: 20px; width: 45px; height: 45px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
@@ -257,7 +275,6 @@
             content: ''; position: absolute; top: 50%; left: -6px; transform: translateY(-50%);
             border-width: 6px 6px 6px 0; border-style: solid; border-color: transparent var(--cyan) transparent transparent;
         }
-        /* تعديل الأنيميشن ليتناسب مع الاتجاه الأيسر */
         @keyframes bounceLeftRight { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
 
         /* ================== الموبايل ================== */
@@ -285,6 +302,7 @@
             .float-messenger { bottom: 65px; }
             .float-wa { bottom: 15px; }
             .chat-tooltip { bottom: 22px; left: 65px; font-size: 0.75rem; }
+            .legal-notice { font-size: 0.8rem; padding: 12px 15px; }
         }
     </style>
 </head>
@@ -375,6 +393,13 @@
     <footer>
         <div class="footer-logo en-text">3YUON <span>.</span></div>
         <p>المركز الرئيسي للحلول المتكاملة لخدمات الويب والنظم الأمنية</p>
+        
+        <div class="legal-notice">
+            <p>الجهة المالكة والمشغلة رسمياً: <strong>مؤسسة كاندي بلاس محمد فتحى احمد حسن</strong></p>
+            <p>سجل تجاري رقم: <span class="legal-highlight">15035</span> (الخانكة المميز) | بطاقة ضريبية رقم: <span class="legal-highlight">547638132</span></p>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">المقر الرسمي: محل رقم 4 بالقطعة 42 خدمات الحي السادس - مدينة العبور - محافظة القليوبية</p>
+        </div>
+
         <div class="social-row">
             <a href="https://wa.me/201090921815" id="footer-wa" target="_blank" title="تواصل واتساب"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="https://www.facebook.com/Mo.fathy.13/" id="footer-messenger" target="_blank" title="تواصل ماسنجر"><i class="fa-brands fa-facebook-messenger"></i></a>
